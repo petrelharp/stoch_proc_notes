@@ -3,6 +3,9 @@ SHELL := /bin/bash
 
 .PHONY : 
 
+%.html : %.latexml.html
+	mv $< $@
+
 MATHJAX = https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js
 
 # may want to add "--self-contained" to the following
@@ -30,6 +33,16 @@ endif
 %.pdf : %.md
 	pandoc -o $@ -t latex $<
 
+%.pandoc.html : %.tex
+	pandoc -o $@ -t latex $(PANDOC_OPTS) $<
+
+# LaTeXML
+
+%.xml : %.tex
+	latexml --dest=$< --preamble=header.tex $@
+
+%.latexml.html : %.xml
+	latexmlpost --dest=$< $@
 
 ## 
 # Graphics whatnot

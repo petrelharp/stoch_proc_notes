@@ -1,99 +1,13 @@
-\documentclass{article}
-\linespread{1.3}
-
-\usepackage{amsmath} %For various math commands%
-\usepackage{amssymb} %For various math symbols%
-\usepackage{amsthm} %For \newtheorem and things like this%
-	\theoremstyle{definition}
-	\newtheorem{thm}{Theorem}[section]
-	\newtheorem{prop}[thm]{Proposition}
-	\newtheorem{coro}[thm]{Corollary}
-	\newtheorem{lemma}[thm]{Lemma}
-	\newtheorem{defn}[thm]{Definition}
-	\newtheorem{exmp}[thm]{Example}
-	\newtheorem{rmk}[thm]{Remark}
-	\newtheorem{exer}[thm]{Exercise}
-	\newtheorem{nota}[thm]{Notation}
-	\newtheorem*{note}{Note}
-	\newtheorem*{sol}{Solution}
-\usepackage{chngcntr} %For the following \counterwithin command%
-	\counterwithin{figure}{section} %For numbering figures differently than everything else%
-\usepackage{cite} %For customized \cite uses%
-\usepackage{enumerate} %For \enumerate customization%
-\usepackage{etex} %For compiling many packages}%
-\usepackage{fancyhdr} %For page-header customization%
-\usepackage{float} %For figure-related commands%
-\usepackage[utf8]{inputenc} %For non-ASCII characters%
-\usepackage[margin=1in]{geometry} %For margins and related things%
-\usepackage{graphicx} %For including pictures from outside files%
-\usepackage{multicol} %For \multicol and related commands%
-\usepackage{pgfplots} %For \plot and related tikz commands%
-\usepackage{subcaption} %For subfigures and related things%
-\usepackage{titling} %For \maketitle and related commands%
-	\setlength{\droptitle}{-8em}  
-\usepackage{tikz} %For tikz%
-\usepackage{tikz-cd} %For tikz commutative diagrams%
-\usepackage{xcolor} %For color mixing%
-\usepackage[all,cmtip]{xy} %For \xymatrix commutative diagrams%
-	\newcommand{\hookar}{\ar@{^{(}->}}
-\usepackage{mathtools} %For arrows with text above and below%
-\usepackage{todonotes} %For making notes in the margins%
-\usetikzlibrary{arrows.meta} %For nice arrows%
-\tikzset{>=latex} %To set the triangle arrows to default%
-
-\newcommand{\E}{\mathbb{E}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\PP}{\mathbb{P}}
-\newcommand{\Q}{\mathbb{Q}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\Z}{\mathbb{Z}}
-
-\newcommand{\Ann}{\text{Ann}}
-\newcommand{\Aut}{\text{Aut}}
-\newcommand{\Res}{\text{Res}}
-\newcommand{\eps}{\varepsilon}
-\newcommand{\vphi}{\varphi}
-\newcommand{\spec}{\text{sp}}
-\newcommand{\Lt}{\mathtt{Lt}}
-\newcommand{\Tr}{\text{Tr}}
-\newcommand{\setdiv}{\,\big|\,}
-\newcommand{\diag}{\text{diag}}
-\newcommand{\id}{\text{id}}
-\newcommand{\im}{\text{im}}
-\newcommand{\Bott}{\text{Bott}}
-\newcommand{\Ad}{\text{Ad}}
-
-\newcommand{\var}{\,\mathrm{var}}
-\newcommand{\cov}{\,\mathrm{cov}}
 
 \newcommand{\style}{\displaystyle} %To have full-size integrals, sums, etc. in-line%
 
 \setlength{\parindent}{0pt} %To set the indent to zero for the whole document%
 
-%\newenvironment{psmallmatrix}
-%  {\left(\begin{smallmatrix}}
-%  {\end{smallmatrix}\right)}
-
 \begin{document}
 
-\textbf{\Large September 24}\\
+\textbf{\Large September 24 and 26}
 
-\noindent Peter Ralph\\
-plr@uoregon.edu\\
-Office hours: Monday 11-12, Wednesday 9-10\\
-Office: 6 Deady\\
-
-\noindent Survey:
-\begin{enumerate}
-\item Year, department?  Enrolled?
-\item Goals for the course?
-\item Background in probability?
-\item Background in linear algebra?\\
-\end{enumerate}
-
-Outline for schedule: Gaussian processes, then Poisson point processes, then continuous time Markov processes, then Levy processes.\\\\
-
-\textbf{\Large Gaussian Processes}\\
+\section{Gaussian Processes}
 
 Recall the following definitions:
 \begin{itemize}
@@ -111,13 +25,15 @@ Motivation: additive noise.
 Let $X_k=\left\{\begin{array}{cc}
 1 &\text{with probability }\frac{1}{2}\\
 -1 & \text{with probability }\frac{1}{2}\\
-\end{array}\right.$ be independent, for $k\in\Z$.  A basic thing we might want to do with these values is add them up.  So, let $S_{k,n}$ be the sum of the $n$ adjacent values starting with the $k$th value.  That is, let $S_{k,n}=\sum_{j=k}^{k+n-1}X_j$.  Note that $\E[X_k]=0$ and $\var[X_k]=1$, and so $\E[S_{k,n}]=0$, $\var[S_{k,n}]=n$.\\\\
-Recall the Central Limit Theorem, which essentially says ``(well-enough behaved) additive noise makes Gaussian distributions".  That is, adding up a bunch of small things that make the same-size contribution and rescaling yields basically a Gaussian distribution.\\\\
+\end{array}\right.$ be independent, for $k\in\Z$.  A basic thing we might want to do with these values is add them up.  So, let $S_{k,n}$ be the sum of the $n$ adjacent values starting with the $k$th value.  That is, let $S_{k,n}=\sum_{j=k}^{k+n-1}X_j$.  Note that $\E[X_k]=0$ and $\var[X_k]=1$, and so $\E[S_{k,n}]=0$, $\var[S_{k,n}]=n$.
+
+Recall the Central Limit Theorem, which essentially says ``(well-enough behaved) additive noise makes Gaussian distributions".  That is, adding up a bunch of small things that make the same-size contribution and rescaling yields basically a Gaussian distribution.
+
 In this case, this says that \[\frac{1}{\sqrt{n}}S_{k,n}\xrightarrow[d]{n\to\infty} N(0,1).\]  i.e. for any $a<b$, \[\PP\left\{a\leq\frac{1}{\sqrt{n}}S_{k,n}\leq b\right\}\xrightarrow{n\to\infty}\int_a^b \frac{1}{2\pi e^{-x^2/2}}dx\] and, for ``any" $f$, \begin{equation}
 \E\left[f\left(\frac{1}{\sqrt{n}}S_{k,n}\right)\right]\xrightarrow{n\to\infty}\E[f(Z)]=\int_{-\infty}^\infty f(x)\frac{1}{\sqrt{2\pi}}e^{-x^2/2}dx,
-\end{equation} where $Z\sim N(0,1)$.\\\\
+\end{equation} where $Z\sim N(0,1)$.
 
-\textbf{\Large Facts About Gaussian Processes}\\
+\subsection{Facts About Gaussian Processes}
 
 Say $X\sim N(\mu;\sigma^2)$, i.e. $\style\E[f(X)]=\int_{-\infty}^\infty f(X)\frac{1}{\sqrt{2\pi\sigma^2}}e^{-(X-\mu)^2/2\sigma^2}dx$.  Then \begin{enumerate}
 
@@ -231,7 +147,7 @@ Observe that $\var[S_{0,n}]=n$, which can be used to show the more general state
 
 Note that Equation 1 holds in the more general case that $\E[Z]=0$ and $\var[Z]=1$.\\\\
 
-\textbf{\Large Brownian Motion}\\
+\subsection{Brownian Motion}
 
 Let $S_{k,n}$ be defined as above.  Let $\style B_t^{(N)}=\frac{1}{\sqrt{N}}S_{0,\lfloor tN\rfloor}$.  Then let $\style B_t=\lim_{N\to\infty}\frac{1}{\sqrt{N}}S_{0,\lfloor tN\rfloor}$.  Then $\{B_t\}$ is Brownian motion.  We can visualize Brownian motion by considering the graphs yielded by the maps $t\mapsto B^t$ and $t\mapsto B_t^{(N)}$.
 
@@ -499,7 +415,7 @@ For example, if we let $N=25$, the function $t\mapsto B_t^{(N)}$ yields the foll
 \end{tikzpicture}
 \end{center}
 
-The Central Limit Theorem tells us that $B_t-B_s\sim N(0,t-s)$.  Additionally,  \[\var[B_t]=\lim_{N\to\infty}\dfrac{\lfloor tN\rfloor}{N}=t\] and \[\cov[B_s,B_t]=s\] for $s\leq t$.\\
+The Central Limit Theorem tells us that $B_t-B_s\sim N(0,t-s)$.  Additionally,  \[\var[B_t]=\lim_{N\to\infty}\dfrac{\lfloor tN\rfloor}{N}=t\] and \[\cov[B_s,B_t]=s\] for $s\leq t$.
 
 \textbf{Definition} A \emph{standard Brownian motion} is a stochastic process $\{B_t\}_{t\geq 0}$ such that \begin{enumerate}[(i)]
 \item $B_0=0$
@@ -507,36 +423,38 @@ The Central Limit Theorem tells us that $B_t-B_s\sim N(0,t-s)$.  Additionally,  
 \item $B_t-B_s$ is indepenedent of $B_v-B_u$ for $u<v\leq s<t$ 
 \end{enumerate}
 
-That is, Brownian motion is the stochastic process with independent Gaussian increments $-$ i.e., how it moves in an interval just depends on the length of that interval, not where it is.\\
+That is, Brownian motion is the stochastic process with independent Gaussian increments $-$ i.e., how it moves in an interval just depends on the length of that interval, not where it is.
 
 \textbf{Example} Suppose a stream of energetic particules is absorbed by some object and the energy is slowly released from that object.  Suppose at time $t$, the proportion of energy that remains in the object from a particle absorbed $t$ time units ago is $e^{-t}$.  Assuming that the object only absorbs energy at times $t=0,1,2,\dots$, let $X_t$ be the amount of energy absorbed at time $t$.  Let $Z_n$ be the total energy contained in the object at time $n$.  Then \[Z_n=\sum_{k=0}^\infty e^{-k}X_{n-k}.\]
 
-We can scale the $x$ and $y$ axes $-$ let \[Z_{\lfloor tN\rfloor}=\frac{1}{\sqrt{N}}\sum_{k=0}^\infty e^{-k/N}X_{\lfloor tN\rfloor-k}.\]  Then \[Z_{\lfloor tN\rfloor}\xrightarrow{N\to\infty}Z_t.\] \\\\
+We can scale the $x$ and $y$ axes $-$ let \[Z_{\lfloor tN\rfloor}=\frac{1}{\sqrt{N}}\sum_{k=0}^\infty e^{-k/N}X_{\lfloor tN\rfloor-k}.\]  Then \[Z_{\lfloor tN\rfloor}\xrightarrow{N\to\infty}Z_t.\]
 
-\textbf{\Large September 26}\\
+% \textbf{\Large September 26}
 
-\textbf{Note about previous example} If we start with Brownian motion and incorporate exponential decay, a more general central limit theorem applies (for more information, look up Lindeberg-Feller condition).\\
+\paragraph{Note about previous example} If we start with Brownian motion and incorporate exponential decay, a more general central limit theorem applies (for more information, look up Lindeberg-Feller condition).
 
-\textbf{Definition} Random variables $Z_1,\dots,Z_n$ (which we can think of as a random vector of length $n$, $(Z_1,\dots,Z_n)$) are \emph{jointly Gaussian} if for any $a_1,\dots,a_n\in\R$, we have $\style\sum_{k=1}^n a_kZ_k\sim N(m,\sigma^2)$ for some $m$, $\sigma^2$.  That is, these random variables are jointly Gaussian if and only if any linear combination of them is univariate Gaussian.\\
+\paragraph{Definition} Random variables $Z_1,\dots,Z_n$ (which we can think of as a random vector of length $n$, $(Z_1,\dots,Z_n)$) are \emph{jointly Gaussian} if for any $a_1,\dots,a_n\in\R$, we have $\style\sum_{k=1}^n a_kZ_k\sim N(m,\sigma^2)$ for some $m$, $\sigma^2$.  That is, these random variables are jointly Gaussian if and only if any linear combination of them is univariate Gaussian.
 
-\textbf{Definition/Notation} Suppose that the random variables $(Z_1,\dots,Z_n)$ are jointly Gaussian.  Let $Z=(Z_1,\dots,Z_n)$.  Define a vector of means \[\mu=\left(\begin{array}{ccc}
+\paragraph{Definition/Notation} Suppose that the random variables $(Z_1,\dots,Z_n)$ are jointly Gaussian.  Let $Z=(Z_1,\dots,Z_n)$.  Define a vector of means \[\mu=\left(\begin{array}{ccc}
 \mu_1 \\ \vdots \\ \mu_n
-\end{array}\right),\] where $\mu_i$ is the mean of $Z_i$.  Define the $n\times n$ covariance matrix $\Sigma=\left\{\Sigma_{i,j}\right\}$, where $\Sigma_{i,j}=\cov[Z_i,Z_j]$.  Then we write $Z\sim N(\mu, \Sigma)$.\\
+\end{array}\right),\] where $\mu_i$ is the mean of $Z_i$.  Define the $n\times n$ covariance matrix $\Sigma=\left\{\Sigma_{i,j}\right\}$, where $\Sigma_{i,j}=\cov[Z_i,Z_j]$.  Then we write $Z\sim N(\mu, \Sigma)$.
 
 Now, suppose that we have $Z$, $\mu$, and $\Sigma$ as in the above definition, and let $a_1,\dots,a_n\in\R$.  Let $a=\left(\begin{array}{c}
 a_1\\ \vdots\\ a_n\\
-\end{array}\right).$\\ Then we know that $\style\sum_{k=1}^n a_kZ_k\sim N(m,\sigma^2)$ for some $m$, $\sigma^2$.  A small amount of algebraic manipulation yields the following equations:
-\[m=\sum_{k=1}^n a_k\mu_k=a^T\mu,\] and \[\sigma^2=\sum_{1\leq i,j\leq n} a_i\Sigma_{i,j}a_j=a^T\Sigma a.\]\\
+\end{array}\right).$ 
 
-\textbf{Example} We can have random variables that are marginally Gaussian (that is, each of them have Gaussian distributions themselves) but that are not jointly Gaussian.  Let $X\sim N(0,1)$ and $Y\sim N(0,1)$ be independent random variables.  Let $Z=\mathrm{sign}(X)|Y|$.  So $X$ and $Z$ are ``almost" independent, but have the same sign as each other.  Then $X$ and $Z$ both have Gaussian distributions, but $X$ and $Z$ are not jointly Gaussian.\\
+Then we know that $\style\sum_{k=1}^n a_kZ_k\sim N(m,\sigma^2)$ for some $m$, $\sigma^2$.  A small amount of algebraic manipulation yields the following equations:
+\[m=\sum_{k=1}^n a_k\mu_k=a^T\mu,\] and \[\sigma^2=\sum_{1\leq i,j\leq n} a_i\Sigma_{i,j}a_j=a^T\Sigma a.\]
 
-\textbf{Definition} A \emph{Gaussian process} on an index set $T$ is a collection of random variables $\{X_t\}_{t\in T}$ such that for any $n\in\Z_{>0}$, for any $(t_1,\dots,t_n)\in T^n$, $(X_{t_1},\dots,X_{t_n})$ is jointly Gaussian.  It is \emph{centered} if $\E[X_t]=0$ for all $t$.\\
+\textbf{Example} We can have random variables that are marginally Gaussian (that is, each of them have Gaussian distributions themselves) but that are not jointly Gaussian.  Let $X\sim N(0,1)$ and $Y\sim N(0,1)$ be independent random variables.  Let $Z=\mathrm{sign}(X)|Y|$.  So $X$ and $Z$ are ``almost" independent, but have the same sign as each other.  Then $X$ and $Z$ both have Gaussian distributions, but $X$ and $Z$ are not jointly Gaussian.
 
-\textbf{Example} Let $Z\sim N(\mu, \Sigma)$, where $Z=(Z_1,\dots,Z_n)$.  Then $Z$ is a Gaussian process on the index set $\{1,2,\dots,n\}$.\\
+\textbf{Definition} A \emph{Gaussian process} on an index set $T$ is a collection of random variables $\{X_t\}_{t\in T}$ such that for any $n\in\Z_{>0}$, for any $(t_1,\dots,t_n)\in T^n$, $(X_{t_1},\dots,X_{t_n})$ is jointly Gaussian.  It is \emph{centered} if $\E[X_t]=0$ for all $t$.
 
-\textbf{Example} $\{B_t\}_{t\geq 0}$, Brownian motion, is a Gaussian process on $[0,\infty)$.\\\\\\
+\textbf{Example} Let $Z\sim N(\mu, \Sigma)$, where $Z=(Z_1,\dots,Z_n)$.  Then $Z$ is a Gaussian process on the index set $\{1,2,\dots,n\}$.
 
-\textbf{\Large Facts About Jointly Gaussian Variables and Gaussian Processes}\\
+\textbf{Example} $\{B_t\}_{t\geq 0}$, Brownian motion, is a Gaussian process on $[0,\infty)$.
+
+\subsection{Facts About Jointly Gaussian Variables and Gaussian Processes}
 
 \begin{enumerate}[(i)]
 

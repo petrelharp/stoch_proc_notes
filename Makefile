@@ -1,7 +1,10 @@
 SHELL := /bin/bash
 # use bash for <( ) syntax
 
-.PHONY : 
+.PHONY : all
+
+all : syllabus.html index.html notes/day_01.html
+
 
 %.html : %.latexml.html
 	mv $< $@
@@ -34,15 +37,16 @@ endif
 	pandoc -o $@ -t latex $<
 
 %.pandoc.html : %.tex
-	pandoc -o $@ -t latex $(PANDOC_OPTS) $<
+	cat header.tex $< footer.tex | pandoc --lua-filter tikz.lua | pandoc -f latex -o $@ -t html $(PANDOC_OPTS)
 
+##########
 # LaTeXML
 
 %.xml : %.tex
-	latexml --dest=$< --preamble=header.tex $@
+	latexml --dest=$@ --preamble=header.tex --postamble=footer.tex $<
 
 %.latexml.html : %.xml
-	latexmlpost --dest=$< $@
+	latexmlpost --dest=$@ $<
 
 ## 
 # Graphics whatnot

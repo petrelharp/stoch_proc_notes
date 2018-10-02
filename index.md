@@ -2,6 +2,8 @@
 
 Here is the [syllabus](syllabus.html).
 
+Here is a [style guide](style.html) for taking notes.
+
 The exact dates we cover the topics below is expected to change.
 
 ## Gaussian Processes and Random Fields

@@ -3,7 +3,7 @@ SHELL := /bin/bash
 
 .PHONY : all
 
-all : syllabus.html index.html notes/day_01.html
+all : syllabus.html index.html style.html notes/day_01.html
 
 
 %.html : %.latexml.html

@@ -2,5 +2,7 @@
 *.log
 *.bbl
 *.blg
+*.synctex.gz
 .DS_Store
 .*.swp
+*.ptc

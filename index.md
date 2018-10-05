@@ -10,7 +10,7 @@ The exact dates we cover the topics below is expected to change.
 
 - [September 24 and 26](notes/day_01.html) - Maya
 
-- [September 28 and October 1]() - Joe
+- [September 28 and October 1](notes/day_03.html) - Joe
 
 - [October 3 and 5]() - Chandler
 

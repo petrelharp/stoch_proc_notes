@@ -1,10 +1,11 @@
 SHELL := /bin/bash
 # use bash for <( ) syntax
 
-.PHONY : all
+.PHONY : all notes
 
-all : syllabus.html index.html style.html notes/day_01.html notes/day_03.html 
+all : syllabus.html index.html style.html notes
 
+notes : LectureNotes/Lectures/Fall2018/Lecture1/ASPLecture1.html LectureNotes/Lectures/Fall2018/Lecture2/ASPLecture2.html
 
 %.html : %.latexml.html
 	mv $< $@

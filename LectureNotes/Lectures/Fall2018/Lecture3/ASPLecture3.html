@@ -1,0 +1,493 @@
+<!DOCTYPE html><html>
+<head>
+<title>1 An Application</title>
+<!--Generated on Mon Oct  8 11:56:44 2018 by LaTeXML (version 0.8.3) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on October 3.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-article.css" type="text/css">
+</head>
+<body>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document"><span class="ltx_ERROR undefined">\makelecture</span>
+<div id="p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">October 3 and 5</span></p>
+</div>
+<section id="S1" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">1 </span>An Application</h2>
+
+<div id="S1.p1" class="ltx_para">
+<p class="ltx_p">We operate a cufflink machine:
+</p>
+</div>
+<div id="S1.p2" class="ltx_para ltx_align_center">
+<svg id="S1.p2.pic1" class="ltx_picture" style="width:238.7pt;height:40.5pt;" height="56.02" overflow="visible" version="1.1" viewBox="-22.73 -33.29 330.27 56.02" width="330.27"><g transform="matrix(1 0 0 -1 0 -10.56)"><g stroke="#000000"><g fill="#000000"><g color="#000000" stroke-width="0.4pt"><path d="M 19.69 0 C 19.69 10.87 10.87 19.69 0 19.69 C -10.87 19.69 -19.69 10.87 -19.69 0 C -19.69 -10.87 -10.87 -19.69 0 -19.69 C 10.87 -19.69 19.69 -10.87 19.69 0 Z M 0 0" style="fill:none"></path><g transform="matrix(1 0 0 1 -8.09 -2.71)"><g class="ltx_svg_fog" transform="matrix(1 0 0 -1 0 12.45)"><switch><foreignObject color="#000000" height="100%" overflow="visible" width="16.19">
+<p class="ltx_p"><math id="S1.p2.pic1.m1" class="ltx_Math" alttext="M_{1}" display="inline"><msub><mi>M</mi><mn>1</mn></msub></math></p></foreignObject></switch></g></g><path d="M 216.54 0 C 216.54 10.87 207.72 19.69 196.85 19.69 C 185.98 19.69 177.17 10.87 177.17 0 C 177.17 -10.87 185.98 -19.69 196.85 -19.69 C 207.72 -19.69 216.54 -10.87 216.54 0 Z M 196.85 0" style="fill:none"></path><g transform="matrix(1 0 0 1 188.76 -2.71)"><g class="ltx_svg_fog" transform="matrix(1 0 0 -1 0 12.45)"><switch><foreignObject color="#000000" height="100%" overflow="visible" width="16.19">
+<p class="ltx_p"><math id="S1.p2.pic1.m2" class="ltx_Math" alttext="M_{2}" display="inline"><msub><mi>M</mi><mn>2</mn></msub></math></p></foreignObject></switch></g></g><path d="M 19.96 0 L 176.89 0" style="fill:none"></path><g transform="matrix(1 0 0 1 63.94 -23.14)"><g class="ltx_svg_fog" transform="matrix(1 0 0 -1 0 12.45)"><switch><foreignObject color="#000000" height="100%" overflow="visible" width="236.22">
+<p class="ltx_p"><span class="ltx_inline-para ltx_minipage ltx_align_top" style="width:170.7pt;">
+<span id="S1.p2.pic1.p1" class="ltx_para ltx_align_left">
+<span class="ltx_p">(A cufflink)</span>
+</span></span></p></foreignObject></switch></g></g></g></g></g></g></svg>
+</div>
+<div id="S1.p3" class="ltx_para">
+<p class="ltx_p">The weights of the two ends, <math id="S1.p3.m1" class="ltx_Math" alttext="M_{1}" display="inline"><msub><mi>M</mi><mn>1</mn></msub></math> and <math id="S1.p3.m2" class="ltx_Math" alttext="M_{2}" display="inline"><msub><mi>M</mi><mn>2</mn></msub></math> are <math id="S1.p3.m3" class="ltx_Math" alttext="i.i.d\ N(5,10)" display="inline"><mrow><mi>i</mi><mo>.</mo><mi>i</mi><mo>.</mo><mrow><mpadded width="+5pt"><mi>d</mi></mpadded><mo>⁢</mo><mi>N</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mn>5</mn><mo>,</mo><mn>10</mn><mo stretchy="false">)</mo></mrow></mrow></mrow></math>
+We want to only keep cufflinks that are balanced.
+That means <math id="S1.p3.m4" class="ltx_Math" alttext="\lvert M_{1}-M_{2}\rvert" display="inline"><mrow><mo fence="true" stretchy="false">|</mo><mrow><msub><mi>M</mi><mn>1</mn></msub><mo>-</mo><msub><mi>M</mi><mn>2</mn></msub></mrow><mo fence="true" stretchy="false">|</mo></mrow></math> is small.</p>
+</div>
+<div id="S1.p4" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">A</span>. It’s easy to weigh both ends, <math id="S1.p4.m1" class="ltx_Math" alttext="M_{1}+M_{2}" display="inline"><mrow><msub><mi>M</mi><mn>1</mn></msub><mo>+</mo><msub><mi>M</mi><mn>2</mn></msub></mrow></math>.
+Does this help identify the bad cufflinks?</p>
+</div>
+<div id="S1.p5" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text" style="color:#000000;">No. <math id="S1.p5.m1" class="ltx_Math" alttext="M_{1}+M_{2}" display="inline"><mrow><msub><mi mathcolor="#000000">M</mi><mn mathcolor="#000000">1</mn></msub><mo mathcolor="#000000">+</mo><msub><mi mathcolor="#000000">M</mi><mn mathcolor="#000000">2</mn></msub></mrow></math> are independent.
+This is because:</span></p>
+<table id="S1.Ex1" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S1.Ex1X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S1.Ex1X.m2" class="ltx_Math" alttext="\displaystyle\operatorname{cov}[M_{1}+M_{2},M_{1}-M_{2}]=\operatorname{var}[M_%
+{1}]-\operatorname{var}[M_{2}]=0" display="inline"><mrow><mrow><mi mathcolor="#000000">cov</mi><mo mathcolor="#000000">⁡</mo><mrow><mo mathcolor="#000000" stretchy="false">[</mo><mrow><msub><mi mathcolor="#000000">M</mi><mn mathcolor="#000000">1</mn></msub><mo mathcolor="#000000">+</mo><msub><mi mathcolor="#000000">M</mi><mn mathcolor="#000000">2</mn></msub></mrow><mo mathcolor="#000000">,</mo><mrow><msub><mi mathcolor="#000000">M</mi><mn mathcolor="#000000">1</mn></msub><mo mathcolor="#000000">-</mo><msub><mi mathcolor="#000000">M</mi><mn mathcolor="#000000">2</mn></msub></mrow><mo mathcolor="#000000" stretchy="false">]</mo></mrow></mrow><mo mathcolor="#000000">=</mo><mrow><mrow><mi mathcolor="#000000">var</mi><mo mathcolor="#000000">⁡</mo><mrow><mo mathcolor="#000000" stretchy="false">[</mo><msub><mi mathcolor="#000000">M</mi><mn mathcolor="#000000">1</mn></msub><mo mathcolor="#000000" stretchy="false">]</mo></mrow></mrow><mo mathcolor="#000000">-</mo><mrow><mi mathcolor="#000000">var</mi><mo mathcolor="#000000">⁡</mo><mrow><mo mathcolor="#000000" stretchy="false">[</mo><msub><mi mathcolor="#000000">M</mi><mn mathcolor="#000000">2</mn></msub><mo mathcolor="#000000" stretchy="false">]</mo></mrow></mrow></mrow><mo mathcolor="#000000">=</mo><mn mathcolor="#000000">0</mn></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="S1.p6" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">B</span>. What is the distribution of <math id="S1.p6.m1" class="ltx_Math" alttext="M_{1}" display="inline"><msub><mi>M</mi><mn>1</mn></msub></math> among cufflinks with <math id="S1.p6.m2" class="ltx_Math" alttext="M_{1}+M_{2}\approx 12" display="inline"><mrow><mrow><msub><mi>M</mi><mn>1</mn></msub><mo>+</mo><msub><mi>M</mi><mn>2</mn></msub></mrow><mo>≈</mo><mn>12</mn></mrow></math>?</p>
+</div>
+<div id="S1.p7" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text" style="color:#000000;">Let <math id="S1.p7.m1" class="ltx_Math" alttext="A=M_{1}+M_{2}" display="inline"><mrow><mi mathcolor="#000000">A</mi><mo mathcolor="#000000">=</mo><mrow><msub><mi mathcolor="#000000">M</mi><mn mathcolor="#000000">1</mn></msub><mo mathcolor="#000000">+</mo><msub><mi mathcolor="#000000">M</mi><mn mathcolor="#000000">2</mn></msub></mrow></mrow></math> and <math id="S1.p7.m2" class="ltx_Math" alttext="B=M_{1}-M_{2}" display="inline"><mrow><mi mathcolor="#000000">B</mi><mo mathcolor="#000000">=</mo><mrow><msub><mi mathcolor="#000000">M</mi><mn mathcolor="#000000">1</mn></msub><mo mathcolor="#000000">-</mo><msub><mi mathcolor="#000000">M</mi><mn mathcolor="#000000">2</mn></msub></mrow></mrow></math>, then <math id="S1.p7.m3" class="ltx_Math" alttext="M_{1}=\frac{A+B}{2}" display="inline"><mrow><msub><mi mathcolor="#000000">M</mi><mn mathcolor="#000000">1</mn></msub><mo mathcolor="#000000">=</mo><mfrac mathcolor="#000000"><mrow><mi mathcolor="#000000">A</mi><mo mathcolor="#000000">+</mo><mi mathcolor="#000000">B</mi></mrow><mn mathcolor="#000000">2</mn></mfrac></mrow></math>.
+From Part A we know <math id="S1.p7.m4" class="ltx_Math" alttext="A" display="inline"><mi mathcolor="#000000">A</mi></math> and <math id="S1.p7.m5" class="ltx_Math" alttext="B" display="inline"><mi mathcolor="#000000">B</mi></math> are independent.</span></p>
+<table id="S1.Ex2" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S1.Ex2X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S1.Ex2X.m2" class="ltx_Math" alttext="\displaystyle(M_{1}|A=12)\lx@stackrel{{\scriptstyle d}}{{=}}\dfrac{12+B}{2}%
+\sim N(6,2)" display="inline"><mrow><mrow><mo mathcolor="#000000" stretchy="false">(</mo><msub><mi mathcolor="#000000">M</mi><mn mathcolor="#000000">1</mn></msub><mo mathcolor="#000000" stretchy="false">|</mo><mi mathcolor="#000000">A</mi><mo mathcolor="#000000">=</mo><mn mathcolor="#000000">12</mn><mo mathcolor="#000000" stretchy="false">)</mo></mrow><mover><mo mathcolor="#000000" movablelimits="false">=</mo><mi mathcolor="#000000">d</mi></mover><mstyle displaystyle="true"><mfrac mathcolor="#000000"><mrow><mn mathcolor="#000000">12</mn><mo mathcolor="#000000">+</mo><mi mathcolor="#000000">B</mi></mrow><mn mathcolor="#000000">2</mn></mfrac></mstyle><mo mathcolor="#000000">∼</mo><mi mathcolor="#000000">N</mi><mrow><mo mathcolor="#000000" stretchy="false">(</mo><mn mathcolor="#000000">6</mn><mo mathcolor="#000000">,</mo><mn mathcolor="#000000">2</mn><mo mathcolor="#000000" stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p"><span class="ltx_text" style="color:#000000;">This result follows from the fact that:</span></p>
+<table id="S1.Ex3" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S1.Ex3X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S1.Ex3X.m2" class="ltx_Math" alttext="\displaystyle B\sim N(0,2)" display="inline"><mrow><mi mathcolor="#000000">B</mi><mo mathcolor="#000000">∼</mo><mrow><mi mathcolor="#000000">N</mi><mo mathcolor="#000000">⁢</mo><mrow><mo mathcolor="#000000" stretchy="false">(</mo><mn mathcolor="#000000">0</mn><mo mathcolor="#000000">,</mo><mn mathcolor="#000000">2</mn><mo mathcolor="#000000" stretchy="false">)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p"><span class="ltx_text" style="color:#000000;">Since <math id="S1.p7.m6" class="ltx_Math" alttext="B=M_{1}-M_{2}" display="inline"><mrow><mi mathcolor="#000000">B</mi><mo mathcolor="#000000">=</mo><mrow><msub><mi mathcolor="#000000">M</mi><mn mathcolor="#000000">1</mn></msub><mo mathcolor="#000000">-</mo><msub><mi mathcolor="#000000">M</mi><mn mathcolor="#000000">2</mn></msub></mrow></mrow></math>.
+</span></p>
+</div>
+</section>
+<section id="S2" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">2 </span>Conditional Distributions</h2>
+
+<div id="S2.Thmthm1" class="ltx_theorem ltx_theorem_lemma">
+<h6 class="ltx_title ltx_runin ltx_title_theorem">
+<span class="ltx_tag ltx_tag_theorem"><span class="ltx_text ltx_font_bold">Lemma 2.1</span></span> (Conditional Distributions).</h6>
+<div id="S2.Thmthm1.p1" class="ltx_para">
+<p class="ltx_p">Let <math id="S2.Thmthm1.p1.m1" class="ltx_Math" alttext="\underset{n\times n}{X}" display="inline"><munder accentunder="true"><mi>X</mi><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow></munder></math> and <math id="S2.Thmthm1.p1.m2" class="ltx_Math" alttext="\underset{m\times m}{Y}" display="inline"><munder accentunder="true"><mi>Y</mi><mrow><mi>m</mi><mo>×</mo><mi>m</mi></mrow></munder></math> be jointly Gaussian with mean zero and covariance:</p>
+</div>
+<div id="S2.Thmthm1.p2" class="ltx_para">
+<table id="S2.Ex4" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S2.Ex4X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S2.Ex4X.m2" class="ltx_Math" alttext="\displaystyle\begin{bmatrix}\underset{n\times n}{\Sigma_{XX}}&amp;\underset{m%
+\times n}{\Sigma_{XY}}\\
+\underset{n\times m}{\Sigma_{XY}^{\intercal}}&amp;\underset{m\times m}{\Sigma_{YY}%
+}\end{bmatrix}" display="inline"><mrow><mo>[</mo><mtable columnspacing="5pt" rowspacing="0pt"><mtr><mtd columnalign="center"><munder accentunder="true"><msub><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>X</mi></mrow></msub><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow></munder></mtd><mtd columnalign="center"><munder accentunder="true"><msub><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>Y</mi></mrow></msub><mrow><mi>m</mi><mo>×</mo><mi>n</mi></mrow></munder></mtd></mtr><mtr><mtd columnalign="center"><munder accentunder="true"><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>Y</mi></mrow><mo>⊺</mo></msubsup><mrow><mi>n</mi><mo>×</mo><mi>m</mi></mrow></munder></mtd><mtd columnalign="center"><munder accentunder="true"><msub><mi mathvariant="normal">Σ</mi><mrow><mi>Y</mi><mo>⁢</mo><mi>Y</mi></mrow></msub><mrow><mi>m</mi><mo>×</mo><mi>m</mi></mrow></munder></mtd></mtr></mtable><mo>]</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="S2.Thmthm1.p3" class="ltx_para">
+<p class="ltx_p">Then,</p>
+<table id="S2.Ex5" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S2.Ex5X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S2.Ex5X.m2" class="ltx_Math" alttext="\displaystyle\mathbb{E}[X|Y]=\Sigma_{XY}\Sigma_{YY}^{-1}Y" display="inline"><mrow><mrow><mi>𝔼</mi><mo>⁢</mo><mrow><mo stretchy="false">[</mo><mrow><mi>X</mi><mo lspace="2.5pt" rspace="2.5pt" stretchy="false">|</mo><mi>Y</mi></mrow><mo stretchy="false">]</mo></mrow></mrow><mo>=</mo><mrow><msub><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>Y</mi></mrow></msub><mo>⁢</mo><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>Y</mi><mo>⁢</mo><mi>Y</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msubsup><mo>⁢</mo><mi>Y</mi></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">and</p>
+<table id="S2.Ex6" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S2.Ex6X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S2.Ex6X.m2" class="ltx_Math" alttext="\displaystyle(X|Y=y)\sim N(\Sigma_{XY}\Sigma_{YY}^{-1}y,\Sigma_{XX}-\Sigma_{XY%
+}\Sigma_{YY}^{-1}\Sigma_{XY}^{\intercal})" display="inline"><mrow><mrow><mo stretchy="false">(</mo><mi>X</mi><mo stretchy="false">|</mo><mi>Y</mi><mo>=</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><mo>∼</mo><mi>N</mi><mrow><mo stretchy="false">(</mo><msub><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>Y</mi></mrow></msub><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>Y</mi><mo>⁢</mo><mi>Y</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msubsup><mi>y</mi><mo>,</mo><msub><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>X</mi></mrow></msub><mo>-</mo><msub><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>Y</mi></mrow></msub><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>Y</mi><mo>⁢</mo><mi>Y</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msubsup><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>Y</mi></mrow><mo>⊺</mo></msubsup><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="Thmnotex1" class="ltx_theorem ltx_theorem_note">
+<h6 class="ltx_title ltx_runin ltx_title_theorem">
+<span class="ltx_tag ltx_tag_theorem"><span class="ltx_text ltx_font_bold">Note</span></span>.</h6>
+<div id="Thmnotex1.p1" class="ltx_para">
+<p class="ltx_p"><math id="Thmnotex1.p1.m1" class="ltx_Math" alttext="\Sigma_{XX}-\Sigma_{XY}\Sigma_{YY}^{-1}\Sigma_{XY}^{\intercal}" display="inline"><mrow><msub><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>X</mi></mrow></msub><mo>-</mo><mrow><msub><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>Y</mi></mrow></msub><mo>⁢</mo><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>Y</mi><mo>⁢</mo><mi>Y</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msubsup><mo>⁢</mo><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>Y</mi></mrow><mo>⊺</mo></msubsup></mrow></mrow></math> is the Schur complement of our covariance matrix.</p>
+</div>
+</div>
+</div>
+<div class="ltx_proof">
+<h6 class="ltx_title ltx_runin ltx_font_italic ltx_title_proof">.</h6>
+<div id="S2.p1" class="ltx_para">
+<p class="ltx_p">Let <math id="S2.p1.m1" class="ltx_Math" alttext="A=\Sigma_{XY}\Sigma_{YY}^{-1}Y" display="inline"><mrow><mi>A</mi><mo>=</mo><mrow><msub><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>Y</mi></mrow></msub><mo>⁢</mo><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>Y</mi><mo>⁢</mo><mi>Y</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msubsup><mo>⁢</mo><mi>Y</mi></mrow></mrow></math> and <math id="S2.p1.m2" class="ltx_Math" alttext="X=A+B" display="inline"><mrow><mi>X</mi><mo>=</mo><mrow><mi>A</mi><mo>+</mo><mi>B</mi></mrow></mrow></math>.
+Claim: <math id="S2.p1.m3" class="ltx_Math" alttext="B" display="inline"><mi>B</mi></math> is independent of <math id="S2.p1.m4" class="ltx_Math" alttext="Y" display="inline"><mi>Y</mi></math>.</p>
+<table id="S2.Ex7" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S2.Ex7X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S2.Ex7X.m2" class="ltx_Math" alttext="\displaystyle\operatorname{cov}[X-\Sigma_{XX}\Sigma_{YY}^{-1}Y,Y]=%
+\operatorname{cov}[X,Y]=\operatorname{cov}[X,Y]-\Sigma_{XY}\Sigma_{YY}^{-1}%
+\operatorname{cov}[Y,Y]=0" display="inline"><mrow><mrow><mi>cov</mi><mo>⁡</mo><mrow><mo stretchy="false">[</mo><mrow><mi>X</mi><mo>-</mo><mrow><msub><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>X</mi></mrow></msub><mo>⁢</mo><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>Y</mi><mo>⁢</mo><mi>Y</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msubsup><mo>⁢</mo><mi>Y</mi></mrow></mrow><mo>,</mo><mi>Y</mi><mo stretchy="false">]</mo></mrow></mrow><mo>=</mo><mrow><mi>cov</mi><mo>⁡</mo><mrow><mo stretchy="false">[</mo><mi>X</mi><mo>,</mo><mi>Y</mi><mo stretchy="false">]</mo></mrow></mrow><mo>=</mo><mrow><mrow><mi>cov</mi><mo>⁡</mo><mrow><mo stretchy="false">[</mo><mi>X</mi><mo>,</mo><mi>Y</mi><mo stretchy="false">]</mo></mrow></mrow><mo>-</mo><mrow><msub><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>Y</mi></mrow></msub><mo>⁢</mo><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>Y</mi><mo>⁢</mo><mi>Y</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msubsup><mo>⁢</mo><mrow><mi>cov</mi><mo>⁡</mo><mrow><mo stretchy="false">[</mo><mi>Y</mi><mo>,</mo><mi>Y</mi><mo stretchy="false">]</mo></mrow></mrow></mrow></mrow><mo>=</mo><mn>0</mn></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">Now we can say:</p>
+<table id="S2.Ex8" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S2.Ex8X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S2.Ex8X.m2" class="ltx_Math" alttext="\displaystyle(X|Y=y)\lx@stackrel{{\scriptstyle d}}{{=}}\Sigma_{XY}\Sigma_{YY}^%
+{-1}y+B" display="inline"><mrow><mrow><mo stretchy="false">(</mo><mi>X</mi><mo stretchy="false">|</mo><mi>Y</mi><mo>=</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><mover><mo movablelimits="false">=</mo><mi>d</mi></mover><msub><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>Y</mi></mrow></msub><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>Y</mi><mo>⁢</mo><mi>Y</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msubsup><mi>y</mi><mo>+</mo><mi>B</mi></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">To confirm that this is the same distribution as before we need to calculate:</p>
+<table id="S2.Ex9" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S2.Ex9X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S2.Ex9X.m2" class="ltx_Math" alttext="\displaystyle\operatorname{cov}[B,B]=\operatorname{cov}[X-\Sigma_{XY}\Sigma_{%
+YY}^{-1}Y,X-\Sigma_{XY}\Sigma_{YY}^{-1}Y]" display="inline"><mrow><mrow><mi>cov</mi><mo>⁡</mo><mrow><mo stretchy="false">[</mo><mi>B</mi><mo>,</mo><mi>B</mi><mo stretchy="false">]</mo></mrow></mrow><mo>=</mo><mrow><mi>cov</mi><mo>⁡</mo><mrow><mo stretchy="false">[</mo><mrow><mi>X</mi><mo>-</mo><mrow><msub><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>Y</mi></mrow></msub><mo>⁢</mo><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>Y</mi><mo>⁢</mo><mi>Y</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msubsup><mo>⁢</mo><mi>Y</mi></mrow></mrow><mo>,</mo><mrow><mi>X</mi><mo>-</mo><mrow><msub><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>Y</mi></mrow></msub><mo>⁢</mo><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>Y</mi><mo>⁢</mo><mi>Y</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msubsup><mo>⁢</mo><mi>Y</mi></mrow></mrow><mo stretchy="false">]</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S2.Ex9Xa" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S2.Ex9Xa.m2" class="ltx_Math" alttext="\displaystyle=\operatorname{cov}[X,X]-\operatorname{cov}[X,Y]\Sigma_{YY}^{-1}%
+\Sigma_{XY}^{\intercal}-\Sigma_{XY}\Sigma_{YY}^{-1}\operatorname{cov}[Y,X]+%
+\Sigma_{XY}\Sigma_{YY}^{-1}\operatorname{cov}[Y,Y]\Sigma_{YY}^{-1}\Sigma_{XY}^%
+{\intercal}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mrow><mi>cov</mi><mo>⁡</mo><mrow><mo stretchy="false">[</mo><mi>X</mi><mo>,</mo><mi>X</mi><mo stretchy="false">]</mo></mrow></mrow><mo>-</mo><mrow><mrow><mi>cov</mi><mo>⁡</mo><mrow><mo stretchy="false">[</mo><mi>X</mi><mo>,</mo><mi>Y</mi><mo stretchy="false">]</mo></mrow></mrow><mo>⁢</mo><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>Y</mi><mo>⁢</mo><mi>Y</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msubsup><mo>⁢</mo><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>Y</mi></mrow><mo>⊺</mo></msubsup></mrow><mo>-</mo><mrow><msub><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>Y</mi></mrow></msub><mo>⁢</mo><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>Y</mi><mo>⁢</mo><mi>Y</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msubsup><mo>⁢</mo><mrow><mi>cov</mi><mo>⁡</mo><mrow><mo stretchy="false">[</mo><mi>Y</mi><mo>,</mo><mi>X</mi><mo stretchy="false">]</mo></mrow></mrow></mrow></mrow><mo>+</mo><mrow><msub><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>Y</mi></mrow></msub><mo>⁢</mo><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>Y</mi><mo>⁢</mo><mi>Y</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msubsup><mo>⁢</mo><mrow><mi>cov</mi><mo>⁡</mo><mrow><mo stretchy="false">[</mo><mi>Y</mi><mo>,</mo><mi>Y</mi><mo stretchy="false">]</mo></mrow></mrow><mo>⁢</mo><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>Y</mi><mo>⁢</mo><mi>Y</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msubsup><mo>⁢</mo><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>Y</mi></mrow><mo>⊺</mo></msubsup></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S2.Ex9Xb" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S2.Ex9Xb.m2" class="ltx_Math" alttext="\displaystyle=\Sigma_{XX}-\Sigma_{XY}\Sigma_{YY}^{-1}\Sigma_{XY}^{\intercal}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><msub><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>X</mi></mrow></msub><mo>-</mo><mrow><msub><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>Y</mi></mrow></msub><mo>⁢</mo><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>Y</mi><mo>⁢</mo><mi>Y</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msubsup><mo>⁢</mo><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>Y</mi></mrow><mo>⊺</mo></msubsup></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">Thus, <math id="S2.p1.m5" class="ltx_Math" alttext="(X|Y=y)\sim N(\Sigma_{XY}\Sigma_{YY}^{-1}y,\Sigma_{XX}-\Sigma_{XY}\Sigma_{YY}^%
+{-1}\Sigma_{XY}^{\intercal})" display="inline"><mrow><mrow><mo stretchy="false">(</mo><mi>X</mi><mo stretchy="false">|</mo><mi>Y</mi><mo>=</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><mo>∼</mo><mi>N</mi><mrow><mo stretchy="false">(</mo><msub><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>Y</mi></mrow></msub><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>Y</mi><mo>⁢</mo><mi>Y</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msubsup><mi>y</mi><mo>,</mo><msub><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>X</mi></mrow></msub><mo>-</mo><msub><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>Y</mi></mrow></msub><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>Y</mi><mo>⁢</mo><mi>Y</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msubsup><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>Y</mi></mrow><mo>⊺</mo></msubsup><mo stretchy="false">)</mo></mrow></mrow></math>
+∎</p>
+</div>
+</div>
+</section>
+<section id="S3" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">3 </span>Gaussian Process Regression</h2>
+
+<div id="S3.p1" class="ltx_para">
+<p class="ltx_p">Suppose we have some noisy points, and that these points follow some Gaussian Process.</p>
+<svg id="S3.p1.pic1" class="ltx_picture ltx_centering" style="width:224.8pt;height:227.1pt;" height="314.19" overflow="visible" version="1.1" viewBox="-12.57 -151.4 311.08 314.19" width="311.08"><g transform="matrix(1 0 0 -1 0 11.39)"><g stroke="#000000"><g fill="#000000"><g color="#000000" stroke-width="0.4pt"><g stroke-width="0.8pt"><g stroke-width="0.64pt"><g stroke-dasharray="none" stroke-dashoffset="0.0pt"><g stroke-linecap="round"><g stroke-linejoin="round"></g></g></g></g><path d="M 0 136.81 L 0 -137.8 L 274.61 -137.8" style="fill:none"></path><g transform="matrix(0 1 -1 0 0 136.81)"><path d="M -2.16 2.88 C -1.98 1.8 0 0.18 0.54 0 C 0 -0.18 -1.98 -1.8 -2.16 -2.88" style="fill:none"></path></g><g transform="matrix(1 0 0 1 274.61 -137.8)"><path d="M -2.16 2.88 C -1.98 1.8 0 0.18 0.54 0 C 0 -0.18 -1.98 -1.8 -2.16 -2.88" style="fill:none"></path></g><g transform="matrix(1 0 0 1 -5.19 145.73)"><g class="ltx_svg_fog" transform="matrix(1 0 0 -1 0 12.45)"><switch><foreignObject color="#000000" height="100%" overflow="visible" width="10.38">
+<p class="ltx_p"><math id="S3.p1.pic1.m1" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math></p></foreignObject></switch></g></g><g transform="matrix(1 0 0 1 280.76 -141.25)"><g class="ltx_svg_fog" transform="matrix(1 0 0 -1 0 12.45)"><switch><foreignObject color="#000000" height="100%" overflow="visible" width="10.38">
+<p class="ltx_p"><math id="S3.p1.pic1.m2" class="ltx_Math" alttext="t" display="inline"><mi>t</mi></math></p></foreignObject></switch></g></g></g><g stroke-width="1.6pt"><g color="#FF0000" stroke="#FF0000"><g fill="#FF0000"><path d="M 0 68.9 C 12.57 68.9 23.48 34.45 34.45 0 C 45.41 -34.45 56.32 -68.9 68.9 -68.9 C 81.47 -68.9 92.38 -34.45 103.35 0 C 114.31 34.45 125.22 68.9 137.8 68.9 C 150.37 68.9 161.28 34.45 172.24 0 C 183.21 -34.45 194.12 -68.9 206.69 -68.9" style="fill:none"></path></g></g></g><path d="M 0 68.9 M 2.42 68.9 C 2.42 70.23 1.34 71.32 0 71.32 C -1.34 71.32 -2.42 70.23 -2.42 68.9 C -2.42 67.56 -1.34 66.48 0 66.48 C 1.34 66.48 2.42 67.56 2.42 68.9 Z M 0 68.9" style="stroke:none"></path><path d="M 6.89 68.9 M 9.31 68.9 C 9.31 70.23 8.23 71.32 6.89 71.32 C 5.55 71.32 4.47 70.23 4.47 68.9 C 4.47 67.56 5.55 66.48 6.89 66.48 C 8.23 66.48 9.31 67.56 9.31 68.9 Z M 6.89 68.9" style="stroke:none"></path><path d="M 6.89 51.67 M 9.31 51.67 C 9.31 53.01 8.23 54.09 6.89 54.09 C 5.55 54.09 4.47 53.01 4.47 51.67 C 4.47 50.34 5.55 49.25 6.89 49.25 C 8.23 49.25 9.31 50.34 9.31 51.67 Z M 6.89 51.67" style="stroke:none"></path><path d="M 41.34 0 M 43.76 0 C 43.76 1.34 42.68 2.42 41.34 2.42 C 40 2.42 38.92 1.34 38.92 0 C 38.92 -1.34 40 -2.42 41.34 -2.42 C 42.68 -2.42 43.76 -1.34 43.76 0 Z M 41.34 0" style="stroke:none"></path><path d="M 27.56 -6.89 M 29.98 -6.89 C 29.98 -5.55 28.9 -4.47 27.56 -4.47 C 26.22 -4.47 25.14 -5.55 25.14 -6.89 C 25.14 -8.23 26.22 -9.31 27.56 -9.31 C 28.9 -9.31 29.98 -8.23 29.98 -6.89 Z M 27.56 -6.89" style="stroke:none"></path><path d="M 34.45 -13.78 M 36.87 -13.78 C 36.87 -12.44 35.79 -11.36 34.45 -11.36 C 33.11 -11.36 32.03 -12.44 32.03 -13.78 C 32.03 -15.12 33.11 -16.2 34.45 -16.2 C 35.79 -16.2 36.87 -15.12 36.87 -13.78 Z M 34.45 -13.78" style="stroke:none"></path><path d="M 51.67 -34.45 M 54.09 -34.45 C 54.09 -33.11 53.01 -32.03 51.67 -32.03 C 50.34 -32.03 49.25 -33.11 49.25 -34.45 C 49.25 -35.79 50.34 -36.87 51.67 -36.87 C 53.01 -36.87 54.09 -35.79 54.09 -34.45 Z M 51.67 -34.45" style="stroke:none"></path><path d="M 68.9 -68.9 M 71.32 -68.9 C 71.32 -67.56 70.23 -66.48 68.9 -66.48 C 67.56 -66.48 66.48 -67.56 66.48 -68.9 C 66.48 -70.23 67.56 -71.32 68.9 -71.32 C 70.23 -71.32 71.32 -70.23 71.32 -68.9 Z M 68.9 -68.9" style="stroke:none"></path><path d="M 75.79 -55.12 M 78.21 -55.12 C 78.21 -53.78 77.12 -52.7 75.79 -52.7 C 74.45 -52.7 73.37 -53.78 73.37 -55.12 C 73.37 -56.46 74.45 -57.54 75.79 -57.54 C 77.12 -57.54 78.21 -56.46 78.21 -55.12 Z M 75.79 -55.12" style="stroke:none"></path><path d="M 82.68 -20.67 M 85.1 -20.67 C 85.1 -19.33 84.01 -18.25 82.68 -18.25 C 81.34 -18.25 80.26 -19.33 80.26 -20.67 C 80.26 -22.01 81.34 -23.09 82.68 -23.09 C 84.01 -23.09 85.1 -22.01 85.1 -20.67 Z M 82.68 -20.67" style="stroke:none"></path><path d="M 89.57 -48.23 M 91.99 -48.23 C 91.99 -46.89 90.9 -45.81 89.57 -45.81 C 88.23 -45.81 87.15 -46.89 87.15 -48.23 C 87.15 -49.57 88.23 -50.65 89.57 -50.65 C 90.9 -50.65 91.99 -49.57 91.99 -48.23 Z M 89.57 -48.23" style="stroke:none"></path><path d="M 96.46 0 M 98.88 0 C 98.88 1.34 97.79 2.42 96.46 2.42 C 95.12 2.42 94.04 1.34 94.04 0 C 94.04 -1.34 95.12 -2.42 96.46 -2.42 C 97.79 -2.42 98.88 -1.34 98.88 0 Z M 96.46 0" style="stroke:none"></path><path d="M 110.24 20.67 M 112.66 20.67 C 112.66 22.01 111.57 23.09 110.24 23.09 C 108.9 23.09 107.81 22.01 107.81 20.67 C 107.81 19.33 108.9 18.25 110.24 18.25 C 111.57 18.25 112.66 19.33 112.66 20.67 Z M 110.24 20.67" style="stroke:none"></path><path d="M 117.13 48.23 M 119.55 48.23 C 119.55 49.57 118.46 50.65 117.13 50.65 C 115.79 50.65 114.7 49.57 114.7 48.23 C 114.7 46.89 115.79 45.81 117.13 45.81 C 118.46 45.81 119.55 46.89 119.55 48.23 Z M 117.13 48.23" style="stroke:none"></path><path d="M 137.8 68.9 M 140.22 68.9 C 140.22 70.23 139.13 71.32 137.8 71.32 C 136.46 71.32 135.37 70.23 135.37 68.9 C 135.37 67.56 136.46 66.48 137.8 66.48 C 139.13 66.48 140.22 67.56 140.22 68.9 Z M 137.8 68.9" style="stroke:none"></path><path d="M 144.69 68.9 M 147.11 68.9 C 147.11 70.23 146.02 71.32 144.69 71.32 C 143.35 71.32 142.26 70.23 142.26 68.9 C 142.26 67.56 143.35 66.48 144.69 66.48 C 146.02 66.48 147.11 67.56 147.11 68.9 Z M 144.69 68.9" style="stroke:none"></path><path d="M 144.69 48.23 M 147.11 48.23 C 147.11 49.57 146.02 50.65 144.69 50.65 C 143.35 50.65 142.26 49.57 142.26 48.23 C 142.26 46.89 143.35 45.81 144.69 45.81 C 146.02 45.81 147.11 46.89 147.11 48.23 Z M 144.69 48.23" style="stroke:none"></path><path d="M 165.35 0 M 167.78 0 C 167.78 1.34 166.69 2.42 165.35 2.42 C 164.02 2.42 162.93 1.34 162.93 0 C 162.93 -1.34 164.02 -2.42 165.35 -2.42 C 166.69 -2.42 167.78 -1.34 167.78 0 Z M 165.35 0" style="stroke:none"></path><path d="M 165.35 55.12 M 167.78 55.12 C 167.78 56.46 166.69 57.54 165.35 57.54 C 164.02 57.54 162.93 56.46 162.93 55.12 C 162.93 53.78 164.02 52.7 165.35 52.7 C 166.69 52.7 167.78 53.78 167.78 55.12 Z M 165.35 55.12" style="stroke:none"></path><path d="M 172.24 34.45 M 174.67 34.45 C 174.67 35.79 173.58 36.87 172.24 36.87 C 170.91 36.87 169.82 35.79 169.82 34.45 C 169.82 33.11 170.91 32.03 172.24 32.03 C 173.58 32.03 174.67 33.11 174.67 34.45 Z M 172.24 34.45" style="stroke:none"></path><path d="M 179.13 -6.89 M 181.56 -6.89 C 181.56 -5.55 180.47 -4.47 179.13 -4.47 C 177.8 -4.47 176.71 -5.55 176.71 -6.89 C 176.71 -8.23 177.8 -9.31 179.13 -9.31 C 180.47 -9.31 181.56 -8.23 181.56 -6.89 Z M 179.13 -6.89" style="stroke:none"></path><path d="M 186.02 -62.01 M 188.45 -62.01 C 188.45 -60.67 187.36 -59.59 186.02 -59.59 C 184.69 -59.59 183.6 -60.67 183.6 -62.01 C 183.6 -63.35 184.69 -64.43 186.02 -64.43 C 187.36 -64.43 188.45 -63.35 188.45 -62.01 Z M 186.02 -62.01" style="stroke:none"></path><path d="M 192.91 -27.56 M 195.33 -27.56 C 195.33 -26.22 194.25 -25.14 192.91 -25.14 C 191.58 -25.14 190.49 -26.22 190.49 -27.56 C 190.49 -28.9 191.58 -29.98 192.91 -29.98 C 194.25 -29.98 195.33 -28.9 195.33 -27.56 Z M 192.91 -27.56" style="stroke:none"></path><path d="M 199.8 -75.79 M 202.22 -75.79 C 202.22 -74.45 201.14 -73.37 199.8 -73.37 C 198.47 -73.37 197.38 -74.45 197.38 -75.79 C 197.38 -77.12 198.47 -78.21 199.8 -78.21 C 201.14 -78.21 202.22 -77.12 202.22 -75.79 Z M 199.8 -75.79" style="stroke:none"></path><path d="M 206.69 -68.9 M 209.11 -68.9 C 209.11 -67.56 208.03 -66.48 206.69 -66.48 C 205.36 -66.48 204.27 -67.56 204.27 -68.9 C 204.27 -70.23 205.36 -71.32 206.69 -71.32 C 208.03 -71.32 209.11 -70.23 209.11 -68.9 Z M 206.69 -68.9" style="stroke:none"></path></g></g></g></g></svg>
+<p class="ltx_p">Knowing these we can find out more information on these points, including confidence intervals.
+But, first we’ll look more at the Brownian Bridge.
+Recall (for <math id="S3.p1.m1" class="ltx_Math" alttext="0\leq t&lt;1" display="inline"><mrow><mn>0</mn><mo>≤</mo><mi>t</mi><mo>&lt;</mo><mn>1</mn></mrow></math>),</p>
+</div>
+<div id="S3.p2" class="ltx_para">
+<table id="S3.Ex10" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S3.Ex10X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S3.Ex10X.m2" class="ltx_Math" alttext="\displaystyle U_{t}=(B_{t}|B_{1}=0)\lx@stackrel{{\scriptstyle d}}{{=}}B_{t}-tB%
+_{1}" display="inline"><mrow><msub><mi>U</mi><mi>t</mi></msub><mo>=</mo><mrow><mo stretchy="false">(</mo><msub><mi>B</mi><mi>t</mi></msub><mo stretchy="false">|</mo><msub><mi>B</mi><mn>1</mn></msub><mo>=</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><mover><mo movablelimits="false">=</mo><mi>d</mi></mover><msub><mi>B</mi><mi>t</mi></msub><mo>-</mo><mi>t</mi><msub><mi>B</mi><mn>1</mn></msub></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="S3.p3" class="ltx_para">
+<p class="ltx_p">Check this,</p>
+<table id="S3.Ex11" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S3.Ex11X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S3.Ex11X.m2" class="ltx_Math" alttext="\displaystyle\operatorname{cov}[B_{1},B_{t}-tB_{1}]=t-t\cdot 1=0" display="inline"><mrow><mrow><mi>cov</mi><mo>⁡</mo><mrow><mo stretchy="false">[</mo><msub><mi>B</mi><mn>1</mn></msub><mo>,</mo><mrow><msub><mi>B</mi><mi>t</mi></msub><mo>-</mo><mrow><mi>t</mi><mo>⁢</mo><msub><mi>B</mi><mn>1</mn></msub></mrow></mrow><mo stretchy="false">]</mo></mrow></mrow><mo>=</mo><mrow><mi>t</mi><mo>-</mo><mrow><mi>t</mi><mo>⋅</mo><mn>1</mn></mrow></mrow><mo>=</mo><mn>0</mn></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="S3.p4" class="ltx_para">
+<p class="ltx_p">Recall,</p>
+<table id="S3.Ex12" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S3.Ex12X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S3.Ex12X.m2" class="ltx_Math" alttext="\displaystyle U_{t}=B_{t}-Z_{0,0}\int_{0}^{t}h_{0}(s)ds=Z(\mathbf{1}_{[0,t)}))%
+-tZ_{0,0}=\sum_{n\geq 1}\sum_{k=1}^{2^{n}}Z_{n,k}\int_{0}^{t}h_{n,k}(s)ds" display="inline"><mrow><msub><mi>U</mi><mi>t</mi></msub><mo>=</mo><msub><mi>B</mi><mi>t</mi></msub><mo>-</mo><msub><mi>Z</mi><mrow><mn>0</mn><mo>,</mo><mn>0</mn></mrow></msub><mstyle displaystyle="true"><msubsup><mo largeop="true" symmetric="true">∫</mo><mn>0</mn><mi>t</mi></msubsup></mstyle><msub><mi>h</mi><mn>0</mn></msub><mrow><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo></mrow><mi>d</mi><mi>s</mi><mo>=</mo><mi>Z</mi><mrow><mo stretchy="false">(</mo><msub><mn>𝟏</mn><mrow><mo stretchy="false">[</mo><mn>0</mn><mo>,</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></msub><mo stretchy="false">)</mo></mrow><mo stretchy="false">)</mo><mo>-</mo><mi>t</mi><mi>Z</mi><msub><mi></mi><mrow><mn>0</mn><mo>,</mo><mn>0</mn></mrow></msub><mo>=</mo><mstyle displaystyle="true"><mo largeop="true" movablelimits="false" symmetric="true">∑</mo></mstyle><msub><mi></mi><mrow><mi>n</mi><mo>≥</mo><mn>1</mn></mrow></msub><mstyle displaystyle="true"><mo largeop="true" movablelimits="false" symmetric="true">∑</mo></mstyle><msub><mi></mi><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow></msub><msup><mi></mi><msup><mn>2</mn><mi>n</mi></msup></msup><mi>Z</mi><msub><mi></mi><mrow><mi>n</mi><mo>,</mo><mi>k</mi></mrow></msub><mstyle displaystyle="true"><mo largeop="true" symmetric="true">∫</mo></mstyle><msub><mi></mi><mn>0</mn></msub><msup><mi></mi><mi>t</mi></msup><mi>h</mi><msub><mi></mi><mrow><mi>n</mi><mo>,</mo><mi>k</mi></mrow></msub><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo><mi>d</mi><mi>s</mi></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="S3.p5" class="ltx_para">
+<p class="ltx_p">What is the distribution of <math id="S3.p5.m1" class="ltx_Math" alttext="U_{t}-U_{s}" display="inline"><mrow><msub><mi>U</mi><mi>t</mi></msub><mo>-</mo><msub><mi>U</mi><mi>s</mi></msub></mrow></math> ? (for <math id="S3.p5.m2" class="ltx_Math" alttext="s&lt;t" display="inline"><mrow><mi>s</mi><mo>&lt;</mo><mi>t</mi></mrow></math>)</p>
+<table id="S3.Ex13" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S3.Ex13X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S3.Ex13X.m2" class="ltx_Math" alttext="\displaystyle U_{t}-U_{s}=\sum_{n\geq 1}\sum_{k=1}^{2^{n}}Z_{n,k}\int_{s}^{t}h%
+_{n,k}(s)ds=Z(\mathbf{1}_{[s,t)})-(t-s)Z_{0,0}" display="inline"><mrow><mrow><msub><mi>U</mi><mi>t</mi></msub><mo>-</mo><msub><mi>U</mi><mi>s</mi></msub></mrow><mo>=</mo><mrow><mstyle displaystyle="true"><munder><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>n</mi><mo>≥</mo><mn>1</mn></mrow></munder></mstyle><mrow><mstyle displaystyle="true"><munderover><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><msup><mn>2</mn><mi>n</mi></msup></munderover></mstyle><mrow><msub><mi>Z</mi><mrow><mi>n</mi><mo>,</mo><mi>k</mi></mrow></msub><mo>⁢</mo><mrow><mstyle displaystyle="true"><msubsup><mo largeop="true" symmetric="true">∫</mo><mi>s</mi><mi>t</mi></msubsup></mstyle><mrow><msub><mi>h</mi><mrow><mi>n</mi><mo>,</mo><mi>k</mi></mrow></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>s</mi></mrow></mrow></mrow></mrow></mrow></mrow><mo>=</mo><mrow><mrow><mi>Z</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mn>𝟏</mn><mrow><mo stretchy="false">[</mo><mi>s</mi><mo>,</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></msub><mo stretchy="false">)</mo></mrow></mrow><mo>-</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>t</mi><mo>-</mo><mi>s</mi></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><msub><mi>Z</mi><mrow><mn>0</mn><mo>,</mo><mn>0</mn></mrow></msub></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">So,</p>
+<table id="S3.Ex14" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S3.Ex14X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S3.Ex14X.m2" class="ltx_Math" alttext="\displaystyle\operatorname{var}[U_{t}-U_{s}]=\operatorname{var}[Z(\mathbf{1}_{%
+[s,t)})]-2(t-s)\cdot\operatorname{cov}[Z(\mathbf{1}_{[s,t)}),Z(\mathbf{1}_{[0,%
+1)})]+(t-s)^{2}\cdot\operatorname{var}[Z(\mathbf{1}_{[0,1)})]" display="inline"><mrow><mrow><mi>var</mi><mo>⁡</mo><mrow><mo stretchy="false">[</mo><mrow><msub><mi>U</mi><mi>t</mi></msub><mo>-</mo><msub><mi>U</mi><mi>s</mi></msub></mrow><mo stretchy="false">]</mo></mrow></mrow><mo>=</mo><mrow><mrow><mrow><mi>var</mi><mo>⁡</mo><mrow><mo stretchy="false">[</mo><mrow><mi>Z</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mn>𝟏</mn><mrow><mo stretchy="false">[</mo><mi>s</mi><mo>,</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></msub><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">]</mo></mrow></mrow><mo>-</mo><mrow><mrow><mn>2</mn><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>t</mi><mo>-</mo><mi>s</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>⋅</mo><mrow><mi>cov</mi><mo>⁡</mo><mrow><mo stretchy="false">[</mo><mrow><mi>Z</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mn>𝟏</mn><mrow><mo stretchy="false">[</mo><mi>s</mi><mo>,</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></msub><mo stretchy="false">)</mo></mrow></mrow><mo>,</mo><mrow><mi>Z</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mn>𝟏</mn><mrow><mo stretchy="false">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msub><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">]</mo></mrow></mrow></mrow></mrow><mo>+</mo><mrow><msup><mrow><mo stretchy="false">(</mo><mrow><mi>t</mi><mo>-</mo><mi>s</mi></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup><mo>⋅</mo><mrow><mi>var</mi><mo>⁡</mo><mrow><mo stretchy="false">[</mo><mrow><mi>Z</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mn>𝟏</mn><mrow><mo stretchy="false">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msub><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">]</mo></mrow></mrow></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">Note that,</p>
+<table id="S3.Ex15" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S3.Ex15X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S3.Ex15X.m2" class="ltx_Math" alttext="\displaystyle\operatorname{var}[Z(\mathbf{1}_{[s,t)})]=\int_{0}^{1}\mathbf{1}_%
+{[s,t)}(u)\cdot\mathbf{1}_{[s,t)}(u)du=t-s" display="inline"><mrow><mrow><mi>var</mi><mo>⁡</mo><mrow><mo stretchy="false">[</mo><mrow><mi>Z</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mn>𝟏</mn><mrow><mo stretchy="false">[</mo><mi>s</mi><mo>,</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></msub><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">]</mo></mrow></mrow><mo>=</mo><mrow><mstyle displaystyle="true"><msubsup><mo largeop="true" symmetric="true">∫</mo><mn>0</mn><mn>1</mn></msubsup></mstyle><mrow><mrow><mrow><msub><mn>𝟏</mn><mrow><mo stretchy="false">[</mo><mi>s</mi><mo>,</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow></mrow><mo>⋅</mo><msub><mn>𝟏</mn><mrow><mo stretchy="false">[</mo><mi>s</mi><mo>,</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></msub></mrow><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>u</mi></mrow></mrow></mrow><mo>=</mo><mrow><mi>t</mi><mo>-</mo><mi>s</mi></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">So, we’ll have</p>
+<table id="S3.Ex16" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S3.Ex16X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S3.Ex16X.m2" class="ltx_Math" alttext="\displaystyle\operatorname{var}[U_{t}-U_{s}]=(t-s)-2(t-s)^{2}+(t-s)^{2}=(t-s)[%
+1-(t-s)]" display="inline"><mrow><mrow><mi>var</mi><mo>⁡</mo><mrow><mo stretchy="false">[</mo><mrow><msub><mi>U</mi><mi>t</mi></msub><mo>-</mo><msub><mi>U</mi><mi>s</mi></msub></mrow><mo stretchy="false">]</mo></mrow></mrow><mo>=</mo><mrow><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>t</mi><mo>-</mo><mi>s</mi></mrow><mo stretchy="false">)</mo></mrow><mo>-</mo><mrow><mn>2</mn><mo>⁢</mo><msup><mrow><mo stretchy="false">(</mo><mrow><mi>t</mi><mo>-</mo><mi>s</mi></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup></mrow></mrow><mo>+</mo><msup><mrow><mo stretchy="false">(</mo><mrow><mi>t</mi><mo>-</mo><mi>s</mi></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup></mrow><mo>=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>t</mi><mo>-</mo><mi>s</mi></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mrow><mo stretchy="false">[</mo><mrow><mn>1</mn><mo>-</mo><mrow><mo stretchy="false">(</mo><mrow><mi>t</mi><mo>-</mo><mi>s</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">]</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">Thus,</p>
+<table id="S3.Ex17" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S3.Ex17X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S3.Ex17X.m2" class="ltx_Math" alttext="\displaystyle U_{t}-U_{s}\sim N\Big{(}0,(t-s)[1-(t-s)]\Big{)}" display="inline"><mrow><mrow><msub><mi>U</mi><mi>t</mi></msub><mo>-</mo><msub><mi>U</mi><mi>s</mi></msub></mrow><mo>∼</mo><mrow><mi>N</mi><mo>⁢</mo><mrow><mo maxsize="160%" minsize="160%">(</mo><mn>0</mn><mo>,</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>t</mi><mo>-</mo><mi>s</mi></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mrow><mo stretchy="false">[</mo><mrow><mn>1</mn><mo>-</mo><mrow><mo stretchy="false">(</mo><mrow><mi>t</mi><mo>-</mo><mi>s</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">]</mo></mrow></mrow><mo maxsize="160%" minsize="160%">)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</section>
+<section id="S4" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">4 </span>Another Application</h2>
+
+<div id="S4.p1" class="ltx_para">
+<p class="ltx_p">Sediment decomposition:
+Let <math id="S4.p1.m1" class="ltx_Math" alttext="S_{k}" display="inline"><msub><mi>S</mi><mi>k</mi></msub></math> = (amount of sediment deposited in year <math id="S4.p1.m2" class="ltx_Math" alttext="k" display="inline"><mi>k</mi></math>) for <math id="S4.p1.m3" class="ltx_Math" alttext="0\leq K\leq N=10^{4}" display="inline"><mrow><mn>0</mn><mo>≤</mo><mi>K</mi><mo>≤</mo><mi>N</mi><mo>=</mo><msup><mn>10</mn><mn>4</mn></msup></mrow></math>
+and we model:</p>
+<table id="S4.Ex18" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S4.Ex18X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S4.Ex18X.m2" class="ltx_Math" alttext="\displaystyle S_{k+1}=\mu+(1-a)\cdot[S_{k}-\mu]+\eta_{k+1}" display="inline"><mrow><msub><mi>S</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mrow><mi>μ</mi><mo>+</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mn>1</mn><mo>-</mo><mi>a</mi></mrow><mo stretchy="false">)</mo></mrow><mo>⋅</mo><mrow><mo stretchy="false">[</mo><mrow><msub><mi>S</mi><mi>k</mi></msub><mo>-</mo><mi>μ</mi></mrow><mo stretchy="false">]</mo></mrow></mrow><mo>+</mo><msub><mi>η</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">we could also write this as:</p>
+<table id="S4.Ex19" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S4.Ex19X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S4.Ex19X.m2" class="ltx_Math" alttext="\displaystyle\left[S_{k+1}|S_{k}\sim N\big{(}(1-a)\cdot[S_{k}-\mu],\sigma^{2}%
+\big{)}\right]" display="inline"><mrow><mo>[</mo><mrow><mrow><msub><mi>S</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub><mo lspace="2.5pt" rspace="2.5pt" stretchy="false">|</mo><msub><mi>S</mi><mi>k</mi></msub></mrow><mo>∼</mo><mrow><mi>N</mi><mo>⁢</mo><mrow><mo maxsize="120%" minsize="120%">(</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mn>1</mn><mo>-</mo><mi>a</mi></mrow><mo stretchy="false">)</mo></mrow><mo>⋅</mo><mrow><mo stretchy="false">[</mo><mrow><msub><mi>S</mi><mi>k</mi></msub><mo>-</mo><mi>μ</mi></mrow><mo stretchy="false">]</mo></mrow></mrow><mo>,</mo><msup><mi>σ</mi><mn>2</mn></msup><mo maxsize="120%" minsize="120%">)</mo></mrow></mrow></mrow><mo>]</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">Here <math id="S4.p1.m4" class="ltx_Math" alttext="\eta_{k+1}\sim i.i.dN(0,\sigma^{2})" display="inline"><mrow><mrow><msub><mi>η</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>∼</mo><mi>i</mi></mrow><mo>.</mo><mi>i</mi><mo>.</mo><mrow><mi>d</mi><mo>⁢</mo><mi>N</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><msup><mi>σ</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow></mrow></mrow></math> where <math id="S4.p1.m5" class="ltx_Math" alttext="\sigma^{2}=10^{-}4" display="inline"><mrow><msup><mi>σ</mi><mn>2</mn></msup><mo>=</mo><mrow><msup><mn>10</mn><mo>-</mo></msup><mo>⁢</mo><mn>4</mn></mrow></mrow></math>, and <math id="S4.p1.m6" class="ltx_Math" alttext="a=10^{-}3" display="inline"><mrow><mi>a</mi><mo>=</mo><mrow><msup><mn>10</mn><mo>-</mo></msup><mo>⁢</mo><mn>3</mn></mrow></mrow></math>
+So, <math id="S4.p1.m7" class="ltx_Math" alttext="S_{k}" display="inline"><msub><mi>S</mi><mi>k</mi></msub></math> with <math id="S4.p1.m8" class="ltx_Math" alttext="\mu=0" display="inline"><mrow><mi>μ</mi><mo>=</mo><mn>0</mn></mrow></math> would look something like this:</p>
+</div>
+<figure id="S4.fig1" class="ltx_figure"><img src="process.png" id="S4.g1" class="ltx_graphics ltx_centering" width="379" height="134" alt="">
+<figcaption class="ltx_caption ltx_centering"></figcaption>
+</figure>
+<div id="S4.p2" class="ltx_para">
+<p class="ltx_p">As shown this is a process that stays distributed about a mean.
+Suppose we have noisy observations of <math id="S4.p2.m1" class="ltx_Math" alttext="S_{t}" display="inline"><msub><mi>S</mi><mi>t</mi></msub></math> for a few years
+Let <math id="S4.p2.m2" class="ltx_Math" alttext="Y_{i}" display="inline"><msub><mi>Y</mi><mi>i</mi></msub></math> be our measurements</p>
+<table id="S4.Ex20" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S4.Ex20X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S4.Ex20X.m2" class="ltx_Math" alttext="\displaystyle Y_{i}=S_{k_{i}}+\varepsilon_{i}" display="inline"><mrow><msub><mi>Y</mi><mi>i</mi></msub><mo>=</mo><mrow><msub><mi>S</mi><msub><mi>k</mi><mi>i</mi></msub></msub><mo>+</mo><msub><mi>ε</mi><mi>i</mi></msub></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">For <math id="S4.p2.m3" class="ltx_Math" alttext="1\leq i\leq N" display="inline"><mrow><mn>1</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>N</mi></mrow></math> and <math id="S4.p2.m4" class="ltx_Math" alttext="\varepsilon_{i}\sim i.i.dN(0,\sigma_{\varepsilon}^{2})" display="inline"><mrow><mrow><msub><mi>ε</mi><mi>i</mi></msub><mo>∼</mo><mi>i</mi></mrow><mo>.</mo><mi>i</mi><mo>.</mo><mrow><mi>d</mi><mo>⁢</mo><mi>N</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><msubsup><mi>σ</mi><mi>ε</mi><mn>2</mn></msubsup><mo stretchy="false">)</mo></mrow></mrow></mrow></math>
+Our Goal: Estimate the total amount of sediment deposited</p>
+<table id="S4.Ex21" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S4.Ex21X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S4.Ex21X.m2" class="ltx_Math" alttext="\displaystyle S_{\mathrm{total}}=\sum_{k=1}^{N}S_{k}" display="inline"><mrow><msub><mi>S</mi><mi>total</mi></msub><mo>=</mo><mrow><mstyle displaystyle="true"><munderover><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>N</mi></munderover></mstyle><msub><mi>S</mi><mi>k</mi></msub></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">Let <math id="S4.p2.m5" class="ltx_Math" alttext="D_{k}=S_{k}-\mu" display="inline"><mrow><msub><mi>D</mi><mi>k</mi></msub><mo>=</mo><mrow><msub><mi>S</mi><mi>k</mi></msub><mo>-</mo><mi>μ</mi></mrow></mrow></math> we can rewrite this as:</p>
+<table id="S4.Ex22" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S4.Ex22X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S4.Ex22X.m2" class="ltx_Math" alttext="\displaystyle D_{k}=\eta_{k}+(1-a)D_{k-1}=\eta_{k}+(1-a)\eta_{k-1}+(1-a)^{2}D_%
+{k-2}=\sum_{j\geq 0}(1-a)^{j}\eta_{k-j}" display="inline"><mrow><msub><mi>D</mi><mi>k</mi></msub><mo>=</mo><mrow><msub><mi>η</mi><mi>k</mi></msub><mo>+</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mn>1</mn><mo>-</mo><mi>a</mi></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><msub><mi>D</mi><mrow><mi>k</mi><mo>-</mo><mn>1</mn></mrow></msub></mrow></mrow><mo>=</mo><mrow><msub><mi>η</mi><mi>k</mi></msub><mo>+</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mn>1</mn><mo>-</mo><mi>a</mi></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><msub><mi>η</mi><mrow><mi>k</mi><mo>-</mo><mn>1</mn></mrow></msub></mrow><mo>+</mo><mrow><msup><mrow><mo stretchy="false">(</mo><mrow><mn>1</mn><mo>-</mo><mi>a</mi></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup><mo>⁢</mo><msub><mi>D</mi><mrow><mi>k</mi><mo>-</mo><mn>2</mn></mrow></msub></mrow></mrow><mo>=</mo><mrow><mstyle displaystyle="true"><munder><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>j</mi><mo>≥</mo><mn>0</mn></mrow></munder></mstyle><mrow><msup><mrow><mo stretchy="false">(</mo><mrow><mn>1</mn><mo>-</mo><mi>a</mi></mrow><mo stretchy="false">)</mo></mrow><mi>j</mi></msup><mo>⁢</mo><msub><mi>η</mi><mrow><mi>k</mi><mo>-</mo><mi>j</mi></mrow></msub></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">Thus, we know:</p>
+<table id="S4.Ex23" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S4.Ex23X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S4.Ex23X.m2" class="ltx_Math" alttext="\displaystyle D_{k}\sim N\bigg{(}0,\sigma^{2}\cdot\sum_{j\geq 0}(1-a)^{2}j%
+\bigg{)}=N\bigg{(}0,\sigma^{2}\dfrac{1}{(2-a)a}\bigg{)}" display="inline"><mrow><msub><mi>D</mi><mi>k</mi></msub><mo>∼</mo><mrow><mi>N</mi><mo>⁢</mo><mrow><mo maxsize="210%" minsize="210%">(</mo><mn>0</mn><mo>,</mo><mrow><msup><mi>σ</mi><mn>2</mn></msup><mo>⋅</mo><mrow><mstyle displaystyle="true"><munder><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>j</mi><mo>≥</mo><mn>0</mn></mrow></munder></mstyle><mrow><msup><mrow><mo stretchy="false">(</mo><mrow><mn>1</mn><mo>-</mo><mi>a</mi></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup><mo>⁢</mo><mi>j</mi></mrow></mrow></mrow><mo maxsize="210%" minsize="210%">)</mo></mrow></mrow><mo>=</mo><mrow><mi>N</mi><mo>⁢</mo><mrow><mo maxsize="210%" minsize="210%">(</mo><mn>0</mn><mo>,</mo><mrow><msup><mi>σ</mi><mn>2</mn></msup><mo>⁢</mo><mstyle displaystyle="true"><mfrac><mn>1</mn><mrow><mrow><mo stretchy="false">(</mo><mrow><mn>2</mn><mo>-</mo><mi>a</mi></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mi>a</mi></mrow></mfrac></mstyle></mrow><mo maxsize="210%" minsize="210%">)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">And since <math id="S4.p2.m6" class="ltx_Math" alttext="\sigma^{2}=10^{-}4" display="inline"><mrow><msup><mi>σ</mi><mn>2</mn></msup><mo>=</mo><mrow><msup><mn>10</mn><mo>-</mo></msup><mo>⁢</mo><mn>4</mn></mrow></mrow></math> and <math id="S4.p2.m7" class="ltx_Math" alttext="a=10^{-}3" display="inline"><mrow><mi>a</mi><mo>=</mo><mrow><msup><mn>10</mn><mo>-</mo></msup><mo>⁢</mo><mn>3</mn></mrow></mrow></math> we can simplify this further, <math id="S4.p2.m8" class="ltx_Math" alttext="D_{k}\sim N(0,\sim 0.05)" display="inline"><mrow><msub><mi>D</mi><mi>k</mi></msub><mo>∼</mo><mi>N</mi><mrow><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><mo>∼</mo><mn>0.05</mn><mo stretchy="false">)</mo></mrow></mrow></math>.
+Let’s say that <math id="S4.p2.m9" class="ltx_Math" alttext="(w_{t})_{t\in\mathbb{R}}" display="inline"><msub><mrow><mo stretchy="false">(</mo><msub><mi>w</mi><mi>t</mi></msub><mo stretchy="false">)</mo></mrow><mrow><mi>t</mi><mo>∈</mo><mi>ℝ</mi></mrow></msub></math> is a Brownian motion
+and <math id="S4.p2.m10" class="ltx_Math" alttext="\eta_{k}=W_{\frac{{k+1}}{N}}-W_{\frac{{k}}{N}}\sim N\big{(}0,\frac{1}{N}=%
+\sigma^{2}\big{)}" display="inline"><mrow><msub><mi>η</mi><mi>k</mi></msub><mo>=</mo><msub><mi>W</mi><mfrac><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow><mi>N</mi></mfrac></msub><mo>-</mo><msub><mi>W</mi><mfrac><mi>k</mi><mi>N</mi></mfrac></msub><mo>∼</mo><mi>N</mi><mrow><mo maxsize="120%" minsize="120%">(</mo><mn>0</mn><mo>,</mo><mfrac><mn>1</mn><mi>N</mi></mfrac><mo>=</mo><msup><mi>σ</mi><mn>2</mn></msup><mo maxsize="120%" minsize="120%">)</mo></mrow></mrow></math>
+Then,</p>
+<table id="S4.Ex24" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S4.Ex24X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S4.Ex24X.m2" class="ltx_Math" alttext="\displaystyle D_{k}=\sum_{j\geq 0}(1-a)^{j}\Big{(}W_{\frac{{k-j+1}}{N}}-W_{%
+\frac{{k-j}}{N}}\Big{)}\approx\sum_{j\geq 0}e^{-aj}\Big{(}W_{\frac{{k-j+1}}{N}%
+}-W_{\frac{{k-j}}{N}}\Big{)}=\int_{-\infty}^{t}e^{-aN(t-s)}dW_{s}" display="inline"><mrow><msub><mi>D</mi><mi>k</mi></msub><mo>=</mo><mrow><mstyle displaystyle="true"><munder><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>j</mi><mo>≥</mo><mn>0</mn></mrow></munder></mstyle><mrow><msup><mrow><mo stretchy="false">(</mo><mrow><mn>1</mn><mo>-</mo><mi>a</mi></mrow><mo stretchy="false">)</mo></mrow><mi>j</mi></msup><mo>⁢</mo><mrow><mo maxsize="160%" minsize="160%">(</mo><mrow><msub><mi>W</mi><mfrac><mrow><mrow><mi>k</mi><mo>-</mo><mi>j</mi></mrow><mo>+</mo><mn>1</mn></mrow><mi>N</mi></mfrac></msub><mo>-</mo><msub><mi>W</mi><mfrac><mrow><mi>k</mi><mo>-</mo><mi>j</mi></mrow><mi>N</mi></mfrac></msub></mrow><mo maxsize="160%" minsize="160%">)</mo></mrow></mrow></mrow><mo>≈</mo><mrow><mstyle displaystyle="true"><munder><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>j</mi><mo>≥</mo><mn>0</mn></mrow></munder></mstyle><mrow><msup><mi>e</mi><mrow><mo>-</mo><mrow><mi>a</mi><mo>⁢</mo><mi>j</mi></mrow></mrow></msup><mo>⁢</mo><mrow><mo maxsize="160%" minsize="160%">(</mo><mrow><msub><mi>W</mi><mfrac><mrow><mrow><mi>k</mi><mo>-</mo><mi>j</mi></mrow><mo>+</mo><mn>1</mn></mrow><mi>N</mi></mfrac></msub><mo>-</mo><msub><mi>W</mi><mfrac><mrow><mi>k</mi><mo>-</mo><mi>j</mi></mrow><mi>N</mi></mfrac></msub></mrow><mo maxsize="160%" minsize="160%">)</mo></mrow></mrow></mrow><mo>=</mo><mrow><mstyle displaystyle="true"><msubsup><mo largeop="true" symmetric="true">∫</mo><mrow><mo>-</mo><mi mathvariant="normal">∞</mi></mrow><mi>t</mi></msubsup></mstyle><mrow><msup><mi>e</mi><mrow><mo>-</mo><mrow><mi>a</mi><mo>⁢</mo><mi>N</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>t</mi><mo>-</mo><mi>s</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></msup><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><msub><mi>W</mi><mi>s</mi></msub></mrow></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">Where, <math id="S4.p2.m11" class="ltx_Math" alttext="t=\frac{k}{N}" display="inline"><mrow><mi>t</mi><mo>=</mo><mfrac><mi>k</mi><mi>N</mi></mfrac></mrow></math> and <math id="S4.p2.m12" class="ltx_Math" alttext="0\leq t\leq 1" display="inline"><mrow><mn>0</mn><mo>≤</mo><mi>t</mi><mo>≤</mo><mn>1</mn></mrow></math>
+Further simplifying we get,</p>
+<table id="S4.Ex25" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S4.Ex25X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S4.Ex25X.m2" class="ltx_Math" alttext="\displaystyle D_{k}=\int_{-\infty}^{t}e^{-aN(t-s)}dW_{s}\sim N(0,\int_{-\infty%
+}^{t}(e^{-aN(t-s)})^{2}ds=\frac{1}{2aN})=\frac{\sigma^{2}}{2a}+\mathcal{O}(a^{%
+2}\sigma^{2})" display="inline"><mrow><msub><mi>D</mi><mi>k</mi></msub><mo>=</mo><mstyle displaystyle="true"><msubsup><mo largeop="true" symmetric="true">∫</mo><mrow><mo>-</mo><mi mathvariant="normal">∞</mi></mrow><mi>t</mi></msubsup></mstyle><msup><mi>e</mi><mrow><mo>-</mo><mrow><mi>a</mi><mo>⁢</mo><mi>N</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>t</mi><mo>-</mo><mi>s</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></msup><mi>d</mi><msub><mi>W</mi><mi>s</mi></msub><mo>∼</mo><mi>N</mi><mrow><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><mstyle displaystyle="true"><msubsup><mo largeop="true" symmetric="true">∫</mo><mrow><mo>-</mo><mi mathvariant="normal">∞</mi></mrow><mi>t</mi></msubsup></mstyle><msup><mrow><mo stretchy="false">(</mo><msup><mi>e</mi><mrow><mo>-</mo><mrow><mi>a</mi><mo>⁢</mo><mi>N</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>t</mi><mo>-</mo><mi>s</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></msup><mo stretchy="false">)</mo></mrow><mn>2</mn></msup><mi>d</mi><mi>s</mi><mo>=</mo><mstyle displaystyle="true"><mfrac><mn>1</mn><mrow><mn>2</mn><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>N</mi></mrow></mfrac></mstyle><mo stretchy="false">)</mo></mrow><mo>=</mo><mstyle displaystyle="true"><mfrac><msup><mi>σ</mi><mn>2</mn></msup><mrow><mn>2</mn><mo>⁢</mo><mi>a</mi></mrow></mfrac></mstyle><mo>+</mo><mi class="ltx_font_mathcaligraphic">𝒪</mi><mrow><mo stretchy="false">(</mo><msup><mi>a</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">Let <math id="S4.p2.m13" class="ltx_Math" alttext="U_{t}=\int_{-\infty}^{t}e^{-aN(t-s)}dW_{s}" display="inline"><mrow><msub><mi>U</mi><mi>t</mi></msub><mo>=</mo><mrow><msubsup><mo largeop="true" symmetric="true">∫</mo><mrow><mo>-</mo><mi mathvariant="normal">∞</mi></mrow><mi>t</mi></msubsup><mrow><msup><mi>e</mi><mrow><mo>-</mo><mrow><mi>a</mi><mo>⁢</mo><mi>N</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>t</mi><mo>-</mo><mi>s</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></msup><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><msub><mi>W</mi><mi>s</mi></msub></mrow></mrow></mrow></mrow></math>
+Also, <math id="S4.p2.m14" class="ltx_Math" alttext="S_{\mathrm{total}}\simeq N\mu+\sum_{k=1}^{N}U_{\frac{k}{N}}\sim N\cdot(\mu+%
+\int_{0}^{1}U_{t}dt)" display="inline"><mrow><msub><mi>S</mi><mi>total</mi></msub><mo>≃</mo><mrow><mrow><mi>N</mi><mo>⁢</mo><mi>μ</mi></mrow><mo>+</mo><mrow><msubsup><mo largeop="true" symmetric="true">∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>N</mi></msubsup><msub><mi>U</mi><mfrac><mi>k</mi><mi>N</mi></mfrac></msub></mrow></mrow><mo>∼</mo><mrow><mi>N</mi><mo>⋅</mo><mrow><mo stretchy="false">(</mo><mrow><mi>μ</mi><mo>+</mo><mrow><msubsup><mo largeop="true" symmetric="true">∫</mo><mn>0</mn><mn>1</mn></msubsup><mrow><msub><mi>U</mi><mi>t</mi></msub><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>t</mi></mrow></mrow></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math>
+New question: Let <math id="S4.p2.m15" class="ltx_Math" alttext="T=\int_{0}^{1}U_{t}dt" display="inline"><mrow><mi>T</mi><mo>=</mo><mrow><msubsup><mo largeop="true" symmetric="true">∫</mo><mn>0</mn><mn>1</mn></msubsup><mrow><msub><mi>U</mi><mi>t</mi></msub><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>t</mi></mrow></mrow></mrow></mrow></math>
+and <math id="S4.p2.m16" class="ltx_Math" alttext="x_{i}=U_{t_{i}}+\varepsilon_{i}" display="inline"><mrow><msub><mi>x</mi><mi>i</mi></msub><mo>=</mo><mrow><msub><mi>U</mi><msub><mi>t</mi><mi>i</mi></msub></msub><mo>+</mo><msub><mi>ε</mi><mi>i</mi></msub></mrow></mrow></math> where <math id="S4.p2.m17" class="ltx_Math" alttext="\varepsilon_{i}\sim i.i.dN(0,\sigma_{\varepsilon}^{2})" display="inline"><mrow><mrow><msub><mi>ε</mi><mi>i</mi></msub><mo>∼</mo><mi>i</mi></mrow><mo>.</mo><mi>i</mi><mo>.</mo><mrow><mi>d</mi><mo>⁢</mo><mi>N</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><msubsup><mi>σ</mi><mi>ε</mi><mn>2</mn></msubsup><mo stretchy="false">)</mo></mrow></mrow></mrow></math>
+What is the conditional distribution of <math id="S4.p2.m18" class="ltx_Math" alttext="(T|X=x_{1},\ldots,x_{N}=x_{N})" display="inline"><mrow><mo stretchy="false">(</mo><mrow><mrow><mrow><mi>T</mi><mo lspace="2.5pt" rspace="2.5pt" stretchy="false">|</mo><mi>X</mi></mrow><mo>=</mo><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi mathvariant="normal">…</mi></mrow></mrow><mo>,</mo><mrow><msub><mi>x</mi><mi>N</mi></msub><mo>=</mo><msub><mi>x</mi><mi>N</mi></msub></mrow></mrow><mo stretchy="false">)</mo></mrow></math> ?
+Now, we are trying to estimate the total integral, or the purple area below.</p>
+</div>
+<figure id="S4.fig2" class="ltx_figure"><img src="area2.png" id="S4.g2" class="ltx_graphics ltx_centering" width="379" height="137" alt="">
+<figcaption class="ltx_caption ltx_centering"></figcaption>
+</figure>
+<div id="S4.p3" class="ltx_para">
+<p class="ltx_p">The points on the blue curve are values of <math id="S4.p3.m1" class="ltx_Math" alttext="U_{t}" display="inline"><msub><mi>U</mi><mi>t</mi></msub></math>,
+and the purple area is: <math id="S4.p3.m2" class="ltx_Math" alttext="\int_{0}^{1}U_{t}dt=T" display="inline"><mrow><mrow><msubsup><mo largeop="true" symmetric="true">∫</mo><mn>0</mn><mn>1</mn></msubsup><mrow><msub><mi>U</mi><mi>t</mi></msub><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>t</mi></mrow></mrow></mrow><mo>=</mo><mi>T</mi></mrow></math>
+To do this we need everything inside to be jointly Gaussian.
+i.e. we need to use the same white noise.
+Using the lemma from last lecture,
+we only need their covariance to calculate this area.
+Recall the lemma,
+if <math id="S4.p3.m3" class="ltx_Math" alttext="(X,Y)" display="inline"><mrow><mo stretchy="false">(</mo><mi>X</mi><mo>,</mo><mi>Y</mi><mo stretchy="false">)</mo></mrow></math> is <math id="S4.p3.m4" class="ltx_Math" alttext="N\Bigg{(}0,\begin{bmatrix}\Sigma_{XX}^{\prime}&amp;\Sigma_{XY}\\
+\Sigma_{YX}&amp;\Sigma_{YY}\end{bmatrix}\Bigg{)}" display="inline"><mrow><mi>N</mi><mo>⁢</mo><mrow><mo maxsize="260%" minsize="260%">(</mo><mn>0</mn><mo>,</mo><mrow><mo>[</mo><mtable columnspacing="5pt" rowspacing="0pt"><mtr><mtd columnalign="center"><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>X</mi></mrow><mo>′</mo></msubsup></mtd><mtd columnalign="center"><msub><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>Y</mi></mrow></msub></mtd></mtr><mtr><mtd columnalign="center"><msub><mi mathvariant="normal">Σ</mi><mrow><mi>Y</mi><mo>⁢</mo><mi>X</mi></mrow></msub></mtd><mtd columnalign="center"><msub><mi mathvariant="normal">Σ</mi><mrow><mi>Y</mi><mo>⁢</mo><mi>Y</mi></mrow></msub></mtd></mtr></mtable><mo>]</mo></mrow><mo maxsize="260%" minsize="260%">)</mo></mrow></mrow></math>
+then, <math id="S4.p3.m5" class="ltx_Math" alttext="(X|Y=y)\sim N(\Sigma_{XY}\Sigma_{YY}^{-1}y,\Sigma_{XX}-\Sigma_{XY}\Sigma_{YY}^%
+{-1}\Sigma_{XY}^{\intercal})" display="inline"><mrow><mrow><mo stretchy="false">(</mo><mi>X</mi><mo stretchy="false">|</mo><mi>Y</mi><mo>=</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><mo>∼</mo><mi>N</mi><mrow><mo stretchy="false">(</mo><msub><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>Y</mi></mrow></msub><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>Y</mi><mo>⁢</mo><mi>Y</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msubsup><mi>y</mi><mo>,</mo><msub><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>X</mi></mrow></msub><mo>-</mo><msub><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>Y</mi></mrow></msub><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>Y</mi><mo>⁢</mo><mi>Y</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msubsup><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>X</mi><mo>⁢</mo><mi>Y</mi></mrow><mo>⊺</mo></msubsup><mo stretchy="false">)</mo></mrow></mrow></math>
+To apply this we first need to expand <math id="S4.p3.m6" class="ltx_Math" alttext="T" display="inline"><mi>T</mi></math></p>
+<table id="S4.Ex26" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S4.Ex26X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S4.Ex26X.m2" class="ltx_Math" alttext="\displaystyle T=\int_{0}^{1}U_{t}dt=\int_{0}^{1}\int_{-\infty}^{t}e^{-aN(t-s)}%
+dW_{s}dt=\int_{-\infty}^{1}\frac{1}{aN}\big{(}1-e^{aN(s-1)}\big{)}dW_{s}%
+\coloneqq\varphi(s)" display="inline"><mrow><mi>T</mi><mo>=</mo><mrow><mstyle displaystyle="true"><msubsup><mo largeop="true" symmetric="true">∫</mo><mn>0</mn><mn>1</mn></msubsup></mstyle><mrow><msub><mi>U</mi><mi>t</mi></msub><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>t</mi></mrow></mrow></mrow><mo>=</mo><mrow><mstyle displaystyle="true"><msubsup><mo largeop="true" symmetric="true">∫</mo><mn>0</mn><mn>1</mn></msubsup></mstyle><mrow><mstyle displaystyle="true"><msubsup><mo largeop="true" symmetric="true">∫</mo><mrow><mo>-</mo><mi mathvariant="normal">∞</mi></mrow><mi>t</mi></msubsup></mstyle><mrow><msup><mi>e</mi><mrow><mo>-</mo><mrow><mi>a</mi><mo>⁢</mo><mi>N</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>t</mi><mo>-</mo><mi>s</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></msup><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><msub><mi>W</mi><mi>s</mi></msub></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>t</mi></mrow></mrow></mrow></mrow><mo>=</mo><mrow><mstyle displaystyle="true"><msubsup><mo largeop="true" symmetric="true">∫</mo><mrow><mo>-</mo><mi mathvariant="normal">∞</mi></mrow><mn>1</mn></msubsup></mstyle><mrow><mstyle displaystyle="true"><mfrac><mn>1</mn><mrow><mi>a</mi><mo>⁢</mo><mi>N</mi></mrow></mfrac></mstyle><mo>⁢</mo><mrow><mo maxsize="120%" minsize="120%">(</mo><mrow><mn>1</mn><mo>-</mo><msup><mi>e</mi><mrow><mi>a</mi><mo>⁢</mo><mi>N</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>s</mi><mo>-</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></mrow></msup></mrow><mo maxsize="120%" minsize="120%">)</mo></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><msub><mi>W</mi><mi>s</mi></msub></mrow></mrow></mrow><mo>≔</mo><mrow><mi>φ</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">Now, we know the following:</p>
+<table id="S4.Ex27" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S4.Ex27X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S4.Ex27X.m2" class="ltx_Math" alttext="\displaystyle\operatorname{var}[T]=\int_{-\infty}^{1}\varphi^{2}(s)ds" display="inline"><mrow><mrow><mi>var</mi><mo>⁡</mo><mrow><mo stretchy="false">[</mo><mi>T</mi><mo stretchy="false">]</mo></mrow></mrow><mo>=</mo><mrow><mstyle displaystyle="true"><msubsup><mo largeop="true" symmetric="true">∫</mo><mrow><mo>-</mo><mi mathvariant="normal">∞</mi></mrow><mn>1</mn></msubsup></mstyle><mrow><msup><mi>φ</mi><mn>2</mn></msup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>s</mi></mrow></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="S4.p4" class="ltx_para">
+<table id="S4.Ex28" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S4.Ex28X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S4.Ex28X.m2" class="ltx_Math" alttext="\displaystyle\operatorname{var}[x_{i}]=\operatorname{var}[U_{t_{i}}]+\sigma_{%
+\varepsilon}=\frac{1}{2aN}+\sigma_{\varepsilon}^{2}" display="inline"><mrow><mrow><mi>var</mi><mo>⁡</mo><mrow><mo stretchy="false">[</mo><msub><mi>x</mi><mi>i</mi></msub><mo stretchy="false">]</mo></mrow></mrow><mo>=</mo><mrow><mrow><mi>var</mi><mo>⁡</mo><mrow><mo stretchy="false">[</mo><msub><mi>U</mi><msub><mi>t</mi><mi>i</mi></msub></msub><mo stretchy="false">]</mo></mrow></mrow><mo>+</mo><msub><mi>σ</mi><mi>ε</mi></msub></mrow><mo>=</mo><mrow><mstyle displaystyle="true"><mfrac><mn>1</mn><mrow><mn>2</mn><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>N</mi></mrow></mfrac></mstyle><mo>+</mo><msubsup><mi>σ</mi><mi>ε</mi><mn>2</mn></msubsup></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="S4.p5" class="ltx_para">
+<table id="S4.Ex29" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S4.Ex29X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S4.Ex29X.m2" class="ltx_Math" alttext="\displaystyle\operatorname{cov}[x_{i},x_{j}]=\int_{-\infty}^{t_{i}}e^{-aN(t_{i%
+}-s)}\cdot e^{-aN(t_{j}-s)}ds=\frac{1}{2aN}[e^{-aN(t_{j}-t_{i})}]" display="inline"><mrow><mrow><mi>cov</mi><mo>⁡</mo><mrow><mo stretchy="false">[</mo><msub><mi>x</mi><mi>i</mi></msub><mo>,</mo><msub><mi>x</mi><mi>j</mi></msub><mo stretchy="false">]</mo></mrow></mrow><mo>=</mo><mrow><mstyle displaystyle="true"><msubsup><mo largeop="true" symmetric="true">∫</mo><mrow><mo>-</mo><mi mathvariant="normal">∞</mi></mrow><msub><mi>t</mi><mi>i</mi></msub></msubsup></mstyle><mrow><mrow><msup><mi>e</mi><mrow><mo>-</mo><mrow><mi>a</mi><mo>⁢</mo><mi>N</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><msub><mi>t</mi><mi>i</mi></msub><mo>-</mo><mi>s</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></msup><mo>⋅</mo><msup><mi>e</mi><mrow><mo>-</mo><mrow><mi>a</mi><mo>⁢</mo><mi>N</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><msub><mi>t</mi><mi>j</mi></msub><mo>-</mo><mi>s</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></msup></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>s</mi></mrow></mrow></mrow><mo>=</mo><mrow><mstyle displaystyle="true"><mfrac><mn>1</mn><mrow><mn>2</mn><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>N</mi></mrow></mfrac></mstyle><mo>⁢</mo><mrow><mo stretchy="false">[</mo><msup><mi>e</mi><mrow><mo>-</mo><mrow><mi>a</mi><mo>⁢</mo><mi>N</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><msub><mi>t</mi><mi>j</mi></msub><mo>-</mo><msub><mi>t</mi><mi>i</mi></msub></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></msup><mo stretchy="false">]</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="S4.p6" class="ltx_para">
+<p class="ltx_p">for <math id="S4.p6.m1" class="ltx_Math" alttext="i\neq j" display="inline"><mrow><mi>i</mi><mo>≠</mo><mi>j</mi></mrow></math> and <math id="S4.p6.m2" class="ltx_Math" alttext="t_{i}&lt;t_{j}" display="inline"><mrow><msub><mi>t</mi><mi>i</mi></msub><mo>&lt;</mo><msub><mi>t</mi><mi>j</mi></msub></mrow></math>
+Thus,</p>
+<table id="S4.Ex30" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S4.Ex30X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S4.Ex30X.m2" class="ltx_Math" alttext="\displaystyle\operatorname{cov}[x_{i},T]=\int_{-\infty}^{t}e^{-aN(t_{i}-s)}%
+\varphi(s)ds" display="inline"><mrow><mrow><mi>cov</mi><mo>⁡</mo><mrow><mo stretchy="false">[</mo><msub><mi>x</mi><mi>i</mi></msub><mo>,</mo><mi>T</mi><mo stretchy="false">]</mo></mrow></mrow><mo>=</mo><mrow><mstyle displaystyle="true"><msubsup><mo largeop="true" symmetric="true">∫</mo><mrow><mo>-</mo><mi mathvariant="normal">∞</mi></mrow><mi>t</mi></msubsup></mstyle><mrow><msup><mi>e</mi><mrow><mo>-</mo><mrow><mi>a</mi><mo>⁢</mo><mi>N</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><msub><mi>t</mi><mi>i</mi></msub><mo>-</mo><mi>s</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></msup><mo>⁢</mo><mi>φ</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>s</mi></mrow></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">where,</p>
+<table id="S4.Ex31" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S4.Ex31X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S4.Ex31X.m2" class="ltx_Math" alttext="\displaystyle\Sigma=\bordermatrix{&amp;&amp;&amp;&amp;&amp;\\
+T&amp;||\varphi^{2}||&amp;0&amp;\ldots&amp;\ldots&amp;0\\
+x_{1}&amp;0&amp;\frac{1}{2aN}+\varepsilon^{2}&amp;0&amp;\ldots&amp;0\\
+x_{2}&amp;0&amp;0&amp;\ddots&amp;\hfill&amp;0\\
+\vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\
+x_{N}&amp;0&amp;0&amp;0&amp;0&amp;\frac{1}{2aN}+\varepsilon^{2}}" display="inline"><mrow><mi mathvariant="normal">Σ</mi><mo>=</mo><mtable columnspacing="5pt" rowspacing="0pt"><mtr><mtd columnalign="center"><mi></mi></mtd><mtd columnalign="center"><mi></mi></mtd><mtd columnalign="center"><mi></mi></mtd><mtd columnalign="center"><mi></mi></mtd><mtd columnalign="center"><mi></mi></mtd><mtd columnalign="center"><mi></mi></mtd></mtr><mtr><mtd columnalign="center"><mi>T</mi></mtd><mtd columnalign="center"><mrow><mo fence="true">||</mo><msup><mi>φ</mi><mn>2</mn></msup><mo fence="true">||</mo></mrow></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><msub><mi>x</mi><mn>1</mn></msub></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mrow><mfrac><mn>1</mn><mrow><mn>2</mn><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>N</mi></mrow></mfrac><mo>+</mo><msup><mi>ε</mi><mn>2</mn></msup></mrow></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><msub><mi>x</mi><mn>2</mn></msub></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mi mathvariant="normal">⋱</mi></mtd><mtd columnalign="center"><mi></mi></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mi mathvariant="normal">⋮</mi></mtd><mtd columnalign="center"><mi mathvariant="normal">⋮</mi></mtd><mtd columnalign="center"><mi mathvariant="normal">⋮</mi></mtd><mtd columnalign="center"><mi mathvariant="normal">⋮</mi></mtd><mtd columnalign="center"><mi mathvariant="normal">⋱</mi></mtd><mtd columnalign="center"><mi mathvariant="normal">⋮</mi></mtd></mtr><mtr><mtd columnalign="center"><msub><mi>x</mi><mi>N</mi></msub></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mrow><mfrac><mn>1</mn><mrow><mn>2</mn><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>N</mi></mrow></mfrac><mo>+</mo><msup><mi>ε</mi><mn>2</mn></msup></mrow></mtd></mtr></mtable></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</section>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Mon Oct  8 11:56:44 2018 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

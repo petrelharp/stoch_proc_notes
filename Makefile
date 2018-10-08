@@ -5,7 +5,7 @@ SHELL := /bin/bash
 
 all : syllabus.html index.html style.html notes
 
-notes : LectureNotes/Lectures/Fall2018/Lecture1/ASPLecture1.html LectureNotes/Lectures/Fall2018/Lecture2/ASPLecture2.html
+notes : LectureNotes/Lectures/Fall2018/Lecture1/ASPLecture1.html LectureNotes/Lectures/Fall2018/Lecture3/ASPLecture3.html
 
 %.html : %.latexml.html
 	mv $< $@
@@ -38,7 +38,7 @@ endif
 	pandoc -o $@ -t latex $<
 
 %.pandoc.html : %.tex
-	cat header.tex $< footer.tex | pandoc --lua-filter tikz.lua | pandoc -f latex -o $@ -t html $(PANDOC_OPTS)
+	pandoc --lua-filter tikz.lua | pandoc -f latex -o $@ -t html $(PANDOC_OPTS)
 
 ##########
 # LaTeXML

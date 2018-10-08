@@ -12,7 +12,7 @@ The exact dates we cover the topics below is expected to change.
 
 - [September 28 and October 1](LectureNotes/Lectures/Fall2018/Lecture2/ASPLecture2.html) - Joe
 
-- [October 3 and 5]() - Chandler
+- [October 3 and 5](LectureNotes/Lectures/Fall2018/Lecture3/ASPLecture3.html) - Chandler
 
 
 ## Poisson Point Processes

@@ -29,9 +29,6 @@
 \usepackage{graphics} %for including images
 \usepackage{float, subcaption} %for putting images where I want them, and not captioning them
 \usepackage{kbordermatrix} %for labeling the matrix at the end of the notes 
-\usepackage{pgfplots} %For \plot and related tikz commands%
-\usepackage{tikz} %For tikz%
-\usepackage{tikz-cd} %For tikz commutative diagrams%
 
 
 
@@ -72,7 +69,7 @@ Does this help identify the bad cufflinks?
 
 \textbf{B}. What is the distribution of $M_{1}$ among cufflinks with $M_{1}+M_{2}\approx 12$? 
 
-\textcolor{Red}{Let $A=M_{1}+M_{2}$ and $B=M_{1}-M_{2}$, then $M_{1}=\frac{A+B}{2}$. 
+\textcolor{Red}{Let $A=M_{1}+M_{2}$ and $B=M_{1}-M_{2}$, then $M_{1}\frac{A+B}{2}$. 
 From Part A we know $A$ and $B$ are independent. 
 	$$\begin{aligned}
 	(M_{1}\vert A=12) \stackrel{d}{=} \dfrac{12 + B}{2} \sim N(6,2)
@@ -192,7 +189,7 @@ S_{k+1} = \mu + (1-a) \cdot [S_{k}-\mu] + \eta_{k+1}
 \end{aligned}$$
 we could also write this as: 
 $$\begin{aligned}
-\left[S_{k+1}\vert S_{k} \sim N\big((1-a) \cdot [S_{k}-\mu], \sigma^2\big)\right]
+[S_{k+1}\vert S_{k} \sim N\big((1-a) \cdot [S_{k}-\mu], \sigma^2\big)]
 \end{aligned}$$
 Here $\eta_{k+1} \sim i.i.d N(0, \sigma^2)$ where $\sigma^2 = 10^-4$, and $a=10^-3$
 So, $S_{k}$ with $\mu=0$ would look something like this: 
@@ -279,7 +276,7 @@ $$\begin{aligned}
 where, 
 $$\begin{aligned}
 \Sigma = 
-\bordermatrix{
+\kbordermatrix{
 	&  &  &  &  &  \\
 	T & \vert\vert\varphi^2\vert\vert & 0 & \dotso & \dotso & 0 \\
 	x_1 & 0 & \frac{1}{2aN}+\varepsilon^2 & 0 & \dotso & 0 \\

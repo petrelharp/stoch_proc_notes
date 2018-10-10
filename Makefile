@@ -44,7 +44,7 @@ endif
 # LaTeXML
 
 %.xml : %.tex
-	latexml --dest=$@ --preamble=header.tex --postamble=footer.tex $<
+	latexml --dest=$@ $<
 
 %.latexml.html : %.xml
 	latexmlpost --dest=$@ $<

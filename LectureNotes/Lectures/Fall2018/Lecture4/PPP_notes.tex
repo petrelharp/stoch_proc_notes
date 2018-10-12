@@ -32,12 +32,12 @@ Suppose in some space $X$ we lay down a large number of LED lights, each with th
 
 We would like to answer the following question: how many lights in $A$ are on? To that end, let $N(A)$ denote the number of lights on in $A$ and compute
 \begin{align}
-	\mathbb{E}\left[ N(A) \right] = \mathbb{E} \left[ \sum_{\text{lights in }A} \mathds{1}_{\{\text{lights on}\}} \right]
+	\mathbb{E}\left[ N(A) \right] = \mathbb{E} \left[ \sum_{\text{lights in }A} \mathds{1}_{\{\text{light on}\}} \right]
 	= \sum_{\text{lights in }A} \mathbb{P}\left\{ \text{light is on} \right\}
 		= M \mu(A) \left(\frac{1}{M}\right)
 		= \mu(A).
 \end{align}
-Thus $\mu$ gives the expected density for the set of lights that are on in $A$. By construction, we know $N(A) \sim \operatorname{Binom}\left(M\mu(A),M^{-1}\right)$, and hence $N(A) \sim \operatorname{Pois}(\mu(A))$. To see this, put $L = M\mu(A)$ and observe,
+Thus $\mu$ gives the expected density for the set of lights that are on in $A$. By construction, we know $N(A) \sim \operatorname{Binom}\left(M\mu(A),M^{-1}\right)$, and hence the distribution of $N(A)$ is approximately $\operatorname{Pois}(\mu(A))$. To see this, put $L = M\mu(A)$ and observe,
 \begin{align}
 	\mathbb{P}\left\{N(A) = n \right\} &= \binom{L}{n}\left(\frac{1}{M}\right)^n\left(1 - \frac{1}{M}\right)^{L-n}\\
 	&= \frac{L(L-1)\cdots (L-n+1)}{n! M^n} \left( 1 - \frac{1}{M} \right)^{L-n}\\
@@ -73,25 +73,30 @@ It is sometimes useful to think of a PPP as a random collection of points. With 
 	\end{align}
 	\underline{Note:} This is a more general property of point processes, as any point process has a mean measure. To see \eqref{eq:mm} holds without needing $N$ to be a \emph{Poisson} point process, let $f$ be a simple function, i.e.
 	\begin{align}
-		f(x) = \sum_{i=1}^n f_i \mathds{1}_{A_i}(x), \qquad\text{where}\qquad X = \bigsqcup_i A_i.
+		f(x) = \sum_{i=1}^n f_i \mathds{1}_{A_i}(x), \qquad\text{where}\qquad X = \bigcup_i A_i,\quad A_i\cap A_j = \varnothing \text{ for } i\neq j.
 	\end{align}
 	Then we compute
 	\begin{align}
 		\mathbb{E}\left[ \int_X\! f(x) \, dN(x) \right] = \mathbb{E}\left[ \sum_i f_i N(A_i) \right] = \sum_i f_i \mathbb{E}\left[ N(A_i) \right] = \sum_i f_i \mu(A_i) = \int_X \! f(x) \, d\mu(x).
 	\end{align}
+	This can then be extended to arbitrary measurable functions through the standard limiting procedure.
 	\item \emph{Thinning:} Independently discard each point of $N$ with probability $1-p(x)$ for a point at $x\in X$. The result is a $\operatorname{PPP}(\nu)$, where
 	\begin{align}\label{eq:thin}
 		\nu(A) = \int_A\! p(x) \, d\mu(x).
 	\end{align}
-	In other words, if $N = \sum_i \delta_{x_i}$ and $a_i = 1$ with probability $p(x_i)$ and $a_i = 0$ otherwise, then
+	In other words, if $N = \sum_i \delta_{x_i}$ and $A_i = 1$ with probability $p(x_i)$ and $A_i = 0$ otherwise, then
 	\begin{align}
-		\widetilde{N} = \sum_i a_i \delta_{x_i} \sim \operatorname{PPP}(\nu).
+		\widetilde{N} = \sum_i A_i \delta_{x_i} \sim \operatorname{PPP}(\nu).
 	\end{align}
-	\item \emph{Additivity:} If $N_1 \sim \operatorname{PPP}(\mu_1)$ and $N_2 \sim \operatorname{PPP}(\mu_2)$ are independent on $X$, then $N_1 + N_2 \sim \operatorname{PPP}(\mu_1 + \mu_2)$. That is to say, if $\mathbb{P}\left\{ X = n \right\} = \frac{\lambda^n}{n!}e^{-\lambda}$ and $\mathbb{P}\left\{ Y = n \right\} = \frac{\nu^n}{n!}e^{-\nu}$ are independent, then
+	\item \emph{Additivity:} If $N_1 \sim \operatorname{PPP}(\mu_1)$ and $N_2 \sim \operatorname{PPP}(\mu_2)$ are independent on $X$, then $N_1 + N_2 \sim \operatorname{PPP}(\mu_1 + \mu_2)$. In particular, if $\mathbb{P}\left\{ X = n \right\} = \frac{\lambda^n}{n!}e^{-\lambda}$ and $\mathbb{P}\left\{ Y = n \right\} = \frac{\nu^n}{n!}e^{-\nu}$ are independent, then
 	\begin{align}
 		\mathbb{P}\left\{ X + Y = n \right\} = \frac{(\lambda + \nu)^n}{n!}e^{-(\lambda + \nu)}.
 	\end{align}
-	\item \emph{Labeling:} For each point in a PPP, associate an independent label from a space $Y$ according to some distribution $\nu$. Let $N = \sum_i \delta_{x_i}$ for $\{x_i\}\subset X$ and let $G_1,G_2,\ldots \in Y$ be iid with density $\nu$. Then 
+	\item \emph{Labeling:} For each point in a PPP,
+	   associate an independent label from a space $Y$ 
+	   according to some probability distribution $\nu$.
+	   Let $N = \sum_i \delta_{x_i}$ for $\{x_i\}\subset X$ 
+	   and let $G_1,G_2,\ldots \in Y$ be iid with density $\nu$. Then 
 	\begin{align}\label{eq:label}
 		\overline{N} := \sum_i \delta_{(x_i, G_i)} \sim \operatorname{PPP}(\mu\times\nu)
 	\end{align}
@@ -100,7 +105,7 @@ It is sometimes useful to think of a PPP as a random collection of points. With 
 \section{Examples}
 Henceforth, let $\lambda$ denote Lebesgue measure.
 \begin{example}
-	Let $N\sim \operatorname{PPP}(\lambda)$ on $\mathbb{R}_{\geq 0}$, where $\lambda$ is Lebesgue measure.
+	Let $N\sim \operatorname{PPP}(\lambda)$ on $\mathbb{R}_{\geq 0}$, where $\lambda$ is Lebesgue measure. As before, we think of the points of $N$ as `lights', here positioned on the positive reals.
 	\begin{enumerate}[(a)]
 		\item How far until the first light?
 		\item Suppose each light is independently either red or green with probability $\frac{1}{2}$. How far until the first red light?
@@ -120,14 +125,14 @@ Henceforth, let $\lambda$ denote Lebesgue measure.
 	\end{soln}
 \end{example}
 \begin{example}\label{ex:ant}
-	Rain falls for 10 minutes on a large patio at a rate of $\nu = 12$ drops per minute per square meter. Each drop splatters to a radius $R \sim \operatorname{Exp}(100)$, so that $\mathbb{E}[R] = 1\text{ cm}$, with a thickness of $0.001$ meters. Assume the set of locations of the raindrops is a PPP.
+	Rain falls for 10 minutes on a large patio at a rate of $\nu = 80$ drops per minute per square meter. Each drop splatters to a random radius $R$ that has an Exponential distribution, with mean 1cm, independently of the other drops. Assume the drops are 1mm thick and the set of locations of the raindrops is a PPP.
 	\begin{enumerate}[(a)]
 		\item What is the mean and variance of the total amount of water falling on a square with area $1 \text{ m}^2$?
 		\item A very small ant is running around the patio. See Figure \ref{fig:rainant}. What is the chance the ant gets hit?
 	\end{enumerate}
 
 \begin{soln}
-	Let $N = \sum_i \delta_{(x_i,y_i)}$ where $(x_i,y_i)$ is the center of the $i$th drop. Let us restrict to $[0,1]^2$ and take $N \sim \operatorname{PPP}(\nu \lambda)$. Let $M$ denote the number of drops in $[0,1]^2$, so that $M = N([0,1]^2) \sim \operatorname{Pois}(\nu)$. Then the total volume $V$ is 
+	Let $N = \sum_i \delta_{(x_i,y_i)}$ where $(x_i,y_i)$ is the center of the $i$th drop. Take $N \sim \operatorname{PPP}(\nu \lambda)$ and let $M$ denote the number of drops in $[0,1]^2$, so that $M = N([0,1]^2) \sim \operatorname{Pois}(\nu)$. Then the total volume $V$ is 
 	\begin{align}
 		V = \sum_{i=1}^M \frac{\pi}{10^3}R_i^2
 	\end{align}
@@ -155,18 +160,18 @@ Henceforth, let $\lambda$ denote Lebesgue measure.
 	\end{align}
 	This solves part (a).
 	
-	Now, part (b) can be solved by way of the labeling property. Here, we use the radius $R_i$ of the $i$th drop to label the point $(x_i,y_i)$. Define a measure $\mu$ on $X:=\mathbb{R}^2\times [0,\infty)$ by
+	Now, part (b) can be solved by way of the labeling property. Here, we use the radius $R_i$ of the $i$th drop to label the point $(x_i,y_i)$. Recall the density of an Exponential random variable with mean $0.01$ is $100\exp(-100r)\,dr$. So we define a measure $\mu$ on $X:=\mathbb{R}^2\times [0,\infty)$ by
 	\begin{align}
 		\mu(A) = \int_A\! 100\nu\exp(-100r)\, dxdydr.
 	\end{align} 
-	So $X$ is the (closed) upper half plane in $\mathbb{R}^3$ where the third coordinate is a realization of $R$. By the labeling property \eqref{eq:label}, $\overline{N} := \sum_i \delta_{(x_i,y_i,R_i)} \sim \operatorname{PPP}(\mu)$ on $X$. For the ant to remain dry, any drop with radius $r$ must land outside the circle of radius $r$ centered at the ant. Viewed from the space $X$, we want to integrate over the cone with its tip at the ant, whose horizontal cross-section at height $r$ is a circle of radius $r$. From this we compute
+	We think of $X$ as the (closed) upper half plane in $\mathbb{R}^3$ where the third coordinate is a realization of $R$. By the labeling property \eqref{eq:label}, $\overline{N} := \sum_i \delta_{(x_i,y_i,R_i)} \sim \operatorname{PPP}(\mu)$ on $X$. For the ant to remain dry, any drop with radius $r$ must land outside the circle of radius $r$ centered at the ant. Viewed from the space $X$, we want to integrate over the cone with its tip at the ant, whose horizontal cross-section at height $r$ is a circle of radius $r$. From this we compute
 	\begin{align}
 		\mathbb{P}\left\{\text{ant is dry}\right\} = \mathbb{P}\left\{\overline{N}(A) = 0\right\}
 		= \exp(-\mu(A))
 		= \exp\left(-100\pi\nu\int_0^\infty\! r^2e^{-100r}\,dr\right)
 		= \exp\left( -\frac{\pi\nu}{5000} \right).
 	\end{align}
-	Plugging in $\nu = 12$ yields $\mathbb{P}\left\{\text{ant is dry}\right\} \approx 0.9925$, so either the ant has an umbrella or the rain is very light.
+	Plugging in the given value for $\nu$ yields $\mathbb{P}\left\{\text{ant is dry}\right\} \approx 0.9510$, so either the ant has an umbrella or the rain is very light.
 \end{soln}
 \end{example}
 \subsection{Wald's Equation}

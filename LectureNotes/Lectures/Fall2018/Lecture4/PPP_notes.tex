@@ -67,6 +67,7 @@ It is sometimes useful to think of a PPP as a random collection of points. With 
 	\begin{align}
 		N = \sum_i \delta_{x_i}.
 	\end{align}
+	
 	\item \emph{Mean measure:} If $f\colon X \to \mathbb{R}$ then 
 	\begin{align}\label{eq:mm}
 		\mathbb{E}\left[ \int\! f(x) \, dN(x) \right] = \int f(x) d\mu(x).
@@ -80,6 +81,7 @@ It is sometimes useful to think of a PPP as a random collection of points. With 
 		\mathbb{E}\left[ \int_X\! f(x) \, dN(x) \right] = \mathbb{E}\left[ \sum_i f_i N(A_i) \right] = \sum_i f_i \mathbb{E}\left[ N(A_i) \right] = \sum_i f_i \mu(A_i) = \int_X \! f(x) \, d\mu(x).
 	\end{align}
 	This can then be extended to arbitrary measurable functions through the standard limiting procedure.
+	
 	\item \emph{Thinning:} Independently discard each point of $N$ with probability $1-p(x)$ for a point at $x\in X$. The result is a $\operatorname{PPP}(\nu)$, where
 	\begin{align}\label{eq:thin}
 		\nu(A) = \int_A\! p(x) \, d\mu(x).
@@ -88,10 +90,12 @@ It is sometimes useful to think of a PPP as a random collection of points. With 
 	\begin{align}
 		\widetilde{N} = \sum_i A_i \delta_{x_i} \sim \operatorname{PPP}(\nu).
 	\end{align}
+	
 	\item \emph{Additivity:} If $N_1 \sim \operatorname{PPP}(\mu_1)$ and $N_2 \sim \operatorname{PPP}(\mu_2)$ are independent on $X$, then $N_1 + N_2 \sim \operatorname{PPP}(\mu_1 + \mu_2)$. In particular, if $\mathbb{P}\left\{ X = n \right\} = \frac{\lambda^n}{n!}e^{-\lambda}$ and $\mathbb{P}\left\{ Y = n \right\} = \frac{\nu^n}{n!}e^{-\nu}$ are independent, then
 	\begin{align}
 		\mathbb{P}\left\{ X + Y = n \right\} = \frac{(\lambda + \nu)^n}{n!}e^{-(\lambda + \nu)}.
 	\end{align}
+	
 	\item \emph{Labeling:} For each point in a PPP,
 	   associate an independent label from a space $Y$ 
 	   according to some probability distribution $\nu$.

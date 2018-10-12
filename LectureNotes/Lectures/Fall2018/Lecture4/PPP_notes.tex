@@ -125,9 +125,9 @@ Henceforth, let $\lambda$ denote Lebesgue measure.
 	\end{soln}
 \end{example}
 \begin{example}\label{ex:ant}
-	Rain falls for 10 minutes on a large patio at a rate of $\nu = 80$ drops per minute per square meter. Each drop splatters to a random radius $R$ that has an Exponential distribution, with mean 1cm, independently of the other drops. Assume the drops are 1mm thick and the set of locations of the raindrops is a PPP.
+	Rain falls for 10 minutes on a large patio at a rate of $\nu = 5000$ drops per minute per square meter. Each drop splatters to a random radius $R$ that has an Exponential distribution, with mean 1cm, independently of the other drops. Assume the drops are 1mm thick and the set of locations of the raindrops is a PPP.
 	\begin{enumerate}[(a)]
-		\item What is the mean and variance of the total amount of water falling on a square with area $1 \text{ m}^2$?
+		\item What is the mean and variance of the total amount of water falling on a square with area $1 \text{m}^2$?
 		\item A very small ant is running around the patio. See Figure \ref{fig:rainant}. What is the chance the ant gets hit?
 	\end{enumerate}
 
@@ -171,7 +171,7 @@ Henceforth, let $\lambda$ denote Lebesgue measure.
 		= \exp\left(-100\pi\nu\int_0^\infty\! r^2e^{-100r}\,dr\right)
 		= \exp\left( -\frac{\pi\nu}{5000} \right).
 	\end{align}
-	Plugging in the given value for $\nu$ yields $\mathbb{P}\left\{\text{ant is dry}\right\} \approx 0.9510$, so either the ant has an umbrella or the rain is very light.
+	Plugging in the given value for $\nu$ yields $\mathbb{P}\left\{\text{ant is dry}\right\} = \exp(-\pi) \approx 0.0432$. The ant had better grab an umbrella!
 \end{soln}
 \end{example}
 \subsection{Wald's Equation}

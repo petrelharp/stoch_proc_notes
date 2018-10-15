@@ -5,7 +5,7 @@ SHELL := /bin/bash
 
 all : syllabus.html index.html style.html notes
 
-notes : LectureNotes/Lectures/Fall2018/Lecture1/ASPLecture1.html LectureNotes/Lectures/Fall2018/Lecture3/ASPLecture3.html
+notes : LectureNotes/Lectures/Fall2018/Lecture1/ASPLecture1.html LectureNotes/Lectures/Fall2018/Lecture3/ASPLecture3.html LectureNotes/Lectures/Fall2018/Lecture4/PPP_notes.html
 
 %.html : %.latexml.html
 	mv $< $@

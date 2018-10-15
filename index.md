@@ -17,7 +17,7 @@ The exact dates we cover the topics below is expected to change.
 
 ## Poisson Point Processes
 
-- [October 8 and 10]() - Matt
+- [October 8 and 10](LectureNotes/Lectures/Fall2018/Lecture4/PPP_notes.html) - Matt
 
 - [October 12 and 15]() - Nathan
 

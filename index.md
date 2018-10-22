@@ -19,7 +19,7 @@ The exact dates we cover the topics below is expected to change.
 
 - [October 8 and 10](LectureNotes/Lectures/Fall2018/Lecture4/PPP_notes.html) - Matt
 
-- [October 12 and 15]() - Nathan
+- [October 12 and 15](LectureNotes/Lectures/Fall2018/Lecture5/ASPLecture5.html) - Nathan
 
 - [October 17 and 19]() - Austen
 

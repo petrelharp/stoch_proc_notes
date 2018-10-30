@@ -21,30 +21,34 @@ The exact dates we cover the topics below is expected to change.
 
 - [October 12 and 15](LectureNotes/Lectures/Fall2018/Lecture5/ASPLecture5.html) - Nathan
 
-- [October 17 and 19]() - Austen
+- [October 17 and 19]() - Erin
 
 
 ## Generators and Semigroups
 
 - [October 22 and 24]() - Helen
 
-- [October 26 and 29]() - Erin
-
-- [October 31 and Nobember 2]() - Isaac
+- [October 26]() - Austen
 
 ## Continuous time Markov Chains
+
+- [October 29]() - Austen
+
+- [October 31 and Nobember 2]() - Isaac
 
 - [November 5 and 7]() - Eli
 
 - [November 9 and 12]() - Daniel
 
-- [November 14 and 16]() - Jake
-
 ## Lévy processes
+
+- [November 14 and 16]() - Jake
 
 - [November 19 and 21]() - Andrew
 
 - [November 23 and 26]() - Martin
+
+## Miscellanea?
 
 - [November 28 and 30]() - Paul
 

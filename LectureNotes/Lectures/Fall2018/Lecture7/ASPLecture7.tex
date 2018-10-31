@@ -135,7 +135,7 @@ $$\begin{aligned}
 
 \begin{exmp}{What is the generator for Brownian motion?}
 
-Let $(B_t)_{t \geq 0}$ be a Brownian motion, $B_t \sim \Normal(0, t)$. 
+Let $(B_t)_{t \geq 0}$ be a Brownian motion, $B_{t+s} - B_t \sim \Normal(0, s)$. 
 Then
 $$\begin{aligned}
 \E^x[f(B_\epsilon)] &\approx \E^x[ f(x) + f'(x) (B_\epsilon - x) + \frac{1}{2}f''(x)(B_\epsilon - x)^2 + \cdots] \\
@@ -158,7 +158,7 @@ We know that:
 \end{enumerate}
 
 $N_t$ does not have enough noise in each interval to be Brownian. So consider $N_{Mt}$. Since
-$\E[N_Mt] = Mt$, we subtract $Mt$, and then divide by $\sqrt{M}$ to get the correct variance.
+$\E[N_{Mt}] = Mt$, we subtract $Mt$, and then divide by $\sqrt{M}$ to get the correct variance.
 Thus we define
 $$\begin{aligned}
 X_t^{(M)} = \dfrac{ N_{Mt} - Mt}{\sqrt{M}}
@@ -187,7 +187,7 @@ $C_0 := C_0(S)$ to be the set of all continuous functions $f: S \to \R$ such tha
 Note that $C_0$ is a Banach space with norm $|| \cdot ||_{\infty}$. Assume $\P(\{X_t \in S \}) = 1$ for all $t$. 
 
 \begin{defn}
-Define the transition semigroup $(P_t)_{t \geq 0}$ by $(P_t f)(x) = \E^{x}[f(x_t)]$ for $f \in C_0$. 
+Define the transition semigroup $(P_t)_{t \geq 0}$ by $(P_t f)(x) = \E^{x}[f(X_t)]$ for $f \in C_0$. 
 \end{defn}
 
 \begin{note}
@@ -201,7 +201,7 @@ implies $P_t: C_0 \to C_0$.
 
 We have the following properties: 
 \begin{enumerate}
-\item[(1)] $P_0 = I$ since $P_0 f(x) = \E^{x} [f(x_0)] = f(x)$. 
+\item[(1)] $P_0 = I$ since $P_0 f(x) = \E^{x} [f(X_0)] = f(x)$. 
 \item[(2)] $P_s P_t = P_{s + t}$
 since
 $$\begin{aligned}
@@ -264,7 +264,7 @@ Let $\widehat{f}(\xi)$ be the Fourier transform of $f$. Then
 $$\begin{aligned}
 \widehat{P_t f}(x) =  \sum_{n \geq 0} \dfrac{2^{-n}t^{n}}{n!} (-\xi^2)^{n} \hat{f}(\xi) = e^{-\frac{t}{2} \xi^2} \widehat{f}(\xi)
 \end{aligned}$$
-It follows that
+Because $e^{-\frac{t}{2} \xi^2}$ is the Fourier transform of the Gaussian density with variance $t$, and the Fourier transform takes convolution to multiplication,
 $$\begin{aligned}
 P_t f(x) =  \sum_{n \geq 0} \dfrac{2^{-n}t^{n}}{n!} f^{(2n)}(x) 
 = 
@@ -273,6 +273,7 @@ P_t f(x) =  \sum_{n \geq 0} \dfrac{2^{-n}t^{n}}{n!} f^{(2n)}(x)
 \end{exmp}
 
 It turns out that if $Gf(x) = f^{(k)}(x)$ for $k > 2$, $G$ is not the generator of a Feller process.
+One reason for this is that for $k > 2$ there is no way to write a discrete approximation to $f^{(k)}(x)$ as a sum over values of $f$ with all coefficients except that of $f(x)$ positive. More generally, we can appeal to the following theorem.
 
 \begin{thm}[Hille-Yosida Theorem]
 Let $A$ be a linear operator on $\mathcal{D} \subseteq C_0$.
@@ -286,7 +287,7 @@ Then $A$ has closure that is the generator of a Feller process if and only if
 
 \begin{note}
 If (i)-(iii) hold, then $(\lambda - A)^{-1}$ exists for all $\lambda > 0$. To see this, suppose that $\lambda - A$ is not invertible on $C_0$ for some $\lambda > 0$. 
-Then there exists $f \in C_0$ such that $Af = \lambda f$. Then $\E^x[f(x_t)] =e^{t \lambda} f(x)$. But $\E^x[f(x_t)]$ is bounded since $f \in C_0$, so we have reached a contradiction. 
+Then there exists $f \in C_0$ such that $Af = \lambda f$. Then $\E^x[f(X_t)] =e^{t \lambda} f(x)$. But $\E^x[f(X_t)]$ is bounded since $f \in C_0$, so we have reached a contradiction. 
 \end{note}
 
 \begin{note}

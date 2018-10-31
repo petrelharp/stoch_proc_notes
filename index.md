@@ -26,7 +26,7 @@ The exact dates we cover the topics below is expected to change.
 
 ## Generators and Semigroups
 
-- [October 22 and 24]() - Helen
+- [October 22 and 24](LectureNotes/Lectures/Fall2018/Lecture7/ASPLecture7.html) - Helen
 
 - [October 26]() - Austen
 

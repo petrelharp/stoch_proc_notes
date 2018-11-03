@@ -1,0 +1,237 @@
+% ==============================================================================
+%\documentclass[../../../Master/AppliedStochastics.tex]{subfiles}
+\documentclass[12pt]{article}
+
+\include{macros}
+\usepackage[margin=1in]{geometry} %For margins and related things%
+
+{\renewcommand{\arraystretch}{2} % for spacing out the tabular environment %
+
+% ==============================================================================
+
+
+%\course{Applied Stochastic Processes}
+\author{Austen}
+\date{October 26 and 29}
+
+
+% ==============================================================================
+%
+\begin{document}
+%
+% ==============================================================================
+
+% \makelecture %my computer says this is undefined...%
+\textbf{\Large October 26 and 29}
+
+\section{A Field Guide to Generators}
+
+\begin{tabular}{|c|p{6cm}|c|}
+\hline
+\textbf{Operator applied to $f$}
+	& \textbf{Description}
+	& \textbf{Example} \\	
+\hline
+	$\frac{d}{dx}f(x)$
+	&  Deterministic movement with speed $+1$
+	&  $X_t = X_0 + t$\\
+\hline
+	$f(y) - f(x)$
+	&  Jump from $x$ to $y$ at rate $1$
+	& $X_t=\begin{cases}x, & \text{if } t<\tau \\ y, & \text{if } t\geq\tau \end{cases}$,
+		where $ \tau\sim Exp(1)$\\	
+\hline
+	$\frac{1}{2}\frac{d^2}{dx^2}f(x)$
+	&  Standard Browninan motion
+	& $B_t$ \\	
+\hline
+	$aGf(x)$
+	& The process corresponding to $G$, run at speed $a$
+	& $X_t = Y_{at}$, where $Y$ has generator $G$\\
+\hline
+	$G_1 f(x) + G_2 f(x)$
+	& Both $G_1$ and $G_2$ ``happen independently"
+	& $\frac{d}{dt} + \frac{1}{2} \frac{d^2}{dx^2} \longrightarrow B_t + t$\\
+\hline
+	$\begin{aligned} &(G_1 \otimes I + I \otimes G_2) f(x, y) \\ &= G_1 f(x,y) + G_2 f(x, y) \end{aligned}$
+	& Independent (multidimensional) processes
+	& $X_t = (Y_t^{(1)} , Y_t^{(2)})$ \\
+\hline
+	$a(x) G f(x)$, $a(x)>0$
+	& The process corresponding to $G$ run at speed $a(x)$ when in state $x$.
+	& $-x \frac{d}{dx}$ on $(0,\infty) \longrightarrow X_t = X_o e^{-t}$ \\
+\hline
+	$\vec{a}(x) \cdot \vec{\nabla} f(x)$, $x\in\R^n$
+	& Deterministic flow along $\vec{a}(x)$
+	& --- \\
+\hline
+	$\begin{aligned} \frac{1}{2}\Delta f(x) = \frac{1}{2}\sum\limits_{k=1}^{n}\frac{d^2}{dx_k^2} f(x),\\ x\in\R^n \end{aligned}$
+	& $n$-dimensional Brownian motion
+	& $B_t = (B_t^{(1)}, \dots, B_t^{(n)})$, i.i.d. BMs $B_t^{(k)}$ \\
+\hline
+	$\sum\limits_{i,j} \alpha_{ij}\left( f(x_j) - f(x_i)  \right)$
+	& Jump to $x_j$ from $x_i$ at rate $\alpha_{ij}$
+	& --- \\
+\hline
+	$\int \alpha(x, y) \left( f(y) - f(x)  \right) dy$
+	& Jump to $y$ from $x$ at rate $\alpha(x, y)dy$
+	& --- \\
+\hline
+\end{tabular}
+
+\section{Examples of Generators}
+\begin{itemize}
+\item \underline{Recall from before}: we defined $X_t^{(M)} = \frac{N_{Mt} - Mt}{\sqrt{M}}$, which converges to Brownian motion as $M\rightarrow\infty$.
+
+In other words, it drifts down at speed $\sqrt{M}$ with jumps of magnitude $\frac{1}{\sqrt{M}}$ at rate $M$.
+
+So, the generator is:
+$$\begin{aligned}
+-\sqrt{M} \frac{d}{dx} f(x) + M\left( f(x + \frac{1}{\sqrt{M}}) - f(x) \right)
+\end{aligned}$$
+
+\item \underline{Resetting}: Suppose a process drifts up at speed $1$ and jumps back to $0$ at rate $1$.
+
+The generator is then:
+$$\begin{aligned}
+\frac{d}{dx} f(x) + \left( f(0) - f(x) \right)
+\end{aligned}$$
+
+\item \underline{Bathtub}: Suppose a bath is filling at a speed of $1$ gal/min, but a kid jumps in at independent intervals given by $exp(1)$ and splashes out a random, uniformly chosen proportion of water.
+
+The generator is then:
+$$\begin{aligned}
+\frac{d}{dx} f(x) + \frac{1}{x} \int\limits_0^x \left( f(y) - f(x) \right) dy
+\end{aligned}$$
+
+\end{itemize}
+
+\begin{note} If $G f(x) = \int \alpha(x, y) \left( f(y) - f(x)  \right) dy$, when at point $x$, the \underline{total} jump rate is given by $\int \alpha(x, y) dy$ because of the additivity of Poisson processes.
+
+Alternatively, we can say that if $\int \alpha(x, y)dy < \infty$, the process ``jumps at rate $\int \alpha(x, y)dy$ to a random location chosen from the distribution $\frac{\alpha(x, y) dy}{\int \alpha(x, y) dz}$.
+
+An intuition for this property is that if you have two separate processes, $X\sim PPP(1)$ and $Y\sim PPP(2)$ where you jump left at points in $X$ and right at points in $Y$, then the total process can be modeled by $Z=X+Y\sim PPP(3)$ where you jump forward at any point.
+\end{note}
+
+\section{Markov Chains}
+
+\begin{lemma}[Generating functions of paths]
+
+Let $A=(A_{ij})_{i,j\in[n]}$, where $[n] = \{1, 2, \dots, n \}$,
+and let $\mathcal{P}_{i,j}^k = \{ \text{paths of length $k$ from $i$ to $j$} \} 
+	= \{ P\in[n]^{k+1} : p_0=i, p_k=j \}$ (including self-loops).	
+Then,
+$$\begin{aligned}
+(A^k)_{ij} = \sum\limits_{P\in\mathcal{P}_{i,j}^k} \prod\limits_{\ell=1}^{k} A_{P_{\ell-1}, P_{\ell}}
+\end{aligned}$$
+\end{lemma}
+
+\begin{proof}
+(By induction.)
+
+\textit{Base Case(s):}
+When $k=0$, $(A^0)_{ij} = \begin{cases} 1, & i=j \\  0, & \text{else}  \end{cases}$.
+When $k=1$, $(A^1)_{ij} = A_{ij}$. 
+
+\textit{Inductive Step:}
+Suppose that the assumption holds for $k$. Then
+$$\begin{aligned}
+(A^{k+1})_{ij} &= (A^{k}A)_{ij} \\
+			&= \sum\limits_{m=1}^{n} (A^k)_{im}A_{mj} \\
+			&= \sum\limits_{m=1}^{n}\left(
+				  \sum\limits_{\mathcal{P}_{i,m}^k} \prod\limits_{\ell=1}^k A_{P_{\ell-1}, P_\ell} 
+			      \right) A_{mj} \\
+			&= \sum\limits_{\mathcal{P}_{i,m}^{k+1}} \prod\limits_{\ell=1}^{k+1} A_{P_{\ell-1}, P_\ell}
+\end{aligned}$$
+\end{proof}
+
+\subsection*{Discrete-Time Markov Chains (DTMC)}
+Let $(M_k)_{k\in \N_{\geq 0}}$ be a DTMC with $n$ states, labelled by $[n]$, i.e. for $x,y\in[n]$ the transition probability is $\P\{ M_{k+1}=y \mid M_k=x, M_{\leq k} \} = \P\{ M_{k+1}=y \mid M_k=x \} = P_{xy}$. Then,
+$$\begin{aligned}
+	\P\{ M_{k+\ell} = y \mid M_k = x \} = (P^\ell)_{xy}
+\end{aligned}$$
+
+\noindent\textit{Proof.} (By the above lemma.)
+
+\noindent(Note: $P_{xx}$ can be greater than $0$.)
+
+Discrete-time Markov chains can do things that continuous-time ones can't, namely that they can oscillate/bounce up and down.
+
+\subsection*{The Poissonization of $M$}
+\begin{exmp}[]
+
+Let $N_t = N([0,t])$ be a Poisson (counting) process on $t\in(0,\infty)$ of constant rate $1$, and let $X_t=M_{N_t}$, i.e. $X_t=$ ``location of $M$ after $N_t$ jumps" (independently of $(M_k)_{k\geq 0}$).
+
+\noindent\textbf{Question:} Is $X$ a Markov process? (Yes.)
+
+\begin{sol} Let $J = N_{t+s} - N_t = $ \# of jumps in $(t, t+s] \sim Pois(s)$, independent of $(X_{\leq t})$. Then,
+$$\begin{aligned}
+	(X_{t+s} \mid X_t = x) &= (M_{N_t + J} \mid M_{N_t} = x)\\
+	&\stackrel{d}{=} (M_j \mid M_0 = x) \text{, by the Markov property of } M,
+\end{aligned}$$
+which is completely independent of what happened before time $t$. Thus, it is a Markov process.
+\end{sol}
+\end{exmp}
+
+\begin{coro}[transition probability] $\P\{X_{t+s}=y \mid X_t = x \} = \left( e^{S(P-I)} \right)_{xy}$.
+\end{coro}
+
+\begin{proof} 
+$$\begin{aligned}
+\P\{X_{t+s}=y \mid X_t = x \} &= \E[(P^J)_{xy}] \\
+	( &= \P\{M_j=y \mid M_0=x \} = \E[\P\{M_j=y \mid M_0=x, J \}] ) \\
+	( &= \sum_{j\geq0} \P\{J=j\} \times \P\{M_j=y \mid M_0=x, J=j\} ) \\
+	&= \sum_{j\geq0} e^{-s} \frac{s^j}{j!} (P^j)_{xy} \\
+	&= e^{-s}\left(e^{sP} \right)_{xy} = \left( e^{s(P-I)} \right)_{xy}
+\end{aligned}$$
+\end{proof}
+
+\begin{coro}
+	The generator of $(X_t)_{t\geq0}$ is $G = P-I$ (acting on $f\in\R^n$, i.e. $f:[n]\rightarrow\R$).
+\end{coro}
+
+\begin{note} $G_{xy}\geq 0$ when $x\neq y$,
+and $G_{xx}=P_{xx}-1 = -\sum_{y\neq x} P_{xy} \leq 0$. This is since $\sum_y P_{xy}=P\vec{1}=1$, so $G1=0$.
+\end{note}
+
+\begin{defn}
+	A \underline{Continuous-Time Markov Chain} (CTMC) on $\mathcal{X}$ is defined by its (infinitesimal) generator (matrix) $G = (G_{xy})_{x,y\in \mathcal{X}}$, with $G_{xy}\geq 0$ for all $x\neq y$ and $\sum_y G_{xy}=0$.
+\end{defn}
+
+\begin{note} In the above definition, $G_{xy}$ can be thought of as the ``rate of jumps from $x$ to $y$." \end{note}
+
+\noindent If $(X_t)_{t\geq 0}$ is a CTMC with generator $G$, then the transition probabilities are
+$$\begin{aligned} \P\{X_{t+s}=y \mid X_t=x\} = (e^{tG})_{xy} \end{aligned}$$
+
+\begin{exmp}[Simple Random Walk on $\Z$]
+At rate 1, we flip a fair coin. The process jumps to $x+1$ or $x-1$ according to the flip.
+
+The generator is given by: $G = \{ G_{x,x\pm 1} = 1/2, G_{x,x} = -1 \}$.
+
+$$\begin{aligned}
+G = \begin{bmatrix}
+ \hdots & \ddots & \hdots & \hdots & \hdots & \hdots & \hdots  \\
+\hdots & \hdots & \ddots & 1/2 & 0 & 0 & 0 & \hdots \\
+\hdots & 0 & 1/2 & -1 & 1/2 & 0 & 0 & \hdots \\
+\hdots & 0 & 0 & 1/2 & -1 & 1/2 & 0 & \hdots\\
+\hdots & 0 & 0 & 0 & 1/2 & -1 & 1/2 & \hdots \\
+\hdots & 0 & 0 & 0 & 0 & 1/2 & \ddots & \hdots \\
+ & \hdots & \hdots & \hdots & \hdots & \hdots & \hdots & \ddots
+\end{bmatrix}
+\end{aligned}$$
+
+\end{exmp}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+

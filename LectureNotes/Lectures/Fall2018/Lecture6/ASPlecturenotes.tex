@@ -1,0 +1,144 @@
+\documentclass[12pt]{article}
+
+    \usepackage[utf8]{inputenc} %For non-ASCII characters%
+    \usepackage[margin=1in]{geometry} %For margins and related things%
+    \usepackage{amssymb, amsthm, amsmath, bbm}
+    
+    \let\oldphi\phi
+    \renewcommand{\phi}{\varphi}
+    
+    \newenvironment{soln}{\begin{proof}[\textsc{Solution}]}{\renewcommand{\qedsymbol}{$\blacklozenge$}\end{proof}}
+    
+    \title{Poisson Point Processes Cont.}
+    \author{Erin McCarthy\thanks{\textbf{email:} emccarth@uoregon.edu}}
+    \date{\today}
+    \begin{document}
+    \maketitle
+    
+    \section{The Cauchy Distribution Cont.}
+    
+    $C \sim Cauchy(1)$ 
+    if $\mathbb{P}\{c \in dx\}= \dfrac{dx}{\pi(1+x)^2}$ and $t \times C \sim Cauchy(t)$
+    
+    \noindent\rule{4cm}{0.4pt} 
+    
+    \noindent$N \sim PPP(\dfrac{dtdx}{|x|^2})$ on $[0,\infty) \times \{ \mathbb{R}\setminus \{0\}\}$
+    
+    \noindent Define the process $C_t$ to be the sum of $x$ values of the points with ``time'' coordinate in $[0,t]$:
+    $$C_t = \sum x \mathbbm{1}_{[0,t)}(t) dN(t,x
+    \subsection*{Claim}
+    $\dfrac{1}{t} C_t \stackrel{d}{=} C_1$
+    
+    \begin{proof}
+    If $N = \sum \delta_{(t_i,x_i)} \Rightarrow \dfrac{1}{t} C_t = \sum_{i:t_i\leq1} \dfrac{x_i}{t}$ but \~N $= \sum_i \delta_{\left(\frac{t_i}{t_1}, \frac{x_i}{t}\right)} \sim PPP(\dfrac{dtdx}{x^2})$ i.e. $N \stackrel{d}{=} $\~N
+    (since $\dfrac{dsdx}{x^2} = \dfrac{tdu tdv}{t^2dv}=\dfrac{dudv}{v^2}$, where $u=\frac{s}{t}$ and $v=\frac{x}{t}$), so $\dfrac{1}{t}C_t = \int x \mathbbm{1}_{[0,1]}(t) d\text{\~{N}} (t,x) = \text{\~C}(1)$ 
+    \end{proof}
+    
+    
+    \subsection*{Consequence}
+    Let $x_1,x_2,...,x_n$ iid $Cauchy(1)$ then $\bar{x} = \dfrac{1}{n} (x_1+...+x_n) \sim Cauchy(1)$. This implies that that taking more samples does not tell you more about the mean! But ...\\
+    $$\begin{aligned}
+    var[\bar{x}] = \frac{1}{n}var[x_1] = \int_0^1 \int_{-\infty}^{\infty} x^2 \frac{dxdt}{x^2} = \infty \\ \text{ even } \mathbb{E}[x_1]=\int_0^1\int_{-\infty}^\infty x \frac{dxdt}{x^2} = \text{ UND }\\
+    \end{aligned}$$
+    
+    \section{Examples}
+    
+    \subsection*{Question:}
+    Suppose we have arrival times on $[0,\infty).$ Are they (uniform) Poisson?
+    
+    Let $T_1,T_2..$ be the sorted points, compare the distribution of $(T_{k+1}-T_k)^{N}_{k=1}$ inter-arrival intervals to the exponential distribution. e.g by Kolmogorov-Smirnov test (say that 10 times fast).
+    
+    We discussed two approaches to this problem in class including: looking the the length between the points or sectioning it into areas to examine the distribution. We would look at the distribution of the length between points, and there should be an equal distribution of lengths.
+    If we section the points in our given areas and with a large enough area the points should be evenly distributed. If the points are not evenly distributed then it is not a uniform poisson. 
+    
+    \subsection*{Problem: London bombings} Let ${x_1,...,x_m}$ be points in the (2D) torus, T. Are they from a $PPP(m\times\lambda)$ i.e. constant intensity M?\\
+    \textbf{Approach:} look for over-or under- dispersal of where the bombs landed.
+    \begin{enumerate}
+        \item Estimate $m$: if $M \sim Pois(m) \Rightarrow \text{then } M \approx m$
+        
+        \item Estimate local density: 
+        
+        Let $\rho(r):\mathbb{R}_{\geq 0}\rightarrow \mathbb{R}_{\geq 0}$, where $\rho(r)=0$ if $n>\frac{1}{2}$, $\rho(r) \geq 0$, and $\int_{T} \rho(|x|)dx=1$.
+        
+        Let $\{x_i\}$ be the points of a PPP of constant intensity $m$, i.e., $N=\sum_i \delta_{x_i}$ with  $N\sim PPP(m)$.
+        Then we use the weighting kernel $\rho$ to count up the number of neighbors of each point: $P_i = \sum\limits_{j\neq i} \rho (|x_j-x_i|)$ and $P=\sum_i P_i =\int_{T\times T\setminus diag(T)} \rho(|x-y|)N(dx)N(dy)$. Then:
+    
+        $$\begin{aligned}
+        \mathbb{E}[P] &= \mathbb{E}\int_{T\times T \setminus diag(t)}  \rho (|x-y|)N(dx)N(dy) \\
+        &= \int_{T\times T \setminus diag(T)} \rho  (|x-y|) \mathbb{E}[N(dx)N(dy)] \\
+        &= \lim_{\varepsilon \to 0} \frac{1}{(\pi \varepsilon^2)}^2 N(\beta_\varepsilon(x))N(\beta_\varepsilon(y)) 
+        \dfrac{1}{\varepsilon^4\pi^2}(\mathbb{E}[N(\beta_\varepsilon(x)N(\beta_\varepsilon(y)] \\ 
+       \dfrac{1}{\varepsilon^4\pi^2} (\mathbb{E}[N(B_\varepsilon(x),N(B_\varepsilon(y)]&= \mathbb{E}[N(B_\varepsilon(x)]\mathbb{E}[N_B_\varepsilon(y)]+ cov[N(B_\varepsilon(x)), N(B_\varepsilon(y)]))\\
+        & \xrightarrow[]{\varepsilon \searrow 0} m^2dxdy, \text{(if } x \neq y)
+        \end{aligned}$$
+    \end{enumerate}
+    
+    \noindent Thus, under the conditions of step 2, when $N\sim PPP(m)$, we have that
+    $$\begin{aligned}
+    \mathbb{E}[P] &= \int_{T\times T \setminus diag(T)} \mathbb{E}[N(dx)N(dy)] \rightarrow \int_T \int_T P(|x-y|)m^2 dxdy\\
+     &= \int_T m^2 dx = m^2
+    \end{aligned}$$
+    
+    \noindent So: $\frac{P}{m^2}\approx 1 $ for a uniform PPP.
+    
+    %\subsection*{Recall:} We have points ${x_1,...,x_m}$ estimate of local density around $x_i$ on T. Are they Poisson?
+    %\noindent\textbf{Strategy:} 
+    %
+    %$$\begin{aligned}
+    %\text{Let } P_i = & \sum_{j\neq i} \rho (|x_i -x_j|) \text{ and }  P = \sum_i P_i \text{ for } e(r) \text{ in } \int_T\rho(|r|)dr=1\\
+    %\text{ If } N\sim  PPP&  \text{ on } T \text{ with uniform intensity } m \text{ then } 
+    %\mathbb{E}[P] = \int_{T\times T \setminus diag(T)} \mathbb{E}[N(dx)N(dy)] \\
+    %\text{ and } \mathbb{E}&[N(dx)N(dy)] = m^2dxdy \text{ for } x\neq y\\
+    %\end{aligned}$$
+    
+    \subsection*{Aside:}
+    In general, if it is not a Poisson process in the above equations we would have that: 
+    $$\begin{aligned}
+    \mathbb{E}[N(dx)N(dy)] = m^2dxdy +  cov[N(dx),N(dy)] = m^2g(x,y)dxdy
+    \end{aligned}$$
+    
+    where $g$ is the correlation function such that:
+    $g(x,y) = \lim_{\varepsilon \to 0} \dfrac{1}{\pi^2\varepsilon^4}cor[\beta_\varepsilon(x),\beta_\varepsilon(x_2)]$. Then,
+    
+    $$\begin{aligned}
+    \int_{T\times T \setminus diag(T)}\mathbb{E}[N(dx)N(dy)] &\rightarrow \int_Tm^2dx + \int_T\int_T\rho(|x-y|)g(x,y)m^2dxdy \\
+    &=  m^2 + \text{SOMETHING ELSE}
+    \end{aligned}$$
+    
+    The ``SOMETHING ELSE" will be bigger if points tend to be clustered on the scale determined by $p$, and smaller if points repel each other on that scale.
+    
+    \subsection*{How far off of being evenly distributed do we expect?}
+    
+    $$\begin{aligned}
+    var[P] &= cov[P,P] \\
+    &= cov[\int_{T\times T \setminus diag(T)}\rho(|x-y|) N(dx)N(dy), \int_{T\times T \setminus diag(T)}\rho(|u-v|)N(du)N(dv)] \\ 
+    &= \int_A\rho(|x-y|)\rho(|u-v|) cov[N(dx)N(dy),N(du)N(dv)]
+    \end{aligned}$$
+    
+    Let $A=\{(x,y,u,v) \in T^4 : x\neq y, u\neq v \}$. Then we have the following cases:
+    
+    $$\begin{cases}
+    x\notin \{u,v\}, y\notin \{u,v\} &\Rightarrow cov[N(dx) N(dy), N(du)N(dv)] = 0\\
+    x=u, y\notin\{u,v\} 		  &\Rightarrow cov[-,-] = \mathbb{E}[N(dy)]\mathbb{E}[N(du)]var[N(dx)] = m^3dxdydv\delta_x(du)\\
+    x=u,y=v, (x\neq y)		  &\Rightarrow cov[-,-] = m^2dxdy \delta_x(du)\delta_y(dv)\\
+    \end{cases}$$
+    
+    Which implies that:
+    \
+    $$\begin{aligned}
+    var[P] &= 4\int_T \int_T\int_T \rho (|x-y|) \rho(|x-v|)m^3 dxdydv + 2\int_T\int_T\rho (|x-y|)^2 m^2dxdy\\
+        &= \mathbf{A} + \mathbf{B}
+    \end{aligned}$$
+    
+    But what does that mean?
+    
+    $\mathbf{A} = 4m^3$ and when $\rho(r) = \begin{cases} \frac{1}{\pi R^2} \text{, if } r<R  \\  0, \text{  else.} \end{cases}$ then  $\mathbf{B}=\frac{2m^2}{\pi R^2}$.
+    
+    So, $var[\frac{P}{M^2}] \approx \frac{4}{m} + \frac{2}{\pi R^2 m^2} $.
+    
+    In the case that the bombs are falling on the torus of unit area and $\rho$ is uniform on a circle, we can determine if the bombs are being dropped at random (i.e. via a PPP), with the statistic:
+    $
+    \frac{| \frac{P}{m^2} - 1 |} {\sqrt{ \frac{4}{m} + \frac{2}{\pi R^2 m^2} }}$ which if less than 1.96 then this is consistent with the points being from a PPP of constant intensity.
+    
+    \end{document}
+    

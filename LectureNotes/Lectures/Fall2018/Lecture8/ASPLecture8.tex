@@ -167,7 +167,7 @@ Let $N_t = N([0,t])$ be a Poisson (counting) process on $t\in(0,\infty)$ of cons
 \begin{sol} Let $J = N_{t+s} - N_t = $ \# of jumps in $(t, t+s] \sim Pois(s)$, independent of $(X_{\leq t})$. Then,
 $$\begin{aligned}
 	(X_{t+s} \mid X_t = x) &= (M_{N_t + J} \mid M_{N_t} = x)\\
-	&\stackrel{d}{=} (M_j \mid M_0 = x) \text{, by the Markov property of } M,
+	&\stackrel{d}{=} (M_J \mid M_0 = x) \text{, by the Markov property of } M,
 \end{aligned}$$
 which is completely independent of what happened before time $t$. Thus, it is a Markov process.
 \end{sol}

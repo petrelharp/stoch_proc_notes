@@ -97,7 +97,7 @@ $$\begin{aligned}
 \frac{d}{dx} f(x) + \left( f(0) - f(x) \right)
 \end{aligned}$$
 
-\item \underline{Bathtub}: Suppose a bath is filling at a speed of $1$ gal/min, but a kid jumps in at independent intervals given by $exp(1)$ and splashes out a random, uniformly chosen proportion of water.
+\item \underline{Bathtub}: Suppose a bath is filling at a speed of $1$ gal/min, but a kid jumps in at independent random intervals with Exponential(1) distribution and splashes out a random, uniformly chosen proportion of water.
 
 The generator is then:
 $$\begin{aligned}
@@ -179,8 +179,8 @@ which is completely independent of what happened before time $t$. Thus, it is a 
 \begin{proof} 
 $$\begin{aligned}
 \P\{X_{t+s}=y \mid X_t = x \} &= \E[(P^J)_{xy}] \\
-	( &= \P\{M_j=y \mid M_0=x \} = \E[\P\{M_j=y \mid M_0=x, J \}] ) \\
-	( &= \sum_{j\geq0} \P\{J=j\} \times \P\{M_j=y \mid M_0=x, J=j\} ) \\
+	&= \P\{M_j=y \mid M_0=x \} = \E[\P\{M_j=y \mid M_0=x, J \}] \\
+	&= \sum_{j\geq0} \P\{J=j\} \times \P\{M_j=y \mid M_0=x, J=j\} \\
 	&= \sum_{j\geq0} e^{-s} \frac{s^j}{j!} (P^j)_{xy} \\
 	&= e^{-s}\left(e^{sP} \right)_{xy} = \left( e^{s(P-I)} \right)_{xy}
 \end{aligned}$$

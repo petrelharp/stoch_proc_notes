@@ -21,7 +21,7 @@ The exact dates we cover the topics below is expected to change.
 
 - [October 12 and 15](LectureNotes/Lectures/Fall2018/Lecture5/ASPLecture5.html) - Nathan
 
-- [October 17 and 19]() - Erin
+- [October 17 and 19](LectureNotes/Lectures/Fall2018/Lecture6/ASPlecturenotes.html) - Erin
 
 
 ## Generators and Semigroups

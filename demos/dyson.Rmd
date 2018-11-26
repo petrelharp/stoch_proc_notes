@@ -1,0 +1,85 @@
+# Dyson's Brownian Motion
+
+We need to simulate an $n \times n$ Hermitian matrix
+whose upper triangular entries are independent Brownian Motions,
+(with diagonal having twice the variance as the offdiagonal)
+and watch how the eigenvalues move.
+
+Here's simulation of *one* matrix:
+```{r dbm_init}
+efn <- function (B) { eigen(B, symmetric=TRUE, only.values=TRUE)$values }
+
+Binit <- function (n) {
+    B0 <- matrix(rnorm(n^2)/sqrt(2), nrow=n) + 1i * matrix(rnorm(n^2)/sqrt(2), nrow=n)
+    return( (B0 + Conj(t(B0)))/2 )
+}
+
+B0 <- Binit(10)
+stopifnot(all(Mod(B0 - t(Conj(B0))) <= 1e-8))
+efn(B0)
+```
+
+Here's an update function:
+```{r update}
+dB <- function (B, dt) {
+    n <- nrow(B)
+    B1 <- sqrt(dt) * (matrix(rnorm(n^2)/sqrt(2), nrow=n) + 1i * matrix(rnorm(n^2)/sqrt(2), nrow=n))
+    B1 <- (B1 + Conj(t(B1)))/2
+    return(B + B1)
+}
+
+B1 <- dB(B0, 1)
+stopifnot(all(Mod(B1 - t(Conj(B1))) <= 1e-8))
+efn(B1)
+```
+
+Now let's run this for a few steps:
+```{r anim_ten}
+nsteps <- 100
+dt <- 0.1
+Blist <- list(B0)
+for (k in 2:nsteps) {
+    Blist[[k]] <- dB(Blist[[k-1]], dt)
+}
+Emat <- sapply(Blist, efn)
+matplot(t(Emat), type='l', xlab='time', ylab='eigenvalue')
+```
+
+How big can we do?
+```{r speed}
+nvals <- 100 * (1:10)
+speeds <- lapply(nvals, function (n) system.time(efn(Binit(n))))
+plot(nvals, sapply(speeds, "[", 1), type='b',
+     xlab='number of rows', ylab='computation time')
+```
+
+Let's do with $n=1000$:
+```{r anim_more}
+nsteps <- 120
+dt <- 0.1
+Blist <- list(Binit(1000))
+for (k in 2:nsteps) {
+    Blist[[k]] <- dB(Blist[[k-1]], dt)
+}
+Emat <- sapply(Blist, efn)
+
+matplot(seq(1, dt*nsteps, length.out=nsteps),
+        t(Emat), type='l', xlab='time', ylab='eigenvalue')
+```
+
+If we rescale by $\sqrt{t}$ and subtract column means
+then we can see fluctuations about the trend, maybe.
+This should be stationary, but it doesn't look like it.
+```{r fluctuations}
+tt <- seq(1, dt*nsteps, length.out=nsteps)
+E_rescaled <- sweep(Emat, 2, sqrt(tt), "/")
+
+layout((1:2))
+matplot(seq(1, dt*nsteps, length.out=nsteps),
+        t(E_rescaled)[,1:20], type='l', xlab='time', ylab='eigenvalue',
+        main='top 20, sqrt-rescaled')
+matplot(seq(1, dt*nsteps, length.out=nsteps),
+        t(E_rescaled)[,nrow(Emat)/2+(1:20)-10], type='l', xlab='time', ylab='eigenvalue',
+        main='middle 20, sqrt-rescaled')
+```
+

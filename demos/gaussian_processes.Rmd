@@ -1,0 +1,91 @@
+```{r setup}
+set.seed(271)
+```
+
+# Brownian motion
+
+First let's start by simulating Brownian motion,
+as the scaling limit of simple random walks.
+
+First let's simulate a simple random walk.
+```{r sim_srw}
+n <- 1002
+coins <- sample(c(-1,1), n, replace=TRUE)
+plot(cumsum(coins), type='l')
+```
+
+Let's look at how this rescales to look like Brownian motion.
+```{r bm_sim}
+srw_bm <- function (tmax, N) {
+    coins <- sample(c(-1,1), floor(tmax * N), replace=TRUE)
+    return(cumsum(coins) / sqrt(N))
+}
+tmax <- 3
+Nvals <- c(10, 40, 160, 640)
+for (N in Nvals) {
+    srw <- srw_bm(tmax, N=N)
+    tvals <- seq(0, tmax, length.out=length(srw))
+    if (N == Nvals[1]) {
+        plot(tvals, srw, type='l', xlab='time', ylab='space', ylim=c(-2*sqrt(3),2*sqrt(3)))
+    } else {
+        lines(tvals, srw, col=match(N, Nvals))
+    }
+}
+```
+
+Let's test this is working right.
+If this is a good approximation to Brownian motion,
+the distribution at time 3 should be Normal(0,$\sigma^2=3$).
+```{r test_srw}
+srw_reps <- replicate(200, srw_bm(3, 10000))
+qqnorm(srw_reps[nrow(srw_reps),])
+qqline(srw_reps[nrow(srw_reps),])
+```
+That looks about right. And the sample variance is `r var(srw_reps[nrow(srw_reps),])`,
+which is close to 3.
+
+
+## Function space
+
+We will now simulate Brownian motion on $[0,1]$ using the Levy construction,
+using the integrals of the Haar basis and the isometry of $L^2([0,1])$.
+```{r haar_basis}
+haar_integral <- function (x, n, k) {
+    a <- 2 * k / 2^n
+    b <- (2 * k  + 1)/ 2^n
+    c <- (2 * k  + 2)/ 2^n
+    2^((n-1)/2) * ifelse(x < a, 0,
+                         ifelse(x < b, x - a,
+                                ifelse(x < c, c - x, 0)))
+}
+
+curve(haar_integral(x, n=3, k=1), from=0, to=1, ylab='Schauder function value')
+curve(haar_integral(x, n=5, k=6), from=0, to=1, add=TRUE, col='red')
+curve(haar_integral(x, n=5, k=12), from=0, to=1, add=TRUE, col='blue')
+```
+
+Ok, that's our (integrated) basis functions.
+Now we need to add them up with independent Gaussian coefficients.
+```{r haar_bm}
+haar_bm <- function (nmax, bridge=FALSE) {
+    if (bridge) {
+        nk <- data.frame(n=1, k=0)
+    } else {
+        nk <- data.frame(n=c(0,1), k=c(0,0))
+    }
+    for (nn in seq(2, nmax)) {
+        nk <- rbind(nk, data.frame(n=nn, k=0:(2^(nn-1))))
+    }
+    fns <- lapply(1:nrow(nk), function (j)
+                  function (x) haar_integral(x, n=nk$n[j], k=nk$k[j]))
+    # the random coefficients
+    Z <- rnorm(nrow(nk), 0, sd=1)
+    return(function (x) {
+        Z %*% do.call(rbind, lapply(fns, function (f) f(x)))
+    })
+}
+
+B <- haar_bm(10)
+curve(B, from=0, to=1)
+lines(seq(0,1,length.out=1e3), B(seq(0,1,length.out=1e3)), col='red')
+```

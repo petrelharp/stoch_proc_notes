@@ -28,11 +28,11 @@ The exact dates we cover the topics below is expected to change.
 
 - [October 22 and 24](LectureNotes/Lectures/Fall2018/Lecture7/ASPLecture7.html) - Helen
 
-- [October 26](LectureNotes/Lectures/Fall2018/Lecture8/ASPLecture8.html) - Austen
+- [October 26](LectureNotes/Lectures/Fall2018/Lecture8/ASPLecture8.html) - Austen (first half)
 
 ## Continuous time Markov Chains
 
-- [October 29]() - Austen
+- [October 29](LectureNotes/Lectures/Fall2018/Lecture8/ASPLecture8.html) - Austen (second half)
 
 - [October 31 and Nobember 2]() - Isaac
 
@@ -48,7 +48,7 @@ The exact dates we cover the topics below is expected to change.
 
 - [November 23 and 26]() - Martin
 
-## Miscellanea?
+## Simulations
 
-- [November 28 and 30]() - Paul
+- [Brownian motion](demos/gaussian_processes.html)
 

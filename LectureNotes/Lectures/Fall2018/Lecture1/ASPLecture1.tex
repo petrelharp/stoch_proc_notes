@@ -223,8 +223,8 @@ Note that Equation 1 holds in the more general case that $\E[Z]=0$ and $\var[Z]=
 \subsection{Brownian Motion}
 
 Let $S_{k,n}$ be defined as above.  
-Let $\style B_t^{(N)}=\frac{1}{\sqrt{N}}S_{0,\lfloor tN\rfloor}$.  
-Then let $\style B_t=\lim_{N\to\infty}\frac{1}{\sqrt{N}}S_{0,\lfloor tN\rfloor}$.  
+Let $B_t^{(N)}=\frac{1}{\sqrt{N}}S_{0,\lfloor tN\rfloor}$.  
+Then let $B_t=\lim_{N\to\infty}\frac{1}{\sqrt{N}}S_{0,\lfloor tN\rfloor}$.  
 Then $\{B_t\}$ is Brownian motion.  
 We can visualize Brownian motion by considering the graphs yielded by the maps $t\mapsto B^t$ and $t\mapsto B_t^{(N)}$.
 
@@ -542,7 +542,7 @@ a more general central limit theorem applies (for more information, look up Lind
 
 \paragraph{Definition} 
 Random variables $Z_1,\dots,Z_n$ (which we can think of as a random vector of length $n$, $(Z_1,\dots,Z_n)$) are \emph{jointly Gaussian} 
-if for any $a_1,\dots,a_n\in\R$, we have $\style\sum_{k=1}^n a_kZ_k\sim N(m,\sigma^2)$ for some $m$, $\sigma^2$.  
+if for any $a_1,\dots,a_n\in\R$, we have $\sum_{k=1}^n a_kZ_k\sim N(m,\sigma^2)$ for some $m$, $\sigma^2$.  
 That is, these random variables are jointly Gaussian if and only if any linear combination of them is univariate Gaussian.
 
 \paragraph{Definition/Notation} Suppose that the random variables $(Z_1,\dots,Z_n)$ are jointly Gaussian.  
@@ -555,7 +555,7 @@ Then we write $Z\sim N(\mu, \Sigma)$.
 
 Now, suppose that we have $Z$, $\mu$, and $\Sigma$ as in the above definition, and let $a = (a_1,\dots,a_n) \in \R^n$.  
 
-Then we know that $\style\sum_{k=1}^n a_kZ_k\sim N(m,\sigma^2)$ for some $m$, $\sigma^2$.  
+Then we know that $\sum_{k=1}^n a_kZ_k\sim N(m,\sigma^2)$ for some $m$, $\sigma^2$.  
 A small amount of algebraic manipulation yields the following equations:
 
 $$\begin{aligned}

@@ -28,7 +28,7 @@ The exact dates we cover the topics below is expected to change.
 
 - [October 22 and 24](LectureNotes/Lectures/Fall2018/Lecture7/ASPLecture7.html) - Helen
 
-- [October 26]() - Austen
+- [October 26](LectureNotes/Lectures/Fall2018/Lecture8/ASPLecture8.html) - Austen
 
 ## Continuous time Markov Chains
 

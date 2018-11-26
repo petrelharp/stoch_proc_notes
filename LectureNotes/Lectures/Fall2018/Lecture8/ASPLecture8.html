@@ -1,0 +1,449 @@
+<!DOCTYPE html><html>
+<head>
+<title>1 A Field Guide to Generators</title>
+<!--Generated on Thu Nov  8 22:56:56 2018 by LaTeXML (version 0.8.3) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on October 26 and 29.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-article.css" type="text/css">
+</head>
+<body>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document">
+<div id="p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold" style="font-size:144%;">October 26 and 29</span></p>
+</div>
+<section id="S1" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">1 </span>A Field Guide to Generators</h2>
+
+<div id="S1.p1" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_l ltx_border_r ltx_border_t" style="padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;"><span class="ltx_text ltx_font_bold">Operator applied to <math id="S1.p1.m1" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math></span></th>
+<th class="ltx_td ltx_align_justify ltx_th ltx_th_column ltx_border_r ltx_border_t" style="width:170.7pt;padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;"><span class="ltx_text ltx_wrap ltx_font_bold">Description</span></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_r ltx_border_t" style="padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;"><span class="ltx_text ltx_font_bold">Example</span></th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t" style="padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;"><math id="S1.p1.m2" class="ltx_Math" alttext="\frac{d}{dx}f(x)" display="inline"><mrow><mfrac><mi>d</mi><mrow><mi>d</mi><mo>⁢</mo><mi>x</mi></mrow></mfrac><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_td ltx_align_justify ltx_border_r ltx_border_t" style="width:170.7pt;padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;">Deterministic movement with speed <math id="S1.p1.m3" class="ltx_Math" alttext="+1" display="inline"><mrow><mo>+</mo><mn>1</mn></mrow></math>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" style="padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;"><math id="S1.p1.m4" class="ltx_Math" alttext="X_{t}=X_{0}+t" display="inline"><mrow><msub><mi>X</mi><mi>t</mi></msub><mo>=</mo><mrow><msub><mi>X</mi><mn>0</mn></msub><mo>+</mo><mi>t</mi></mrow></mrow></math></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t" style="padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;"><math id="S1.p1.m5" class="ltx_Math" alttext="f(y)-f(x)" display="inline"><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mrow><mo>-</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_td ltx_align_justify ltx_border_r ltx_border_t" style="width:170.7pt;padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;">Jump from <math id="S1.p1.m6" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math> to <math id="S1.p1.m7" class="ltx_Math" alttext="y" display="inline"><mi>y</mi></math> at rate <math id="S1.p1.m8" class="ltx_Math" alttext="1" display="inline"><mn>1</mn></math>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" style="padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;">
+<math id="S1.p1.m9" class="ltx_Math" alttext="X_{t}=\begin{cases}x,&amp;\text{if }t&lt;\tau\\
+y,&amp;\text{if }t\geq\tau\end{cases}" display="inline"><mrow><msub><mi>X</mi><mi>t</mi></msub><mo>=</mo><mrow><mo>{</mo><mtable columnspacing="5pt" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><mi>x</mi><mo>,</mo></mrow></mtd><mtd columnalign="left"><mrow><mrow><mtext>if </mtext><mo>⁢</mo><mi>t</mi></mrow><mo>&lt;</mo><mi>τ</mi></mrow></mtd></mtr><mtr><mtd columnalign="left"><mrow><mi>y</mi><mo>,</mo></mrow></mtd><mtd columnalign="left"><mrow><mrow><mtext>if </mtext><mo>⁢</mo><mi>t</mi></mrow><mo>≥</mo><mi>τ</mi></mrow></mtd></mtr></mtable></mrow></mrow></math>,
+where <math id="S1.p1.m10" class="ltx_Math" alttext="\tau\sim Exp(1)" display="inline"><mrow><mi>τ</mi><mo>∼</mo><mrow><mi>E</mi><mo>⁢</mo><mi>x</mi><mo>⁢</mo><mi>p</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></mrow></mrow></math>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t" style="padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;"><math id="S1.p1.m11" class="ltx_Math" alttext="\frac{1}{2}\frac{d^{2}}{dx^{2}}f(x)" display="inline"><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>⁢</mo><mfrac><msup><mi>d</mi><mn>2</mn></msup><mrow><mi>d</mi><mo>⁢</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_td ltx_align_justify ltx_border_r ltx_border_t" style="width:170.7pt;padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;">Standard Browninan motion</td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" style="padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;"><math id="S1.p1.m12" class="ltx_Math" alttext="B_{t}" display="inline"><msub><mi>B</mi><mi>t</mi></msub></math></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t" style="padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;"><math id="S1.p1.m13" class="ltx_Math" alttext="aGf(x)" display="inline"><mrow><mi>a</mi><mo>⁢</mo><mi>G</mi><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_td ltx_align_justify ltx_border_r ltx_border_t" style="width:170.7pt;padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;">The process corresponding to <math id="S1.p1.m14" class="ltx_Math" alttext="G" display="inline"><mi>G</mi></math>, run at speed <math id="S1.p1.m15" class="ltx_Math" alttext="a" display="inline"><mi>a</mi></math>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" style="padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;">
+<math id="S1.p1.m16" class="ltx_Math" alttext="X_{t}=Y_{at}" display="inline"><mrow><msub><mi>X</mi><mi>t</mi></msub><mo>=</mo><msub><mi>Y</mi><mrow><mi>a</mi><mo>⁢</mo><mi>t</mi></mrow></msub></mrow></math>, where <math id="S1.p1.m17" class="ltx_Math" alttext="Y" display="inline"><mi>Y</mi></math> has generator <math id="S1.p1.m18" class="ltx_Math" alttext="G" display="inline"><mi>G</mi></math>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t" style="padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;"><math id="S1.p1.m19" class="ltx_Math" alttext="G_{1}f(x)+G_{2}f(x)" display="inline"><mrow><mrow><msub><mi>G</mi><mn>1</mn></msub><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>+</mo><mrow><msub><mi>G</mi><mn>2</mn></msub><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_td ltx_align_justify ltx_border_r ltx_border_t" style="width:170.7pt;padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;">Both <math id="S1.p1.m20" class="ltx_Math" alttext="G_{1}" display="inline"><msub><mi>G</mi><mn>1</mn></msub></math> and <math id="S1.p1.m21" class="ltx_Math" alttext="G_{2}" display="inline"><msub><mi>G</mi><mn>2</mn></msub></math> “happen independently”</td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" style="padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;"><math id="S1.p1.m22" class="ltx_Math" alttext="\frac{d}{dt}+\frac{1}{2}\frac{d^{2}}{dx^{2}}\longrightarrow B_{t}+t" display="inline"><mrow><mrow><mfrac><mi>d</mi><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac><mo>+</mo><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>⁢</mo><mfrac><msup><mi>d</mi><mn>2</mn></msup><mrow><mi>d</mi><mo>⁢</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac></mrow></mrow><mo>⟶</mo><mrow><msub><mi>B</mi><mi>t</mi></msub><mo>+</mo><mi>t</mi></mrow></mrow></math></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t" style="padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;"><math id="S1.p1.m23" class="ltx_Math" alttext="\begin{aligned} &amp;\displaystyle(G_{1}\otimes I+I\otimes G_{2})f(x,y)\\
+&amp;\displaystyle=G_{1}f(x,y)+G_{2}f(x,y)\end{aligned}" display="inline"><mtable columnspacing="0pt" rowspacing="0pt"><mtr><mtd></mtd><mtd columnalign="left"><mrow><mrow><mo stretchy="false">(</mo><mrow><mrow><msub><mi>G</mi><mn>1</mn></msub><mo>⊗</mo><mi>I</mi></mrow><mo>+</mo><mrow><mi>I</mi><mo>⊗</mo><msub><mi>G</mi><mn>2</mn></msub></mrow></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mrow></mtd></mtr><mtr><mtd></mtd><mtd columnalign="left"><mrow><mi></mi><mo>=</mo><mrow><mrow><msub><mi>G</mi><mn>1</mn></msub><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mrow><mo>+</mo><mrow><msub><mi>G</mi><mn>2</mn></msub><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow></mtd></mtr></mtable></math></td>
+<td class="ltx_td ltx_align_justify ltx_border_r ltx_border_t" style="width:170.7pt;padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;">Independent (multidimensional) processes</td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" style="padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;"><math id="S1.p1.m24" class="ltx_Math" alttext="X_{t}=(Y_{t}^{(1)},Y_{t}^{(2)})" display="inline"><mrow><msub><mi>X</mi><mi>t</mi></msub><mo>=</mo><mrow><mo stretchy="false">(</mo><msubsup><mi>Y</mi><mi>t</mi><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msubsup><mo>,</mo><msubsup><mi>Y</mi><mi>t</mi><mrow><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow></msubsup><mo stretchy="false">)</mo></mrow></mrow></math></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t" style="padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;">
+<math id="S1.p1.m25" class="ltx_Math" alttext="a(x)Gf(x)" display="inline"><mrow><mi>a</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mi>G</mi><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math>, <math id="S1.p1.m26" class="ltx_Math" alttext="a(x)&gt;0" display="inline"><mrow><mrow><mi>a</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>&gt;</mo><mn>0</mn></mrow></math>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_r ltx_border_t" style="width:170.7pt;padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;">The process corresponding to <math id="S1.p1.m27" class="ltx_Math" alttext="G" display="inline"><mi>G</mi></math> run at speed <math id="S1.p1.m28" class="ltx_Math" alttext="a(x)" display="inline"><mrow><mi>a</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math> when in state <math id="S1.p1.m29" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math>.</td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" style="padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;">
+<math id="S1.p1.m30" class="ltx_Math" alttext="-x\frac{d}{dx}" display="inline"><mrow><mo>-</mo><mrow><mi>x</mi><mo>⁢</mo><mfrac><mi>d</mi><mrow><mi>d</mi><mo>⁢</mo><mi>x</mi></mrow></mfrac></mrow></mrow></math> on <math id="S1.p1.m31" class="ltx_Math" alttext="(0,\infty)\longrightarrow X_{t}=X_{o}e^{-t}" display="inline"><mrow><mrow><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><mi mathvariant="normal">∞</mi><mo stretchy="false">)</mo></mrow><mo>⟶</mo><msub><mi>X</mi><mi>t</mi></msub><mo>=</mo><mrow><msub><mi>X</mi><mi>o</mi></msub><mo>⁢</mo><msup><mi>e</mi><mrow><mo>-</mo><mi>t</mi></mrow></msup></mrow></mrow></math>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t" style="padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;">
+<math id="S1.p1.m32" class="ltx_Math" alttext="\vec{a}(x)\cdot\vec{\nabla}f(x)" display="inline"><mrow><mrow><mrow><mover accent="true"><mi>a</mi><mo stretchy="false">→</mo></mover><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>⋅</mo><mover accent="true"><mo>∇</mo><mo stretchy="false">→</mo></mover></mrow><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math>, <math id="S1.p1.m33" class="ltx_Math" alttext="x\in\mathbb{R}^{n}" display="inline"><mrow><mi>x</mi><mo>∈</mo><msup><mi>ℝ</mi><mi>n</mi></msup></mrow></math>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_r ltx_border_t" style="width:170.7pt;padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;">Deterministic flow along <math id="S1.p1.m34" class="ltx_Math" alttext="\vec{a}(x)" display="inline"><mrow><mover accent="true"><mi>a</mi><mo stretchy="false">→</mo></mover><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" style="padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;">—</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t" style="padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;"><math id="S1.p1.m35" class="ltx_Math" alttext="\begin{aligned} \displaystyle\frac{1}{2}\Delta f(x)=\frac{1}{2}\sum\limits_{k=%
+1}^{n}\frac{d^{2}}{dx_{k}^{2}}f(x),\\
+\displaystyle x\in\mathbb{R}^{n}\end{aligned}" display="inline"><mtable rowspacing="0pt"><mtr><mtd columnalign="right"><mrow><mrow><mrow><mstyle displaystyle="true"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mstyle displaystyle="true"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><mo>⁢</mo><mrow><mstyle displaystyle="true"><munderover><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover></mstyle><mrow><mstyle displaystyle="true"><mfrac><msup><mi>d</mi><mn>2</mn></msup><mrow><mi>d</mi><mo>⁢</mo><msubsup><mi>x</mi><mi>k</mi><mn>2</mn></msubsup></mrow></mfrac></mstyle><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow></mrow><mo>,</mo></mrow></mtd></mtr><mtr><mtd columnalign="right"><mrow><mi>x</mi><mo>∈</mo><msup><mi>ℝ</mi><mi>n</mi></msup></mrow></mtd></mtr></mtable></math></td>
+<td class="ltx_td ltx_align_justify ltx_border_r ltx_border_t" style="width:170.7pt;padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;">
+<math id="S1.p1.m36" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>-dimensional Brownian motion</td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" style="padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;">
+<math id="S1.p1.m37" class="ltx_Math" alttext="B_{t}=(B_{t}^{(1)},\dots,B_{t}^{(n)})" display="inline"><mrow><msub><mi>B</mi><mi>t</mi></msub><mo>=</mo><mrow><mo stretchy="false">(</mo><msubsup><mi>B</mi><mi>t</mi><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msubsup><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><msubsup><mi>B</mi><mi>t</mi><mrow><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow></msubsup><mo stretchy="false">)</mo></mrow></mrow></math>, i.i.d. BMs <math id="S1.p1.m38" class="ltx_Math" alttext="B_{t}^{(k)}" display="inline"><msubsup><mi>B</mi><mi>t</mi><mrow><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow></msubsup></math>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t" style="padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;"><math id="S1.p1.m39" class="ltx_Math" alttext="\sum\limits_{i,j}\alpha_{ij}\left(f(x_{j})-f(x_{i})\right)" display="inline"><mrow><munder><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow></munder><mrow><msub><mi>α</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub><mo>⁢</mo><mrow><mo>(</mo><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>x</mi><mi>j</mi></msub><mo stretchy="false">)</mo></mrow></mrow><mo>-</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_td ltx_align_justify ltx_border_r ltx_border_t" style="width:170.7pt;padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;">Jump to <math id="S1.p1.m40" class="ltx_Math" alttext="x_{j}" display="inline"><msub><mi>x</mi><mi>j</mi></msub></math> from <math id="S1.p1.m41" class="ltx_Math" alttext="x_{i}" display="inline"><msub><mi>x</mi><mi>i</mi></msub></math> at rate <math id="S1.p1.m42" class="ltx_Math" alttext="\alpha_{ij}" display="inline"><msub><mi>α</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub></math>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" style="padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;">—</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_b ltx_border_l ltx_border_r ltx_border_t" style="padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;"><math id="S1.p1.m43" class="ltx_Math" alttext="\int\alpha(x,y)\left(f(y)-f(x)\right)dy" display="inline"><mrow><mo largeop="true" symmetric="true">∫</mo><mrow><mi>α</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mrow><mo>-</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>)</mo></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>y</mi></mrow></mrow></mrow></math></td>
+<td class="ltx_td ltx_align_justify ltx_border_b ltx_border_r ltx_border_t" style="width:170.7pt;padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;">Jump to <math id="S1.p1.m44" class="ltx_Math" alttext="y" display="inline"><mi>y</mi></math> from <math id="S1.p1.m45" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math> at rate <math id="S1.p1.m46" class="ltx_Math" alttext="\alpha(x,y)dy" display="inline"><mrow><mi>α</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mi>d</mi><mo>⁢</mo><mi>y</mi></mrow></math>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_b ltx_border_r ltx_border_t" style="padding-top:6.94444444444445px;padding-bottom:6.94444444444445px;">—</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="S2" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">2 </span>Examples of Generators</h2>
+
+<div id="S2.p1" class="ltx_para">
+<ul id="S2.I1" class="ltx_itemize">
+<li id="S2.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S2.I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_framed_underline">Recall from before</span>: we defined <math id="S2.I1.i1.p1.m1" class="ltx_Math" alttext="X_{t}^{(M)}=\frac{N_{Mt}-Mt}{\sqrt{M}}" display="inline"><mrow><msubsup><mi>X</mi><mi>t</mi><mrow><mo stretchy="false">(</mo><mi>M</mi><mo stretchy="false">)</mo></mrow></msubsup><mo>=</mo><mfrac><mrow><msub><mi>N</mi><mrow><mi>M</mi><mo>⁢</mo><mi>t</mi></mrow></msub><mo>-</mo><mrow><mi>M</mi><mo>⁢</mo><mi>t</mi></mrow></mrow><msqrt><mi>M</mi></msqrt></mfrac></mrow></math>, which converges to Brownian motion as <math id="S2.I1.i1.p1.m2" class="ltx_Math" alttext="M\rightarrow\infty" display="inline"><mrow><mi>M</mi><mo>→</mo><mi mathvariant="normal">∞</mi></mrow></math>.</p>
+</div>
+<div id="S2.I1.i1.p2" class="ltx_para">
+<p class="ltx_p">In other words, it drifts down at speed <math id="S2.I1.i1.p2.m1" class="ltx_Math" alttext="\sqrt{M}" display="inline"><msqrt><mi>M</mi></msqrt></math> with jumps of magnitude <math id="S2.I1.i1.p2.m2" class="ltx_Math" alttext="\frac{1}{\sqrt{M}}" display="inline"><mfrac><mn>1</mn><msqrt><mi>M</mi></msqrt></mfrac></math> at rate <math id="S2.I1.i1.p2.m3" class="ltx_Math" alttext="M" display="inline"><mi>M</mi></math>.</p>
+</div>
+<div id="S2.I1.i1.p3" class="ltx_para">
+<p class="ltx_p">So, the generator is:</p>
+<table id="S2.Ex1" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S2.Ex1X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S2.Ex1X.m2" class="ltx_Math" alttext="\displaystyle-\sqrt{M}\frac{d}{dx}f(x)+M\left(f(x+\frac{1}{\sqrt{M}})-f(x)\right)" display="inline"><mrow><mrow><mo>-</mo><mrow><msqrt><mi>M</mi></msqrt><mo>⁢</mo><mstyle displaystyle="true"><mfrac><mi>d</mi><mrow><mi>d</mi><mo>⁢</mo><mi>x</mi></mrow></mfrac></mstyle><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>+</mo><mrow><mi>M</mi><mo>⁢</mo><mrow><mo>(</mo><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>x</mi><mo>+</mo><mstyle displaystyle="true"><mfrac><mn>1</mn><msqrt><mi>M</mi></msqrt></mfrac></mstyle></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>-</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</li>
+<li id="S2.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S2.I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_framed_underline">Resetting</span>: Suppose a process drifts up at speed <math id="S2.I1.i2.p1.m1" class="ltx_Math" alttext="1" display="inline"><mn>1</mn></math> and jumps back to <math id="S2.I1.i2.p1.m2" class="ltx_Math" alttext="0" display="inline"><mn>0</mn></math> at rate <math id="S2.I1.i2.p1.m3" class="ltx_Math" alttext="1" display="inline"><mn>1</mn></math>.</p>
+</div>
+<div id="S2.I1.i2.p2" class="ltx_para">
+<p class="ltx_p">The generator is then:</p>
+<table id="S2.Ex2" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S2.Ex2X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S2.Ex2X.m2" class="ltx_Math" alttext="\displaystyle\frac{d}{dx}f(x)+\left(f(0)-f(x)\right)" display="inline"><mrow><mrow><mstyle displaystyle="true"><mfrac><mi>d</mi><mrow><mi>d</mi><mo>⁢</mo><mi>x</mi></mrow></mfrac></mstyle><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>+</mo><mrow><mo>(</mo><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mn>0</mn><mo stretchy="false">)</mo></mrow></mrow><mo>-</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</li>
+<li id="S2.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S2.I1.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_framed_underline">Bathtub</span>: Suppose a bath is filling at a speed of <math id="S2.I1.i3.p1.m1" class="ltx_Math" alttext="1" display="inline"><mn>1</mn></math> gal/min, but a kid jumps in at independent intervals given by <math id="S2.I1.i3.p1.m2" class="ltx_Math" alttext="exp(1)" display="inline"><mrow><mi>e</mi><mo>⁢</mo><mi>x</mi><mo>⁢</mo><mi>p</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></mrow></math> and splashes out a random, uniformly chosen proportion of water.</p>
+</div>
+<div id="S2.I1.i3.p2" class="ltx_para">
+<p class="ltx_p">The generator is then:</p>
+<table id="S2.Ex3" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S2.Ex3X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S2.Ex3X.m2" class="ltx_Math" alttext="\displaystyle\frac{d}{dx}f(x)+\frac{1}{x}\int\limits_{0}^{x}\left(f(y)-f(x)%
+\right)dy" display="inline"><mrow><mrow><mstyle displaystyle="true"><mfrac><mi>d</mi><mrow><mi>d</mi><mo>⁢</mo><mi>x</mi></mrow></mfrac></mstyle><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>+</mo><mrow><mstyle displaystyle="true"><mfrac><mn>1</mn><mi>x</mi></mfrac></mstyle><mo>⁢</mo><mrow><mstyle displaystyle="true"><munderover><mo largeop="true" movablelimits="false" symmetric="true">∫</mo><mn>0</mn><mi>x</mi></munderover></mstyle><mrow><mrow><mo>(</mo><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mrow><mo>-</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>)</mo></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>y</mi></mrow></mrow></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+<div id="Thmnotex1" class="ltx_theorem ltx_theorem_note">
+<h6 class="ltx_title ltx_runin ltx_title_theorem">
+<span class="ltx_tag ltx_tag_theorem"><span class="ltx_text ltx_font_bold">Note</span></span>.</h6>
+<div id="Thmnotex1.p1" class="ltx_para">
+<p class="ltx_p">If <math id="Thmnotex1.p1.m1" class="ltx_Math" alttext="Gf(x)=\int\alpha(x,y)\left(f(y)-f(x)\right)dy" display="inline"><mrow><mrow><mi>G</mi><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mo largeop="true" symmetric="true">∫</mo><mrow><mi>α</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mrow><mo>-</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>)</mo></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>y</mi></mrow></mrow></mrow></mrow></math>, when at point <math id="Thmnotex1.p1.m2" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math>, the <span class="ltx_text ltx_framed_underline">total</span> jump rate is given by <math id="Thmnotex1.p1.m3" class="ltx_Math" alttext="\int\alpha(x,y)dy" display="inline"><mrow><mo largeop="true" symmetric="true">∫</mo><mrow><mi>α</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>y</mi></mrow></mrow></mrow></math> because of the additivity of Poisson processes.</p>
+</div>
+<div id="Thmnotex1.p2" class="ltx_para">
+<p class="ltx_p">Alternatively, we can say that if <math id="Thmnotex1.p2.m1" class="ltx_Math" alttext="\int\alpha(x,y)dy&lt;\infty" display="inline"><mrow><mrow><mo largeop="true" symmetric="true">∫</mo><mrow><mi>α</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>y</mi></mrow></mrow></mrow><mo>&lt;</mo><mi mathvariant="normal">∞</mi></mrow></math>, the process “jumps at rate <math id="Thmnotex1.p2.m2" class="ltx_Math" alttext="\int\alpha(x,y)dy" display="inline"><mrow><mo largeop="true" symmetric="true">∫</mo><mrow><mi>α</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>y</mi></mrow></mrow></mrow></math> to a random location chosen from the distribution <math id="Thmnotex1.p2.m3" class="ltx_Math" alttext="\frac{\alpha(x,y)dy}{\int\alpha(x,y)dz}" display="inline"><mfrac><mrow><mi>α</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mi>d</mi><mo>⁢</mo><mi>y</mi></mrow><mstyle scriptlevel="-1"><mrow><mo largeop="true" symmetric="true">∫</mo><mrow><mi>α</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>z</mi></mrow></mrow></mrow></mstyle></mfrac></math>.</p>
+</div>
+<div id="Thmnotex1.p3" class="ltx_para">
+<p class="ltx_p">An intuition for this property is that if you have two separate processes, <math id="Thmnotex1.p3.m1" class="ltx_Math" alttext="X\sim PPP(1)" display="inline"><mrow><mi>X</mi><mo>∼</mo><mrow><mi>P</mi><mo>⁢</mo><mi>P</mi><mo>⁢</mo><mi>P</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></mrow></mrow></math> and <math id="Thmnotex1.p3.m2" class="ltx_Math" alttext="Y\sim PPP(2)" display="inline"><mrow><mi>Y</mi><mo>∼</mo><mrow><mi>P</mi><mo>⁢</mo><mi>P</mi><mo>⁢</mo><mi>P</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow></mrow></mrow></math> where you jump left at points in <math id="Thmnotex1.p3.m3" class="ltx_Math" alttext="X" display="inline"><mi>X</mi></math> and right at points in <math id="Thmnotex1.p3.m4" class="ltx_Math" alttext="Y" display="inline"><mi>Y</mi></math>, then the total process can be modeled by <math id="Thmnotex1.p3.m5" class="ltx_Math" alttext="Z=X+Y\sim PPP(3)" display="inline"><mrow><mi>Z</mi><mo>=</mo><mrow><mi>X</mi><mo>+</mo><mi>Y</mi></mrow><mo>∼</mo><mrow><mi>P</mi><mo>⁢</mo><mi>P</mi><mo>⁢</mo><mi>P</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mn>3</mn><mo stretchy="false">)</mo></mrow></mrow></mrow></math> where you jump forward at any point.</p>
+</div>
+</div>
+</section>
+<section id="S3" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">3 </span>Markov Chains</h2>
+
+<div id="S3.Thmthm1" class="ltx_theorem ltx_theorem_lemma">
+<h6 class="ltx_title ltx_runin ltx_title_theorem">
+<span class="ltx_tag ltx_tag_theorem"><span class="ltx_text ltx_font_bold">Lemma 3.1</span></span> (Generating functions of paths).</h6>
+<div id="S3.Thmthm1.p1" class="ltx_para">
+<p class="ltx_p">Let <math id="S3.Thmthm1.p1.m1" class="ltx_Math" alttext="A=(A_{ij})_{i,j\in[n]}" display="inline"><mrow><mi>A</mi><mo>=</mo><msub><mrow><mo stretchy="false">(</mo><msub><mi>A</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub><mo stretchy="false">)</mo></mrow><mrow><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow><mo>∈</mo><mrow><mo stretchy="false">[</mo><mi>n</mi><mo stretchy="false">]</mo></mrow></mrow></msub></mrow></math>, where <math id="S3.Thmthm1.p1.m2" class="ltx_Math" alttext="[n]=\{1,2,\dots,n\}" display="inline"><mrow><mrow><mo stretchy="false">[</mo><mi>n</mi><mo stretchy="false">]</mo></mrow><mo>=</mo><mrow><mo stretchy="false">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mi>n</mi><mo stretchy="false">}</mo></mrow></mrow></math>,
+and let <math id="S3.Thmthm1.p1.m3" class="ltx_Math" alttext="\mathcal{P}_{i,j}^{k}=\{\text{paths of length $k$ from $i$ to $j$}\}=\{P\in[n]%
+^{k+1}:p_{0}=i,p_{k}=j\}" display="inline"><mrow><msubsup><mi class="ltx_font_mathcaligraphic">𝒫</mi><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow><mi>k</mi></msubsup><mo>=</mo><mrow><mo stretchy="false">{</mo><mrow><mtext>paths of length </mtext><mi>k</mi><mtext> from </mtext><mi>i</mi><mtext> to </mtext><mi>j</mi></mrow><mo stretchy="false">}</mo></mrow><mo>=</mo><mrow><mo stretchy="false">{</mo><mrow><mi>P</mi><mo>∈</mo><msup><mrow><mo stretchy="false">[</mo><mi>n</mi><mo stretchy="false">]</mo></mrow><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msup></mrow><mo>:</mo><mrow><mrow><msub><mi>p</mi><mn>0</mn></msub><mo>=</mo><mi>i</mi></mrow><mo>,</mo><mrow><msub><mi>p</mi><mi>k</mi></msub><mo>=</mo><mi>j</mi></mrow></mrow><mo stretchy="false">}</mo></mrow></mrow></math> (including self-loops).
+Then,</p>
+<table id="S3.Ex4" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S3.Ex4X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S3.Ex4X.m2" class="ltx_Math" alttext="\displaystyle(A^{k})_{ij}=\sum\limits_{P\in\mathcal{P}_{i,j}^{k}}\prod\limits_%
+{\ell=1}^{k}A_{P_{\ell-1},P_{\ell}}" display="inline"><mrow><msub><mrow><mo stretchy="false">(</mo><msup><mi>A</mi><mi>k</mi></msup><mo stretchy="false">)</mo></mrow><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub><mo>=</mo><mrow><mstyle displaystyle="true"><munder><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>P</mi><mo>∈</mo><msubsup><mi class="ltx_font_mathcaligraphic">𝒫</mi><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow><mi>k</mi></msubsup></mrow></munder></mstyle><mrow><mstyle displaystyle="true"><munderover><mo largeop="true" movablelimits="false" symmetric="true">∏</mo><mrow><mi mathvariant="normal">ℓ</mi><mo>=</mo><mn>1</mn></mrow><mi>k</mi></munderover></mstyle><msub><mi>A</mi><mrow><msub><mi>P</mi><mrow><mi mathvariant="normal">ℓ</mi><mo>-</mo><mn>1</mn></mrow></msub><mo>,</mo><msub><mi>P</mi><mi mathvariant="normal">ℓ</mi></msub></mrow></msub></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</div>
+<div class="ltx_proof">
+<h6 class="ltx_title ltx_runin ltx_font_italic ltx_title_proof">Proof.</h6>
+<div id="S3.p1" class="ltx_para">
+<p class="ltx_p">(By induction.)</p>
+</div>
+<div id="S3.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_italic">Base Case(s):</span>
+When <math id="S3.p2.m1" class="ltx_Math" alttext="k=0" display="inline"><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow></math>, <math id="S3.p2.m2" class="ltx_Math" alttext="(A^{0})_{ij}=\begin{cases}1,&amp;i=j\\
+0,&amp;\text{else}\end{cases}" display="inline"><mrow><msub><mrow><mo stretchy="false">(</mo><msup><mi>A</mi><mn>0</mn></msup><mo stretchy="false">)</mo></mrow><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub><mo>=</mo><mrow><mo>{</mo><mtable columnspacing="5pt" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><mn>1</mn><mo>,</mo></mrow></mtd><mtd columnalign="left"><mrow><mi>i</mi><mo>=</mo><mi>j</mi></mrow></mtd></mtr><mtr><mtd columnalign="left"><mrow><mn>0</mn><mo>,</mo></mrow></mtd><mtd columnalign="left"><mtext>else</mtext></mtd></mtr></mtable></mrow></mrow></math>.
+When <math id="S3.p2.m3" class="ltx_Math" alttext="k=1" display="inline"><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow></math>, <math id="S3.p2.m4" class="ltx_Math" alttext="(A^{1})_{ij}=A_{ij}" display="inline"><mrow><msub><mrow><mo stretchy="false">(</mo><msup><mi>A</mi><mn>1</mn></msup><mo stretchy="false">)</mo></mrow><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub><mo>=</mo><msub><mi>A</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub></mrow></math>.</p>
+</div>
+<div id="S3.p3" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_italic">Inductive Step:</span>
+Suppose that the assumption holds for <math id="S3.p3.m1" class="ltx_Math" alttext="k" display="inline"><mi>k</mi></math>. Then</p>
+<table id="S3.Ex5" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S3.Ex5X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S3.Ex5X.m2" class="ltx_Math" alttext="\displaystyle(A^{k+1})_{ij}" display="inline"><msub><mrow><mo stretchy="false">(</mo><msup><mi>A</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msup><mo stretchy="false">)</mo></mrow><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex5X.m3" class="ltx_Math" alttext="\displaystyle=(A^{k}A)_{ij}" display="inline"><mrow><mi></mi><mo>=</mo><msub><mrow><mo stretchy="false">(</mo><mrow><msup><mi>A</mi><mi>k</mi></msup><mo>⁢</mo><mi>A</mi></mrow><mo stretchy="false">)</mo></mrow><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S3.Ex5Xa" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex5Xa.m2" class="ltx_Math" alttext="\displaystyle=\sum\limits_{m=1}^{n}(A^{k})_{im}A_{mj}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mstyle displaystyle="true"><munderover><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>m</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover></mstyle><mrow><msub><mrow><mo stretchy="false">(</mo><msup><mi>A</mi><mi>k</mi></msup><mo stretchy="false">)</mo></mrow><mrow><mi>i</mi><mo>⁢</mo><mi>m</mi></mrow></msub><mo>⁢</mo><msub><mi>A</mi><mrow><mi>m</mi><mo>⁢</mo><mi>j</mi></mrow></msub></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S3.Ex5Xb" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex5Xb.m2" class="ltx_Math" alttext="\displaystyle=\sum\limits_{m=1}^{n}\left(\sum\limits_{\mathcal{P}_{i,m}^{k}}%
+\prod\limits_{\ell=1}^{k}A_{P_{\ell-1},P_{\ell}}\right)A_{mj}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mstyle displaystyle="true"><munderover><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>m</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover></mstyle><mrow><mrow><mo>(</mo><mrow><mstyle displaystyle="true"><munder><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><msubsup><mi class="ltx_font_mathcaligraphic">𝒫</mi><mrow><mi>i</mi><mo>,</mo><mi>m</mi></mrow><mi>k</mi></msubsup></munder></mstyle><mrow><mstyle displaystyle="true"><munderover><mo largeop="true" movablelimits="false" symmetric="true">∏</mo><mrow><mi mathvariant="normal">ℓ</mi><mo>=</mo><mn>1</mn></mrow><mi>k</mi></munderover></mstyle><msub><mi>A</mi><mrow><msub><mi>P</mi><mrow><mi mathvariant="normal">ℓ</mi><mo>-</mo><mn>1</mn></mrow></msub><mo>,</mo><msub><mi>P</mi><mi mathvariant="normal">ℓ</mi></msub></mrow></msub></mrow></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>A</mi><mrow><mi>m</mi><mo>⁢</mo><mi>j</mi></mrow></msub></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S3.Ex5Xc" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex5Xc.m2" class="ltx_Math" alttext="\displaystyle=\sum\limits_{\mathcal{P}_{i,m}^{k+1}}\prod\limits_{\ell=1}^{k+1}%
+A_{P_{\ell-1},P_{\ell}}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mstyle displaystyle="true"><munder><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><msubsup><mi class="ltx_font_mathcaligraphic">𝒫</mi><mrow><mi>i</mi><mo>,</mo><mi>m</mi></mrow><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msubsup></munder></mstyle><mrow><mstyle displaystyle="true"><munderover><mo largeop="true" movablelimits="false" symmetric="true">∏</mo><mrow><mi mathvariant="normal">ℓ</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></munderover></mstyle><msub><mi>A</mi><mrow><msub><mi>P</mi><mrow><mi mathvariant="normal">ℓ</mi><mo>-</mo><mn>1</mn></mrow></msub><mo>,</mo><msub><mi>P</mi><mi mathvariant="normal">ℓ</mi></msub></mrow></msub></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">∎</p>
+</div>
+</div>
+<section id="S3.SSx1" class="ltx_subsection">
+<h3 class="ltx_title ltx_title_subsection">Discrete-Time Markov Chains (DTMC)</h3>
+
+<div id="S3.SSx1.p1" class="ltx_para">
+<p class="ltx_p">Let <math id="S3.SSx1.p1.m1" class="ltx_Math" alttext="(M_{k})_{k\in\mathbb{N}_{\geq 0}}" display="inline"><msub><mrow><mo stretchy="false">(</mo><msub><mi>M</mi><mi>k</mi></msub><mo stretchy="false">)</mo></mrow><mrow><mi>k</mi><mo>∈</mo><msub><mi>ℕ</mi><mrow><mi></mi><mo>≥</mo><mn>0</mn></mrow></msub></mrow></msub></math> be a DTMC with <math id="S3.SSx1.p1.m2" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math> states, labelled by <math id="S3.SSx1.p1.m3" class="ltx_Math" alttext="[n]" display="inline"><mrow><mo stretchy="false">[</mo><mi>n</mi><mo stretchy="false">]</mo></mrow></math>, i.e. for <math id="S3.SSx1.p1.m4" class="ltx_Math" alttext="x,y\in[n]" display="inline"><mrow><mrow><mi>x</mi><mo>,</mo><mi>y</mi></mrow><mo>∈</mo><mrow><mo stretchy="false">[</mo><mi>n</mi><mo stretchy="false">]</mo></mrow></mrow></math> the transition probability is <math id="S3.SSx1.p1.m5" class="ltx_Math" alttext="\mathbb{P}\{M_{k+1}=y\mid M_{k}=x,M_{\leq k}\}=\mathbb{P}\{M_{k+1}=y\mid M_{k}%
+=x\}=P_{xy}" display="inline"><mrow><mrow><mi>ℙ</mi><mo>⁢</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>M</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>y</mi></mrow><mo>∣</mo><mrow><msub><mi>M</mi><mi>k</mi></msub><mo>=</mo><mrow><mi>x</mi><mo>,</mo><msub><mi>M</mi><mrow><mi></mi><mo>≤</mo><mi>k</mi></mrow></msub></mrow></mrow><mo stretchy="false">}</mo></mrow></mrow><mo>=</mo><mrow><mi>ℙ</mi><mo>⁢</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>M</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>y</mi></mrow><mo>∣</mo><mrow><msub><mi>M</mi><mi>k</mi></msub><mo>=</mo><mi>x</mi></mrow><mo stretchy="false">}</mo></mrow></mrow><mo>=</mo><msub><mi>P</mi><mrow><mi>x</mi><mo>⁢</mo><mi>y</mi></mrow></msub></mrow></math>. Then,
+</p>
+<table id="S3.Ex6" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S3.Ex6X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S3.Ex6X.m2" class="ltx_Math" alttext="\displaystyle\mathbb{P}\{M_{k+\ell}=y\mid M_{k}=x\}=(P^{\ell})_{xy}" display="inline"><mrow><mrow><mi>ℙ</mi><mo>⁢</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>M</mi><mrow><mi>k</mi><mo>+</mo><mi mathvariant="normal">ℓ</mi></mrow></msub><mo>=</mo><mi>y</mi></mrow><mo>∣</mo><mrow><msub><mi>M</mi><mi>k</mi></msub><mo>=</mo><mi>x</mi></mrow><mo stretchy="false">}</mo></mrow></mrow><mo>=</mo><msub><mrow><mo stretchy="false">(</mo><msup><mi>P</mi><mi mathvariant="normal">ℓ</mi></msup><mo stretchy="false">)</mo></mrow><mrow><mi>x</mi><mo>⁢</mo><mi>y</mi></mrow></msub></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="S3.SSx1.p2" class="ltx_para ltx_noindent">
+<p class="ltx_p"><span class="ltx_text ltx_font_italic">Proof.</span> (By the above lemma.)</p>
+</div>
+<div id="S3.SSx1.p3" class="ltx_para ltx_noindent">
+<p class="ltx_p">(Note: <math id="S3.SSx1.p3.m1" class="ltx_Math" alttext="P_{xx}" display="inline"><msub><mi>P</mi><mrow><mi>x</mi><mo>⁢</mo><mi>x</mi></mrow></msub></math> can be greater than <math id="S3.SSx1.p3.m2" class="ltx_Math" alttext="0" display="inline"><mn>0</mn></math>.)</p>
+</div>
+<div id="S3.SSx1.p4" class="ltx_para">
+<p class="ltx_p">Discrete-time Markov chains can do things that continuous-time ones can’t, namely that they can oscillate/bounce up and down.</p>
+</div>
+</section>
+<section id="S3.SSx2" class="ltx_subsection">
+<h3 class="ltx_title ltx_title_subsection">The Poissonization of <math id="S3.SSx2.m1" class="ltx_Math" alttext="M" display="inline"><mi>M</mi></math>
+</h3>
+
+<div id="S3.Thmthm2" class="ltx_theorem ltx_theorem_exmp">
+<h6 class="ltx_title ltx_runin ltx_title_theorem">
+<span class="ltx_tag ltx_tag_theorem"><span class="ltx_text ltx_font_bold">Example 3.2</span></span>.</h6>
+<div id="S3.Thmthm2.p1" class="ltx_para">
+<p class="ltx_p">Let <math id="S3.Thmthm2.p1.m1" class="ltx_Math" alttext="N_{t}=N([0,t])" display="inline"><mrow><msub><mi>N</mi><mi>t</mi></msub><mo>=</mo><mrow><mi>N</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mo stretchy="false">[</mo><mn>0</mn><mo>,</mo><mi>t</mi><mo stretchy="false">]</mo></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math> be a Poisson (counting) process on <math id="S3.Thmthm2.p1.m2" class="ltx_Math" alttext="t\in(0,\infty)" display="inline"><mrow><mi>t</mi><mo>∈</mo><mrow><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><mi mathvariant="normal">∞</mi><mo stretchy="false">)</mo></mrow></mrow></math> of constant rate <math id="S3.Thmthm2.p1.m3" class="ltx_Math" alttext="1" display="inline"><mn>1</mn></math>, and let <math id="S3.Thmthm2.p1.m4" class="ltx_Math" alttext="X_{t}=M_{N_{t}}" display="inline"><mrow><msub><mi>X</mi><mi>t</mi></msub><mo>=</mo><msub><mi>M</mi><msub><mi>N</mi><mi>t</mi></msub></msub></mrow></math>, i.e. <math id="S3.Thmthm2.p1.m5" class="ltx_Math" alttext="X_{t}=" display="inline"><mrow><msub><mi>X</mi><mi>t</mi></msub><mo>=</mo><mi></mi></mrow></math> “location of <math id="S3.Thmthm2.p1.m6" class="ltx_Math" alttext="M" display="inline"><mi>M</mi></math> after <math id="S3.Thmthm2.p1.m7" class="ltx_Math" alttext="N_{t}" display="inline"><msub><mi>N</mi><mi>t</mi></msub></math> jumps” (independently of <math id="S3.Thmthm2.p1.m8" class="ltx_Math" alttext="(M_{k})_{k\geq 0}" display="inline"><msub><mrow><mo stretchy="false">(</mo><msub><mi>M</mi><mi>k</mi></msub><mo stretchy="false">)</mo></mrow><mrow><mi>k</mi><mo>≥</mo><mn>0</mn></mrow></msub></math>).</p>
+</div>
+<div id="S3.Thmthm2.p2" class="ltx_para ltx_noindent">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">Question:</span> Is <math id="S3.Thmthm2.p2.m1" class="ltx_Math" alttext="X" display="inline"><mi>X</mi></math> a Markov process? (Yes.)</p>
+</div>
+<div id="Thmsolx1" class="ltx_theorem ltx_theorem_sol">
+<h6 class="ltx_title ltx_runin ltx_title_theorem">
+<span class="ltx_tag ltx_tag_theorem"><span class="ltx_text ltx_font_bold">Solution</span></span>.</h6>
+<div id="Thmsolx1.p1" class="ltx_para">
+<p class="ltx_p">Let <math id="Thmsolx1.p1.m1" class="ltx_Math" alttext="J=N_{t+s}-N_{t}=" display="inline"><mrow><mi>J</mi><mo>=</mo><mrow><msub><mi>N</mi><mrow><mi>t</mi><mo>+</mo><mi>s</mi></mrow></msub><mo>-</mo><msub><mi>N</mi><mi>t</mi></msub></mrow><mo>=</mo><mi></mi></mrow></math> # of jumps in <math id="Thmsolx1.p1.m2" class="ltx_Math" alttext="(t,t+s]\sim Pois(s)" display="inline"><mrow><mrow><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mrow><mi>t</mi><mo>+</mo><mi>s</mi></mrow><mo stretchy="false">]</mo></mrow><mo>∼</mo><mrow><mi>P</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>i</mi><mo>⁢</mo><mi>s</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></math>, independent of <math id="Thmsolx1.p1.m3" class="ltx_Math" alttext="(X_{\leq t})" display="inline"><mrow><mo stretchy="false">(</mo><msub><mi>X</mi><mrow><mi></mi><mo>≤</mo><mi>t</mi></mrow></msub><mo stretchy="false">)</mo></mrow></math>. Then,</p>
+<table id="S3.Ex7" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S3.Ex7X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S3.Ex7X.m2" class="ltx_Math" alttext="\displaystyle(X_{t+s}\mid X_{t}=x)" display="inline"><mrow><mo stretchy="false">(</mo><mrow><mrow><msub><mi>X</mi><mrow><mi>t</mi><mo>+</mo><mi>s</mi></mrow></msub><mo lspace="2.5pt" rspace="2.5pt">∣</mo><msub><mi>X</mi><mi>t</mi></msub></mrow><mo>=</mo><mi>x</mi></mrow><mo stretchy="false">)</mo></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex7X.m3" class="ltx_Math" alttext="\displaystyle=(M_{N_{t}+J}\mid M_{N_{t}}=x)" display="inline"><mrow><mo>=</mo><mrow><mo stretchy="false">(</mo><msub><mi>M</mi><mrow><msub><mi>N</mi><mi>t</mi></msub><mo>+</mo><mi>J</mi></mrow></msub><mo>∣</mo><msub><mi>M</mi><msub><mi>N</mi><mi>t</mi></msub></msub><mo>=</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S3.Ex7Xa" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex7Xa.m2" class="ltx_Math" alttext="\displaystyle\lx@stackrel{{\scriptstyle d}}{{=}}(M_{j}\mid M_{0}=x)\text{, by %
+the Markov property of }M," display="inline"><mrow><mover><mo movablelimits="false">=</mo><mi>d</mi></mover><mrow><mo stretchy="false">(</mo><msub><mi>M</mi><mi>j</mi></msub><mo>∣</mo><msub><mi>M</mi><mn>0</mn></msub><mo>=</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><mtext>, by the Markov property of </mtext><mi>M</mi><mo>,</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">which is completely independent of what happened before time <math id="Thmsolx1.p1.m4" class="ltx_Math" alttext="t" display="inline"><mi>t</mi></math>. Thus, it is a Markov process.</p>
+</div>
+</div>
+</div>
+<div id="S3.Thmthm3" class="ltx_theorem ltx_theorem_coro">
+<h6 class="ltx_title ltx_runin ltx_title_theorem">
+<span class="ltx_tag ltx_tag_theorem"><span class="ltx_text ltx_font_bold">Corollary 3.3</span></span> (transition probability).</h6>
+<div id="S3.Thmthm3.p1" class="ltx_para">
+<p class="ltx_p"><math id="S3.Thmthm3.p1.m1" class="ltx_Math" alttext="\mathbb{P}\{X_{t+s}=y\mid X_{t}=x\}=\left(e^{S(P-I)}\right)_{xy}" display="inline"><mrow><mrow><mi>ℙ</mi><mo>⁢</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>X</mi><mrow><mi>t</mi><mo>+</mo><mi>s</mi></mrow></msub><mo>=</mo><mi>y</mi></mrow><mo>∣</mo><mrow><msub><mi>X</mi><mi>t</mi></msub><mo>=</mo><mi>x</mi></mrow><mo stretchy="false">}</mo></mrow></mrow><mo>=</mo><msub><mrow><mo>(</mo><msup><mi>e</mi><mrow><mi>S</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>P</mi><mo>-</mo><mi>I</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></msup><mo>)</mo></mrow><mrow><mi>x</mi><mo>⁢</mo><mi>y</mi></mrow></msub></mrow></math>.</p>
+</div>
+</div>
+<div class="ltx_proof">
+<h6 class="ltx_title ltx_runin ltx_font_italic ltx_title_proof">Proof.</h6>
+<div id="S3.SSx2.p1" class="ltx_para">
+<table id="S3.Ex8" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S3.Ex8X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S3.Ex8X.m2" class="ltx_Math" alttext="\displaystyle\mathbb{P}\{X_{t+s}=y\mid X_{t}=x\}" display="inline"><mrow><mi>ℙ</mi><mo>⁢</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>X</mi><mrow><mi>t</mi><mo>+</mo><mi>s</mi></mrow></msub><mo>=</mo><mi>y</mi></mrow><mo>∣</mo><mrow><msub><mi>X</mi><mi>t</mi></msub><mo>=</mo><mi>x</mi></mrow><mo stretchy="false">}</mo></mrow></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex8X.m3" class="ltx_Math" alttext="\displaystyle=\mathbb{E}[(P^{J})_{xy}]" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mi>𝔼</mi><mo>⁢</mo><mrow><mo stretchy="false">[</mo><msub><mrow><mo stretchy="false">(</mo><msup><mi>P</mi><mi>J</mi></msup><mo stretchy="false">)</mo></mrow><mrow><mi>x</mi><mo>⁢</mo><mi>y</mi></mrow></msub><mo stretchy="false">]</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S3.Ex8Xa" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S3.Ex8Xa.m2" class="ltx_Math" alttext="\displaystyle(" display="inline"><mo stretchy="false">(</mo></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex8Xa.m3" class="ltx_Math" alttext="\displaystyle=\mathbb{P}\{M_{j}=y\mid M_{0}=x\}=\mathbb{E}[\mathbb{P}\{M_{j}=y%
+\mid M_{0}=x,J\}])" display="inline"><mrow><mo>=</mo><mi>ℙ</mi><mrow><mo stretchy="false">{</mo><msub><mi>M</mi><mi>j</mi></msub><mo>=</mo><mi>y</mi><mo>∣</mo><msub><mi>M</mi><mn>0</mn></msub><mo>=</mo><mi>x</mi><mo stretchy="false">}</mo></mrow><mo>=</mo><mi>𝔼</mi><mrow><mo stretchy="false">[</mo><mi>ℙ</mi><mrow><mo stretchy="false">{</mo><msub><mi>M</mi><mi>j</mi></msub><mo>=</mo><mi>y</mi><mo>∣</mo><msub><mi>M</mi><mn>0</mn></msub><mo>=</mo><mi>x</mi><mo>,</mo><mi>J</mi><mo stretchy="false">}</mo></mrow><mo stretchy="false">]</mo></mrow><mo stretchy="false">)</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S3.Ex8Xb" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S3.Ex8Xb.m2" class="ltx_Math" alttext="\displaystyle(" display="inline"><mo stretchy="false">(</mo></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex8Xb.m3" class="ltx_Math" alttext="\displaystyle=\sum_{j\geq 0}\mathbb{P}\{J=j\}\times\mathbb{P}\{M_{j}=y\mid M_{%
+0}=x,J=j\})" display="inline"><mrow><mo>=</mo><mstyle displaystyle="true"><munder><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>j</mi><mo>≥</mo><mn>0</mn></mrow></munder></mstyle><mi>ℙ</mi><mrow><mo stretchy="false">{</mo><mi>J</mi><mo>=</mo><mi>j</mi><mo stretchy="false">}</mo></mrow><mo>×</mo><mi>ℙ</mi><mrow><mo stretchy="false">{</mo><msub><mi>M</mi><mi>j</mi></msub><mo>=</mo><mi>y</mi><mo>∣</mo><msub><mi>M</mi><mn>0</mn></msub><mo>=</mo><mi>x</mi><mo>,</mo><mi>J</mi><mo>=</mo><mi>j</mi><mo stretchy="false">}</mo></mrow><mo stretchy="false">)</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S3.Ex8Xc" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex8Xc.m2" class="ltx_Math" alttext="\displaystyle=\sum_{j\geq 0}e^{-s}\frac{s^{j}}{j!}(P^{j})_{xy}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mstyle displaystyle="true"><munder><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>j</mi><mo>≥</mo><mn>0</mn></mrow></munder></mstyle><mrow><msup><mi>e</mi><mrow><mo>-</mo><mi>s</mi></mrow></msup><mo>⁢</mo><mstyle displaystyle="true"><mfrac><msup><mi>s</mi><mi>j</mi></msup><mrow><mi>j</mi><mo lspace="0pt" rspace="3.5pt">!</mo></mrow></mfrac></mstyle><mo>⁢</mo><msub><mrow><mo stretchy="false">(</mo><msup><mi>P</mi><mi>j</mi></msup><mo stretchy="false">)</mo></mrow><mrow><mi>x</mi><mo>⁢</mo><mi>y</mi></mrow></msub></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S3.Ex8Xd" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex8Xd.m2" class="ltx_Math" alttext="\displaystyle=e^{-s}\left(e^{sP}\right)_{xy}=\left(e^{s(P-I)}\right)_{xy}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><msup><mi>e</mi><mrow><mo>-</mo><mi>s</mi></mrow></msup><mo>⁢</mo><msub><mrow><mo>(</mo><msup><mi>e</mi><mrow><mi>s</mi><mo>⁢</mo><mi>P</mi></mrow></msup><mo>)</mo></mrow><mrow><mi>x</mi><mo>⁢</mo><mi>y</mi></mrow></msub></mrow><mo>=</mo><msub><mrow><mo>(</mo><msup><mi>e</mi><mrow><mi>s</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>P</mi><mo>-</mo><mi>I</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></msup><mo>)</mo></mrow><mrow><mi>x</mi><mo>⁢</mo><mi>y</mi></mrow></msub></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">∎</p>
+</div>
+</div>
+<div id="S3.Thmthm4" class="ltx_theorem ltx_theorem_coro">
+<h6 class="ltx_title ltx_runin ltx_title_theorem">
+<span class="ltx_tag ltx_tag_theorem"><span class="ltx_text ltx_font_bold">Corollary 3.4</span></span>.</h6>
+<div id="S3.Thmthm4.p1" class="ltx_para">
+<p class="ltx_p">The generator of <math id="S3.Thmthm4.p1.m1" class="ltx_Math" alttext="(X_{t})_{t\geq 0}" display="inline"><msub><mrow><mo stretchy="false">(</mo><msub><mi>X</mi><mi>t</mi></msub><mo stretchy="false">)</mo></mrow><mrow><mi>t</mi><mo>≥</mo><mn>0</mn></mrow></msub></math> is <math id="S3.Thmthm4.p1.m2" class="ltx_Math" alttext="G=P-I" display="inline"><mrow><mi>G</mi><mo>=</mo><mrow><mi>P</mi><mo>-</mo><mi>I</mi></mrow></mrow></math> (acting on <math id="S3.Thmthm4.p1.m3" class="ltx_Math" alttext="f\in\mathbb{R}^{n}" display="inline"><mrow><mi>f</mi><mo>∈</mo><msup><mi>ℝ</mi><mi>n</mi></msup></mrow></math>, i.e. <math id="S3.Thmthm4.p1.m4" class="ltx_Math" alttext="f:[n]\rightarrow\mathbb{R}" display="inline"><mrow><mi>f</mi><mo>:</mo><mrow><mrow><mo stretchy="false">[</mo><mi>n</mi><mo stretchy="false">]</mo></mrow><mo>→</mo><mi>ℝ</mi></mrow></mrow></math>).</p>
+</div>
+</div>
+<div id="Thmnotex2" class="ltx_theorem ltx_theorem_note">
+<h6 class="ltx_title ltx_runin ltx_title_theorem">
+<span class="ltx_tag ltx_tag_theorem"><span class="ltx_text ltx_font_bold">Note</span></span>.</h6>
+<div id="Thmnotex2.p1" class="ltx_para">
+<p class="ltx_p"><math id="Thmnotex2.p1.m1" class="ltx_Math" alttext="G_{xy}\geq 0" display="inline"><mrow><msub><mi>G</mi><mrow><mi>x</mi><mo>⁢</mo><mi>y</mi></mrow></msub><mo>≥</mo><mn>0</mn></mrow></math> when <math id="Thmnotex2.p1.m2" class="ltx_Math" alttext="x\neq y" display="inline"><mrow><mi>x</mi><mo>≠</mo><mi>y</mi></mrow></math>,
+and <math id="Thmnotex2.p1.m3" class="ltx_Math" alttext="G_{xx}=P_{xx}-1=-\sum_{y\neq x}P_{xy}\leq 0" display="inline"><mrow><msub><mi>G</mi><mrow><mi>x</mi><mo>⁢</mo><mi>x</mi></mrow></msub><mo>=</mo><mrow><msub><mi>P</mi><mrow><mi>x</mi><mo>⁢</mo><mi>x</mi></mrow></msub><mo>-</mo><mn>1</mn></mrow><mo>=</mo><mrow><mo>-</mo><mrow><msub><mo largeop="true" symmetric="true">∑</mo><mrow><mi>y</mi><mo>≠</mo><mi>x</mi></mrow></msub><msub><mi>P</mi><mrow><mi>x</mi><mo>⁢</mo><mi>y</mi></mrow></msub></mrow></mrow><mo>≤</mo><mn>0</mn></mrow></math>. This is since <math id="Thmnotex2.p1.m4" class="ltx_Math" alttext="\sum_{y}P_{xy}=P\vec{1}=1" display="inline"><mrow><mrow><msub><mo largeop="true" symmetric="true">∑</mo><mi>y</mi></msub><msub><mi>P</mi><mrow><mi>x</mi><mo>⁢</mo><mi>y</mi></mrow></msub></mrow><mo>=</mo><mrow><mi>P</mi><mo>⁢</mo><mover accent="true"><mn>1</mn><mo stretchy="false">→</mo></mover></mrow><mo>=</mo><mn>1</mn></mrow></math>, so <math id="Thmnotex2.p1.m5" class="ltx_Math" alttext="G1=0" display="inline"><mrow><mrow><mi>G</mi><mo>⁢</mo><mn>1</mn></mrow><mo>=</mo><mn>0</mn></mrow></math>.</p>
+</div>
+</div>
+<div id="S3.Thmthm5" class="ltx_theorem ltx_theorem_defn">
+<h6 class="ltx_title ltx_runin ltx_title_theorem">
+<span class="ltx_tag ltx_tag_theorem"><span class="ltx_text ltx_font_bold">Definition 3.5</span></span>.</h6>
+<div id="S3.Thmthm5.p1" class="ltx_para">
+<p class="ltx_p">A <span class="ltx_text ltx_framed_underline">Continuous-Time Markov Chain</span> (CTMC) on <math id="S3.Thmthm5.p1.m1" class="ltx_Math" alttext="\mathcal{X}" display="inline"><mi class="ltx_font_mathcaligraphic">𝒳</mi></math> is defined by its (infinitesimal) generator (matrix) <math id="S3.Thmthm5.p1.m2" class="ltx_Math" alttext="G=(G_{xy})_{x,y\in\mathcal{X}}" display="inline"><mrow><mi>G</mi><mo>=</mo><msub><mrow><mo stretchy="false">(</mo><msub><mi>G</mi><mrow><mi>x</mi><mo>⁢</mo><mi>y</mi></mrow></msub><mo stretchy="false">)</mo></mrow><mrow><mrow><mi>x</mi><mo>,</mo><mi>y</mi></mrow><mo>∈</mo><mi class="ltx_font_mathcaligraphic">𝒳</mi></mrow></msub></mrow></math>, with <math id="S3.Thmthm5.p1.m3" class="ltx_Math" alttext="G_{xy}\geq 0" display="inline"><mrow><msub><mi>G</mi><mrow><mi>x</mi><mo>⁢</mo><mi>y</mi></mrow></msub><mo>≥</mo><mn>0</mn></mrow></math> for all <math id="S3.Thmthm5.p1.m4" class="ltx_Math" alttext="x\neq y" display="inline"><mrow><mi>x</mi><mo>≠</mo><mi>y</mi></mrow></math> and <math id="S3.Thmthm5.p1.m5" class="ltx_Math" alttext="\sum_{y}G_{xy}=0" display="inline"><mrow><mrow><msub><mo largeop="true" symmetric="true">∑</mo><mi>y</mi></msub><msub><mi>G</mi><mrow><mi>x</mi><mo>⁢</mo><mi>y</mi></mrow></msub></mrow><mo>=</mo><mn>0</mn></mrow></math>.</p>
+</div>
+</div>
+<div id="Thmnotex3" class="ltx_theorem ltx_theorem_note">
+<h6 class="ltx_title ltx_runin ltx_title_theorem">
+<span class="ltx_tag ltx_tag_theorem"><span class="ltx_text ltx_font_bold">Note</span></span>.</h6>
+<div id="Thmnotex3.p1" class="ltx_para">
+<p class="ltx_p">In the above definition, <math id="Thmnotex3.p1.m1" class="ltx_Math" alttext="G_{xy}" display="inline"><msub><mi>G</mi><mrow><mi>x</mi><mo>⁢</mo><mi>y</mi></mrow></msub></math> can be thought of as the “rate of jumps from <math id="Thmnotex3.p1.m2" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math> to <math id="Thmnotex3.p1.m3" class="ltx_Math" alttext="y" display="inline"><mi>y</mi></math>.”</p>
+</div>
+</div>
+<div id="S3.SSx2.p2" class="ltx_para ltx_noindent">
+<p class="ltx_p">If <math id="S3.SSx2.p2.m1" class="ltx_Math" alttext="(X_{t})_{t\geq 0}" display="inline"><msub><mrow><mo stretchy="false">(</mo><msub><mi>X</mi><mi>t</mi></msub><mo stretchy="false">)</mo></mrow><mrow><mi>t</mi><mo>≥</mo><mn>0</mn></mrow></msub></math> is a CTMC with generator <math id="S3.SSx2.p2.m2" class="ltx_Math" alttext="G" display="inline"><mi>G</mi></math>, then the transition probabilities are</p>
+<table id="S3.Ex9" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S3.Ex9X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S3.Ex9X.m2" class="ltx_Math" alttext="\displaystyle\mathbb{P}\{X_{t+s}=y\mid X_{t}=x\}=(e^{tG})_{xy}" display="inline"><mrow><mrow><mi>ℙ</mi><mo>⁢</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>X</mi><mrow><mi>t</mi><mo>+</mo><mi>s</mi></mrow></msub><mo>=</mo><mi>y</mi></mrow><mo>∣</mo><mrow><msub><mi>X</mi><mi>t</mi></msub><mo>=</mo><mi>x</mi></mrow><mo stretchy="false">}</mo></mrow></mrow><mo>=</mo><msub><mrow><mo stretchy="false">(</mo><msup><mi>e</mi><mrow><mi>t</mi><mo>⁢</mo><mi>G</mi></mrow></msup><mo stretchy="false">)</mo></mrow><mrow><mi>x</mi><mo>⁢</mo><mi>y</mi></mrow></msub></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="S3.Thmthm6" class="ltx_theorem ltx_theorem_exmp">
+<h6 class="ltx_title ltx_runin ltx_title_theorem">
+<span class="ltx_tag ltx_tag_theorem"><span class="ltx_text ltx_font_bold">Example 3.6</span></span> (Simple Random Walk on <math id="S3.Thmthm6.m1" class="ltx_Math" alttext="\mathbb{Z}" display="inline"><mi>ℤ</mi></math>).</h6>
+<div id="S3.Thmthm6.p1" class="ltx_para">
+<p class="ltx_p">At rate 1, we flip a fair coin. The process jumps to <math id="S3.Thmthm6.p1.m1" class="ltx_Math" alttext="x+1" display="inline"><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow></math> or <math id="S3.Thmthm6.p1.m2" class="ltx_Math" alttext="x-1" display="inline"><mrow><mi>x</mi><mo>-</mo><mn>1</mn></mrow></math> according to the flip.</p>
+</div>
+<div id="S3.Thmthm6.p2" class="ltx_para">
+<p class="ltx_p">The generator is given by: <math id="S3.Thmthm6.p2.m1" class="ltx_Math" alttext="G=\{G_{x,x\pm 1}=1/2,G_{x,x}=-1\}" display="inline"><mrow><mi>G</mi><mo>=</mo><mrow><mo stretchy="false">{</mo><msub><mi>G</mi><mrow><mi>x</mi><mo>,</mo><mrow><mi>x</mi><mo>±</mo><mn>1</mn></mrow></mrow></msub><mo>=</mo><mn>1</mn><mo>/</mo><mn>2</mn><mo>,</mo><msub><mi>G</mi><mrow><mi>x</mi><mo>,</mo><mi>x</mi></mrow></msub><mo>=</mo><mo>-</mo><mn>1</mn><mo stretchy="false">}</mo></mrow></mrow></math>.</p>
+</div>
+<div id="S3.Thmthm6.p3" class="ltx_para">
+<table id="S3.Ex10" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="S3.Ex10X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S3.Ex10X.m2" class="ltx_Math" alttext="\displaystyle G=\begin{bmatrix}\ldots&amp;\ddots&amp;\ldots&amp;\ldots&amp;\ldots&amp;\ldots&amp;%
+\ldots\\
+\ldots&amp;\ldots&amp;\ddots&amp;1/2&amp;0&amp;0&amp;0&amp;\ldots\\
+\ldots&amp;0&amp;1/2&amp;-1&amp;1/2&amp;0&amp;0&amp;\ldots\\
+\ldots&amp;0&amp;0&amp;1/2&amp;-1&amp;1/2&amp;0&amp;\ldots\\
+\ldots&amp;0&amp;0&amp;0&amp;1/2&amp;-1&amp;1/2&amp;\ldots\\
+\ldots&amp;0&amp;0&amp;0&amp;0&amp;1/2&amp;\ddots&amp;\ldots\\
+&amp;\ldots&amp;\ldots&amp;\ldots&amp;\ldots&amp;\ldots&amp;\ldots&amp;\ddots\end{bmatrix}" display="inline"><mrow><mi>G</mi><mo>=</mo><mrow><mo>[</mo><mtable columnspacing="5pt" rowspacing="0pt"><mtr><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd><mtd columnalign="center"><mi mathvariant="normal">⋱</mi></mtd><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd></mtr><mtr><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd><mtd columnalign="center"><mi mathvariant="normal">⋱</mi></mtd><mtd columnalign="center"><mrow><mn>1</mn><mo>/</mo><mn>2</mn></mrow></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd></mtr><mtr><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mrow><mn>1</mn><mo>/</mo><mn>2</mn></mrow></mtd><mtd columnalign="center"><mrow><mo>-</mo><mn>1</mn></mrow></mtd><mtd columnalign="center"><mrow><mn>1</mn><mo>/</mo><mn>2</mn></mrow></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd></mtr><mtr><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mrow><mn>1</mn><mo>/</mo><mn>2</mn></mrow></mtd><mtd columnalign="center"><mrow><mo>-</mo><mn>1</mn></mrow></mtd><mtd columnalign="center"><mrow><mn>1</mn><mo>/</mo><mn>2</mn></mrow></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd></mtr><mtr><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mrow><mn>1</mn><mo>/</mo><mn>2</mn></mrow></mtd><mtd columnalign="center"><mrow><mo>-</mo><mn>1</mn></mrow></mtd><mtd columnalign="center"><mrow><mn>1</mn><mo>/</mo><mn>2</mn></mrow></mtd><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd></mtr><mtr><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mrow><mn>1</mn><mo>/</mo><mn>2</mn></mrow></mtd><mtd columnalign="center"><mi mathvariant="normal">⋱</mi></mtd><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd></mtr><mtr><mtd columnalign="center"><mi></mi></mtd><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd><mtd columnalign="center"><mi mathvariant="normal">⋱</mi></mtd></mtr></mtable><mo>]</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</div>
+</section>
+</section>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Thu Nov  8 22:56:56 2018 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

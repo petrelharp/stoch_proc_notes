@@ -89,7 +89,7 @@ haar_bm <- function (nmax, Z, bridge=FALSE) {
 
 B <- haar_bm(10)
 curve(B, from=0, to=1)
-tt <- seq(0,1,length.out=1e4)
+tt <- seq(0,1,length.out=1e3)
 lines(tt, B(tt), col='red')
 ```
 
@@ -110,12 +110,19 @@ for $t_1 < \cdots < t_n$ let
 $X_i = B_{t_i} + W_i$, for iid Normal(0, $\sigma^2$) random variables $W_i$.
 Now we want to *sample* from the distribution on $B$ *given* $(X_1, \ldots, X_n)$.
 ```{r sample_t}
-n <- 8
-sigma <- 0.05
+n <- 30
+sigma <- 0.1
 ti <- sort(runif(n))
 X <- sin(ti*3*pi) + rnorm(n, sd=sigma)
 plot(ti, X)
 ```
+
+We will want to
+
+1. evaluate the conditional *mean* at a bunch of time points,
+   to get a smooth curve going near our data, and
+
+2. sample from the conditional distribution to get an idea of uncertainty.
 
 To do this, we need the (a) covariance matrix of $X$,
 and (b) the covariance matrix of $Z$ (the identity),
@@ -132,6 +139,7 @@ for (i in 1:n) {
         covX[i,j] <- covX[i,j] + min(ti[i], ti[j])
     }
 }
+nmax <- with(environment(B), nmax)
 basis_fns <- with(environment(B), fns)
 covXZ <- matrix(NA, nrow=n, ncol=length(basis_fns))
 for (i in 1:n) {
@@ -146,11 +154,33 @@ $\Sigma_{ZZ} - \Sigma_{ZX} \Sigma_{XX}^{-1} \Sigma_{XZ}$.
 ```{r mats}
 mean_mat <- t(covXZ) %*% solve(covX)
 cov_mat <- diag(length(basis_fns)) - t(covXZ) %*% solve(covX, covXZ)
+chol_cov_mat <- chol(cov_mat)
+
+mean_B <- function (x) {
+    mean_Z <- as.vector(mean_mat %*% x)
+    return(haar_bm(nmax, mean_Z))
+}
+
+# these will be *deviations* from the mean
+conditional_B <- function (x) {
+    Z <- as.vector(chol_cov_mat %*% rnorm(length(basis_fns)))
+    dB <- haar_bm(nmax, Z)
+    return(dB)
+}
+
+mB <- mean_B(X)
+cB <- replicate(100, conditional_B(X))
 ```
 
-Next, we want to 
+Here we plot the conditional mean (in red) and a bunch of samples (in black).
 
-1. evaluate the conditional *mean* at a bunch of time points,
-   to get a smooth curve going near our data, and
+```{r plot_smooth}
+mBvals <- as.vector(mB(tt))
+cBmat <- sapply(cB, function (f) f(tt))
 
-2. sample from the conditoinal distribution to get an idea of uncertainty.
+matplot(tt, mBvals + cBmat, type='l', col=adjustcolor('black', 0.5), 
+        xlab='time', ylab='value', lty=1)
+points(ti, X, pch=20, col='red', cex=2)
+lines(tt, mBvals, col='red', lwd=2)
+```
+

@@ -67,7 +67,7 @@ curve(haar_integral(x, n=5, k=12), from=0, to=1, add=TRUE, col='blue')
 Ok, that's our (integrated) basis functions.
 Now we need to add them up with independent Gaussian coefficients.
 ```{r haar_bm}
-haar_bm <- function (nmax, bridge=FALSE) {
+haar_bm <- function (nmax, Z, bridge=FALSE) {
     if (bridge) {
         nk <- data.frame(n=1, k=0)
     } else {
@@ -79,7 +79,9 @@ haar_bm <- function (nmax, bridge=FALSE) {
     fns <- lapply(1:nrow(nk), function (j)
                   function (x) haar_integral(x, n=nk$n[j], k=nk$k[j]))
     # the random coefficients
-    Z <- rnorm(nrow(nk), 0, sd=1)
+    if (missing(Z)) {
+        Z <- rnorm(nrow(nk), 0, sd=1)
+    }
     return(function (x) {
         Z %*% do.call(rbind, lapply(fns, function (f) f(x)))
     })
@@ -87,5 +89,68 @@ haar_bm <- function (nmax, bridge=FALSE) {
 
 B <- haar_bm(10)
 curve(B, from=0, to=1)
-lines(seq(0,1,length.out=1e3), B(seq(0,1,length.out=1e3)), col='red')
+tt <- seq(0,1,length.out=1e4)
+lines(tt, B(tt), col='red')
 ```
+
+Let's see how we constructed $B$ from successively rougher functions.
+```{r dissect_B}
+Z <- with(environment(B), Z)
+n_index <- rep(1:10, 2^(0:9)+1)
+Blist <- lapply(1:10, function (n) {
+                    haar_bm(10, Z=ifelse(n_index <= n, Z, 0)) } )
+Bmat <- sapply(Blist, function (fB) fB(tt))
+matplot(tt, Bmat, type='l', lty=1)
+```
+
+# Gaussian process regression
+
+Now let's suppose we have noisy measurements of $B$ at some time points:
+for $t_1 < \cdots < t_n$ let
+$X_i = B_{t_i} + W_i$, for iid Normal(0, $\sigma^2$) random variables $W_i$.
+Now we want to *sample* from the distribution on $B$ *given* $(X_1, \ldots, X_n)$.
+```{r sample_t}
+n <- 8
+sigma <- 0.05
+ti <- sort(runif(n))
+X <- sin(ti*3*pi) + rnorm(n, sd=sigma)
+plot(ti, X)
+```
+
+To do this, we need the (a) covariance matrix of $X$,
+and (b) the covariance matrix of $Z$ (the identity),
+and (c) the covariance matrix of $X$ with $Z$.
+Math on the board gives us that
+$\cov[X_i, X_j] = \min(t_i, t_j) + \delta_{i=j} \sigma^2$
+and that
+$\cov[X_i, Z_{m\ell}] = H_{m,\ell}(t_i)$,
+where $H_{m,\ell}$ is the corresponding basis function.
+```{r conditional}
+covX <- diag(n) * sigma^2
+for (i in 1:n) {
+    for (j in 1:n) {
+        covX[i,j] <- covX[i,j] + min(ti[i], ti[j])
+    }
+}
+basis_fns <- with(environment(B), fns)
+covXZ <- matrix(NA, nrow=n, ncol=length(basis_fns))
+for (i in 1:n) {
+    for (j in 1:length(basis_fns)) {
+        covXZ[i,j] <- basis_fns[[j]](ti[i])
+    }
+}
+```
+The mean will be $\Sigma_{ZX} \Sigma_{XX}^{-1} X$
+and the covariance matrix will be
+$\Sigma_{ZZ} - \Sigma_{ZX} \Sigma_{XX}^{-1} \Sigma_{XZ}$.
+```{r mats}
+mean_mat <- t(covXZ) %*% solve(covX)
+cov_mat <- diag(length(basis_fns)) - t(covXZ) %*% solve(covX, covXZ)
+```
+
+Next, we want to 
+
+1. evaluate the conditional *mean* at a bunch of time points,
+   to get a smooth curve going near our data, and
+
+2. sample from the conditoinal distribution to get an idea of uncertainty.

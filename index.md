@@ -34,7 +34,7 @@ The exact dates we cover the topics below is expected to change.
 
 - [October 29](LectureNotes/Lectures/Fall2018/Lecture8/ASPLecture8.html) - Austen (second half)
 
-- [October 31 and Nobember 2]() - Isaac
+- [October 31 and November 2](LectureNotes/Lectures/Fall2018/Lecture9/ASPLecture9.html) - Andrew
 
 - [November 5 and 7]() - Eli
 
@@ -44,7 +44,7 @@ The exact dates we cover the topics below is expected to change.
 
 - [November 14 and 16]() - Jake
 
-- [November 19 and 21]() - Andrew
+- [November 19 and 21]() - Isaac
 
 - [November 23 and 26]() - Martin
 

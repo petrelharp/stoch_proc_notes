@@ -181,7 +181,7 @@ cBmat <- sapply(cB, function (f) f(tt))
 matplot(tt, mBvals + cBmat, type='l', col=adjustcolor('black', 0.5), 
         xlab='time', ylab='value', lty=1)
 points(ti, X, pch=20, col='red', cex=2)
-lines(tt, mBvals, col='red', lwd=2)
+lines(tt, mBvals, col='red', lwd=4)
 ```
 
 Now we are reminded that we have required that $B_0 = 0$; to fix this, we should give the starting location, $B_0$,

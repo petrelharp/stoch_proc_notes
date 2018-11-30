@@ -1,0 +1,92 @@
+# Poisson point processes
+
+First, let's simulate raindrops on a field (of roses).
+The field will be 10m x 10m,
+with a mean intensity of $\lambda(r)$
+drops of radius $r$ per minute per square meter,
+with
+$$
+\lambda(r) = 1000 exp(-r) .
+$$
+
+Therefore, the total rate of arrival of drops is 1000 per minute per square meter,
+i.e., $10^5$ per minute across the whole field.
+Let's simulate this for $t$ minutes.
+The total number of drops that fall in this time
+is Poisson with mean $t \times 10^5$.
+Given this, each raindrop has an independently drawn radius
+from the distribution proportional to $\exp(-r)$, i.e., Exponential(1).
+Their locations are independent and uniform.
+```{r sim_rain}
+W <- 10  # field size in meters
+tmax <- 0.01  # in minutes
+N <- rpois(1, tmax * W^2 * 1e3)
+xy <- cbind(runif(N) * W, runif(N) * W)
+r <- rexp(N)
+
+plot(xy, cex=r, pch=21, bg='black')
+```
+
+# Markov chain
+
+Consider the Markov chain on the integers that moves as follows.
+When at $n$, it jumps to $n/p$ with rate equal to $1/p$
+for each prime $p$ that divides $n$,
+and it jumps to $np$ with rate equal to $1/p$
+for each prime up to some maximum.
+The total jump rate out of $n$ is therefore
+$$
+J(n) = \sum_{p|n} \frac{1}{p} + \sum_{p} \frac{1}{p} .
+$$
+
+To simulate this, let's first construct the generator matrix, $G$.
+```{r generator}
+library(Matrix)
+
+N <- 1e4  # max size of the primes
+divmat <- outer(2:N, 2:N, function (x,y) (y %% x) == 0)
+primes <- 1L + which(colSums(divmat) == 1)
+np <- length(primes)
+
+M <- 1e5  # biggest number we go up to
+p <- 2
+G <- sparseMatrix(i=1:floor(M/p),
+                  j=p*1:floor(M/p),
+                  x=1/p,
+                  dims=c(M,M))
+for (p in primes[-1]) {
+    G <- G + sparseMatrix(i=1:floor(M/p),
+                          j=p*1:floor(M/p),
+                          x=1/p,
+                          dims=c(M,M))
+}
+G <- G + t(G)
+
+dG <- rowSums(G)  # jump rates
+```
+
+Now let's simulate.
+The chain at $n$ will (a) wait an Exponential amount of time with rate `dG[n]`
+and then choose a state to jump to with probability proportional to 
+the corresponding row of $G$, i.e., `G[n,]`.
+
+```{r sim_chain}
+p.to.j <- function (p) { rep( seq.int( length(p)-1 ), diff(p) ) }
+Gj <- p.to.j(G@p) # column indices (1-based)
+draw_from_row <- function (n) {
+    # pick an entry from G[n,] with prob proportional to its value
+    k <- (G@i + 1L == n)
+    sample(Gj[k], size=1, prob=G@x[k])
+}
+
+nsteps <- 1000
+X <- rep(NA, nsteps + 1)
+X[1] <- 1
+tvec <- rep(NA, nsteps)
+for (k in 1:nsteps) {
+    tvec[k] <- rexp(1, rate=dG[X[k]])
+    X[k+1] <- draw_from_row(X[k])
+}
+
+plot(c(0, cumsum(tvec)), X, type='l')
+```

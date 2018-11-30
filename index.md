@@ -50,5 +50,5 @@ The exact dates we cover the topics below is expected to change.
 
 ## Simulations
 
-- [Brownian motion](demos/gaussian_processes.html)
-
+- [Brownian motion and Gaussian process regression](demos/gaussian_processes.html)
+- [A Poisson process and a Markov chain](demos/poisson.html)

@@ -1,0 +1,509 @@
+<!DOCTYPE html><html>
+<head>
+<title>10/31</title>
+<!--Generated on Mon Dec  3 21:01:06 2018 by LaTeXML (version 0.8.3) http://dlmf.nist.gov/LaTeXML/.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-article.css" type="text/css">
+</head>
+<body>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document">
+<section id="Sx1" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">10/31</h2>
+
+</section>
+<section id="Sx2" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">Cell Proliferation and Cancer</h2>
+
+<div id="Sx2.p1" class="ltx_para">
+<p class="ltx_p">The following setup is the motivation for a later theorem on Hitting Probabilities. Mutations can affect the rates of cell proliferation (splitting) and death. Suppose we counted the number of occurences of a particular mutation in each of many tissue samples. We wonder if the distribution of mutation numbers is consistent with a <span class="ltx_text ltx_framed_underline">driver mutation</span>, i.e. one with a higher than normal rate of proliferation<span id="footnote1" class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">1</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">1</sup>
+            <span class="ltx_tag ltx_tag_note">1</span>
+            
+            
+          Here, normal would mean that the rate of cell proliferation equals the rate of cell death.</span></span></span>.</p>
+</div>
+</section>
+<section id="Sx3" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">Model</h2>
+
+<div id="Sx3.p1" class="ltx_para">
+<p class="ltx_p">Let <math id="Sx3.p1.m1" class="ltx_Math" alttext="X_{t}" display="inline"><msub><mi>X</mi><mi>t</mi></msub></math> be the number of mutated cells at time <math id="Sx3.p1.m2" class="ltx_Math" alttext="t" display="inline"><mi>t</mi></math>, so <math id="Sx3.p1.m3" class="ltx_Math" alttext="X_{t}\in\mathbb{N}_{\geq 0}" display="inline"><mrow><msub><mi>X</mi><mi>t</mi></msub><mo>∈</mo><msub><mi>ℕ</mi><mrow><mi></mi><mo>≥</mo><mn>0</mn></mrow></msub></mrow></math>, and assume that <math id="Sx3.p1.m4" class="ltx_Math" alttext="X_{0}=1" display="inline"><mrow><msub><mi>X</mi><mn>0</mn></msub><mo>=</mo><mn>1</mn></mrow></math> (so we start with one mutated cell).</p>
+</div>
+<div id="Sx3.p2" class="ltx_para">
+<p class="ltx_p">Assume that each cell divides at rate <math id="Sx3.p2.m1" class="ltx_Math" alttext="\lambda" display="inline"><mi>λ</mi></math> and dies at rate <math id="Sx3.p2.m2" class="ltx_Math" alttext="\mu" display="inline"><mi>μ</mi></math>. This means that</p>
+<table id="Sx6.EGx1" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tr id="Sx3.Ex1" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="Sx3.Ex1.m1" class="ltx_Math" alttext="\displaystyle X_{t}" display="inline"><msub><mi>X</mi><mi>t</mi></msub></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Sx3.Ex1.m2" class="ltx_Math" alttext="\displaystyle\to X_{t}+1\quad\text{at rate $\lambda X_{t}$}" display="inline"><mrow><mi></mi><mo>→</mo><mrow><mrow><msub><mi>X</mi><mi>t</mi></msub><mo>+</mo><mn>1</mn></mrow><mo mathvariant="italic" separator="true"> </mo><mrow><mtext>at rate </mtext><mrow><mi>λ</mi><mo>⁢</mo><msub><mi>X</mi><mi>t</mi></msub></mrow></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="Sx3.Ex2" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="Sx3.Ex2.m1" class="ltx_Math" alttext="\displaystyle X_{t}" display="inline"><msub><mi>X</mi><mi>t</mi></msub></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Sx3.Ex2.m2" class="ltx_Math" alttext="\displaystyle\to X_{t}-1\quad\text{at rate $\mu X_{t}$}." display="inline"><mrow><mrow><mi></mi><mo>→</mo><mrow><mrow><msub><mi>X</mi><mi>t</mi></msub><mo>-</mo><mn>1</mn></mrow><mo mathvariant="italic" separator="true"> </mo><mrow><mtext>at rate </mtext><mrow><mi>μ</mi><mo>⁢</mo><msub><mi>X</mi><mi>t</mi></msub></mrow></mrow></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="Sx3.p3" class="ltx_para">
+<p class="ltx_p">Questions:</p>
+<ol id="Sx3.I1" class="ltx_enumerate">
+<li id="Sx3.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="Sx3.I1.i1.p1" class="ltx_para">
+<p class="ltx_p">What is the probability that the mutation “grows?” That is, for some large <math id="Sx3.I1.i1.p1.m1" class="ltx_Math" alttext="N" display="inline"><mi>N</mi></math>, what is</p>
+<table id="Sx3.Ex3" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx3.Ex3.m1" class="ltx_Math" alttext="\operatorname{\mathbb{P}}\{X_{t}=N\text{ before }X_{t}\text{ hits }0\}=?" display="block"><mrow><mrow><mi>ℙ</mi><mo>⁡</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>X</mi><mi>t</mi></msub><mo>=</mo><mrow><mi>N</mi><mo>⁢</mo><mtext> before </mtext><mo>⁢</mo><msub><mi>X</mi><mi>t</mi></msub><mo>⁢</mo><mtext> hits </mtext><mo>⁢</mo><mn>0</mn></mrow></mrow><mo stretchy="false">}</mo></mrow></mrow><mo>=</mo><mi mathvariant="normal">?</mi></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</li>
+<li id="Sx3.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="Sx3.I1.i2.p1" class="ltx_para">
+<p class="ltx_p">If the mutation is not a driver but present due to an ongoing mutation of rate <math id="Sx3.I1.i2.p1.m1" class="ltx_Math" alttext="a" display="inline"><mi>a</mi></math>, what is the expected distribution of the number of mutations per tissue sample?</p>
+</div>
+</li>
+</ol>
+</div>
+</section>
+<section id="Sx4" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">Hitting Probabilities</h2>
+
+<div id="Sx4.p1" class="ltx_para">
+<p class="ltx_p">To answer question 1 we need a bit more theory. Suppose <math id="Sx4.p1.m1" class="ltx_Math" alttext="(X_{t})_{t\geq 0}" display="inline"><msub><mrow><mo stretchy="false">(</mo><msub><mi>X</mi><mi>t</mi></msub><mo stretchy="false">)</mo></mrow><mrow><mi>t</mi><mo>≥</mo><mn>0</mn></mrow></msub></math> is a Continuous Time Markov Chain with generator <math id="Sx4.p1.m2" class="ltx_Math" alttext="G" display="inline"><mi>G</mi></math> on a state space <math id="Sx4.p1.m3" class="ltx_Math" alttext="\mathcal{X}" display="inline"><mi class="ltx_font_mathcaligraphic">𝒳</mi></math>. For any subset <math id="Sx4.p1.m4" class="ltx_Math" alttext="A\subset\mathcal{X}" display="inline"><mrow><mi>A</mi><mo>⊂</mo><mi class="ltx_font_mathcaligraphic">𝒳</mi></mrow></math>, we define</p>
+<table id="Sx4.Ex4" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx4.Ex4.m1" class="ltx_Math" alttext="\tau_{A}=\inf\{t\geq 0\mid X_{t}\in A\}," display="block"><mrow><mrow><msub><mi>τ</mi><mi>A</mi></msub><mo>=</mo><mrow><mo movablelimits="false">inf</mo><mo>⁡</mo><mrow><mo stretchy="false">{</mo><mrow><mi>t</mi><mo>≥</mo><mn>0</mn></mrow><mo>∣</mo><mrow><msub><mi>X</mi><mi>t</mi></msub><mo>∈</mo><mi>A</mi></mrow><mo stretchy="false">}</mo></mrow></mrow></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">which is the first time that the Markov chain lands in <math id="Sx4.p1.m5" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math>. If <math id="Sx4.p1.m6" class="ltx_Math" alttext="A=\{x\}" display="inline"><mrow><mi>A</mi><mo>=</mo><mrow><mo stretchy="false">{</mo><mi>x</mi><mo stretchy="false">}</mo></mrow></mrow></math> we just write <math id="Sx4.p1.m7" class="ltx_Math" alttext="\tau_{x}" display="inline"><msub><mi>τ</mi><mi>x</mi></msub></math>, which is the first time the Markov chain hits <math id="Sx4.p1.m8" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math>.
+We now state the theorem:</p>
+</div>
+<div id="Thmthm1" class="ltx_theorem ltx_theorem_thm">
+<h6 class="ltx_title ltx_runin ltx_title_theorem">
+<span class="ltx_tag ltx_tag_theorem"><span class="ltx_text ltx_font_bold">Theorem 1</span></span> (Harmonic Functions).</h6>
+<div id="Thmthm1.p1" class="ltx_para">
+<p class="ltx_p">Suppose that <math id="Thmthm1.p1.m1" class="ltx_Math" alttext="A,B\subset X" display="inline"><mrow><mrow><mi>A</mi><mo>,</mo><mi>B</mi></mrow><mo>⊂</mo><mi>X</mi></mrow></math> are disjoint subsets with the property that</p>
+<table id="Sx4.Ex5" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx4.Ex5.m1" class="ltx_Math" alttext="\operatorname{\mathbb{P}}\{\tau_{A\cup B}&lt;\infty\}=1." display="block"><mrow><mrow><mrow><mi>ℙ</mi><mo>⁡</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>τ</mi><mrow><mi>A</mi><mo>∪</mo><mi>B</mi></mrow></msub><mo>&lt;</mo><mi mathvariant="normal">∞</mi></mrow><mo stretchy="false">}</mo></mrow></mrow><mo>=</mo><mn>1</mn></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">For <math id="Thmthm1.p1.m2" class="ltx_Math" alttext="x\in\mathcal{X}" display="inline"><mrow><mi>x</mi><mo>∈</mo><mi class="ltx_font_mathcaligraphic">𝒳</mi></mrow></math> we define</p>
+<table id="Sx4.Ex6" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx4.Ex6.m1" class="ltx_Math" alttext="h(x)=\operatorname{\mathbb{P}}^{x}\{\tau_{A}&lt;\tau_{B}\}:=\operatorname{\mathbb%
+{P}}\{\tau_{A}&lt;\tau_{B}\mid X_{0}=x\}." display="block"><mrow><mrow><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><msup><mi>ℙ</mi><mi>x</mi></msup><mo>⁡</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>τ</mi><mi>A</mi></msub><mo>&lt;</mo><msub><mi>τ</mi><mi>B</mi></msub></mrow><mo stretchy="false">}</mo></mrow></mrow><mo>:=</mo><mrow><mi>ℙ</mi><mo>⁡</mo><mrow><mo stretchy="false">{</mo><mrow><mrow><msub><mi>τ</mi><mi>A</mi></msub><mo>⁢</mo><mrow><mo>&lt;</mo><msub><mi>τ</mi><mi>B</mi></msub><mo fence="true">∣</mo></mrow><mo>⁢</mo><msub><mi>X</mi><mn>0</mn></msub></mrow><mo>=</mo><mi>x</mi></mrow><mo stretchy="false">}</mo></mrow></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">Then the function <math id="Thmthm1.p1.m3" class="ltx_Math" alttext="h" display="inline"><mi>h</mi></math> is the unique function satisfying the following two conditions:</p>
+<ol id="Sx4.I2" class="ltx_enumerate">
+<li id="Sx4.I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="Sx4.I2.i1.p1" class="ltx_para">
+<p class="ltx_p"><math id="Sx4.I2.i1.p1.m1" class="ltx_Math" alttext="h(x)=\begin{cases}1&amp;\text{ for }x\in A\\
+0&amp;\text{ for}x\in B\end{cases}" display="inline"><mrow><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnspacing="5pt" rowspacing="0pt"><mtr><mtd columnalign="left"><mn>1</mn></mtd><mtd columnalign="left"><mrow><mrow><mtext> for </mtext><mo>⁢</mo><mi>x</mi></mrow><mo>∈</mo><mi>A</mi></mrow></mtd></mtr><mtr><mtd columnalign="left"><mn>0</mn></mtd><mtd columnalign="left"><mrow><mrow><mtext> for</mtext><mo>⁢</mo><mi>x</mi></mrow><mo>∈</mo><mi>B</mi></mrow></mtd></mtr></mtable></mrow></mrow></math></p>
+</div>
+</li>
+<li id="Sx4.I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="Sx4.I2.i2.p1" class="ltx_para">
+<p class="ltx_p"><math id="Sx4.I2.i2.p1.m1" class="ltx_Math" alttext="Gh(x)=0" display="inline"><mrow><mrow><mi>G</mi><mo>⁢</mo><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mn>0</mn></mrow></math> for <math id="Sx4.I2.i2.p1.m2" class="ltx_Math" alttext="x\notin A\cup B" display="inline"><mrow><mi>x</mi><mo>∉</mo><mrow><mi>A</mi><mo>∪</mo><mi>B</mi></mrow></mrow></math>.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div id="Sx4.p2" class="ltx_para">
+<p class="ltx_p">To prove the theorem we need two lemmas.</p>
+</div>
+<div id="Thmlem1" class="ltx_theorem ltx_theorem_lem">
+<h6 class="ltx_title ltx_runin ltx_title_theorem">
+<span class="ltx_tag ltx_tag_theorem"><span class="ltx_text ltx_font_bold">Lemma 1</span></span>.</h6>
+<div id="Thmlem1.p1" class="ltx_para">
+<p class="ltx_p">Let <math id="Thmlem1.p1.m1" class="ltx_Math" alttext="T_{1},\dots,T_{n}" display="inline"><mrow><msub><mi>T</mi><mn>1</mn></msub><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><msub><mi>T</mi><mi>n</mi></msub></mrow></math> be independent random variables with <math id="Thmlem1.p1.m2" class="ltx_Math" alttext="T_{i}\sim\text{Exp}(\lambda_{k})" display="inline"><mrow><msub><mi>T</mi><mi>i</mi></msub><mo>∼</mo><mrow><mtext>Exp</mtext><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>λ</mi><mi>k</mi></msub><mo stretchy="false">)</mo></mrow></mrow></mrow></math>. Let <math id="Thmlem1.p1.m3" class="ltx_Math" alttext="T:=\min\{T_{1},\dots,T_{n}\}" display="inline"><mrow><mi>T</mi><mo>:=</mo><mrow><mi>min</mi><mo>⁡</mo><mrow><mo stretchy="false">{</mo><msub><mi>T</mi><mn>1</mn></msub><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><msub><mi>T</mi><mi>n</mi></msub><mo stretchy="false">}</mo></mrow></mrow></mrow></math>. Then <math id="Thmlem1.p1.m4" class="ltx_Math" alttext="T\sim\text{Exp}\left(\sum_{k=1}^{n}\lambda_{k}\right)" display="inline"><mrow><mi>T</mi><mo>∼</mo><mrow><mtext>Exp</mtext><mo>⁢</mo><mrow><mo>(</mo><mrow><msubsup><mo largeop="true" symmetric="true">∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><msub><mi>λ</mi><mi>k</mi></msub></mrow><mo>)</mo></mrow></mrow></mrow></math> and</p>
+<table id="Sx4.Ex7" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx4.Ex7.m1" class="ltx_Math" alttext="\operatorname{\mathbb{P}}\{T_{k}=T\}=\frac{\lambda_{k}}{\lambda_{1}+\dots+%
+\lambda_{n}}." display="block"><mrow><mrow><mrow><mi>ℙ</mi><mo>⁡</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>T</mi><mi>k</mi></msub><mo>=</mo><mi>T</mi></mrow><mo stretchy="false">}</mo></mrow></mrow><mo>=</mo><mfrac><msub><mi>λ</mi><mi>k</mi></msub><mrow><msub><mi>λ</mi><mn>1</mn></msub><mo>+</mo><mi mathvariant="normal">…</mi><mo>+</mo><msub><mi>λ</mi><mi>n</mi></msub></mrow></mfrac></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</div>
+<div class="ltx_proof">
+<h6 class="ltx_title ltx_runin ltx_font_italic ltx_title_proof">Proof of Lemma 1.</h6>
+<div id="Sx4.p3" class="ltx_para">
+<table id="Sx6.EGx2" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tr id="Sx4.Ex8" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="Sx4.Ex8.m1" class="ltx_Math" alttext="\displaystyle\operatorname{\mathbb{P}}\{T&gt;t\}" display="inline"><mrow><mi>ℙ</mi><mo>⁡</mo><mrow><mo stretchy="false">{</mo><mrow><mi>T</mi><mo>&gt;</mo><mi>t</mi></mrow><mo stretchy="false">}</mo></mrow></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Sx4.Ex8.m2" class="ltx_Math" alttext="\displaystyle=\operatorname{\mathbb{P}}\{T_{k}&gt;t\quad\forall k\}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mi>ℙ</mi><mo>⁡</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>T</mi><mi>k</mi></msub><mo>&gt;</mo><mi>t</mi></mrow><mo mathvariant="italic" separator="true"> </mo><mrow><mo>∀</mo><mi>k</mi></mrow><mo stretchy="false">}</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="Sx4.Ex9" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Sx4.Ex9.m2" class="ltx_Math" alttext="\displaystyle=\prod_{k=1}^{n}\operatorname{\mathbb{P}}\{T_{k}&gt;t\}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mstyle displaystyle="true"><munderover><mo largeop="true" movablelimits="false" symmetric="true">∏</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover></mstyle><mrow><mi>ℙ</mi><mo>⁡</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>T</mi><mi>k</mi></msub><mo>&gt;</mo><mi>t</mi></mrow><mo stretchy="false">}</mo></mrow></mrow></mrow></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><span class="ltx_text ltx_markedasmath">(by independence)</span></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="Sx4.Ex10" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Sx4.Ex10.m2" class="ltx_Math" alttext="\displaystyle=\prod_{k=1}^{n}e^{-\lambda_{k}t}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mstyle displaystyle="true"><munderover><mo largeop="true" movablelimits="false" symmetric="true">∏</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover></mstyle><msup><mi>e</mi><mrow><mo>-</mo><mrow><msub><mi>λ</mi><mi>k</mi></msub><mo>⁢</mo><mi>t</mi></mrow></mrow></msup></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="Sx4.Ex11" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Sx4.Ex11.m2" class="ltx_Math" alttext="\displaystyle=e^{-t\sum_{k}\lambda_{k}}" display="inline"><mrow><mi></mi><mo>=</mo><msup><mi>e</mi><mrow><mo>-</mo><mrow><mi>t</mi><mo>⁢</mo><mrow><mstyle displaystyle="false"><msub><mo largeop="true" symmetric="true">∑</mo><mi>k</mi></msub></mstyle><msub><mi>λ</mi><mi>k</mi></msub></mrow></mrow></mrow></msup></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">which establishes the first claim. For the second claim, first note that</p>
+<table id="Sx6.EGx3" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tr id="Sx4.Ex12" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="Sx4.Ex12.m1" class="ltx_Math" alttext="\displaystyle\operatorname{\mathbb{P}}\{T_{k}\in dt,T_{j}&gt;t\quad\text{for }j%
+\neq k\}" display="inline"><mrow><mi>ℙ</mi><mo>⁡</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>T</mi><mi>k</mi></msub><mo>∈</mo><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mrow><mo>,</mo><mrow><msub><mi>T</mi><mi>j</mi></msub><mo>&gt;</mo><mi>t</mi></mrow><mo mathvariant="italic" separator="true"> </mo><mrow><mrow><mtext>for </mtext><mo>⁢</mo><mi>j</mi></mrow><mo>≠</mo><mi>k</mi></mrow><mo stretchy="false">}</mo></mrow></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Sx4.Ex12.m2" class="ltx_Math" alttext="\displaystyle=\lambda_{k}e^{-\lambda_{k}t}\prod_{j\neq k}e^{-\lambda_{j}t}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><msub><mi>λ</mi><mi>k</mi></msub><mo>⁢</mo><msup><mi>e</mi><mrow><mo>-</mo><mrow><msub><mi>λ</mi><mi>k</mi></msub><mo>⁢</mo><mi>t</mi></mrow></mrow></msup><mo>⁢</mo><mrow><mstyle displaystyle="true"><munder><mo largeop="true" movablelimits="false" symmetric="true">∏</mo><mrow><mi>j</mi><mo>≠</mo><mi>k</mi></mrow></munder></mstyle><msup><mi>e</mi><mrow><mo>-</mo><mrow><msub><mi>λ</mi><mi>j</mi></msub><mo>⁢</mo><mi>t</mi></mrow></mrow></msup></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="Sx4.Ex13" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Sx4.Ex13.m2" class="ltx_Math" alttext="\displaystyle=\lambda_{k}e^{-t\sum_{j}\lambda_{j}}," display="inline"><mrow><mrow><mi></mi><mo>=</mo><mrow><msub><mi>λ</mi><mi>k</mi></msub><mo>⁢</mo><msup><mi>e</mi><mrow><mo>-</mo><mrow><mi>t</mi><mo>⁢</mo><mrow><mstyle displaystyle="false"><msub><mo largeop="true" symmetric="true">∑</mo><mi>j</mi></msub></mstyle><msub><mi>λ</mi><mi>j</mi></msub></mrow></mrow></mrow></msup></mrow></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">so we now integrate over <math id="Sx4.p3.m1" class="ltx_Math" alttext="t" display="inline"><mi>t</mi></math> to get</p>
+<table id="Sx4.Ex14" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx4.Ex14.m1" class="ltx_Math" alttext="\operatorname{\mathbb{P}}\{T_{k}=T\}=\lambda_{k}\int e^{-t\sum_{j}\lambda_{j}}%
+\,dt=\frac{\lambda_{k}}{\lambda_{1}+\dots+\lambda_{n}}." display="block"><mrow><mrow><mrow><mi>ℙ</mi><mo>⁡</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>T</mi><mi>k</mi></msub><mo>=</mo><mi>T</mi></mrow><mo stretchy="false">}</mo></mrow></mrow><mo>=</mo><mrow><msub><mi>λ</mi><mi>k</mi></msub><mo>⁢</mo><mrow><mo largeop="true" symmetric="true">∫</mo><mrow><mpadded width="+1.7pt"><msup><mi>e</mi><mrow><mo>-</mo><mrow><mi>t</mi><mo>⁢</mo><mrow><mstyle displaystyle="false"><msub><mo largeop="true" symmetric="true">∑</mo><mi>j</mi></msub></mstyle><msub><mi>λ</mi><mi>j</mi></msub></mrow></mrow></mrow></msup></mpadded><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>t</mi></mrow></mrow></mrow></mrow><mo>=</mo><mfrac><msub><mi>λ</mi><mi>k</mi></msub><mrow><msub><mi>λ</mi><mn>1</mn></msub><mo>+</mo><mi mathvariant="normal">…</mi><mo>+</mo><msub><mi>λ</mi><mi>n</mi></msub></mrow></mfrac></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">∎</p>
+</div>
+</div>
+<div id="Thmlem2" class="ltx_theorem ltx_theorem_lem">
+<h6 class="ltx_title ltx_runin ltx_title_theorem">
+<span class="ltx_tag ltx_tag_theorem"><span class="ltx_text ltx_font_bold">Lemma 2</span></span>.</h6>
+<div id="Thmlem2.p1" class="ltx_para">
+<p class="ltx_p">Let <math id="Thmlem2.p1.m1" class="ltx_Math" alttext="\tau_{+}=\inf\{t\geq 0\mid X_{t}\neq X_{0}\}" display="inline"><mrow><msub><mi>τ</mi><mo>+</mo></msub><mo>=</mo><mrow><mo>inf</mo><mo>⁡</mo><mrow><mo stretchy="false">{</mo><mrow><mi>t</mi><mo>≥</mo><mn>0</mn></mrow><mo>∣</mo><mrow><msub><mi>X</mi><mi>t</mi></msub><mo>≠</mo><msub><mi>X</mi><mn>0</mn></msub></mrow><mo stretchy="false">}</mo></mrow></mrow></mrow></math> be the time of the first jump. Then, if <math id="Thmlem2.p1.m2" class="ltx_Math" alttext="X_{0}=x" display="inline"><mrow><msub><mi>X</mi><mn>0</mn></msub><mo>=</mo><mi>x</mi></mrow></math>, then <math id="Thmlem2.p1.m3" class="ltx_Math" alttext="\tau_{+}\sim\text{Exp}(-G_{xx})" display="inline"><mrow><msub><mi>τ</mi><mo>+</mo></msub><mo>∼</mo><mrow><mtext>Exp</mtext><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mo>-</mo><msub><mi>G</mi><mrow><mi>x</mi><mo>⁢</mo><mi>x</mi></mrow></msub></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math>.</p>
+</div>
+</div>
+</section>
+<section id="Sx5" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">11/2</h2>
+
+<div id="Thmlem3" class="ltx_theorem ltx_theorem_lem">
+<h6 class="ltx_title ltx_runin ltx_title_theorem">
+<span class="ltx_tag ltx_tag_theorem"><span class="ltx_text ltx_font_bold">Lemma 3</span></span>.</h6>
+<div id="Thmlem3.p1" class="ltx_para">
+<p class="ltx_p">Let <math id="Thmlem3.p1.m1" class="ltx_Math" alttext="\tau_{+}=\inf\{t\geq 0\mid X_{t}\neq X_{0}\}" display="inline"><mrow><msub><mi>τ</mi><mo>+</mo></msub><mo>=</mo><mrow><mo>inf</mo><mo>⁡</mo><mrow><mo stretchy="false">{</mo><mrow><mi>t</mi><mo>≥</mo><mn>0</mn></mrow><mo>∣</mo><mrow><msub><mi>X</mi><mi>t</mi></msub><mo>≠</mo><msub><mi>X</mi><mn>0</mn></msub></mrow><mo stretchy="false">}</mo></mrow></mrow></mrow></math> be the time of the first jump. Suppose <math id="Thmlem3.p1.m2" class="ltx_Math" alttext="\operatorname{\mathbb{P}}\{\tau_{+}&gt;0\}&gt;0" display="inline"><mrow><mrow><mi>ℙ</mi><mo>⁡</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>τ</mi><mo>+</mo></msub><mo>&gt;</mo><mn>0</mn></mrow><mo stretchy="false">}</mo></mrow></mrow><mo>&gt;</mo><mn>0</mn></mrow></math>. Then <math id="Thmlem3.p1.m3" class="ltx_Math" alttext="\tau_{+}\sim\text{Exp}(\lambda)" display="inline"><mrow><msub><mi>τ</mi><mo>+</mo></msub><mo>∼</mo><mrow><mtext>Exp</mtext><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>λ</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></math> for some <math id="Thmlem3.p1.m4" class="ltx_Math" alttext="\lambda&gt;0" display="inline"><mrow><mi>λ</mi><mo>&gt;</mo><mn>0</mn></mrow></math>.</p>
+</div>
+</div>
+<div class="ltx_proof">
+<h6 class="ltx_title ltx_runin ltx_font_italic ltx_title_proof">Proof.</h6>
+<div id="Sx5.p1" class="ltx_para">
+<p class="ltx_p">Let <math id="Sx5.p1.m1" class="ltx_Math" alttext="F(t)=\operatorname{\mathbb{P}}\{\tau_{+}&gt;t\}" display="inline"><mrow><mrow><mi>F</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mi>ℙ</mi><mo>⁡</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>τ</mi><mo>+</mo></msub><mo>&gt;</mo><mi>t</mi></mrow><mo stretchy="false">}</mo></mrow></mrow></mrow></math> be the distribution function for <math id="Sx5.p1.m2" class="ltx_Math" alttext="\tau_{+}" display="inline"><msub><mi>τ</mi><mo>+</mo></msub></math>. By the Markov property on <math id="Sx5.p1.m3" class="ltx_Math" alttext="X_{t}" display="inline"><msub><mi>X</mi><mi>t</mi></msub></math>, we have</p>
+<table id="Sx5.Ex15" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx5.Ex15.m1" class="ltx_Math" alttext="\operatorname{\mathbb{P}}\{\tau_{+}&gt;t+s\mid\tau_{+}&gt;t\}=\operatorname{\mathbb{%
+P}}\{\tau_{+}&gt;s\}=F(s)." display="block"><mrow><mrow><mrow><mi>ℙ</mi><mo>⁡</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>τ</mi><mo>+</mo></msub><mo>&gt;</mo><mrow><mi>t</mi><mo>+</mo><mrow><mi>s</mi><mo>⁢</mo><mrow><mo fence="true">∣</mo><msub><mi>τ</mi><mo>+</mo></msub><mo>&gt;</mo></mrow><mo>⁢</mo><mi>t</mi></mrow></mrow></mrow><mo stretchy="false">}</mo></mrow></mrow><mo>=</mo><mrow><mi>ℙ</mi><mo>⁡</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>τ</mi><mo>+</mo></msub><mo>&gt;</mo><mi>s</mi></mrow><mo stretchy="false">}</mo></mrow></mrow><mo>=</mo><mrow><mi>F</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">Unraveling the conditional probability on the left, we find
+</p>
+<table id="Sx5.Ex16" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx5.Ex16.m1" class="ltx_Math" alttext="F(s)=\frac{\operatorname{\mathbb{P}}\{\tau_{+}&gt;t+s\text{ and }\tau_{+}&gt;t\}}{%
+\operatorname{\mathbb{P}}\{\tau_{+}&gt;t\}}=\frac{F(t+s)}{F(t)}." display="block"><mrow><mrow><mrow><mi>F</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mfrac><mrow><mi>ℙ</mi><mo>⁡</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>τ</mi><mo>+</mo></msub><mo>&gt;</mo><mrow><mi>t</mi><mo>+</mo><mrow><mi>s</mi><mo>⁢</mo><mtext> and </mtext><mo>⁢</mo><msub><mi>τ</mi><mo>+</mo></msub></mrow></mrow><mo>&gt;</mo><mi>t</mi></mrow><mo stretchy="false">}</mo></mrow></mrow><mrow><mi>ℙ</mi><mo>⁡</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>τ</mi><mo>+</mo></msub><mo>&gt;</mo><mi>t</mi></mrow><mo stretchy="false">}</mo></mrow></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>F</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>t</mi><mo>+</mo><mi>s</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mrow><mi>F</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mrow></mfrac></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">We then have that <math id="Sx5.p1.m4" class="ltx_Math" alttext="F(t+s)=F(t)F(s)" display="inline"><mrow><mrow><mi>F</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>t</mi><mo>+</mo><mi>s</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mi>F</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mi>F</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></math>, and the only continuous solution to this equation is <math id="Sx5.p1.m5" class="ltx_Math" alttext="F(t)=e^{-\lambda t}" display="inline"><mrow><mrow><mi>F</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><msup><mi>e</mi><mrow><mo>-</mo><mrow><mi>λ</mi><mo>⁢</mo><mi>t</mi></mrow></mrow></msup></mrow></math> for some <math id="Sx5.p1.m6" class="ltx_Math" alttext="\lambda&gt;0" display="inline"><mrow><mi>λ</mi><mo>&gt;</mo><mn>0</mn></mrow></math>.</p>
+</div>
+<div id="Sx5.p2" class="ltx_para">
+<p class="ltx_p">∎</p>
+</div>
+</div>
+<div id="Sx5.p3" class="ltx_para">
+<p class="ltx_p">To solve our problem with splitting and dying cells, we model it with a continuous time Markov chain with state space <math id="Sx5.p3.m1" class="ltx_Math" alttext="\{1,2,\dots,N\}" display="inline"><mrow><mo stretchy="false">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mi>N</mi><mo stretchy="false">}</mo></mrow></math> and generator <math id="Sx5.p3.m2" class="ltx_Math" alttext="G" display="inline"><mi>G</mi></math> given by</p>
+<table id="Sx6.EGx4" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tr id="Sx5.Ex17" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="Sx5.Ex17.m1" class="ltx_Math" alttext="\displaystyle G=\begin{pmatrix}0&amp;0&amp;0&amp;0&amp;0&amp;\dots&amp;0\\
+\mu&amp;-\mu-\lambda&amp;\lambda&amp;0&amp;0&amp;\dots&amp;0\\
+0&amp;2\mu&amp;-2\mu-2\lambda&amp;2\lambda&amp;0&amp;\dots&amp;0\\
+0&amp;0&amp;3\mu&amp;-3\mu-3\lambda&amp;3\lambda&amp;\dots&amp;0\\
+\vdots&amp;&amp;&amp;&amp;&amp;&amp;\vdots\end{pmatrix}" display="inline"><mrow><mi>G</mi><mo>=</mo><mrow><mo>(</mo><mtable columnspacing="5pt" rowspacing="0pt"><mtr><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mi>μ</mi></mtd><mtd columnalign="center"><mrow><mrow><mo>-</mo><mi>μ</mi></mrow><mo>-</mo><mi>λ</mi></mrow></mtd><mtd columnalign="center"><mi>λ</mi></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mrow><mn>2</mn><mo>⁢</mo><mi>μ</mi></mrow></mtd><mtd columnalign="center"><mrow><mrow><mo>-</mo><mrow><mn>2</mn><mo>⁢</mo><mi>μ</mi></mrow></mrow><mo>-</mo><mrow><mn>2</mn><mo>⁢</mo><mi>λ</mi></mrow></mrow></mtd><mtd columnalign="center"><mrow><mn>2</mn><mo>⁢</mo><mi>λ</mi></mrow></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mrow><mn>3</mn><mo>⁢</mo><mi>μ</mi></mrow></mtd><mtd columnalign="center"><mrow><mrow><mo>-</mo><mrow><mn>3</mn><mo>⁢</mo><mi>μ</mi></mrow></mrow><mo>-</mo><mrow><mn>3</mn><mo>⁢</mo><mi>λ</mi></mrow></mrow></mtd><mtd columnalign="center"><mrow><mn>3</mn><mo>⁢</mo><mi>λ</mi></mrow></mtd><mtd columnalign="center"><mi mathvariant="normal">…</mi></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mi mathvariant="normal">⋮</mi></mtd><mtd columnalign="center"><mi></mi></mtd><mtd columnalign="center"><mi></mi></mtd><mtd columnalign="center"><mi></mi></mtd><mtd columnalign="center"><mi></mi></mtd><mtd columnalign="center"><mi></mi></mtd><mtd columnalign="center"><mi mathvariant="normal">⋮</mi></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="Sx5.p4" class="ltx_para">
+<p class="ltx_p">Let <math id="Sx5.p4.m1" class="ltx_Math" alttext="h(x)=\operatorname{\mathbb{P}}^{x}\{\tau_{N}&lt;\tau_{0}\}" display="inline"><mrow><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><msup><mi>ℙ</mi><mi>x</mi></msup><mo>⁡</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>τ</mi><mi>N</mi></msub><mo>&lt;</mo><msub><mi>τ</mi><mn>0</mn></msub></mrow><mo stretchy="false">}</mo></mrow></mrow></mrow></math> be the hitting probability. From the theorem on hitting probabilities, we know that</p>
+<table id="Sx6.EGx5" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tr id="Sx5.Ex18" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="Sx5.Ex18.m1" class="ltx_Math" alttext="\displaystyle h(0)" display="inline"><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mn>0</mn><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Sx5.Ex18.m2" class="ltx_Math" alttext="\displaystyle=0" display="inline"><mrow><mi></mi><mo>=</mo><mn>0</mn></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="Sx5.Ex19" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="Sx5.Ex19.m1" class="ltx_Math" alttext="\displaystyle h(N)" display="inline"><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>N</mi><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Sx5.Ex19.m2" class="ltx_Math" alttext="\displaystyle=1" display="inline"><mrow><mi></mi><mo>=</mo><mn>1</mn></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="Sx5.Ex20" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="Sx5.Ex20.m1" class="ltx_Math" alttext="\displaystyle Gh(x)" display="inline"><mrow><mi>G</mi><mo>⁢</mo><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Sx5.Ex20.m2" class="ltx_Math" alttext="\displaystyle=0\quad\forall x\neq 0,N." display="inline"><mrow><mrow><mrow><mi></mi><mo>=</mo><mn>0</mn></mrow><mo mathvariant="italic" separator="true"> </mo><mrow><mrow><mo>∀</mo><mi>x</mi></mrow><mo>≠</mo><mrow><mn>0</mn><mo>,</mo><mi>N</mi></mrow></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">The last of these equations says
+</p>
+<table id="Sx5.Ex21" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx5.Ex21.m1" class="ltx_Math" alttext="x\lambda(h(x+1)-h(x))+x\mu(h(x-1)-h(x))=0" display="block"><mrow><mrow><mrow><mi>x</mi><mo>⁢</mo><mi>λ</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>-</mo><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>+</mo><mrow><mi>x</mi><mo>⁢</mo><mi>μ</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>x</mi><mo>-</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>-</mo><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>=</mo><mn>0</mn></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">which rearranges into</p>
+<table id="Sx5.Ex22" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx5.Ex22.m1" class="ltx_Math" alttext="h(x+1)-h(x)=\frac{\mu}{\lambda}(h(x)-h(x-1))." display="block"><mrow><mrow><mrow><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>-</mo><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>=</mo><mrow><mfrac><mi>μ</mi><mi>λ</mi></mfrac><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>-</mo><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>x</mi><mo>-</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">Since <math id="Sx5.p4.m2" class="ltx_Math" alttext="h(1)-h(0)=h(1)" display="inline"><mrow><mrow><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></mrow><mo>-</mo><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mn>0</mn><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>=</mo><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></mrow></mrow></math> by our boundary condition we can use this as the seed for this recurrence relation. We get</p>
+<table id="Sx5.Ex23" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx5.Ex23.m1" class="ltx_Math" alttext="h(x+1)-h(x)=\left(\frac{\mu}{\lambda}\right)^{x}h(1)," display="block"><mrow><mrow><mrow><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>-</mo><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>=</mo><mrow><msup><mrow><mo>(</mo><mfrac><mi>μ</mi><mi>λ</mi></mfrac><mo>)</mo></mrow><mi>x</mi></msup><mo>⁢</mo><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">so</p>
+<table id="Sx6.EGx6" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tr id="Sx5.Ex24" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="Sx5.Ex24.m1" class="ltx_Math" alttext="\displaystyle h(x)" display="inline"><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Sx5.Ex24.m2" class="ltx_Math" alttext="\displaystyle=h(1)+\sum_{y=1}^{x-1}h(y+1)-h(y)" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></mrow><mo>+</mo><mrow><mstyle displaystyle="true"><munderover><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>y</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>x</mi><mo>-</mo><mn>1</mn></mrow></munderover></mstyle><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>y</mi><mo>+</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow><mo>-</mo><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="Sx5.Ex25" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Sx5.Ex25.m2" class="ltx_Math" alttext="\displaystyle=h(1)\left\{1+\sum_{y=1}^{x-1}\left(\frac{\mu}{\lambda}\right)^{y%
+}\right\}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mrow><mo>{</mo><mrow><mn>1</mn><mo>+</mo><mrow><mstyle displaystyle="true"><munderover><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>y</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>x</mi><mo>-</mo><mn>1</mn></mrow></munderover></mstyle><msup><mrow><mo>(</mo><mstyle displaystyle="true"><mfrac><mi>μ</mi><mi>λ</mi></mfrac></mstyle><mo>)</mo></mrow><mi>y</mi></msup></mrow></mrow><mo>}</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="Sx5.Ex26" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Sx5.Ex26.m2" class="ltx_Math" alttext="\displaystyle=h(1)\left(\frac{1-\left(\frac{\mu}{\lambda}\right)^{x}}{1-\frac{%
+\mu}{\lambda}}\right)." display="inline"><mrow><mrow><mi></mi><mo>=</mo><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><mstyle displaystyle="true"><mfrac><mrow><mn>1</mn><mo>-</mo><msup><mrow><mo>(</mo><mfrac><mi>μ</mi><mi>λ</mi></mfrac><mo>)</mo></mrow><mi>x</mi></msup></mrow><mrow><mn>1</mn><mo>-</mo><mfrac><mi>μ</mi><mi>λ</mi></mfrac></mrow></mfrac></mstyle><mo>)</mo></mrow></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">Next we use the other boundary condition:</p>
+<table id="Sx5.Ex27" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx5.Ex27.m1" class="ltx_Math" alttext="1=h(N)=h(1)\left(\frac{1-\left(\frac{\mu}{\lambda}\right)^{N}}{1-\frac{\mu}{%
+\lambda}}\right)" display="block"><mrow><mn>1</mn><mo>=</mo><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>N</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><mfrac><mrow><mn>1</mn><mo>-</mo><msup><mrow><mo>(</mo><mfrac><mi>μ</mi><mi>λ</mi></mfrac><mo>)</mo></mrow><mi>N</mi></msup></mrow><mrow><mn>1</mn><mo>-</mo><mfrac><mi>μ</mi><mi>λ</mi></mfrac></mrow></mfrac><mo>)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">which gives</p>
+<table id="Sx5.Ex28" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx5.Ex28.m1" class="ltx_Math" alttext="h(1)=\left\{\frac{1-\left(\frac{\mu}{\lambda}\right)^{N}}{1-\frac{\mu}{\lambda%
+}}\right\}^{-1}," display="block"><mrow><mrow><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><msup><mrow><mo>{</mo><mfrac><mrow><mn>1</mn><mo>-</mo><msup><mrow><mo>(</mo><mfrac><mi>μ</mi><mi>λ</mi></mfrac><mo>)</mo></mrow><mi>N</mi></msup></mrow><mrow><mn>1</mn><mo>-</mo><mfrac><mi>μ</mi><mi>λ</mi></mfrac></mrow></mfrac><mo>}</mo></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">and</p>
+<table id="Sx5.Ex29" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx5.Ex29.m1" class="ltx_Math" alttext="h(x)=\frac{1-\left(\frac{\mu}{\lambda}\right)^{x}}{1-\left(\frac{\mu}{\lambda}%
+\right)^{N}}." display="block"><mrow><mrow><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mfrac><mrow><mn>1</mn><mo>-</mo><msup><mrow><mo>(</mo><mfrac><mi>μ</mi><mi>λ</mi></mfrac><mo>)</mo></mrow><mi>x</mi></msup></mrow><mrow><mn>1</mn><mo>-</mo><msup><mrow><mo>(</mo><mfrac><mi>μ</mi><mi>λ</mi></mfrac><mo>)</mo></mrow><mi>N</mi></msup></mrow></mfrac></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="Sx5.p5" class="ltx_para">
+<p class="ltx_p">This gives us the answer to our first question: what is the probability that a single mutation “grows?” This is answered by the value</p>
+<table id="Sx5.Ex30" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx5.Ex30.m1" class="ltx_Math" alttext="h(1)=\frac{1-\left(\frac{\mu}{\lambda}\right)}{1-\left(\frac{\mu}{\lambda}%
+\right)^{N}}\approx 1-\frac{\mu}{\lambda}\text{ for large }N." display="block"><mrow><mrow><mrow><mi>h</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mfrac><mrow><mn>1</mn><mo>-</mo><mrow><mo>(</mo><mfrac><mi>μ</mi><mi>λ</mi></mfrac><mo>)</mo></mrow></mrow><mrow><mn>1</mn><mo>-</mo><msup><mrow><mo>(</mo><mfrac><mi>μ</mi><mi>λ</mi></mfrac><mo>)</mo></mrow><mi>N</mi></msup></mrow></mfrac><mo>≈</mo><mrow><mn>1</mn><mo>-</mo><mrow><mfrac><mi>μ</mi><mi>λ</mi></mfrac><mo>⁢</mo><mtext> for large </mtext><mo>⁢</mo><mi>N</mi></mrow></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</section>
+<section id="Sx6" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">Stationary Distributions</h2>
+
+<div id="Thmprop1" class="ltx_theorem ltx_theorem_prop">
+<h6 class="ltx_title ltx_runin ltx_title_theorem">
+<span class="ltx_tag ltx_tag_theorem"><span class="ltx_text ltx_font_bold">Proposition 1</span></span>.</h6>
+<div id="Thmprop1.p1" class="ltx_para">
+<p class="ltx_p">Let <math id="Thmprop1.p1.m1" class="ltx_Math" alttext="(X_{t})_{t\geq 0}" display="inline"><msub><mrow><mo stretchy="false">(</mo><msub><mi>X</mi><mi>t</mi></msub><mo stretchy="false">)</mo></mrow><mrow><mi>t</mi><mo>≥</mo><mn>0</mn></mrow></msub></math> be a continuous time Markov chain with generator <math id="Thmprop1.p1.m2" class="ltx_Math" alttext="G" display="inline"><mi>G</mi></math> on state space <math id="Thmprop1.p1.m3" class="ltx_Math" alttext="\mathcal{X}" display="inline"><mi class="ltx_font_mathcaligraphic">𝒳</mi></math>. Suppose that <math id="Thmprop1.p1.m4" class="ltx_Math" alttext="G^{T}\pi=0" display="inline"><mrow><mrow><msup><mi>G</mi><mi>T</mi></msup><mo>⁢</mo><mi>π</mi></mrow><mo>=</mo><mn>0</mn></mrow></math> for some probability distribution <math id="Thmprop1.p1.m5" class="ltx_Math" alttext="\pi" display="inline"><mi>π</mi></math> on <math id="Thmprop1.p1.m6" class="ltx_Math" alttext="\mathcal{X}" display="inline"><mi class="ltx_font_mathcaligraphic">𝒳</mi></math>. Then</p>
+<table id="Sx6.Ex31" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx6.Ex31.m1" class="ltx_Math" alttext="\operatorname{\mathbb{P}}^{\pi}\{X_{t}=y\}=\pi(y)." display="block"><mrow><mrow><mrow><msup><mi>ℙ</mi><mi>π</mi></msup><mo>⁡</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>X</mi><mi>t</mi></msub><mo>=</mo><mi>y</mi></mrow><mo stretchy="false">}</mo></mrow></mrow><mo>=</mo><mrow><mi>π</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</div>
+<div id="Sx6.p1" class="ltx_para">
+<p class="ltx_p">The conditions on <math id="Sx6.p1.m1" class="ltx_Math" alttext="\pi" display="inline"><mi>π</mi></math> above mean</p>
+<table id="Sx6.Ex32" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx6.Ex32.m1" class="ltx_Math" alttext="\sum_{y\in\mathcal{X}}\pi(y)=1,\quad\pi(y)\geq 0,\quad\sum_{y\in\mathcal{X}}%
+\pi(y)G_{yx}=0." display="block"><mrow><mrow><mrow><mrow><munder><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>y</mi><mo>∈</mo><mi class="ltx_font_mathcaligraphic">𝒳</mi></mrow></munder><mrow><mi>π</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>=</mo><mn>1</mn></mrow><mo rspace="12.5pt">,</mo><mrow><mrow><mrow><mi>π</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mrow><mo>≥</mo><mn>0</mn></mrow><mo rspace="12.5pt">,</mo><mrow><mrow><munder><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>y</mi><mo>∈</mo><mi class="ltx_font_mathcaligraphic">𝒳</mi></mrow></munder><mrow><mi>π</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><msub><mi>G</mi><mrow><mi>y</mi><mo>⁢</mo><mi>x</mi></mrow></msub></mrow></mrow><mo>=</mo><mn>0</mn></mrow></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">The notation <math id="Sx6.p1.m2" class="ltx_Math" alttext="\operatorname{\mathbb{P}}^{\pi}" display="inline"><msup><mi>ℙ</mi><mi>π</mi></msup></math> means</p>
+<table id="Sx6.Ex33" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx6.Ex33.m1" class="ltx_Math" alttext="\operatorname{\mathbb{P}}^{\pi}\{X_{t}=y\}=\sum_{x\in\mathcal{X}}\pi(x)%
+\operatorname{\mathbb{P}}^{x}\{X_{t}=y\}." display="block"><mrow><mrow><mrow><msup><mi>ℙ</mi><mi>π</mi></msup><mo>⁡</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>X</mi><mi>t</mi></msub><mo>=</mo><mi>y</mi></mrow><mo stretchy="false">}</mo></mrow></mrow><mo>=</mo><mrow><munder><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>x</mi><mo>∈</mo><mi class="ltx_font_mathcaligraphic">𝒳</mi></mrow></munder><mrow><mi>π</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mrow><msup><mi>ℙ</mi><mi>x</mi></msup><mo>⁡</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>X</mi><mi>t</mi></msub><mo>=</mo><mi>y</mi></mrow><mo stretchy="false">}</mo></mrow></mrow></mrow></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="Sx6.p2" class="ltx_para">
+<p class="ltx_p">Such a distribution <math id="Sx6.p2.m1" class="ltx_Math" alttext="\pi" display="inline"><mi>π</mi></math> is called a <span class="ltx_text ltx_emph ltx_font_italic">stationary distribution</span>.</p>
+</div>
+<div class="ltx_proof">
+<h6 class="ltx_title ltx_runin ltx_font_italic ltx_title_proof">Proof.</h6>
+<div id="Sx6.p3" class="ltx_para">
+<p class="ltx_p">Let <math id="Sx6.p3.m1" class="ltx_Math" alttext="f:\mathcal{X}\to\mathbb{R}" display="inline"><mrow><mi>f</mi><mo>:</mo><mrow><mi class="ltx_font_mathcaligraphic">𝒳</mi><mo>→</mo><mi>ℝ</mi></mrow></mrow></math> be a function (thought of as a column vector) with <math id="Sx6.p3.m2" class="ltx_Math" alttext="\sum_{y}\pi(y)f(y)&lt;\infty" display="inline"><mrow><mrow><msub><mo largeop="true" symmetric="true">∑</mo><mi>y</mi></msub><mrow><mi>π</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>&lt;</mo><mi mathvariant="normal">∞</mi></mrow></math> (if we wished to generalize to a countable state space). Recall that</p>
+<table id="Sx6.Ex34" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx6.Ex34.m1" class="ltx_Math" alttext="\operatorname{\mathbb{E}}^{x}[f(X_{t})]=P_{t}f(x)=e^{tG}f(x)." display="block"><mrow><mrow><mrow><msup><mi>𝔼</mi><mi>x</mi></msup><mo>⁡</mo><mrow><mo stretchy="false">[</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>X</mi><mi>t</mi></msub><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">]</mo></mrow></mrow><mo>=</mo><mrow><msub><mi>P</mi><mi>t</mi></msub><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><msup><mi>e</mi><mrow><mi>t</mi><mo>⁢</mo><mi>G</mi></mrow></msup><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">Since <math id="Sx6.p3.m3" class="ltx_Math" alttext="\pi G=0" display="inline"><mrow><mrow><mi>π</mi><mo>⁢</mo><mi>G</mi></mrow><mo>=</mo><mn>0</mn></mrow></math>,</p>
+<table id="Sx6.Ex35" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx6.Ex35.m1" class="ltx_Math" alttext="\pi P_{t}=\pi e^{tG}=\pi\sum_{n\geq 0}\frac{t^{n}}{n!}G^{n}=\pi." display="block"><mrow><mrow><mrow><mi>π</mi><mo>⁢</mo><msub><mi>P</mi><mi>t</mi></msub></mrow><mo>=</mo><mrow><mi>π</mi><mo>⁢</mo><msup><mi>e</mi><mrow><mi>t</mi><mo>⁢</mo><mi>G</mi></mrow></msup></mrow><mo>=</mo><mrow><mi>π</mi><mo>⁢</mo><mrow><munder><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>n</mi><mo>≥</mo><mn>0</mn></mrow></munder><mrow><mfrac><msup><mi>t</mi><mi>n</mi></msup><mrow><mi>n</mi><mo lspace="0pt" rspace="3.5pt">!</mo></mrow></mfrac><mo>⁢</mo><msup><mi>G</mi><mi>n</mi></msup></mrow></mrow></mrow><mo>=</mo><mi>π</mi></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">So,</p>
+<table id="Sx6.Ex36" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx6.Ex36.m1" class="ltx_Math" alttext="\operatorname{\mathbb{E}}^{\pi}[f(X_{t})]=\pi P_{t}f=\pi f=\sum_{x}\pi(x)f(x)." display="block"><mrow><mrow><mrow><msup><mi>𝔼</mi><mi>π</mi></msup><mo>⁡</mo><mrow><mo stretchy="false">[</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>X</mi><mi>t</mi></msub><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">]</mo></mrow></mrow><mo>=</mo><mrow><mi>π</mi><mo>⁢</mo><msub><mi>P</mi><mi>t</mi></msub><mo>⁢</mo><mi>f</mi></mrow><mo>=</mo><mrow><mi>π</mi><mo>⁢</mo><mi>f</mi></mrow><mo>=</mo><mrow><munder><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mi>x</mi></munder><mrow><mi>π</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">The statement of the proposition now follows from taking <math id="Sx6.p3.m4" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math> to be the indicator of <math id="Sx6.p3.m5" class="ltx_Math" alttext="y" display="inline"><mi>y</mi></math>:</p>
+<table id="Sx6.Ex37" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx6.Ex37.m1" class="ltx_Math" alttext="f(x)=\begin{cases}1&amp;x=y\\
+0&amp;x\neq y.\end{cases}" display="block"><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mn>1</mn></mtd><mtd columnalign="left"><mrow><mi>x</mi><mo>=</mo><mi>y</mi></mrow></mtd></mtr><mtr><mtd columnalign="left"><mn>0</mn></mtd><mtd columnalign="left"><mrow><mrow><mi>x</mi><mo>≠</mo><mi>y</mi></mrow><mo>.</mo></mrow></mtd></mtr></mtable></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">∎</p>
+</div>
+</div>
+<div id="Thmfact1" class="ltx_theorem ltx_theorem_fact">
+<h6 class="ltx_title ltx_runin ltx_title_theorem">
+<span class="ltx_tag ltx_tag_theorem"><span class="ltx_text ltx_font_bold">Fact 1</span></span>.</h6>
+<div id="Thmfact1.p1" class="ltx_para">
+<p class="ltx_p">If <math id="Thmfact1.p1.m1" class="ltx_Math" alttext="\pi" display="inline"><mi>π</mi></math> is unique, then <math id="Thmfact1.p1.m2" class="ltx_Math" alttext="P_{t}\to\pi" display="inline"><mrow><msub><mi>P</mi><mi>t</mi></msub><mo>→</mo><mi>π</mi></mrow></math> as <math id="Thmfact1.p1.m3" class="ltx_Math" alttext="t\to\infty" display="inline"><mrow><mi>t</mi><mo>→</mo><mi mathvariant="normal">∞</mi></mrow></math>. That is, for all <math id="Thmfact1.p1.m4" class="ltx_Math" alttext="f,x" display="inline"><mrow><mi>f</mi><mo>,</mo><mi>x</mi></mrow></math>,</p>
+<table id="Sx6.Ex38" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx6.Ex38.m1" class="ltx_Math" alttext="\operatorname{\mathbb{E}}^{x}[f(X_{t})]\to\sum_{y}\pi(y)f(y)\quad\text{as }t%
+\to\infty." display="block"><mrow><mrow><mrow><mrow><msup><mi>𝔼</mi><mi>x</mi></msup><mo>⁡</mo><mrow><mo stretchy="false">[</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>X</mi><mi>t</mi></msub><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">]</mo></mrow></mrow><mo>→</mo><mrow><munder><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mi>y</mi></munder><mrow><mi>π</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow><mo mathvariant="italic" separator="true"> </mo><mrow><mrow><mtext>as </mtext><mo>⁢</mo><mi>t</mi></mrow><mo>→</mo><mi mathvariant="normal">∞</mi></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">This can also be phrased as saying that <math id="Thmfact1.p1.m5" class="ltx_Math" alttext="X_{t}" display="inline"><msub><mi>X</mi><mi>t</mi></msub></math> converges in distribution to <math id="Thmfact1.p1.m6" class="ltx_Math" alttext="\pi" display="inline"><mi>π</mi></math>.</p>
+</div>
+</div>
+</section>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Mon Dec  3 21:01:06 2018 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

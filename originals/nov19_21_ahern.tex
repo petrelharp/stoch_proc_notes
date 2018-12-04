@@ -1,0 +1,255 @@
+\documentclass[12pt]{amsart}
+\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{a4paper} % or letter or a5paper or ... etc
+% \geometry{landscape} % rotated page geometry
+
+% See the ``Article customise'' template for come common customisations
+
+%\usepackage{graphicx}
+%\usepackage{tikz}
+%\usepackage{pgfplots}
+
+% no indent
+\setlength{\parindent}{0cm}
+
+% equal in distribution 
+\newcommand{\disteq}{\overset{ \text{d} }{=}}
+
+%%% macro.txt
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools} %For arrows with text above and below%
+
+\newcommand{\Z}{\mathbb{Z}}    % integers
+\newcommand{\N}{\mathbb{N}}    % naturals
+\newcommand{\R}{\mathbb{R}}    % reals
+
+\newcommand{\E}{\mathbb{E}}    % expectation
+\renewcommand{\P}{\mathbb{P}}  % probability
+\DeclareMathOperator{\sd}{sd}
+\DeclareMathOperator{\var}{var}
+\DeclareMathOperator{\cov}{cov}
+
+% distributions
+\DeclareMathOperator{\Normal}{Normal}
+\DeclareMathOperator{\Poisson}{Poisson}
+\DeclareMathOperator{\Beta}{Beta}
+\DeclareMathOperator{\Binom}{Binomial}
+\DeclareMathOperator{\Gam}{Gamma}
+\DeclareMathOperator{\Exp}{Exponential}
+\DeclareMathOperator{\Cauchy}{Cauchy}
+\DeclareMathOperator{\Unif}{Unif}
+\DeclareMathOperator{\Dirichlet}{Dirichlet}
+
+\newcommand{\given}{\;\vert\;}
+
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{coro}[thm]{Corollary}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{exmp}[thm]{Example}
+\newtheorem{rmk}[thm]{Remark}
+\newtheorem{exer}[thm]{Exercise}
+\newtheorem{nota}[thm]{Notation}
+\newtheorem*{note}{Note}
+\newtheorem*{sol}{Solution}
+
+%%%
+
+%%% BEGIN DOCUMENT
+\begin{document}
+
+\section{\emph{Monday November 19}} 
+
+\begin{thm}
+A [Markov] Levy process is (strictly) \emph{stable} if 
+$$
+(X_t)_{t \geq 0} \disteq (\tfrac{X_{r_t}}{ r^{1/p}})_{t \geq 0}, 
+$$
+which happens iff [it is Levy and]
+\begin{enumerate}
+\item $p = 2$ and $X$ is BM.
+\item $0 < p < 2$ and $X$ is pure jump\footnote{unless $p=1$, in which case it can have a drift component also.} with $\nu(dx) \propto x^{-1-p} dx$
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+Let $X \sim Levy(b,\sigma,\nu)$ have drift, diffusion, and jump kernel coefficients. (i.e. with generator 
+$$
+G(f) = b \frac{d}{dx} f + \frac{\sigma^2}{2} \frac{d^2}{dx^2} f + \int \nu (dy) (f(x+y) - f(x) ). )
+$$ 
+Note, we will write $s = r^p$ in the following for notational simplicity. $s$ is the coefficient `$r$' from the theorem statement (i.e., $X_{r_t} / r^{1/p} = X_{s_t} / s^{1/p}$ ). Then, if we examine $X(r^p t)$, the generator associated with the drift is 
+$$b \tfrac{d}{dx} \rightarrow X_t = bt,
+$$
+so $X_{r^p t} = br^p t$. Similarly, $\frac{\sigma^2}{2} \tfrac{d^2}{dx^2} \rightarrow X_t = \sigma B_t \sim \N (0,\sigma^2t)$. So, $X_{r^p t} \sim \N(0, \sigma^2 r^p t) \disteq (\sigma r^{p/2}) B_t$. And for the jumps, similar logic shows that $X(r^p t) \sim Levy ( r^p b, r^{p/2} \sigma, r^p \nu)$. This is equal in distribution to 
+$$
+r X(t) \sim Levy ( rb, r \sigma, \tilde{\nu})
+$$
+where $\tilde{\nu}([a,b]) = \nu( [\tfrac{a}{r}, \tfrac{b}{r}] )$. If $(X(r^p t))_{t \geq 0} \disteq (r X(t))_{t \geq 0}$ then 
+\begin{enumerate}
+\item either $b = 0$ or $p=1$
+\item either $\sigma = 0$ or $p=2$
+\item either $\nu = 0$ or $r^p \nu = \tilde{\nu}$.
+\end{enumerate} 
+
+If $r^p \nu = \tilde{\nu}$ then $\nu ( [x, \infty) ) = r^{-p} \nu ( [\frac{x}{r}, \infty ) )$ so setting $r = x$ implies that 
+$$
+\nu ( [x , \infty) ) = x^{-p} \nu( [1, \infty) ) \implies \nu ([x, \infty)) \propto x^{-p}.
+$$
+
+This also holds for $\nu( (- \infty, -x])$, and so if $\nu$ is absolutely continuous wrt Lebesgue measure then 
+$$
+\nu(dx) = 
+\begin{cases}
+C_+ x^{-p-1} dx & x \geq 0 \\
+C_{-} x^{-p-1} dx & x < 0
+\end{cases}
+$$
+for some $C_\pm \geq 0$. (this is what is meant when writing \emph{pure jump} with the corresponding measure in the theorem statement.
+\end{proof}
+
+\begin{defn} [Stable limits] Let $\{Y_i\}_{i} $ be a family of iid (nondegenerate) Random Variables in $\R$ and let $S_n = Y_1 + Y_2 + \cdots + Y_n$. Suppose $S_n / n^\alpha \overset{d}{\longrightarrow} X$ converges in distribution for some distribution $X$. Then $X$ is (strictly) stable, with index $p = 1/\alpha$ i.e., having the distribution of $X(1)$ from the previous theorem.
+\end{defn}
+
+\begin{proof}
+$\frac{S_{nk}}{ (nk)^{\alpha} } \overset{d}{\longrightarrow} X$ but also converges to $\frac{ X_1 + \cdots + X_k }{k^\alpha}$ where $X_i$ are iid and $\sim X$, all of this because $S_{nk} \disteq S_n ^{(1)} + \cdots + S_n ^{(k)}$ are iid copies of $S_n$. That is, we see that the distribution $X$ can be rescaled into a $k$-fold convolution of $k$ copies of itself: $X \disteq \frac{ X_1 + \cdots + X_k }{k^\alpha}$.
+
+\bigskip{}
+
+Now let $Z$ be the Poissonization of $S$, i.e. $Z_t = S_{N_t}$ where $N_t = PP(1)$ (poisson process) on $[0, \infty)$. Then, $Z \sim Levy (0,0, \nu)$ where $\nu$ is the probability distribution of $Y$. and $S_n / n^\alpha \approx Z_n / n^\alpha$ since $N_n = n + \mathcal{O}(\sqrt{n})$, and $Z_n / n^\alpha \sim Levy(0,0, \nu^{(n)})$ where $\nu^{(n)} ( [x , \infty) ) = \nu( [n^\alpha x, \infty) )$
+
+\bigskip{}
+
+Let $Z^{(n)}_t = \frac{1}{n^\alpha} Z_{nt}$ The assumption $X_n = Y_1 + \cdots + Y_n$ implies that $Z_1 ^{(n)}$ converges in distribution to $X$, and so by the fact that $X \disteq \frac{X_1 + \cdots + X_k}{k^\alpha}$, then $X_t$ as a process is stable if the condition holds for time $t \neq 1$. but we could do the same argument to show that in fact the quoted assumption above implies $(Z_t ^{(n)})_{t \geq 0} \overset{d}{\longrightarrow} (U_t)_{t \geq 0}$ where $U$ is a stable process whose increments are determined by $X$: $U_1 \disteq X$.
+
+\end{proof}
+
+Note: $\tau_1 = \inf \{ t \geq 0 : B_t = 1 \} \sim Stable(\tfrac{1}{2})$ on $[0, \infty)$. So, $\tau_n \disteq \tau_1 ^{(n)} + \cdots + \tau_1 ^{(n)}$ decomposes into a sum of $n$ iid copies of $\tau_1$. Then 
+$$
+\tau_n / n^2 \disteq \frac{\tau_1 ^{(n)} + \cdots + \tau_1 ^{(n)}}{n^2} \disteq \tau_1,
+$$ 
+(but also converges in distribution to $\tau_1$ ($\overset{d}{\longrightarrow} \tau_1$).)
+
+
+\section{\emph{Wednesday November 21}} 
+
+\subsection{Critical Branching} $\,$
+
+\begin{defn}
+
+Let $(V_k)_{k=1} ^\infty$ be defined by $(V_{k+1} | V_k) = \sum_{j=1} ^{V_k} M_{kj}$ for $V_k \in \Z$, where 
+$$
+\{ M_{kj} = \# \text{(offspring of indiv $j$ at time $k$)} \} 
+$$
+are iid with distribution 
+$$
+M = 
+\begin{cases}
+0 & \text{with probability $p$} \\
+1 & 1 - 2p\\
+2 & p
+\end{cases}
+$$
+Notice the \emph{branching property}, that
+$$
+( (V_k)_{k=1} ^\infty | V_0 = n ) \disteq ( ( \underset{ \text{iid} }{ V_k ^{(1)} + \cdots + V_k ^{(n)}} ) | V_0 ^{(1)} = \cdots = V_0 ^{(n)} = 1).
+$$
+We are interested in the total \# of ``individuals", that is, in 
+$$
+T = \sum_{k \geq 0} \sum_{j=1} ^{V_k} \mathbf{1}_{ \{ M_{kj} = 0 \} }
+$$ 
+[INSERT branching diagram]
+
+
+\end{defn}
+
+
+\begin{lemma}
+$T < \infty$ almost surely.
+\end{lemma}
+
+More generally, for a branching process with offspring distribution $M$, what is the \emph{extinction probability}
+$$
+P_e = \P \{ \lim_{k \to \infty} V_k = 0 | V_0 = 1 \}
+$$
+that is that $V$ dies out. We can introduce some recursion here, as $V$ dies out iff the families of all first-generation offspring die out. Then, by the branching property, 
+$$
+P_e = \E [P_e^M] =: \varphi ( p_e)
+$$
+That is, define 
+$$
+\varphi (u) = \E [u^M] = \sum_{n \geq 0} u^n \P \{ M=n \},
+$$
+a concave function as $ \P \{ M=n \} \geq 0 \implies \varphi '' (u) \geq 0$ for $u \in [0,1]$. $P_e$ is a fixed point of $\varphi(u)$, and we can compute 
+$$
+\varphi (0) = \P \{ M = 0 \}, \quad \varphi (1) = 1,
+$$
+and $\varphi' (1) = \E [ M ] = \mu$. Assume this is finite, and recalling the concavity condition on $\varphi$, this leads to classifying conditions:
+
+\begin{enumerate}
+\item $\mu < 1$ (subcritical): $P_e = 1$ is the only solution.
+\item $\mu = 1$ critical: $P_e = 1$ is the only solution.
+\item $\mu > 1$ (supercritical): If $\mu > 1$ then $P_e < 1$. 
+\end{enumerate}
+
+[INSERT criticality plots]
+
+\bigskip{}
+\noindent{}Let 
+$$
+\psi (u) = \E [u^T | V_0 = 1 ] = \sum_{n \geq 0} u^n \P \{ T = n | V_0 = 1 \}.
+$$ 
+and
+$$
+u^T \disteq 
+\begin{cases}
+u &  M_p = 0 \\
+u^T	&	M_p = 1\\
+u^{T^{(1)}} \times u^{T^{(2)}} = (u^T)^2	&	M_p = 2
+\end{cases}
+$$
+where we have an assumption that $T^{(1)}, T^{(2)}$ are iid $\sim T$. Then, since $\E [ u^{T^{(1)}} u^{T^{(2)}} ] = \E [ u^{T^{(1)}} ] \E [u^{T^{(2)}} ]  = \psi(u)^2$, 
+$$
+\psi(u) = pu + (1-2p) \psi(u) + p \psi(u)^2
+$$
+that is, solving the quadratic,
+\begin{align*}
+\psi(u) 
+	&= 1 - \sqrt{1 - u} \\
+	&= \sum_{n \geq 1} \frac{1}{2 \sqrt{\pi}} \frac{ \Gamma (n - \tfrac{1}{2}) }{n!} u^n \text{ by Binomial Series} \\
+	&\implies \P \{ T = n | V_0 = 1 \} = \frac{1}{ \sqrt{2 \pi} } \frac{ \Gamma (n - \tfrac{1}{2}) }{n!}
+\end{align*}
+
+Stirling's formula gives the approximation $
+\log \Gamma(z) 
+	= z \log z - z + O(\log z)
+$
+and
+\begin{align*}
+\log \frac{ \Gamma(n - \tfrac{1}{2}) }{ \Gamma(n+1) }
+	&= (n-\tfrac{1}{2}) \log (n - \tfrac{1}{2}) - (n - \tfrac{1}{2}) - (n+1) \log (n+1) + (n+1) + O(\log n) \\
+	&\approx \tfrac{3}{2} \log (n)
+\end{align*}
+giving the approximation 
+$$
+\P \{ T = n | V_0 = 1 \} \approx  \frac{1}{\sqrt{2} \pi} n^{-3/2}.
+$$ 
+That is, $\P \{ T > n \} \approx n^{-1/2}$. \newline{}
+
+\noindent{}Let $H_n = T^{(1)} + \cdots + T^{(n)}$. For instance, if $T_n$ is the number of berries on a fully grown branch of a bush, then $H_n$ is the total number of berries after $n$ time steps (fully grown branch ``generations"). What will make this stabilize? $n^{3/2}$, $n^{5/2}$, or $n^{1/2}$? Well, using the stability property we can see that $\frac{H_n}{n^2} \to \text{Stable}(\tfrac{1}{2})$.
+
+\bigskip{}
+
+Reminder: Stability Property says that if $Y_i$ are iid, $\P \{ Y_i > y \} \sim y^{-p}$ as $y \to \infty$, then $\frac{\Sigma Y_i}{n^{1/p}} \to$ Stable process of order ($p$). 
+
+\bigskip{}
+
+Then, $\left(X_t = H_{n_t} / n^2 \right)_{t \geq 0} \to (\tau)t )_{t \geq 0}$, BM hit time, which is a stable($1/2$) subordinator. That is, there will probably be a bush with $\approx n^2$ berries (after $n$ ``generations"):
+$$
+\E [ \# k : T^{(k)} > x] = n \P \{ T > x \} \sim n x^{-1/2} = 1
+$$
+if $x \propto n^2$, so $\P \{ T > n^2 \} \sim n^{-1}$.
+
+\end{document}

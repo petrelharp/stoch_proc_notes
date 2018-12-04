@@ -1,0 +1,240 @@
+\documentclass{article}
+
+\usepackage{amsmath, amssymb}
+
+\usepackage{amsthm}
+
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+
+\theoremstyle{definition}
+\newtheorem{lem}{Lemma}
+\newtheorem{thm}{Theorem}
+\newtheorem{fact}{Fact}
+\newtheorem{cor}{Corollary}
+\newtheorem{prop}{Proposition}
+
+\DeclareMathOperator{\e}{\mathbb{E}}
+\DeclareMathOperator{\p}{\mathbb{P}}
+\DeclareMathOperator{\var}{Var}
+
+\newcommand{\lr}[1]{\left(#1\right)}
+\newcommand{\lrb}[1]{\left[#1\right]}
+
+\newcommand{\R}{\mathbb{R}}
+
+
+\begin{document}
+\section*{10/31}
+\section*{Cell Proliferation and Cancer}
+The following setup is the motivation for a later theorem on Hitting Probabilities. Mutations can affect the rates of cell proliferation (splitting) and death. Suppose we counted the number of occurences of a particular mutation in each of many tissue samples. We wonder if the distribution of mutation numbers is consistent with a \underline{driver mutation}, i.e. one with a higher than normal rate of proliferation\footnote{Here, normal would mean that the rate of cell proliferation equals the rate of cell death.}.
+
+
+\section*{Model}
+Let $X_t$ be the number of mutated cells at time $t$, so $X_t \in \mathbb{N}_{\geq 0}$, and assume that $X_0 =1$ (so we start with one mutated cell). 
+
+Assume that each cell divides at rate $\lambda$ and dies at rate $\mu$. This means that
+\begin{align*}
+	X_t &\to X_t + 1 \quad \text{at rate $\lambda X_t$}\\
+	X_t & \to X_t - 1 \quad \text{at rate $\mu X_t$}.
+\end{align*}
+
+Questions:
+\begin{enumerate}
+	\item What is the probability that the mutation ``grows?" That is, for some large $N$, what is 
+	\[
+		\p\{X_t = N \text{ before } X_t \text{ hits } 0 \}= ?
+	\]
+	\item If the mutation is not a driver but present due to an ongoing mutation of rate $a$, what is the expected distribution of the number of mutations per tissue sample?
+\end{enumerate}
+
+
+\section*{Hitting Probabilities} To answer question 1 we need a bit more theory. Suppose $(X_t)_{t\geq 0}$ is a Continuous Time Markov Chain with generator $G$ on a state space $\mathcal{X}$. For any subset $A \subset \mathcal{X}$, we define
+\[
+	\tau_A = \inf\{t\geq 0 \mid X_t \in A\},
+\]
+which is the first time that the Markov chain lands in $A$. If $A=\{x\}$ we just write $\tau_x$, which is the first time the Markov chain hits $x$. 
+We now state the theorem:
+\begin{thm}[Harmonic Functions] Suppose that $A,B\subset X$ are disjoint subsets with the property that 
+\[
+	\p\{ \tau_{A\cup B} <\infty\} = 1.
+\]
+For $x\in \mathcal{X}$ we define 
+\[
+	h(x) = \p^x \{\tau_A <\tau_B\} := \p\{\tau_A<\tau_B \mid X_0 = x\}.
+\]
+Then the function $h$ is the unique function satisfying the following two conditions:
+\begin{enumerate}
+	\item $
+		h(x) = \begin{cases}
+			1 & \text{ for } x \in A\\
+			0 & \text{ for} x\in B
+		\end{cases}
+	$
+	\item $Gh(x) = 0$ for $x\notin A\cup B$. 
+\end{enumerate}
+\end{thm}
+
+To prove the theorem we need two lemmas.
+\begin{lem}
+Let $T_1,\dots, T_n$ be independent random variables with $T_i\sim \text{Exp}(\lambda_k)$. Let $T := \min\{T_1,\dots,T_n\}$. Then $T\sim \text{Exp}\lr{\sum_{k=1}^n \lambda_k}$ and 
+\[
+	\p\{T_k = T\} = \frac{\lambda_k}{\lambda_1+\dots+\lambda_n}.
+\]
+\end{lem}
+
+\begin{proof}[Proof of Lemma 1]
+	\begin{align*}
+		\p\{T >t \} &= \p\{T_k > t \quad \forall k\}\\
+		&= \prod_{k=1}^n \p\{T_k > t\} &&\text{(by independence)}\\
+		&= \prod_{k=1}^n e^{-\lambda_k t} \\
+		&= e^{-t \sum_{k}\lambda_k}
+	\end{align*}
+	which establishes the first claim. For the second claim, first note that
+	\begin{align*}
+		\p\{ T_k \in dt, T_j > t \quad \text{for } j\neq k\} &= \lambda_k e^{-\lambda_k t} \prod_{j\neq k} e^{-\lambda_j t}\\
+		&= \lambda_k e^{-t \sum_j \lambda_j},
+	\end{align*}
+	so we now integrate over $t$ to get
+	\[
+		\p\{T_k = T\} = \lambda_k \int e^{-t \sum_j \lambda_j}\,dt = \frac{\lambda_k}{\lambda_1+\dots + \lambda_n}.
+	\]
+\end{proof}
+
+\begin{lem} 
+Let $\tau_+ = \inf\{ t\geq 0 \mid X_t \neq X_0\}$ be the time of the first jump. Then, if $X_{0} = x$, then $\tau_+ \sim \text{Exp}(-G_{xx})$.
+
+\end{lem}
+
+
+
+\section*{11/2}
+
+\begin{lem}
+	Let $\tau_+ = \inf\{ t\geq 0 \mid X_t \neq X_0\}$ be the time of the first jump. Suppose $\p\{\tau_+ > 0\} >0$. Then $\tau_+ \sim \text{Exp}(\lambda)$ for some $\lambda>0$. 
+\end{lem}
+\begin{proof}
+	Let $F(t) = \p\{\tau_+ > t\}$ be the distribution function for $\tau_+$. By the Markov property on $X_t$, we have
+	\[
+		\p\{\tau_+ > t+s \mid \tau_+ > t\} = \p\{\tau_+ > s\} = F(s).
+	\]
+	Unraveling the conditional probability on the left, we find 
+	\[
+	F(s) = \frac{\p\{\tau_+>t+s \text{ and } \tau_+ > t\}}{\p\{\tau_+ > t\}} = \frac{F(t+s)}{F(t)}.
+	\]
+	We then have that $F(t+s) = F(t) F(s)$, and the only continuous solution to this equation is $F(t) = e^{-\lambda t}$ for some $\lambda >0$.
+	
+\end{proof}
+
+To solve our problem with splitting and dying cells, we model it with a continuous time Markov chain with state space $\{1, 2, \dots, N\}$ and generator $G$ given by
+\begin{align*}
+	G = \begin{pmatrix}
+		0 & 0 & 0 & 0 & 0 &\dots & 0\\
+		\mu & -\mu-\lambda & \lambda & 0 & 0 & \dots & 0\\
+		0 & 2\mu & -2\mu-2\lambda & 2\lambda & 0 & \dots & 0\\
+		0 & 0 & 3\mu & -3\mu-3\lambda & 3\lambda & \dots & 0 \\
+		\vdots & & & & & & \vdots 
+	\end{pmatrix}
+\end{align*}
+
+Let $h(x) = \p^x\{\tau_N<\tau_0\}$ be the hitting probability. From the theorem on hitting probabilities, we know that 
+\begin{align*}
+	h(0) &= 0 \\
+	h(N) &= 1\\
+	Gh(x) &= 0 \quad \forall x\neq 0, N.
+\end{align*}
+The last of these equations says
+\[
+	x\lambda (h(x+1) - h(x)) + x \mu( h(x-1)-h(x)) = 0
+\]
+which rearranges into
+\[
+	h(x+1) - h(x) = \frac{\mu}{\lambda} (h(x) - h(x-1)).
+\]
+Since $h(1) - h(0) = h(1)$ by our boundary condition we can use this as the seed for this recurrence relation. We get
+\[
+	h(x+1) - h(x) = \left(\frac{\mu}{\lambda}\right)^x h(1),
+\]
+so
+\begin{align*}
+	h(x) &= h(1) + \sum_{y=1}^{x-1} h(y+1) - h(y)\\
+	&= h(1)\left\{1 + \sum_{y=1}^{x-1} \left(\frac{\mu}{\lambda}\right)^y\right\}\\
+	&= h(1) \left(\frac{1- \left(\frac{\mu}{\lambda}\right)^x}{1-\frac{\mu}{\lambda}}\right).
+\end{align*}
+Next we use the other boundary condition:
+\[
+	1 = h(N) = h(1)\left(\frac{1- \left(\frac{\mu}{\lambda}\right)^N}{1-\frac{\mu}{\lambda}}\right)
+\]
+which gives
+\[
+	h(1) =  \left\{\frac{1- \left(\frac{\mu}{\lambda}\right)^N}{1-\frac{\mu}{\lambda}}\right\}^{-1},
+\]
+and
+\[
+	h(x) = \frac{1- \left(\frac{\mu}{\lambda}\right)^x}{1 - \left(\frac{\mu}{\lambda}\right)^N} .
+\]
+
+This gives us the answer to our first question: what is the probability that a single mutation ``grows?" This is answered by the value 
+\[
+	h(1) =  \frac{1- \left(\frac{\mu}{\lambda}\right)}{1 - \left(\frac{\mu}{\lambda}\right)^N} \approx 1-\frac{\mu}{\lambda} \text{ for large }N.
+\]
+
+\section*{Stationary Distributions} 
+
+\begin{prop}
+Let $(X_t)_{t\geq 0}$ be a continuous time Markov chain with generator $G$ on state space $\mathcal{X}$. Suppose that $G^T \pi = 0$ for some probability distribution $\pi$ on $\mathcal{X}$. Then
+\[
+	\p^\pi\{X_t = y\} = \pi(y).
+\]
+\end{prop}
+
+The conditions on $\pi$ above mean
+\[
+	\sum_{y\in \mathcal{X}} \pi(y) = 1, \quad \pi(y)\geq 0, \quad \sum_{y\in \mathcal{X}} \pi(y) G_{yx} = 0.
+\]
+The notation $\p^\pi$ means
+\[
+	\p^\pi\{X_t=y\} = \sum_{x\in\mathcal{X}} \pi(x) \p^x\{X_t=y\}.
+\]
+
+Such a distribution $\pi$ is called a \emph{stationary distribution}.
+
+
+\begin{proof}
+Let $f:\mathcal{X}\to \R$ be a function (thought of as a column vector) with $\sum_y \pi(y)f(y) < \infty$ (if we wished to generalize to a countable state space). Recall that
+\[
+	\e^x[f(X_t)] = P_t f(x) = e^{tG}f(x).
+\]
+Since $\pi G = 0$, 
+\[
+	\pi P_t = \pi e^{tG} = \pi \sum_{n\geq 0} \frac{t^n}{n!} G^n = \pi.
+\]
+So,
+\[
+	\e^\pi[f(X_t)] = \pi P_t f = \pi f = \sum_{x} \pi(x) f(x).
+\]
+The statement of the proposition now follows from taking $f$ to be the indicator of $y$:
+\[
+	f(x) = \begin{cases}
+		1 & x=y\\
+		0 & x\neq y.
+	\end{cases}
+\]
+\end{proof}
+
+\begin{fact}
+	If $\pi$ is unique, then $P_t \to \pi$ as $t\to \infty$. That is, for all $f, x$, 
+	\[
+		\e^x[f(X_t)]\to \sum_y \pi(y) f(y) \quad \text{as }t\to \infty.
+	\]
+	This can also be phrased as saying that $X_t$ converges in distribution to $\pi$. 
+\end{fact}
+
+
+
+
+
+\end{document}

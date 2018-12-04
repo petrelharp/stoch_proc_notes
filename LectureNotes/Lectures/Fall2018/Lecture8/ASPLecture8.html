@@ -1,7 +1,7 @@
 <!DOCTYPE html><html>
 <head>
 <title>1 A Field Guide to Generators</title>
-<!--Generated on Thu Nov  8 22:56:56 2018 by LaTeXML (version 0.8.3) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Generated on Mon Dec  3 21:00:05 2018 by LaTeXML (version 0.8.3) http://dlmf.nist.gov/LaTeXML/.-->
 <!--Document created on October 26 and 29.-->
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -158,7 +158,7 @@ where <math id="S1.p1.m10" class="ltx_Math" alttext="\tau\sim Exp(1)" display="i
 <li id="S2.I1.i3" class="ltx_item" style="list-style-type:none;">
 <span class="ltx_tag ltx_tag_item">•</span> 
 <div id="S2.I1.i3.p1" class="ltx_para">
-<p class="ltx_p"><span class="ltx_text ltx_framed_underline">Bathtub</span>: Suppose a bath is filling at a speed of <math id="S2.I1.i3.p1.m1" class="ltx_Math" alttext="1" display="inline"><mn>1</mn></math> gal/min, but a kid jumps in at independent intervals given by <math id="S2.I1.i3.p1.m2" class="ltx_Math" alttext="exp(1)" display="inline"><mrow><mi>e</mi><mo>⁢</mo><mi>x</mi><mo>⁢</mo><mi>p</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></mrow></math> and splashes out a random, uniformly chosen proportion of water.</p>
+<p class="ltx_p"><span class="ltx_text ltx_framed_underline">Bathtub</span>: Suppose a bath is filling at a speed of <math id="S2.I1.i3.p1.m1" class="ltx_Math" alttext="1" display="inline"><mn>1</mn></math> gal/min, but a kid jumps in at independent random intervals with Exponential(1) distribution and splashes out a random, uniformly chosen proportion of water.</p>
 </div>
 <div id="S2.I1.i3.p2" class="ltx_para">
 <p class="ltx_p">The generator is then:</p>
@@ -313,8 +313,8 @@ A_{P_{\ell-1},P_{\ell}}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mstyle
 <tr id="S3.Ex7Xa" class="ltx_equation ltx_eqn_row ltx_align_baseline">
 <td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
 <td class="ltx_td ltx_eqn_cell"></td>
-<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex7Xa.m2" class="ltx_Math" alttext="\displaystyle\lx@stackrel{{\scriptstyle d}}{{=}}(M_{j}\mid M_{0}=x)\text{, by %
-the Markov property of }M," display="inline"><mrow><mover><mo movablelimits="false">=</mo><mi>d</mi></mover><mrow><mo stretchy="false">(</mo><msub><mi>M</mi><mi>j</mi></msub><mo>∣</mo><msub><mi>M</mi><mn>0</mn></msub><mo>=</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><mtext>, by the Markov property of </mtext><mi>M</mi><mo>,</mo></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex7Xa.m2" class="ltx_Math" alttext="\displaystyle\lx@stackrel{{\scriptstyle d}}{{=}}(M_{J}\mid M_{0}=x)\text{, by %
+the Markov property of }M," display="inline"><mrow><mover><mo movablelimits="false">=</mo><mi>d</mi></mover><mrow><mo stretchy="false">(</mo><msub><mi>M</mi><mi>J</mi></msub><mo>∣</mo><msub><mi>M</mi><mn>0</mn></msub><mo>=</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><mtext>, by the Markov property of </mtext><mi>M</mi><mo>,</mo></mrow></math></td>
 <td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
 </tr>
 </table>
@@ -326,7 +326,7 @@ the Markov property of }M," display="inline"><mrow><mover><mo movablelimits="fal
 <h6 class="ltx_title ltx_runin ltx_title_theorem">
 <span class="ltx_tag ltx_tag_theorem"><span class="ltx_text ltx_font_bold">Corollary 3.3</span></span> (transition probability).</h6>
 <div id="S3.Thmthm3.p1" class="ltx_para">
-<p class="ltx_p"><math id="S3.Thmthm3.p1.m1" class="ltx_Math" alttext="\mathbb{P}\{X_{t+s}=y\mid X_{t}=x\}=\left(e^{S(P-I)}\right)_{xy}" display="inline"><mrow><mrow><mi>ℙ</mi><mo>⁢</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>X</mi><mrow><mi>t</mi><mo>+</mo><mi>s</mi></mrow></msub><mo>=</mo><mi>y</mi></mrow><mo>∣</mo><mrow><msub><mi>X</mi><mi>t</mi></msub><mo>=</mo><mi>x</mi></mrow><mo stretchy="false">}</mo></mrow></mrow><mo>=</mo><msub><mrow><mo>(</mo><msup><mi>e</mi><mrow><mi>S</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>P</mi><mo>-</mo><mi>I</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></msup><mo>)</mo></mrow><mrow><mi>x</mi><mo>⁢</mo><mi>y</mi></mrow></msub></mrow></math>.</p>
+<p class="ltx_p"><math id="S3.Thmthm3.p1.m1" class="ltx_Math" alttext="\mathbb{P}\{X_{t+s}=y\mid X_{t}=x\}=\left(e^{s(P-I)}\right)_{xy}" display="inline"><mrow><mrow><mi>ℙ</mi><mo>⁢</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>X</mi><mrow><mi>t</mi><mo>+</mo><mi>s</mi></mrow></msub><mo>=</mo><mi>y</mi></mrow><mo>∣</mo><mrow><msub><mi>X</mi><mi>t</mi></msub><mo>=</mo><mi>x</mi></mrow><mo stretchy="false">}</mo></mrow></mrow><mo>=</mo><msub><mrow><mo>(</mo><msup><mi>e</mi><mrow><mi>s</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>P</mi><mo>-</mo><mi>I</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></msup><mo>)</mo></mrow><mrow><mi>x</mi><mo>⁢</mo><mi>y</mi></mrow></msub></mrow></math>.</p>
 </div>
 </div>
 <div class="ltx_proof">
@@ -342,16 +342,16 @@ the Markov property of }M," display="inline"><mrow><mover><mo movablelimits="fal
 </tr>
 <tr id="S3.Ex8Xa" class="ltx_equation ltx_eqn_row ltx_align_baseline">
 <td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
-<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S3.Ex8Xa.m2" class="ltx_Math" alttext="\displaystyle(" display="inline"><mo stretchy="false">(</mo></math></td>
-<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex8Xa.m3" class="ltx_Math" alttext="\displaystyle=\mathbb{P}\{M_{j}=y\mid M_{0}=x\}=\mathbb{E}[\mathbb{P}\{M_{j}=y%
-\mid M_{0}=x,J\}])" display="inline"><mrow><mo>=</mo><mi>ℙ</mi><mrow><mo stretchy="false">{</mo><msub><mi>M</mi><mi>j</mi></msub><mo>=</mo><mi>y</mi><mo>∣</mo><msub><mi>M</mi><mn>0</mn></msub><mo>=</mo><mi>x</mi><mo stretchy="false">}</mo></mrow><mo>=</mo><mi>𝔼</mi><mrow><mo stretchy="false">[</mo><mi>ℙ</mi><mrow><mo stretchy="false">{</mo><msub><mi>M</mi><mi>j</mi></msub><mo>=</mo><mi>y</mi><mo>∣</mo><msub><mi>M</mi><mn>0</mn></msub><mo>=</mo><mi>x</mi><mo>,</mo><mi>J</mi><mo stretchy="false">}</mo></mrow><mo stretchy="false">]</mo></mrow><mo stretchy="false">)</mo></mrow></math></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex8Xa.m2" class="ltx_Math" alttext="\displaystyle=\mathbb{P}\{M_{j}=y\mid M_{0}=x\}=\mathbb{E}[\mathbb{P}\{M_{j}=y%
+\mid M_{0}=x,J\}]" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mi>ℙ</mi><mo>⁢</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>M</mi><mi>j</mi></msub><mo>=</mo><mi>y</mi></mrow><mo>∣</mo><mrow><msub><mi>M</mi><mn>0</mn></msub><mo>=</mo><mi>x</mi></mrow><mo stretchy="false">}</mo></mrow></mrow><mo>=</mo><mrow><mi>𝔼</mi><mo>⁢</mo><mrow><mo stretchy="false">[</mo><mrow><mi>ℙ</mi><mo>⁢</mo><mrow><mo stretchy="false">{</mo><mrow><msub><mi>M</mi><mi>j</mi></msub><mo>=</mo><mi>y</mi></mrow><mo>∣</mo><mrow><msub><mi>M</mi><mn>0</mn></msub><mo>=</mo><mrow><mi>x</mi><mo>,</mo><mi>J</mi></mrow></mrow><mo stretchy="false">}</mo></mrow></mrow><mo stretchy="false">]</mo></mrow></mrow></mrow></math></td>
 <td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
 </tr>
 <tr id="S3.Ex8Xb" class="ltx_equation ltx_eqn_row ltx_align_baseline">
 <td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
-<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S3.Ex8Xb.m2" class="ltx_Math" alttext="\displaystyle(" display="inline"><mo stretchy="false">(</mo></math></td>
-<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex8Xb.m3" class="ltx_Math" alttext="\displaystyle=\sum_{j\geq 0}\mathbb{P}\{J=j\}\times\mathbb{P}\{M_{j}=y\mid M_{%
-0}=x,J=j\})" display="inline"><mrow><mo>=</mo><mstyle displaystyle="true"><munder><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>j</mi><mo>≥</mo><mn>0</mn></mrow></munder></mstyle><mi>ℙ</mi><mrow><mo stretchy="false">{</mo><mi>J</mi><mo>=</mo><mi>j</mi><mo stretchy="false">}</mo></mrow><mo>×</mo><mi>ℙ</mi><mrow><mo stretchy="false">{</mo><msub><mi>M</mi><mi>j</mi></msub><mo>=</mo><mi>y</mi><mo>∣</mo><msub><mi>M</mi><mn>0</mn></msub><mo>=</mo><mi>x</mi><mo>,</mo><mi>J</mi><mo>=</mo><mi>j</mi><mo stretchy="false">}</mo></mrow><mo stretchy="false">)</mo></mrow></math></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex8Xb.m2" class="ltx_Math" alttext="\displaystyle=\sum_{j\geq 0}\mathbb{P}\{J=j\}\times\mathbb{P}\{M_{j}=y\mid M_{%
+0}=x,J=j\}" display="inline"><mrow><mo>=</mo><mstyle displaystyle="true"><munder><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>j</mi><mo>≥</mo><mn>0</mn></mrow></munder></mstyle><mi>ℙ</mi><mrow><mo stretchy="false">{</mo><mi>J</mi><mo>=</mo><mi>j</mi><mo stretchy="false">}</mo></mrow><mo>×</mo><mi>ℙ</mi><mrow><mo stretchy="false">{</mo><msub><mi>M</mi><mi>j</mi></msub><mo>=</mo><mi>y</mi><mo>∣</mo><msub><mi>M</mi><mn>0</mn></msub><mo>=</mo><mi>x</mi><mo>,</mo><mi>J</mi><mo>=</mo><mi>j</mi><mo stretchy="false">}</mo></mrow></mrow></math></td>
 <td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
 </tr>
 <tr id="S3.Ex8Xc" class="ltx_equation ltx_eqn_row ltx_align_baseline">
@@ -442,7 +442,7 @@ and <math id="Thmnotex2.p1.m3" class="ltx_Math" alttext="G_{xx}=P_{xx}-1=-\sum_{
 </article>
 </div>
 <footer class="ltx_page_footer">
-<div class="ltx_page_logo">Generated  on Thu Nov  8 22:56:56 2018 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+<div class="ltx_page_logo">Generated  on Mon Dec  3 21:00:05 2018 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
 </div></footer>
 </div>
 </body>

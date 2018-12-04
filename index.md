@@ -38,13 +38,13 @@ The exact dates we cover the topics below is expected to change.
 
 - [November 5 and 7](LectureNotes/Lectures/Fall2018/Lecture10/ASPLecture10.html) - Eli
 
-- [November 9 and 12]() - Daniel
+- [November 9 and 12](LectureNotes/Lectures/Fall2018/Lecture11/ASPLecture11.html) - Daniel
 
 ## Lévy processes
 
 - [November 14 and 16]() - Jake
 
-- [November 19 and 21]() - Isaac
+- [November 19 and 21](LectureNotes/Lectures/Fall2018/Lecture13/ASPLecture13.html) - Isaac
 
 - [November 23 and 26]() - Martin
 

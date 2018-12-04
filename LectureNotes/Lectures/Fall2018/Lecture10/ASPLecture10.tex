@@ -1,0 +1,248 @@
+\documentclass[../../../Master/AppliedStochastics.tex]{subfiles}
+% \documentclass{article}
+
+% ==============================================================================
+
+
+%% without the master file this macro does nothing
+%\course{Applied Stochastic Processes}
+
+
+\author{Eli}  % your name
+\date{November 5 and 7}    % the date of the lecture
+
+
+%% any custom macros should go here, but please be conservative
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[margin=1.0in]{geometry}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+
+
+\renewcommand{\S}{\subset}
+\newcommand{\SM}{\setminus}
+\newcommand{\E}{\varnothing}
+\renewcommand{\O}{\overline}
+\newcommand{\I}{\infty}
+\renewcommand{\c}{\colon}
+
+\newcommand{\af}{\alpha}
+\newcommand{\bt}{\beta}
+\newcommand{\gm}{\gamma}
+\newcommand{\dt}{\delta}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\zt}{\zeta}
+\newcommand{\et}{\eta}
+\newcommand{\ch}{\chi}
+\newcommand{\io}{\iota}
+\newcommand{\te}{\theta}
+\newcommand{\ld}{\lambda}
+\newcommand{\sm}{\sigma}
+\newcommand{\kp}{\kappa}
+\newcommand{\ph}{\varphi}
+\newcommand{\ps}{\psi}
+\newcommand{\rh}{\rho}
+\newcommand{\om}{\omega}
+\newcommand{\ta}{\tau}
+
+\newcommand{\Gm}{\Gamma}
+\newcommand{\Dt}{\Delta}
+\newcommand{\Et}{\Eta}
+\newcommand{\Th}{\Theta}
+\newcommand{\Ld}{\Lambda}
+\newcommand{\Sm}{\Sigma}
+\newcommand{\Ph}{\Phi}
+\newcommand{\Ps}{\Psi}
+\newcommand{\Om}{\Omega}
+
+\newcommand{\cA}{{\mathcal{A}}}
+\newcommand{\cB}{{\mathcal{B}}}
+\newcommand{\cC}{{\mathcal{C}}}
+\newcommand{\cD}{{\mathcal{D}}}
+\newcommand{\cE}{{\mathcal{E}}}
+\newcommand{\cF}{{\mathcal{F}}}
+\newcommand{\cG}{{\mathcal{G}}}
+\newcommand{\cH}{{\mathcal{H}}}
+\newcommand{\cI}{{\mathcal{I}}}
+\newcommand{\cJ}{{\mathcal{J}}}
+\newcommand{\cK}{{\mathcal{K}}}
+\newcommand{\cL}{{\mathcal{L}}}
+\newcommand{\cM}{{\mathcal{M}}}
+\newcommand{\cN}{{\mathcal{N}}}
+\newcommand{\cO}{{\mathcal{O}}}
+\newcommand{\cP}{{\mathcal{P}}}
+\newcommand{\cQ}{{\mathcal{Q}}}
+\newcommand{\cR}{{\mathcal{R}}}
+\newcommand{\cS}{{\mathcal{S}}}
+\newcommand{\cT}{{\mathcal{T}}}
+\newcommand{\cU}{{\mathcal{U}}}
+\newcommand{\cV}{{\mathcal{V}}}
+\newcommand{\cW}{{\mathcal{W}}}
+\newcommand{\cX}{{\mathcal{X}}}
+\newcommand{\cY}{{\mathcal{Y}}}
+\newcommand{\cZ}{{\mathcal{Z}}}
+
+\newcommand{\Q}{{\mathbb{Q}}}
+\newcommand{\Z}{{\mathbb{Z}}}
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\C}{{\mathbb{C}}}
+\newcommand{\N}{{\mathbb{Z}}_{> 0}}
+\newcommand{\Nz}{{\mathbb{Z}}_{\geq 0}}
+\newcommand{\PP}{{\mathbb{P}}}
+\newcommand{\EE}{{\mathbb{E}}}
+
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\sint}{{\mathrm{int}}}
+\newcommand{\supp}{{\mathrm{supp}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\dist}{{\mathrm{dist}}}
+\newcommand{\sgn}{{\mathrm{sgn}}}
+\newcommand{\card}{{\mathrm{card}}}
+
+\newcommand{\limi}[1]{\lim_{#1 \to \infty}}
+\newcommand{\limo}[1]{\lim_{#1 \to 0}}
+
+\newcommand{\andeqn}{\qquad {\mbox{and}} \qquad}
+\newcommand{\A}{\qquad {\mbox{and}} \qquad}
+
+\newcommand{\ct}{continuous}
+\newcommand{\nbhd}{neighborhood}
+\newcommand{\cpt}{compact}
+\newcommand{\wolog}{without loss of generality}
+\newcommand{\Wolog}{Without loss of generality}
+\newcommand{\Tfae}{The following are equivalent}
+\newcommand{\tfae}{the following are equivalent}
+\newcommand{\ifo}{if and only if}
+\newcommand{\ms}{metric space}
+\newcommand{\cms}{compact metric space}
+\newcommand{\cfn}{continuous function}
+\newcommand{\wrt}{with respect to}
+\newcommand{\dve}{derivative}
+\newcommand{\dble}{differentiable}
+\newcommand{\uct}{uniformly continuous}
+\newcommand{\ucfn}{uniformly continuous function}
+\newcommand{\igb}{integrable}
+\newcommand{\mb}{measurable}
+\newcommand{\mfn}{measurable function}
+
+\newcommand{\bA}{\textbf{A}}
+\newcommand{\bB}{\textbf{B}}
+\newcommand{\bC}{\textbf{C}}
+
+\begin{document}
+\center \textbf{Stationary Distributions and Recurrence (with David Levin)} \\
+November 5 and 7
+\vspace{5mm}
+\flushleft
+
+\textbf{Recall:} We're interested in probability measures $\pi$ which are solutions to $\pi G=0$. \\
+
+
+\vspace{5mm}
+Assume we have a countable (or finite) state space $X$. $g_{i,j}$ represents the transition rate from $i$ to $j$, and $g_i=\sum_{j\neq i}g_{i,j}$ is the rate of leaving state $i$. Suppose $\max_ig_i=g<\I$ (uniformly bounded rates).  
+
+\vspace{5mm}
+Let $P_{i,j}=\frac{g_{i,j}}{g}$ for $j\neq i$. Then $\sum_{j\neq i}P_{i,j}=\frac{g_i}{g}\leq 1$. Let $P_{i,i}=1-\frac{g_i}{g}$ so that $\sum_j P_{i,j}=1$. $P$ is a transition matrix with $G=g(P-I)$.
+
+\vspace{5mm}
+Note, $\pi G=0$ iff $\pi P=\pi$. In continuous time, $P_t=e^{tG}$ is the operator corresponding to moving forward $t$ units of time. $\pi P_t=\pi\sum_{k=0}^\I\frac{t^kG^k}{k!}=\pi$ since nonzero powers of $G$ vanish under $\pi$. $\pi P_t$ is the distribution at time $t$, starting at $\pi$, so this says we will remain in $\pi$ for all times $t$.
+
+\vspace{10mm}
+\textbf{Existence:} When is there a solution to $\pi P=\pi?$
+
+\vspace{5mm}
+Assume $P$ is irreducible so that for all $i,j$, there exists $t$ such that $P^t(i,j)>0$ (meaning every state is reachable by any other state eventually.) Then there exists a solution to $\pi P=\pi$ but $\pi$ need not be a finite measure.
+
+\vspace{5mm}
+\textbf{Example:} Consider the simple random walk on the integers with $P_{i,j}=\frac{1}{2}$ if $j=i\pm 1$ and $P_{i,j}=0$ otherwise. The solution is $\pi=1$.
+
+\vspace{5mm}
+\textbf{Definition:} A chain with transition matrix $P$ is called positive recurrent if $\pi P=\pi$ has a finite measure solution $\pi$. A state $i$ is called recurrent if $\PP_i(\text{Return to }i)=1$. Otherwise, the state is called transient. 
+
+\vspace{5mm}
+If $P$ is irreducible, then either all states are recurrent or all states are transient.
+
+\vspace{5mm}
+\textbf{Theorem:} A state $i$ is recurrent iff $\EE_i[\ta_{i}^+]<\I$ where $\ta_i^+=\min\{t\geq 1:X_t=i\}$.  Equivalently, $\PP_i(\ta_i^+<\I)=1$. (Obvious when the state space $X$ is finite and irreducible.)
+
+
+
+\vspace{10mm}
+\textbf{Example:} A random walk on the non-negative integers where the state increases by one with probability $p$ and decreases by one with probability $q=1-p$. (The transition from 0 to 0 takes probability $q$.) 
+
+\vspace{5mm}
+$p>q$ implies the chain is not recurrent. If $q>p$, then the chain might be recurrent. For $k\neq 0$ we have $\pi(k)=\pi(k-1)p+\pi(k+1)q$ since there are two different ways to arrive at state $k$. As the special case, we have $\pi(0)=\pi(0)q+\pi(1)q$. 
+
+\vspace{5mm}
+We want to solve $\pi P=\pi$. We get $\pi(1)=\frac{p}{q}\pi(0)$ and $\pi(k)=\left(\frac{p}{q}\right)^k\cdot\pi(0)$ as a solution. Thus, $\sum_k\pi(k)=\pi(0)\left(1-\frac{p}{q}\right)$ and $\pi(0)=1-\frac{p}{q}$. We have a probability distribution when $\pi(k)=\left(1-\frac{p}{q}\right)\left(\frac{p}{q}\right)^k$. Thus, positive recurrence.
+
+\vspace{10mm}
+\textbf{Definition:} A chain is aperiodic if gcd$\{t:P^t(x,x)>0\}=1$. In the case of a bipartite graph, we can only return at even times, and $P^t(x,x)=0$ if $t$ is odd. (Not needed in continuous time.)
+
+\vspace{5mm}
+If the chain is positive recurrent and irreducible (with aperiodicity in the discrete time case), then there exists a unique solution $\pi$ which solves $\pi P=\pi$ (equivalently $\pi G=0$).
+
+\vspace{5mm}
+\textbf{(Convergence) Theorem:} The distribution starting at $x$ after $t$ steps converges to $\pi$ as $t\to \I$ in the sense that $d(P^t(x,\cdot),\pi)\to 0$ for some metric $d$. 
+
+
+\vspace{5mm}
+\textbf{Example:} $d_1(P^t(x,\cdot),\pi)=\sum_y|P^t(x,y)-\pi(y)|\to 0$ and $t\to\I$. Thus, $P^t(x,y)\to\pi(y)$ for all $x$. 
+
+\vspace{5mm}
+Now take $\mu$ to be any distribution. We have $\mu P^t\to \pi$. 
+
+
+\vspace{10mm}
+\textbf{Application:} Tilings of a square by dominoes. We want to select a tiling uniformly at random. The naive way to do this is list (enumerate) them all and then select one using a random number generator. In practice, this is very hard to do because there are so many possibilities. Another way might be to choose positions and orientations of dominoes in sequence until the whole space is filled, but not all tilings will occur will equal probability. 
+
+\vspace{5mm}
+Alternatively, come up with a way to transition between random tilings such as rotating a square of two dominoes or modifying other such sub-tilings. We can construct a Markov chain with the uniform distribution as the stationary distribution $\pi$. We start by choosing the starting position according to any distribution $\mu$ and then proceed by running the chain for sufficiently large $t$. The closer $\mu$ is to be uniform, the faster the convergence, but $\mu$ could theoretically be very far from uniform.
+
+\vspace{10mm}
+\textbf{Coupling:} Let $X_t$ be a chain started from $x$, and let $\tilde{Y}_t$ be a chain started from $\pi$. Let $\ta=\inf(t>0:X_t=\tilde{Y}_t)$. When the state space $X$ is finite, then $\ta<\I$. Define $Y_t=\tilde{Y}_t$ for $t\leq \ta$ and $Y_t=X_t$ for $t\geq \ta$. 
+
+
+\vspace{5mm}
+Check: $Y_t$ is a Markov chain with transition matrix $P$ still started with $\pi$ (comes from $\tilde{Y}_t$), and $Y_t$ always has distribution $\pi$. 
+
+$$\begin{aligned}
+|P^t(x,z)-\pi(z)|&=|\PP(X_t=z)-\PP(Y_t=z)|\\&=|\PP(X_t=z,\ta\leq t)+\PP(X_t=z,\ta> t)-\PP(Y_t=z,\ta\leq t)-\PP(Y_t=z,\ta> t)|\\&=|\PP(X_t=z,\ta>t)-\PP(Y_t=z,\ta> t)|\\&\leq \PP(X_t=z,\ta>t)+\PP(Y_t=z,\ta>t)\\&\leq 2\PP(\ta>t)
+\end{aligned}$$
+
+Using $\PP(\ta<\I)=1$, we have $2\PP(\ta>t)\to 0$ and thus $d_1(P^t(x,\cdot),\pi)=\sum_z|P^t(x,z)-\pi(z)|\to 0$ as $t\to \I$.
+
+\vspace{10mm}
+In general, solving for the stationary distribution takes work.
+
+
+\vspace{5mm}
+\textbf{Definition:} $P$ (or $G$) is reversible with respect to $\pi$ if $\pi(x)P(x,y)=\pi(y)P(y,x)$ (or $\pi(x)G(x,y)=\pi(y)G(y,x)$). These are called the detailed balance equations which say the "flow" from $x$ to $y$ is the same as from $y$ to $x$. 
+
+\vspace{5mm}
+\textbf{Example:} Weighted random walk with $P(x,y)=\frac{w_{x,y}}{w_x}$ where $w_x=\sum_zw_{x,z}$. $P$ is reversible with $\pi(x)=w_x/\left(\sum_zw_z\right)$.
+
+\vspace{5mm}
+If $P$ is reversible, then $P$ need not be symmetric but can be diagonalized. $A(x,y)=\sqrt{\pi(x)/\pi(y)}P(x,y)$ is symmetric. By the Spectral Theorem, $A$ has real eigenvalues $\ld_1>\cdots>\ld_n$ and the eigenfunctions $\ph_1,\ldots,\ph_n$ form an orthonormal basis for $\R^n$.
+
+\vspace{5mm}
+$A=D_\pi^{1/2}PD_\pi^{-1/2}$ where $D_\pi$ is diagonal with $D_\pi(i,i)=\pi(i)$. $f_j=D_\pi^{1/2}\ph_j$ are eigenfunctions for $P$.
+
+\vspace{5mm}
+Define $<f,g>_\pi=\sum_xf(x)g(x)\pi(x)$, then $\{f_j\}$ are orthonormal with respect to this inner product. $P^t(x,y)=\sum_jf_j(y)\ld_j^tf_j(x)\pi(y)$.
+
+$$\begin{aligned}
+\left|\frac{P^t(x,y)}{\pi(y)}-1\right|\leq \sum_{j=2}^n|f_j(x)f_j(y)|\ld_j^t
+\end{aligned}$$
+
+where $\ld_j^t$'s tell us how fast the convergence is. 
+
+
+
+\end{document}

@@ -36,7 +36,7 @@ The exact dates we cover the topics below is expected to change.
 
 - [October 31 and November 2](LectureNotes/Lectures/Fall2018/Lecture9/ASPLecture9.html) - Andrew
 
-- [November 5 and 7]() - Eli
+- [November 5 and 7](LectureNotes/Lectures/Fall2018/Lecture10/ASPLecture10.html) - Eli
 
 - [November 9 and 12]() - Daniel
 

@@ -1,0 +1,179 @@
+<!DOCTYPE html><html>
+<head>
+<title>Fact 1.</title>
+<!--Generated on Thu Dec  6 11:38:08 2018 by LaTeXML (version 0.8.3) http://dlmf.nist.gov/LaTeXML/.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-article.css" type="text/css">
+</head>
+<body>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document">
+<div id="p1" class="ltx_para">
+<p class="ltx_p">Recall that <math id="p1.m1" class="ltx_Math" alttext="G" display="inline"><mi>G</mi></math> is the generating matrix for our continuous time Markov process. Moving forward we will need the following useful fact</p>
+</div>
+<div id="Thmfact1" class="ltx_theorem ltx_theorem_fact">
+<h6 class="ltx_title ltx_runin ltx_title_theorem">
+<span class="ltx_tag ltx_tag_theorem"><span class="ltx_text ltx_font_bold">Fact 1</span></span>.</h6>
+<div id="Thmfact1.p1" class="ltx_para">
+<table id="S0.Ex1" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex1.m1" class="ltx_Math" alttext="\text{spec}(G)\subset(-\infty,0]" display="block"><mrow><mrow><mtext>𝑠𝑝𝑒𝑐</mtext><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>G</mi><mo stretchy="false">)</mo></mrow></mrow><mo>⊂</mo><mrow><mo stretchy="false">(</mo><mrow><mo>-</mo><mi mathvariant="normal">∞</mi></mrow><mo>,</mo><mn>0</mn><mo stretchy="false">]</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p"><span class="ltx_text ltx_font_italic">In other words, if <math id="Thmfact1.p1.m1" class="ltx_Math" alttext="Gf=\lambda f" display="inline"><mrow><mrow><mi>G</mi><mo mathvariant="italic">⁢</mo><mi>f</mi></mrow><mo mathvariant="normal">=</mo><mrow><mi>λ</mi><mo mathvariant="italic">⁢</mo><mi>f</mi></mrow></mrow></math> for some <math id="Thmfact1.p1.m2" class="ltx_Math" alttext="\lambda\in\mathbb{R}" display="inline"><mrow><mi>λ</mi><mo mathvariant="normal">∈</mo><mi mathvariant="normal">R</mi></mrow></math> then <math id="Thmfact1.p1.m3" class="ltx_Math" alttext="\lambda\leq 0" display="inline"><mrow><mi>λ</mi><mo mathvariant="normal">≤</mo><mn mathvariant="normal">0</mn></mrow></math>.</span></p>
+</div>
+</div>
+<div class="ltx_proof">
+<h6 class="ltx_title ltx_runin ltx_font_italic ltx_title_proof">Proof.</h6>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">Suppose that <math id="p2.m1" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math> is an eigenfunction of <math id="p2.m2" class="ltx_Math" alttext="G" display="inline"><mi>G</mi></math>. Then</p>
+<table id="S0.EGx1" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tr id="S0.Ex2" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex2.m1" class="ltx_Math" alttext="\displaystyle\mathbb{E}^{x}[f(X_{t})]" display="inline"><mrow><msup><mi>𝔼</mi><mi>x</mi></msup><mo>⁢</mo><mrow><mo stretchy="false">[</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>X</mi><mi>t</mi></msub><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">]</mo></mrow></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.Ex2.m2" class="ltx_Math" alttext="\displaystyle=e^{\lambda t}f(X)" display="inline"><mrow><mi></mi><mo>=</mo><mrow><msup><mi>e</mi><mrow><mi>λ</mi><mo>⁢</mo><mi>t</mi></mrow></msup><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>X</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">It follows that</p>
+<table id="S0.Ex3" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex3.m1" class="ltx_Math" alttext="\mathbb{E}[Gf(X_{t})]=\lambda\mathbb{E}^{x}[f(X_{t})]" display="block"><mrow><mrow><mi>𝔼</mi><mo>⁢</mo><mrow><mo stretchy="false">[</mo><mrow><mi>G</mi><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>X</mi><mi>t</mi></msub><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">]</mo></mrow></mrow><mo>=</mo><mrow><mi>λ</mi><mo>⁢</mo><msup><mi>𝔼</mi><mi>x</mi></msup><mo>⁢</mo><mrow><mo stretchy="false">[</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>X</mi><mi>t</mi></msub><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">]</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">Since <math id="p2.m3" class="ltx_Math" alttext="f(x)" display="inline"><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math> is bounded, so too is the right handside of the above inequality. Therefore, <math id="p2.m4" class="ltx_Math" alttext="\lambda\leq 0" display="inline"><mrow><mi>λ</mi><mo>≤</mo><mn>0</mn></mrow></math>.
+∎</p>
+</div>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">The inclusion of <math id="p3.m1" class="ltx_Math" alttext="0" display="inline"><mn>0</mn></math> is purposeful, as <math id="p3.m2" class="ltx_Math" alttext="G1=0" display="inline"><mrow><mrow><mi>G</mi><mo>⁢</mo><mn>1</mn></mrow><mo>=</mo><mn>0</mn></mrow></math>, ie atleast one of <math id="p3.m3" class="ltx_Math" alttext="G" display="inline"><mi>G</mi></math>’s eigenvalues is zero.</p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">We now return to considering how quickly the distribution of a Markov process converges to the stationary distribution. Let <math id="p4.m1" class="ltx_Math" alttext="\nu" display="inline"><mi>ν</mi></math> be an arbitrary probability distribution, then</p>
+<table id="S0.Ex4" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex4.m1" class="ltx_Math" alttext="\mathbb{P}^{\nu}\{X_{t}=0\}=\nu e^{tG}" display="block"><mrow><msup><mi>ℙ</mi><mi>ν</mi></msup><mrow><mo stretchy="false">{</mo><msub><mi>X</mi><mi>t</mi></msub><mo>=</mo><mn>0</mn><mo stretchy="false">}</mo></mrow><mo>=</mo><mi>ν</mi><msup><mi>e</mi><mrow><mi>t</mi><mo>⁢</mo><mi>G</mi></mrow></msup></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">Letting <math id="p4.m2" class="ltx_Math" alttext="\psi_{j}=\text{Re}(\phi_{j}(\omega^{k}))/c_{j}" display="inline"><mrow><msub><mi>ψ</mi><mi>j</mi></msub><mo>=</mo><mrow><mrow><mtext>Re</mtext><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><msub><mi>ϕ</mi><mi>j</mi></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msup><mi>ω</mi><mi>k</mi></msup><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>/</mo><msub><mi>c</mi><mi>j</mi></msub></mrow></mrow></math>, if <math id="p4.m3" class="ltx_Math" alttext="G=\sum{\lambda_{j}\phi_{j}\psi_{j}^{T}}" display="inline"><mrow><mi>G</mi><mo>=</mo><mrow><mo largeop="true" symmetric="true">∑</mo><mrow><msub><mi>λ</mi><mi>j</mi></msub><mo>⁢</mo><msub><mi>ϕ</mi><mi>j</mi></msub><mo>⁢</mo><msubsup><mi>ψ</mi><mi>j</mi><mi>T</mi></msubsup></mrow></mrow></mrow></math> where <math id="p4.m4" class="ltx_Math" alttext="\phi_{j}\psi_{k}^{T}=\delta_{kj}" display="inline"><mrow><mrow><msub><mi>ϕ</mi><mi>j</mi></msub><mo>⁢</mo><msubsup><mi>ψ</mi><mi>k</mi><mi>T</mi></msubsup></mrow><mo>=</mo><msub><mi>δ</mi><mrow><mi>k</mi><mo>⁢</mo><mi>j</mi></mrow></msub></mrow></math>
+we know that <math id="p4.m5" class="ltx_Math" alttext="\phi_{1}=1" display="inline"><mrow><msub><mi>ϕ</mi><mn>1</mn></msub><mo>=</mo><mn>1</mn></mrow></math> implies that <math id="p4.m6" class="ltx_Math" alttext="\psi_{1}=\pi" display="inline"><mrow><msub><mi>ψ</mi><mn>1</mn></msub><mo>=</mo><mi>π</mi></mrow></math>. Putting this together lets us consider the following sum</p>
+<table id="S0.Ex5" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex5.m1" class="ltx_Math" alttext="\sum_{x}\nu(x)\pi(x)+\text{exponential decay}" display="block"><mrow><mrow><munder><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mi>x</mi></munder><mrow><mi>ν</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mi>π</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>+</mo><mtext>exponential decay</mtext></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">The slowest bit of this decay is given by <math id="p4.m7" class="ltx_Math" alttext="e^{t\lambda_{d}}(\nu\phi_{2})\psi_{2}^{T}(x)" display="inline"><mrow><msup><mi>e</mi><mrow><mi>t</mi><mo>⁢</mo><msub><mi>λ</mi><mi>d</mi></msub></mrow></msup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>ν</mi><mo>⁢</mo><msub><mi>ϕ</mi><mn>2</mn></msub></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><msubsup><mi>ψ</mi><mn>2</mn><mi>T</mi></msubsup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math>. Therefore</p>
+<table id="S0.Ex6" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex6.m1" class="ltx_Math" alttext="\nu e^{tG}\rightarrow\pi\text{at speed }\lambda_{2}" display="block"><mrow><mrow><mi>ν</mi><mo>⁢</mo><msup><mi>e</mi><mrow><mi>t</mi><mo>⁢</mo><mi>G</mi></mrow></msup></mrow><mo>→</mo><mrow><mi>π</mi><mo>⁢</mo><mtext>at speed </mtext><mo>⁢</mo><msub><mi>λ</mi><mn>2</mn></msub></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="p5" class="ltx_para">
+<p class="ltx_p">Now that we’ve discussed mixing times, we move on to a couple of examples.</p>
+</div>
+<div class="ltx_proof">
+<h6 class="ltx_title ltx_runin ltx_font_italic ltx_title_proof">Question.</h6>
+<div id="p6" class="ltx_para">
+<ol id="S0.I1" class="ltx_enumerate">
+<li id="S0.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="S0.I1.i1.p1" class="ltx_para">
+<p class="ltx_p">Let <math id="S0.I1.i1.p1.m1" class="ltx_Math" alttext="(X_{t})" display="inline"><mrow><mo stretchy="false">(</mo><msub><mi>X</mi><mi>t</mi></msub><mo stretchy="false">)</mo></mrow></math> be a CTMC on <math id="S0.I1.i1.p1.m2" class="ltx_Math" alttext="\{1,2,\dots,n\}" display="inline"><mrow><mo stretchy="false">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mi>n</mi><mo stretchy="false">}</mo></mrow></math>, with <math id="S0.I1.i1.p1.m3" class="ltx_Math" alttext="G_{ii}=-(1-1/n)" display="inline"><mrow><msub><mi>G</mi><mrow><mi>i</mi><mo>⁢</mo><mi>i</mi></mrow></msub><mo>=</mo><mrow><mo>-</mo><mrow><mo stretchy="false">(</mo><mrow><mn>1</mn><mo>-</mo><mrow><mn>1</mn><mo>/</mo><mi>n</mi></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math> and <math id="S0.I1.i1.p1.m4" class="ltx_Math" alttext="G_{ij}=1/n" display="inline"><mrow><msub><mi>G</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub><mo>=</mo><mrow><mn>1</mn><mo>/</mo><mi>n</mi></mrow></mrow></math> for <math id="S0.I1.i1.p1.m5" class="ltx_Math" alttext="i\neq j" display="inline"><mrow><mi>i</mi><mo>≠</mo><mi>j</mi></mrow></math>. Define
+</p>
+<table id="S0.Ex7" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex7.m1" class="ltx_Math" alttext="\tau_{k}=\text{inf}(t\geq 0|X_{t}=k)" display="block"><mrow><msub><mi>τ</mi><mi>k</mi></msub><mo>=</mo><mtext>inf</mtext><mrow><mo stretchy="false">(</mo><mi>t</mi><mo>≥</mo><mn>0</mn><mo stretchy="false">|</mo><msub><mi>X</mi><mi>t</mi></msub><mo>=</mo><mi>k</mi><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">and let <math id="S0.I1.i1.p1.m6" class="ltx_Math" alttext="T=\text{max}(\tau_{1},\dots,\tau_{n})" display="inline"><mrow><mi>T</mi><mo>=</mo><mrow><mtext>max</mtext><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>τ</mi><mn>1</mn></msub><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><msub><mi>τ</mi><mi>n</mi></msub><mo stretchy="false">)</mo></mrow></mrow></mrow></math>. What can we say about T?</p>
+</div>
+</li>
+<li id="S0.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="S0.I1.i2.p1" class="ltx_para">
+<p class="ltx_p">Rain falls at 1 drop per second on a region of roses subdivided into n regions. If <math id="S0.I1.i2.p1.m1" class="ltx_Math" alttext="T=\text{ first time all n pieces have been hit }" display="inline"><mrow><mi>T</mi><mo>=</mo><mtext> first time all n pieces have been hit </mtext></mrow></math> then why is the time between drops exponential?</p>
+</div>
+</li>
+<li id="S0.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="S0.I1.i3.p1" class="ltx_para">
+<p class="ltx_p">Let <math id="S0.I1.i3.p1.m1" class="ltx_Math" alttext="H_{k}" display="inline"><msub><mi>H</mi><mi>k</mi></msub></math> be the time of the first drop on piece <math id="S0.I1.i3.p1.m2" class="ltx_Math" alttext="k" display="inline"><mi>k</mi></math>. This is exponentially distributed with rate 1 on <math id="S0.I1.i3.p1.m3" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>. What order should <math id="S0.I1.i3.p1.m4" class="ltx_Math" alttext="T_{n}=\text{max}(H_{k})" display="inline"><mrow><msub><mi>T</mi><mi>n</mi></msub><mo>=</mo><mrow><mtext>max</mtext><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>H</mi><mi>k</mi></msub><mo stretchy="false">)</mo></mrow></mrow></mrow></math> have? Is it atleast order <math id="S0.I1.i3.p1.m5" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>?</p>
+</div>
+</li>
+</ol>
+<p class="ltx_p">Let’s address the second question first, since it is just the first problem under a different guise. Naturally, the total number of drops is PPP on <math id="p6.m1" class="ltx_Math" alttext="\mathbb{R}" display="inline"><mi>ℝ</mi></math>. So the probability that there are no drops in a region after time <math id="p6.m2" class="ltx_Math" alttext="t" display="inline"><mi>t</mi></math> is exponentially distributed with rate equal to 1.</p>
+</div>
+<div id="p7" class="ltx_para">
+<p class="ltx_p">For the final question, it is worth computing <math id="p7.m1" class="ltx_Math" alttext="\mathbb{P}(T_{n}&gt;t)" display="inline"><mrow><mi>ℙ</mi><mrow><mo stretchy="false">(</mo><msub><mi>T</mi><mi>n</mi></msub><mo>&gt;</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mrow></math></p>
+<table id="S0.EGx2" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tr id="S0.Ex8" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex8.m1" class="ltx_Math" alttext="\displaystyle\mathbb{P}(T_{n}&gt;t)" display="inline"><mrow><mi>ℙ</mi><mrow><mo stretchy="false">(</mo><msub><mi>T</mi><mi>n</mi></msub><mo>&gt;</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.Ex8.m2" class="ltx_Math" alttext="\displaystyle=1-\prod\mathbb{P}(H_{k}\leq t)" display="inline"><mrow><mo>=</mo><mn>1</mn><mo>-</mo><mstyle displaystyle="true"><mo largeop="true" movablelimits="false" symmetric="true">∏</mo></mstyle><mi>ℙ</mi><mrow><mo stretchy="false">(</mo><msub><mi>H</mi><mi>k</mi></msub><mo>≤</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S0.Ex9" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.Ex9.m2" class="ltx_Math" alttext="\displaystyle=1-\prod(1-e^{-t/n}" display="inline"><mrow><mo>=</mo><mn>1</mn><mo>-</mo><mstyle displaystyle="true"><mo largeop="true" movablelimits="false" symmetric="true">∏</mo></mstyle><mrow><mo stretchy="false">(</mo><mn>1</mn><mo>-</mo><msup><mi>e</mi><mrow><mo>-</mo><mrow><mi>t</mi><mo>/</mo><mi>n</mi></mrow></mrow></msup></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S0.Ex10" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.Ex10.m2" class="ltx_Math" alttext="\displaystyle=1-(1-e^{-t/n})^{n}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mn>1</mn><mo>-</mo><msup><mrow><mo stretchy="false">(</mo><mrow><mn>1</mn><mo>-</mo><msup><mi>e</mi><mrow><mo>-</mo><mrow><mi>t</mi><mo>/</mo><mi>n</mi></mrow></mrow></msup></mrow><mo stretchy="false">)</mo></mrow><mi>n</mi></msup></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">If we set <math id="p7.m2" class="ltx_Math" alttext="t=n(s+\log n)" display="inline"><mrow><mi>t</mi><mo>=</mo><mrow><mi>n</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>s</mi><mo>+</mo><mrow><mi>log</mi><mo>⁡</mo><mi>n</mi></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math>, then <math id="p7.m3" class="ltx_Math" alttext="e^{-t/n}=e^{-s}" display="inline"><mrow><msup><mi>e</mi><mrow><mo>-</mo><mrow><mi>t</mi><mo>/</mo><mi>n</mi></mrow></mrow></msup><mo>=</mo><msup><mi>e</mi><mrow><mo>-</mo><mi>s</mi></mrow></msup></mrow></math>. So
+<math id="p7.m4" class="ltx_Math" alttext="\mathbb{P}(T_{n}&gt;n(s+\log(n))=\mathbb{P}(T_{n}/n-\log(n)&gt;s)" display="inline"><mrow><mi>ℙ</mi><mrow><mo stretchy="false">(</mo><msub><mi>T</mi><mi>n</mi></msub><mo>&gt;</mo><mi>n</mi><mrow><mo stretchy="false">(</mo><mi>s</mi><mo>+</mo><mi>log</mi><mrow><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><mo stretchy="false">)</mo></mrow><mo>=</mo><mi>ℙ</mi><mrow><mo stretchy="false">(</mo><msub><mi>T</mi><mi>n</mi></msub><mo>/</mo><mi>n</mi><mo>-</mo><mi>log</mi><mrow><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><mo>&gt;</mo><mi>s</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></math>. Of course, this goes to <math id="p7.m5" class="ltx_Math" alttext="1-e^{-e^{-s}}" display="inline"><mrow><mn>1</mn><mo>-</mo><msup><mi>e</mi><mrow><mo>-</mo><msup><mi>e</mi><mrow><mo>-</mo><mi>s</mi></mrow></msup></mrow></msup></mrow></math> as <math id="p7.m6" class="ltx_Math" alttext="n\rightarrow\infty" display="inline"><mrow><mi>n</mi><mo>→</mo><mi mathvariant="normal">∞</mi></mrow></math>. Necessarily</p>
+<table id="S0.Ex11" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex11.m1" class="ltx_Math" alttext="T_{n}\sim n\log(n)+nX" display="block"><mrow><msub><mi>T</mi><mi>n</mi></msub><mo>∼</mo><mrow><mrow><mi>n</mi><mo>⁢</mo><mrow><mi>log</mi><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>+</mo><mrow><mi>n</mi><mo>⁢</mo><mi>X</mi></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">where <math id="p7.m7" class="ltx_Math" alttext="X" display="inline"><mi>X</mi></math> follows the Gumbel distribution.</p>
+</div>
+<div id="p8" class="ltx_para">
+<p class="ltx_p">More generally if <math id="p8.m1" class="ltx_Math" alttext="Z_{n}(t)=\#\{k:H_{k}&gt;t\}" display="inline"><mrow><mrow><msub><mi>Z</mi><mi>n</mi></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mi mathvariant="normal">#</mi><mo>⁢</mo><mrow><mo stretchy="false">{</mo><mi>k</mi><mo>:</mo><mrow><msub><mi>H</mi><mi>k</mi></msub><mo>&gt;</mo><mi>t</mi></mrow><mo stretchy="false">}</mo></mrow></mrow></mrow></math>, then the expected value of <math id="p8.m2" class="ltx_Math" alttext="Z_{n}(t)" display="inline"><mrow><msub><mi>Z</mi><mi>n</mi></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mrow></math> is <math id="p8.m3" class="ltx_Math" alttext="ne^{-t/n}" display="inline"><mrow><mi>n</mi><mo>⁢</mo><msup><mi>e</mi><mrow><mo>-</mo><mrow><mi>t</mi><mo>/</mo><mi>n</mi></mrow></mrow></msup></mrow></math>. For <math id="p8.m4" class="ltx_Math" alttext="\mathbb{E}(Z_{n}(t))=1" display="inline"><mrow><mrow><mi>𝔼</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><msub><mi>Z</mi><mi>n</mi></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mn>1</mn></mrow></math> we need <math id="p8.m5" class="ltx_Math" alttext="t=n\log(n)" display="inline"><mrow><mi>t</mi><mo>=</mo><mrow><mi>n</mi><mo>⁢</mo><mrow><mi>log</mi><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow></math>, thus confirming that <math id="p8.m6" class="ltx_Math" alttext="T_{n}" display="inline"><msub><mi>T</mi><mi>n</mi></msub></math> is of the order <math id="p8.m7" class="ltx_Math" alttext="n\log(n)" display="inline"><mrow><mi>n</mi><mo>⁢</mo><mrow><mi>log</mi><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></math>.</p>
+</div>
+<div id="p9" class="ltx_para">
+<p class="ltx_p">Even more generally, if <math id="p9.m1" class="ltx_Math" alttext="Y_{1},\dots,Y_{n}" display="inline"><mrow><msub><mi>Y</mi><mn>1</mn></msub><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><msub><mi>Y</mi><mi>n</mi></msub></mrow></math> are iid with the same distribution <math id="p9.m2" class="ltx_Math" alttext="Y" display="inline"><mi>Y</mi></math> and <math id="p9.m3" class="ltx_Math" alttext="M_{n}=\text{max}(Y_{1},\dots,Y_{n})" display="inline"><mrow><msub><mi>M</mi><mi>n</mi></msub><mo>=</mo><mrow><mtext>max</mtext><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>Y</mi><mn>1</mn></msub><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><msub><mi>Y</mi><mi>n</mi></msub><mo stretchy="false">)</mo></mrow></mrow></mrow></math>, then defining <math id="p9.m4" class="ltx_Math" alttext="f(t)=P(Y&gt;t)" display="inline"><mrow><mi>f</mi><mrow><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><mo>=</mo><mi>P</mi><mrow><mo stretchy="false">(</mo><mi>Y</mi><mo>&gt;</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mrow></math> tells us that <math id="p9.m5" class="ltx_Math" alttext="M_{n}" display="inline"><msub><mi>M</mi><mi>n</mi></msub></math> is of order <math id="p9.m6" class="ltx_Math" alttext="X" display="inline"><mi>X</mi></math> where <math id="p9.m7" class="ltx_Math" alttext="nf(x)=1" display="inline"><mrow><mrow><mi>n</mi><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mn>1</mn></mrow></math>.
+∎</p>
+</div>
+</div>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Thu Dec  6 11:38:08 2018 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

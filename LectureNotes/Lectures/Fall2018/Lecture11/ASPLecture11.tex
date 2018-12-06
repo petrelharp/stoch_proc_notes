@@ -1,0 +1,74 @@
+\documentclass{article}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{amssymb} 
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage[all]{xy}
+\usepackage[margin=0.75in]{geometry}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{fact}{Fact}
+
+\newcommand{\bb}[1]{\mathbb{#1}}
+\begin{document}
+	Recall that $G$ is the generating matrix for our continuous time Markov process. Moving forward we will need the following useful fact
+	
+\begin{fact} \[\text{spec}(G) \subset (-\infty,0]\]
+In other words, if $Gf = \lambda f$ for some $\lambda \in \mathbb{R}$ then $\lambda \leq 0$. 
+\end{fact}
+\begin{proof} Suppose that $f$ is an eigenfunction of $G$. Then
+	\begin{align*}
+		\mathbb{E}^x[f(X_t)] &= e^{\lambda t}f(X)
+	\end{align*}
+	It follows that
+	\[\mathbb{E}[Gf(X_t)] = \lambda \mathbb{E}^{x}[f(X_t)]\]
+	Since $f(x)$ is bounded, so too is the right handside of the above inequality. Therefore, $\lambda \leq 0$. 
+\end{proof}
+
+The inclusion of $0$ is purposeful, as $G1 = 0$, ie atleast one of $G$'s eigenvalues is zero. 
+
+We now return to considering how quickly the distribution of a Markov process converges to the stationary distribution. Let $\nu$ be an arbitrary probability distribution, then
+	\[\mathbb{P}^{\nu}\lbrace X_t = 0\rbrace = \nu e^{tG}\]
+	Letting $\psi_j = \text{Re}(\phi_j(\omega^k))/c_j$, if $G = \sum{\lambda_j\phi_j\psi_j^T}$ where $\phi_j\psi_k^T = \delta_{kj}$
+	we know that $\phi_1 = 1$ implies that $\psi_1 = \pi$. Putting this together lets us consider the following sum
+	\[\sum_{x}\nu(x)\pi(x) + \text{exponential decay}\]
+	The slowest bit of this decay is given by $e^{t\lambda_d}(\nu\phi_2)\psi_2^T(x)$. Therefore
+	\[\nu e^{tG} \rightarrow \pi \text{at speed } \lambda_2\]
+	
+	Now that we've discussed mixing times, we move on to a couple of examples. 
+	
+\begin{proof}[Question] 
+
+	\begin{enumerate}
+	\item Let $(X_t)$ be a CTMC on $\lbrace 1,2,\dots,n\rbrace$, with $G_{ii} = -(1-1/n)$ and $G_{ij} = 1/n$ for $i \neq j$. Define
+	\[\tau_k = \text{inf}(t \geq 0 \vert X_t = k)\]
+	and let $T = \text{max}(\tau_1,\dots,\tau_n)$. What can we say about T?
+	\item Rain falls at 1 drop per second on a region of roses subdivided into n regions. If $T = \text{ first time all n pieces have been hit }$ then why is the time between drops exponential?
+	\item Let $H_k$ be the time of the first drop on piece $k$. This is exponentially distributed with rate 1 on $n$. What order should $T_n = \text{max}(H_k)$ have? Is it atleast order $n$?
+	\end{enumerate}
+	Let's address the second question first, since it is just the first problem under a different guise. Naturally, the total number of drops is PPP on $\mathbb{R}$. So the probability that there are no drops in a region after time $t$ is exponentially distributed with rate equal to 1. 
+	
+	For the final question, it is worth computing $\mathbb{P}(T_n > t)$
+	\begin{align*}
+		\mathbb{P}(T_n > t) &= 1 - \prod \mathbb{P}(H_k \leq t)\\
+		&= 1 - \prod (1 - e^{-t/n}\\
+		&= 1 - (1 - e^{-t/n})^n
+	\end{align*}
+	If we set $t = n(s+\log n)$, then $e^{-t/n} = e^{-s}$. So 
+	$\mathbb{P}(T_n > n(s+\log(n)) = \mathbb{P}(T_n / n - \log(n) > s)$. Of course, this goes to $1-e^{-e^{-s}}$ as $n \rightarrow \infty$. Necessarily
+	\[T_n \sim n\log(n) + nX\]
+	where $X$ follows the Gumbel distribution. 
+	
+	More generally if $Z_n(t) = \#\lbrace k : H_k > t\rbrace$, then the expected value of $Z_n(t)$ is $ne^{-t/n}$. For $\mathbb{E}(Z_n(t)) = 1$ we need $t = n\log(n)$, thus confirming that $T_n$ is of the order $n\log(n)$.
+	
+	Even more generally, if $Y_1,\dots, Y_n$ are iid with the same distribution $Y$ and $M_n = \text{max}(Y_1,\dots,Y_n)$, then defining $f(t) = P(Y > t)$ tells us that $M_n$ is of order $X$ where $nf(x) = 1$.  
+\end{proof}
+	
+	
+\end{document}

@@ -1,0 +1,185 @@
+% ==============================================================================
+
+
+
+\documentclass[../../../Master/AppliedStochastics.tex]{subfiles}
+
+
+
+% ==============================================================================
+
+
+\author{Andrew}
+\date{2 November 2018}
+
+
+% ==============================================================================
+%
+\begin{document}
+%
+% ==============================================================================
+
+
+\makelecture
+
+
+\begin{lemma}
+	Let $\tau_+ = \inf\{ t\geq 0 \mid X_t \neq X_0\}$ be the time of the first 
+	jump. Suppose $\bb p\{\tau_+ > 0\} >0$. Then $\tau_+ \sim 
+	\text{Exp}(\lambda)$ 
+	for some $\lambda>0$. 
+\end{lemma}
+
+
+\begin{proof}
+	Let $F(t) = \bb P\{\tau_+ > t\}$ be the distribution function for $\tau_+$. 
+	By 
+	the Markov property on $X_t$, we have
+	\[
+		\bb P\{\tau_+ > t+s \mid \tau_+ > t\} = \bb P\{\tau_+ > s\} = F(s).
+	\]
+	Unraveling the conditional probability on the left, we find 
+	\[
+	F(s) = \frac{\bb P\{\tau_+>t+s \text{ and } \tau_+ > t\}}{\bb P\{\tau_+ > 
+	t\}} = 
+	\frac{F(t+s)}{F(t)}.
+	\]
+	We then have that $F(t+s) = F(t) F(s)$, and the only continuous solution to 
+	this equation is $F(t) = e^{-\lambda t}$ for some $\lambda >0$.
+	
+\end{proof}
+
+To solve our problem with splitting and dying cells, we model it with a 
+continuous time Markov chain with state space $\{1, 2, \dots, N\}$ and 
+generator $G$ given by
+\begin{align*}
+	G = \begin{pmatrix}
+		0 & 0 & 0 & 0 & 0 &\dots & 0\\
+		\mu & -\mu-\lambda & \lambda & 0 & 0 & \dots & 0\\
+		0 & 2\mu & -2\mu-2\lambda & 2\lambda & 0 & \dots & 0\\
+		0 & 0 & 3\mu & -3\mu-3\lambda & 3\lambda & \dots & 0 \\
+		\vdots & & & & & & \vdots 
+	\end{pmatrix}
+\end{align*}
+
+Let $h(x) = \bb P[x] \{\tau_N<\tau_0\}$ be the hitting probability. From the 
+theorem 
+on hitting probabilities, we know that 
+\begin{align*}
+	h(0) &= 0 \\
+	h(N) &= 1\\
+	Gh(x) &= 0 \quad \forall x\neq 0, N.
+\end{align*}
+The last of these equations says
+\[
+	x\lambda (h(x+1) - h(x)) + x \mu( h(x-1)-h(x)) = 0
+\]
+which rearranges into
+\[
+	h(x+1) - h(x) = \frac{\mu}{\lambda} (h(x) - h(x-1)).
+\]
+Since $h(1) - h(0) = h(1)$ by our boundary condition we can use this as the 
+seed for this recurrence relation. We get
+\[
+	h(x+1) - h(x) = \left(\frac{\mu}{\lambda}\right)^x h(1),
+\]
+so
+\begin{align*}
+	h(x) &= h(1) + \sum_{y=1}^{x-1} h(y+1) - h(y)\\
+	&= h(1)\left\{1 + \sum_{y=1}^{x-1} 
+	\left(\frac{\mu}{\lambda}\right)^y\right\}\\
+	&= h(1) \left(\frac{1- 
+	\left(\frac{\mu}{\lambda}\right)^x}{1-\frac{\mu}{\lambda}}\right).
+\end{align*}
+Next we use the other boundary condition:
+\[
+	1 = h(N) = h(1)\left(\frac{1- 
+	\left(\frac{\mu}{\lambda}\right)^N}{1-\frac{\mu}{\lambda}}\right)
+\]
+which gives
+\[
+	h(1) =  \left\{\frac{1- 
+	\left(\frac{\mu}{\lambda}\right)^N}{1-\frac{\mu}{\lambda}}\right\}^{-1},
+\]
+and
+\[
+	h(x) = \frac{1- \left(\frac{\mu}{\lambda}\right)^x}{1 - 
+	\left(\frac{\mu}{\lambda}\right)^N} .
+\]
+
+This gives us the answer to our first question: what is the probability that a 
+single mutation ``grows?" This is answered by the value 
+\[
+	h(1) =  \frac{1- \left(\frac{\mu}{\lambda}\right)}{1 - 
+	\left(\frac{\mu}{\lambda}\right)^N} \approx 1-\frac{\mu}{\lambda} \text{ 
+	for large }N.
+\]
+
+
+\section*{Stationary Distributions} 
+
+
+\begin{proposition}
+Let $(X_t)_{t\geq 0}$ be a continuous time Markov chain with generator $G$ on 
+state space $\mathcal{X}$. Suppose that $G^T \pi = 0$ for some probability 
+distribution $\pi$ on $\mathcal{X}$. Then
+\[
+	\bb P[\pi] \{X_t = y\} = \pi(y).
+\]
+\end{proposition}
+
+
+The conditions on $\pi$ above mean
+\[
+	\sum_{y\in \mathcal{X}} \pi(y) = 1, \quad \pi(y)\geq 0, \quad \sum_{y\in 
+	\mathcal{X}} \pi(y) G_{yx} = 0.
+\]
+The notation $\bb P[\pi]$ means
+\[
+	\bb p[\pi] \{X_t=y\} = \sum_{x\in\mathcal{X}} \pi(x) \bb p[x] \{X_t=y\}.
+\]
+
+Such a distribution $\pi$ is called a \emph{stationary distribution}.
+
+
+\begin{proof}
+Let $f:\mathcal{X}\to \bbR$ be a function (thought of as a column vector) with 
+$\sum_y \pi(y)f(y) < \infty$ (if we wished to generalize to a countable state 
+space). Recall that
+\[
+	\bb E[x] [f(X_t)] = P_t f(x) = e^{tG} f(x).
+\]
+Since $\pi G = 0$, 
+\[
+	\pi P_t = \pi e^{tG} = \pi \sum_{n\geq 0} \frac{t^n}{n!} G^n = \pi.
+\]
+So,
+\[
+	\bb E[\pi] [f(X_t)] = \pi P_t f = \pi f = \sum_{x} \pi(x) f(x).
+\]
+The statement of the proposition now follows from taking $f$ to be the 
+indicator of $y$:
+\[
+	f(x) = \begin{cases}
+		1 & x=y\\
+		0 & x\neq y.
+	\end{cases}
+\]
+\end{proof}
+
+
+\paragraph{Fact}
+If $\pi$ is unique, then $P_t \to \pi$ as $t\to \infty$. That is, for all $f, 
+x$, 
+	\[
+		\bb E[x] [f(X_t)]\to \sum_y \pi(y) f(y) \quad \text{as }t\to \infty.
+	\]
+	This can also be phrased as saying that $X_t$ converges in distribution to 
+	$\pi$. 
+
+
+% ==============================================================================
+%
+\end{document}
+%
+% ==============================================================================

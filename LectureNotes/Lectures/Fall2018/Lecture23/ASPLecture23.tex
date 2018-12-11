@@ -1,0 +1,143 @@
+% ==============================================================================
+
+
+
+\documentclass[../../../Master/AppliedStochastics.tex]{subfiles}
+
+
+
+% ==============================================================================
+
+
+\author{Isaac}
+\date{19 November 2018}
+
+
+% ==============================================================================
+%
+\begin{document}
+%
+% ==============================================================================
+
+
+\makelecture
+
+
+\begin{theorem}
+A [Markov] Levy process is (strictly) \emph{stable} if 
+$$
+(X_t)_{t \geq 0} \disteq (\tfrac{X_{r_t}}{ r^{1/p}})_{t \geq 0}, 
+$$
+which happens iff [it is Levy and]
+\begin{enumerate}
+\item $p = 2$ and $X$ is BM.
+\item $0 < p < 2$ and $X$ is pure jump\footnote{unless $p=1$, in which case it 
+can have a drift component also.} with $\nu(dx) \propto x^{-1-p} dx$
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Let $X \sim Levy(b,\sigma,\nu)$ have drift, diffusion, and jump kernel 
+coefficients. (i.e. with generator 
+$$
+G(f) = b \frac{d}{dx} f + \frac{\sigma^2}{2} \frac{d^2}{dx^2} f + \int \nu (dy) 
+(f(x+y) - f(x) ). )
+$$ 
+Note, we will write $s = r^p$ in the following for notational simplicity. $s$ 
+is the coefficient `$r$' from the theorem statement (i.e., $X_{r_t} / r^{1/p} = 
+X_{s_t} / s^{1/p}$ ). Then, if we examine $X(r^p t)$, the generator associated 
+with the drift is 
+$$b \tfrac{d}{dx} \rightarrow X_t = bt,
+$$
+so $X_{r^p t} = br^p t$. Similarly, $\frac{\sigma^2}{2} \tfrac{d^2}{dx^2} 
+\rightarrow X_t = \sigma B_t \sim \N (0,\sigma^2t)$. So, $X_{r^p t} \sim \N(0, 
+\sigma^2 r^p t) \disteq (\sigma r^{p/2}) B_t$. And for the jumps, similar logic 
+shows that $X(r^p t) \sim Levy ( r^p b, r^{p/2} \sigma, r^p \nu)$. This is 
+equal in distribution to 
+$$
+r X(t) \sim Levy ( rb, r \sigma, \tilde{\nu})
+$$
+where $\tilde{\nu}([a,b]) = \nu( [\tfrac{a}{r}, \tfrac{b}{r}] )$. If $(X(r^p 
+t))_{t \geq 0} \disteq (r X(t))_{t \geq 0}$ then 
+\begin{enumerate}
+\item either $b = 0$ or $p=1$
+\item either $\sigma = 0$ or $p=2$
+\item either $\nu = 0$ or $r^p \nu = \tilde{\nu}$.
+\end{enumerate} 
+
+If $r^p \nu = \tilde{\nu}$ then $\nu ( [x, \infty) ) = r^{-p} \nu ( 
+[\frac{x}{r}, \infty ) )$ so setting $r = x$ implies that 
+$$
+\nu ( [x , \infty) ) = x^{-p} \nu( [1, \infty) ) \implies \nu ([x, \infty)) 
+\propto x^{-p}.
+$$
+
+This also holds for $\nu( (- \infty, -x])$, and so if $\nu$ is absolutely 
+continuous wrt Lebesgue measure then 
+$$
+\nu(dx) = 
+\begin{cases}
+C_+ x^{-p-1} dx & x \geq 0 \\
+C_{-} x^{-p-1} dx & x < 0
+\end{cases}
+$$
+for some $C_\pm \geq 0$. (this is what is meant when writing \emph{pure jump} 
+with the corresponding measure in the theorem statement.
+\end{proof}
+
+\begin{definition} [Stable limits] Let $\{Y_i\}_{i} $ be a family of iid 
+(nondegenerate) Random Variables in $\R$ and let $S_n = Y_1 + Y_2 + \cdots + 
+Y_n$. Suppose $S_n / n^\alpha \overset{d}{\longrightarrow} X$ converges in 
+distribution for some distribution $X$. Then $X$ is (strictly) stable, with 
+index $p = 1/\alpha$ i.e., having the distribution of $X(1)$ from the previous 
+theorem.
+\end{definition}
+
+\begin{proof}
+$\frac{S_{nk}}{ (nk)^{\alpha} } \overset{d}{\longrightarrow} X$ but also 
+converges to $\frac{ X_1 + \cdots + X_k }{k^\alpha}$ where $X_i$ are iid and 
+$\sim X$, all of this because $S_{nk} \disteq S_n ^{(1)} + \cdots + S_n ^{(k)}$ 
+are iid copies of $S_n$. That is, we see that the distribution $X$ can be 
+rescaled into a $k$-fold convolution of $k$ copies of itself: $X \disteq \frac{ 
+X_1 + \cdots + X_k }{k^\alpha}$.
+
+\bigskip{}
+
+Now let $Z$ be the Poissonization of $S$, i.e. $Z_t = S_{N_t}$ where $N_t = 
+PP(1)$ (poisson process) on $[0, \infty)$. Then, $Z \sim Levy (0,0, \nu)$ where 
+$\nu$ is the probability distribution of $Y$. and $S_n / n^\alpha \approx Z_n / 
+n^\alpha$ since $N_n = n + \mathcal{O}(\sqrt{n})$, and $Z_n / n^\alpha \sim 
+Levy(0,0, \nu^{(n)})$ where $\nu^{(n)} ( [x , \infty) ) = \nu( [n^\alpha x, 
+\infty) )$
+
+\bigskip{}
+
+Let $Z^{(n)}_t = \frac{1}{n^\alpha} Z_{nt}$ The assumption $X_n = Y_1 + \cdots 
++ Y_n$ implies that $Z_1 ^{(n)}$ converges in distribution to $X$, and so by 
+the fact that $X \disteq \frac{X_1 + \cdots + X_k}{k^\alpha}$, then $X_t$ as a 
+process is stable if the condition holds for time $t \neq 1$. but we could do 
+the same argument to show that in fact the quoted assumption above implies 
+$(Z_t ^{(n)})_{t \geq 0} \overset{d}{\longrightarrow} (U_t)_{t \geq 0}$ where 
+$U$ is a stable process whose increments are determined by $X$: $U_1 \disteq X$.
+
+\end{proof}
+
+Note: $\tau_1 = \inf \{ t \geq 0 : B_t = 1 \} \sim Stable(\tfrac{1}{2})$ on 
+$[0, \infty)$. So, $\tau_n \disteq \tau_1 ^{(n)} + \cdots + \tau_1 ^{(n)}$ 
+decomposes into a sum of $n$ iid copies of $\tau_1$. Then 
+$$
+\tau_n / n^2 \disteq \frac{\tau_1 ^{(n)} + \cdots + \tau_1 ^{(n)}}{n^2} \disteq 
+\tau_1,
+$$ 
+(but also converges in distribution to $\tau_1$ ($\overset{d}{\longrightarrow} 
+\tau_1$).)
+
+
+
+
+
+% ==============================================================================
+%
+\end{document}
+%
+% ==============================================================================

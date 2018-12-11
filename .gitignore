@@ -6,3 +6,7 @@
 .DS_Store
 .*.swp
 *.ptc
+*.out
+*.dvi
+*.aux
+*.tdo

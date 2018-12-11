@@ -2,11 +2,53 @@
 
 
 
-\documentclass[classnotes, draft]{fillsntsx}
+\documentclass[classnotes]{fillsntsx}
 \usepackage[utf8]{inputenc}
 
 
+%\usepackage{showframe}
 \usepackage{blindtext} % simply for testing purposes
+
+
+\usepackage{float, subcaption} % accurate image placement and captioning
+\usepackage{kbordermatrix} % for labeling the matrix in the notes
+
+
+\usepackage{dsfont}
+
+
+
+% ==============================================================================
+
+
+
+% Custom macros
+
+
+\makeatletter
+\renewcommand\fnts@lecturesep{}
+
+
+\let\Z\bbZ    % integers
+\newcommand{\N}{\mathbb{N}}    % naturals
+\newcommand{\R}{\mathbb{R}}    % reals
+
+
+\newcommand{\E}{\mathbb{E}}    % expectation
+\renewcommand{\P}{\mathbb{P}}  % probability
+
+
+\DeclareMathOperator\sd{sd}
+\DeclareMathOperator\var{var}
+\DeclareMathOperator\cov{cov}
+
+
+\DeclareMathOperator{\Normal}{Normal}
+\DeclareMathOperator{\Poisson}{Poisson}
+\DeclareMathOperator\PPP{PPP}
+
+% equal in distribution 
+\newcommand{\disteq}{\overset{ \text{d} }{=}}
 
 
 
@@ -57,10 +99,35 @@
 
 \course{Applied Stochastic Processes}
 \begin{coursenotes}{Fall Quarter}
+
+
+\chapter{Gaussian point processes and Random Fields}
 \lecture\subfile{../Lectures/Fall2018/Lecture1/ASPLecture1.tex}
 \lecture\subfile{../Lectures/Fall2018/Lecture2/ASPLecture2.tex}
 \lecture\subfile{../Lectures/Fall2018/Lecture3/ASPLecture3.tex}
-%\lecture\subfile{../Lectures/Fall2018/Lecture4/ASPLecture4.tex}
+\lecture\subfile{../Lectures/Fall2018/Lecture4/ASPLecture4.tex}
+\lecture\subfile{../Lectures/Fall2018/Lecture5/ASPLecture5.tex}
+\lecture\subfile{../Lectures/Fall2018/Lecture6/ASPLecture6.tex}
+\lecture\subfile{../Lectures/Fall2018/Lecture7/ASPLecture7.tex}
+%\lecture\subfile{../Lectures/Fall2018/Lecture8/ASPLecture8.tex}
+\lecture\subfile{../Lectures/Fall2018/Lecture9/ASPLecture9.tex}
+%\lecture\subfile{../Lectures/Fall2018/Lecture10/ASPLecture10.tex}
+%\lecture\subfile{../Lectures/Fall2018/Lecture11/ASPLecture11.tex}
+%\lecture\subfile{../Lectures/Fall2018/Lecture12/ASPLecture12.tex}
+\lecture\subfile{../Lectures/Fall2018/Lecture13/ASPLecture13.tex}
+\lecture\subfile{../Lectures/Fall2018/Lecture14/ASPLecture14.tex}
+\lecture\subfile{../Lectures/Fall2018/Lecture15/ASPLecture15.tex}
+\lecture\subfile{../Lectures/Fall2018/Lecture16/ASPLecture16.tex}
+\lecture\subfile{../Lectures/Fall2018/Lecture17/ASPLecture17.tex}
+%\lecture\subfile{../Lectures/Fall2018/Lecture18/ASPLecture18.tex}
+\lecture\subfile{../Lectures/Fall2018/Lecture19/ASPLecture19.tex}
+%\lecture\subfile{../Lectures/Fall2018/Lecture20/ASPLecture20.tex}
+\lecture\subfile{../Lectures/Fall2018/Lecture19/ASPLecture19.tex}
+%\lecture\subfile{../Lectures/Fall2018/Lecture20/ASPLecture20.tex}
+\lecture\subfile{../Lectures/Fall2018/Lecture21/ASPLecture21.tex}
+%\lecture\subfile{../Lectures/Fall2018/Lecture22/ASPLecture22.tex}
+\lecture\subfile{../Lectures/Fall2018/Lecture23/ASPLecture23.tex}
+\lecture\subfile{../Lectures/Fall2018/Lecture24/ASPLecture24.tex}
 \end{coursenotes}
 
 

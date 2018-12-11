@@ -1,0 +1,170 @@
+% ==============================================================================
+
+
+
+\documentclass[../../../Master/AppliedStochastics.tex]{subfiles}
+
+
+
+% ==============================================================================
+
+
+\author{Isaac}
+\date{21 November 2018}
+
+
+% ==============================================================================
+%
+\begin{document}
+%
+% ==============================================================================
+
+
+\makelecture
+
+
+\subsection{Critical Branching}
+
+
+\begin{definition}
+
+Let $(V_k)_{k=1} ^\infty$ be defined by $(V_{k+1} | V_k) = \sum_{j=1} ^{V_k} 
+M_{kj}$ for $V_k \in \bbZ$, where 
+$$
+\{ M_{kj} = \# \text{(offspring of indiv $j$ at time $k$)} \} 
+$$
+are iid with distribution 
+$$
+M = 
+\begin{cases}
+0 & \text{with probability $p$} \\
+1 & 1 - 2p\\
+2 & p
+\end{cases}
+$$
+Notice the \emph{branching property}, that
+$$
+( (V_k)_{k=1} ^\infty | V_0 = n ) \disteq ( ( \underset{ \text{iid} }{ V_k 
+^{(1)} + \cdots + V_k ^{(n)}} ) | V_0 ^{(1)} = \cdots = V_0 ^{(n)} = 1).
+$$
+We are interested in the total \# of ``individuals", that is, in 
+$$
+T = \sum_{k \geq 0} \sum_{j=1} ^{V_k} \mathbf{1}_{ \{ M_{kj} = 0 \} }
+$$ 
+[INSERT branching diagram]
+
+
+\end{definition}
+
+
+\begin{lemma}
+$T < \infty$ almost surely.
+\end{lemma}
+
+More generally, for a branching process with offspring distribution $M$, what 
+is the \emph{extinction probability}
+$$
+P_e = \P \{ \lim_{k \to \infty} V_k = 0 | V_0 = 1 \}
+$$
+that is that $V$ dies out. We can introduce some recursion here, as $V$ dies 
+out iff the families of all first-generation offspring die out. Then, by the 
+branching property, 
+$$
+P_e = \E [P_e^M] =: \varphi ( p_e)
+$$
+That is, define 
+$$
+\varphi (u) = \E [u^M] = \sum_{n \geq 0} u^n \P \{ M=n \},
+$$
+a concave function as $ \P \{ M=n \} \geq 0 \implies \varphi '' (u) \geq 0$ for 
+$u \in [0,1]$. $P_e$ is a fixed point of $\varphi(u)$, and we can compute 
+$$
+\varphi (0) = \P \{ M = 0 \}, \quad \varphi (1) = 1,
+$$
+and $\varphi' (1) = \E [ M ] = \mu$. Assume this is finite, and recalling the 
+concavity condition on $\varphi$, this leads to classifying conditions:
+
+\begin{enumerate}
+\item $\mu < 1$ (subcritical): $P_e = 1$ is the only solution.
+\item $\mu = 1$ critical: $P_e = 1$ is the only solution.
+\item $\mu > 1$ (supercritical): If $\mu > 1$ then $P_e < 1$. 
+\end{enumerate}
+
+[INSERT criticality plots]
+
+\bigskip{}
+\noindent{}Let 
+$$
+\psi (u) = \E [u^T | V_0 = 1 ] = \sum_{n \geq 0} u^n \P \{ T = n | V_0 = 1 \}.
+$$ 
+and
+$$
+u^T \disteq 
+\begin{cases}
+u &  M_p = 0 \\
+u^T	&	M_p = 1\\
+u^{T^{(1)}} \times u^{T^{(2)}} = (u^T)^2	&	M_p = 2
+\end{cases}
+$$
+where we have an assumption that $T^{(1)}, T^{(2)}$ are iid $\sim T$. Then, 
+since $\E [ u^{T^{(1)}} u^{T^{(2)}} ] = \E [ u^{T^{(1)}} ] \E 
+[u^{T^{(2)}} ]  = \psi(u)^2$, 
+$$
+\psi(u) = pu + (1-2p) \psi(u) + p \psi(u)^2
+$$
+that is, solving the quadratic,
+\begin{align*}
+\psi(u) 
+	&= 1 - \sqrt{1 - u} \\
+	&= \sum_{n \geq 1} \frac{1}{2 \sqrt{\pi}} \frac{ \Gamma (n - \tfrac{1}{2}) 
+	}{n!} u^n \text{ by Binomial Series} \\
+	&\implies \P \{ T = n | V_0 = 1 \} = \frac{1}{ \sqrt{2 \pi} } \frac{ \Gamma 
+	(n - \tfrac{1}{2}) }{n!}
+\end{align*}
+
+Stirling's formula gives the approximation $
+\log \Gamma(z) 
+	= z \log z - z + O(\log z)
+$
+and
+\begin{align*}
+\log \frac{ \Gamma(n - \tfrac{1}{2}) }{ \Gamma(n+1) }
+	&= (n-\tfrac{1}{2}) \log (n - \tfrac{1}{2}) - (n - \tfrac{1}{2}) - (n+1) 
+	\log (n+1) + (n+1) + O(\log n) \\
+	&\approx \tfrac{3}{2} \log (n)
+\end{align*}
+giving the approximation 
+$$
+\P \{ T = n | V_0 = 1 \} \approx  \frac{1}{\sqrt{2} \pi} n^{-3/2}.
+$$ 
+That is, $\P \{ T > n \} \approx n^{-1/2}$. \newline{}
+
+\noindent{}Let $H_n = T^{(1)} + \cdots + T^{(n)}$. For instance, if $T_n$ is 
+the number of berries on a fully grown branch of a bush, then $H_n$ is the 
+total number of berries after $n$ time steps (fully grown branch 
+``generations"). What will make this stabilize? $n^{3/2}$, $n^{5/2}$, or 
+$n^{1/2}$? Well, using the stability property we can see that $\frac{H_n}{n^2} 
+\to \text{Stable}(\tfrac{1}{2})$.
+
+\bigskip{}
+
+Reminder: Stability Property says that if $Y_i$ are iid, $\P \{ Y_i > y \} \sim 
+y^{-p}$ as $y \to \infty$, then $\frac{\Sigma Y_i}{n^{1/p}} \to$ Stable process 
+of order ($p$). 
+
+\bigskip{}
+
+Then, $\left(X_t = H_{n_t} / n^2 \right)_{t \geq 0} \to (\tau)t )_{t \geq 0}$, 
+BM hit time, which is a stable($1/2$) subordinator. That is, there will 
+probably be a bush with $\approx n^2$ berries (after $n$ ``generations"):
+$$
+\E [ \# k : T^{(k)} > x] = n \P \{ T > x \} \sim n x^{-1/2} = 1
+$$
+if $x \propto n^2$, so $\P \{ T > n^2 \} \sim n^{-1}$.
+
+
+% ==============================================================================
+%
+\end{document}
+%
+% ==============================================================================

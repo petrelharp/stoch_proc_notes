@@ -1,0 +1,262 @@
+% ==============================================================================
+
+
+
+\documentclass[../../../Master/AppliedStochastics.tex]{subfiles}
+
+
+
+% ==============================================================================
+
+
+\author{Martin}
+\date{14 November 2018}
+
+
+% ==============================================================================
+%
+\begin{document}
+%
+% ==============================================================================
+
+
+\makelecture
+
+
+\section{Levy Processes}
+
+\begin{definition}
+	A \underline{Levy process} with 
+	drift rate $\alpha$,
+	diffusion rate $\sigma,$
+	and jump kernel $\nu$
+	is a stochastic process with distribution $X_0 = 0$
+	%
+	\begin{equation}
+	X_t
+	=\alpha t 
+	+ \sigma B_t 
+	+ \int_{0}^{t} \int_{-\infty}^{\infty} x N(ds , dx) \label{Levy}
+	\end{equation}
+	%
+	where $B_t$ is Brownian motion,
+	so that $\E \left[ B_t \right] = 0$
+	and $\var \left[ B_t \right] = t,$
+	and where $N$ is a Poisson point process, independent from $B_t,$ on
+	$\left [ 0 , \infty \right) \times \R$
+	with intensity measure $dt \nu(dx).$ 
+\end{definition}
+
+\textbf{Fact:} (Levy-Khinchine)
+	Any Markov process on $\R$ with $X_0 = 0$ and stationary independent 
+	increments is Levy.
+	
+	i.e. a Markov process such that
+	\begin{enumerate}
+		\item the distribution of the increment $X_{t + h} - X_t$ depends only 
+		on $h.$ 
+		\item if $a < b \leq c < d$ then $(X_d - X_c)$ is independent of $(X_b 
+		- X_a).$
+	\end{enumerate} 
+
+Note that $(\ref{Levy})$ makes sense if the jumps are absolutely summable, 
+i.e. let $N = \sum_{i} \delta_{(t_i ,x_i)}.$
+Then the "jump component" of $X$ is 
+$$
+\begin{aligned}
+J_t 
+&= \int_{0}^{t} \int _{-\infty}^{\infty} x N(ds, dx) \\
+&= \sum_{i : t_i \leq t} x_i
+\end{aligned}
+$$
+and we want $\sum |x_i| , \infty.$
+
+Since jumps with $|x_i| > 1$ happen only finitely many times, absolute 
+summability can be determined by looking at jumpes with $|x_i| < 1.$
+Checking the expected value of this sum we have
+$$
+\begin{aligned}
+\E \left[ \sum_{\stackrel{i : |x_i| < 1,}{ t_i < t}} |x_i|  \right] 
+& = \E \left[ \int_{0}^{t} \int_{-1}^{1} |x| N(ds, dx)          \right] \\ 
+& = t \int _{-1}^{1} |x| \nu dx
+\end{aligned}
+$$
+
+which is finite if $\int _{-\infty}^{\infty} \min( |x|, 1 ) \nu(dx) < \infty.$
+
+Properties of $X_t:$
+
+\begin{enumerate}
+	\item $X$ has generator
+	\begin{equation}
+	Gf(x)=\alpha f'(x) + \frac{\sigma^2}{2} f''(x) + \int_{-\infty}^{\infty} 
+	\left( f(x+y) - f(x) \right) \nu(dy)
+	\end{equation}
+	
+	\item (Levy-Khinchine formula)
+	The characteristic function of $X_t$ is given by
+	\begin{equation}
+	\varphi(t, u)
+	= \E \left[ e^{i u X_t} \right]
+	= e^{t\psi(u)}
+	\end{equation}
+	where $\psi(u)=i \alpha u - \frac{\sigma^2}{2} u^2 + 
+	\int_{-\infty}^{\infty} \left( e^{i u x} - 1 \right) \nu(dx)$
+	since
+	\begin{equation}
+	\E \left[ e^{i u X_t} \right] 
+	= \E \left[ e^{i u \alpha t} e^{i u \sigma B_t} e^{i u \int_{0}^{t} 
+	\int_{-\infty}^{\infty} x N(ds, dx) } \right]
+	\end{equation}
+\end{enumerate}
+
+\begin{example}Stable Subordinator of Index 1/2
+
+Let $(B_t)_{t \geq 0}$ be Brownian motion and define
+$\tau_r = \inf \left\lbrace t \geq 0 : B_t \geq r \right\rbrace.$
+Then $(\tau_r)_{r \geq 0 }$ Levy with
+$
+\alpha=0,
+\sigma=0,
+\nu(dx)=x^{-3/2}dx.
+$
+\end{example}
+
+\section{Levy Processes continued}
+
+\begin{definition}
+	A \underline{subordinator} is a nondecreasing Levy process.
+\end{definition}
+
+Let $(B_t)_{t \geq 0}$ be Brownian motion.
+Set $t_x = \inf \left\lbrace t \geq 0 : B_t \geq x \right\rbrace.$ 
+Then $(\tau_x)_{x \geq 0}$ is a nondecreasing Markov process with stationary, 
+independent increments
+and so is a subordinator.
+
+For $x,y \geq 0,$ we have, setting $\tilde{B}_t = B_{\tau_x + t} - x,$
+$$
+\begin{aligned}
+tau_{x + y} - \tau_x 
+& = \inf \left\lbrace t \geq \tau_x : B_t = x + y \right\rbrace 
+- \inf \left\lbrace t \geq 0 : B_t = x \right\rbrace \\
+& = \inf \left\lbrace t \geq 0 : \tilde{B}_t = y \right\rbrace
+- 0 \\
+& \stackrel{d}{=} \tau_y
+\end{aligned}
+$$
+
+which implies that $\tau$ has stationary increments.
+
+Moreover, 
+$(\tau_{x + y})_{y \geq 0}$
+only depends on $(\tilde{B}_t)_{t \geq 0 }$
+which is independent of $(B_s)_{0 \leq s \leq \tau_x}$
+so $\tau$ is Markov.
+
+\textbf{Scaling:}
+Since $\overline{B}_s := \frac{1}{c} B_{c^2s})_{s \geq 0} 
+\stackrel{d}{=}(B_s)_{s \geq 0}$
+and 
+$$
+\begin{aligned}
+\tau_x 
+& = \inf \left\lbrace t \geq 0 : B_t \geq x \right\rbrace \\
+& \stackrel{d}{=} \inf \left\lbrace t \geq 0 : \dfrac{1}{c} B_{c^2t} \geq x 
+\right\rbrace  \\
+& = \frac{1}{c^2} \inf \left\lbrace t \geq 0 : B_t \geq c x \right\rbrace \\
+& = \frac{\tau_{c x}}{c^2}
+\end{aligned}
+$$
+
+we have 
+$\tau_x \stackrel{d}{=} x^2\tau_1.$
+
+To find the distribution of $\tau$ we look at
+\begin{equation}
+\P \left\lbrace \tau_1 < t \right\rbrace 
+= \P \left\lbrace \sup_{0 \leq s \leq t} B_s \geq 1 \right\rbrace
+= \P \left\lbrace B_t \geq 1 \right\rbrace + \P \left\lbrace b_t < 1, M_t \geq 
+1 \right\rbrace \label{tau}
+\end{equation}
+where 
+$M_t 
+= \sup \left\lbrace B_s : 0 \leq s \leq t \right\rbrace.$
+
+\begin{lemma}Reflection Principle:
+	
+	$\P \left\lbrace B_t < 1, M_t \geq 1 \right\rbrace 
+	= \P \left\lbrace B_t \geq 1 \right\rbrace$
+	i.e. 
+	$$
+	\left( W_s = \left\lbrace\begin{array}{cc}
+	B_s 		& \text{ if } s \leq \tau_1 \\
+	1-(B_s-1) 	& \text{ if } s \geq \tau_1
+	\end{array}
+	\right.
+	\right)
+	\stackrel{d}{=} (B_s)_{ s \geq 0 }
+	$$
+\end{lemma}
+
+Combining this Lemma with (\ref{tau}) we have
+$$
+\begin{aligned}
+\P \left\lbrace \tau_1 < 1 \right\rbrace 
+& = 2 \P \left\lbrace B_t \geq 1 \right\rbrace 					\\
+& = 2 \P \left\lbrace B_1 \geq \frac{1}{\sqrt{t}} \right\rbrace	\\
+& = \frac{2}{\sqrt{2\pi}}\int_{1/\sqrt{t}}^{\infty} e^{-x^2/2} dx 	\\
+& = \frac{1}{\sqrt{2 \pi}} \int_{0}^{t} s^{-3/2} e^{-1/2s} ds
+\end{aligned}
+$$
+where the last equality follows from setting $s=\frac{1}{x^2}.$
+Thus,
+$\P \left\lbrace \tau_x < t \right\rbrace 
+= \P \left\lbrace x^2\tau_1 < t \right\rbrace 
+= \P \left\lbrace \tau_1 < t/x^2 \right\rbrace 
+$
+so the density of $\tau_x$ is given by
+$$
+\frac{1}{\sqrt{2 \pi}}\frac{1}{x^2} \left(\frac{\tau}{x^2}\right)^{-3/2} 
+e^{-x^2/2t} dt.
+$$
+
+Recall that $\tau$ is a Levy process.
+$$
+\begin{aligned}
+\bb E \left[ e^{- \lambda \tau} \right] 
+& = \int_{0}^{\infty} e^{- \lambda t} \frac{1}{\sqrt{2 \pi}} t^{-3/2} e^{-1/2t} 
+dt \\	
+& = e^{- \sqrt{2\lambda}} \\
+& = \exp \left( \int_{0}^{\infty} (e^{-\lambda t } - 1) \frac{x^{-3/2}}{\sqrt{2 
+\pi}} dx \right)
+\end{aligned}
+$$
+and at the same time,
+$$
+\begin{aligned}
+\bb E \left[ e^{-\lambda \tau} \right]
+= \exp \left( \int_{0}^{\infty} (1 - e^{-\lambda t }) \nu(dx) \right)
+\end{aligned}
+$$
+
+where $\nu$ is the jump measure for $\tau.$ It follows that 
+$\nu(dx)=\frac{x^{-3/2}}{\sqrt{2 \pi}}dx.$
+So,
+$\tau_t = \int_{0}^{t} \int_{0}^{\infty} x N(dt, dx)$
+where $N$ is a Poisson point process on $\left( 0 ,\infty \right)^2$ with 
+intensity $\frac{x^{-3/2}}{\sqrt{2 \pi}}dtdx.$
+Also,
+$$
+\bb E \left[ \tau_1 \right] 
+= -\frac{d}{d\lambda} \bb E \left[ e^{-\lambda t_1} \right]\big|_{\lambda=0}
+= \frac{1}{\sqrt{2 \pi}}e^{-\sqrt{2\lambda}}\big|_{\lambda=0}
+= \infty
+$$
+
+
+% ==============================================================================
+%
+\end{document}
+%
+% ==============================================================================

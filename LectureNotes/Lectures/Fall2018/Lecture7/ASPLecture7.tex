@@ -2,16 +2,11 @@
 
 
 
-%% the first is for standalone compiling,
-%%   the second looks for the master document
-
-\documentclass[classnotes]{fillsntsx}
 \documentclass[../../../Master/AppliedStochastics.tex]{subfiles}
 
 
-\include{../../../../macros}
 
-\usepackage[margin=1in]{geometry} %For margins 
+\newenvironment{soln}{\begin{proof}[\textsc{Solution}]}{\renewcommand{\qedsymbol}{$\blacklozenge$}\end{proof}}
 
 
 
@@ -19,20 +14,8 @@
 % ==============================================================================
 
 
-%% without the master file this macro does nothing
-%\course{Applied Stochastic Processes}
-
-
-%\author{Helen}  % your name
-%\date{22 and 24 October 2018}    % the date of the lecture
-
-
-%% any custom macros should go here, but please be conservative
-
-\DeclareMathOperator{\PPP}{PPP}
-
-%%Remove this before sending it
-
+\author{Matt}
+\date{08 October 2018}
 
 
 % ==============================================================================
@@ -42,261 +25,290 @@
 % ==============================================================================
 
 
-%\makelecture % this is effectively \maketitle, the lecture follows
+\makelecture
 
 
-% Day 13
+Recall a realization of the basic noise for Gaussian processes looked like that 
+in Figure \ref{fig:gaussnoise}. Now, arrows are either muted or (rarely) point 
+up. See Figure \ref{fig:poisnoise}.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\linewidth]{gauss_noise}
+	\caption{A realization of the basic noise used to construct a Gaussian 
+	process.}
+	\label{fig:gaussnoise}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\linewidth]{pois_noise}
+	\caption{A realization of the basic noise used to construct a Poisson 
+	process.}
+	\label{fig:poisnoise}
+\end{figure}
 
-\section{Examples}
+\section{Motivation}
+Suppose in some space $X$ we lay down a large number of LED lights, each with 
+their own battery, with density given by a $\sigma$-finite measure $\mu$. We do 
+this in a way so that, for each region $A\subset X$, we put down about 
+$M\mu(A)$ lights in that region, where $M$ is some large number. Independently 
+we turn on each light with probability $M^{-1}$, and leave off otherwise.
 
-\begin{exmp}{Motivating example: Moments of the Poisson}
-
-Let $(N_t)_{t \geq 0}$ be a Poisson counting process where $N \sim \PPP(\text{constant rate 1})$ on $[0, \infty)$. 
-The fact that  $(N_t)_{t \geq 0}$ is a Poisson counting process means that
-$N_t \in \Z$ and $N_t$ ``jumps by 1 unit at rate 1'', i.e. $N_t = N([0, t]) + N_0$. 
-Note that writing $N \sim \PPP(\text{constant rate 1})$ is the same as writing $N \sim \PPP(\lambda)$, where $\lambda$
-is the Lebesgue measure. 
-
-We want to answer the question: What is $\E[N_t^k]$? First we define
-$$\begin{aligned}
-\E^x[f(N_t)] := \E[f(N_t) | N_0 = x ] 
-\end{aligned}$$
-We see that
+We would like to answer the following question: how many lights in $A$ are on? 
+To that end, let $N(A)$ denote the number of lights on in $A$ and compute
 \begin{align}
-\E^x[f(N_t)] = f(x) + \int_0^t \frac{d}{ds} \E^x [f(N_s)] ds &= f(x) + \int_0^t  \lim_{\epsilon \to 0} \frac{1}{\epsilon} \E^x [f(N_{s+\epsilon}) - f(N_s)] ds\\
-\label{condexp1}
-&=  f(x) + \int_0^t  \lim_{\epsilon \to 0}   \frac{1}{\epsilon} \E^x [ \E^s [f(N_{s+\epsilon}) - f(N_s) | N_s] ] ds
+	\mathbb{E}\left[ N(A) \right] = \mathbb{E} \left[ \sum_{\text{lights in }A} 
+	\mathds{1}_{\{\text{light on}\}} \right]
+	= \sum_{\text{lights in }A} \mathbb{P}\left\{ \text{light is on} \right\}
+		= M \mu(A) \left(\frac{1}{M}\right)
+		= \mu(A).
 \end{align}
+Thus $\mu$ gives the expected density for the set of lights that are on in $A$. 
+By construction, we know $N(A) \sim 
+\operatorname{Binom}\left(M\mu(A),M^{-1}\right)$, and hence the distribution of 
+$N(A)$ is approximately $\operatorname{Pois}(\mu(A))$. To see this, put $L = 
+M\mu(A)$ and observe,
+\begin{align}
+	\mathbb{P}\left\{N(A) = n \right\} &= 
+	\binom{L}{n}\left(\frac{1}{M}\right)^n\left(1 - \frac{1}{M}\right)^{L-n}\\
+	&= \frac{L(L-1)\cdots (L-n+1)}{n! M^n} \left( 1 - \frac{1}{M} 
+	\right)^{L-n}\\
+	&\simeq \frac{1}{n!}\left( \frac{L}{M} \right)^n \exp\left( -\frac{L}{M} 
+	\right) + \mathcal{O}\left( \frac{1}{M} \right)\\
+	&\simeq \frac{\mu(A)^n}{n!} e^{-\mu(A)}
+\end{align}  
 This motivates the following definition.
-\begin{defn} Let
-$$\begin{aligned}
-(Gf)(y) := \lim_{\epsilon \to 0} \frac{1}{\epsilon} \E^{y}[ f(N_\epsilon) - f(y) ] 
-\end{aligned}$$
-$G$ is called the {\em generator} for $N_t$. 
-\end{defn}
-
-
-Since $N_\epsilon - N_0 \sim \Poisson(\epsilon)$, 
-$$\begin{aligned}
-Gf(x) &= \lim_{\epsilon \to 0} \frac{1}{\epsilon} \E^{x} [f(N_\epsilon) - f(x)] \\
-& =   \lim_{\epsilon \to 0} \frac{1}{\epsilon} \E[f(N_\epsilon) - f(x) | N_0 = x] \\
-& =   \lim_{\epsilon \to 0}  \frac{1}{\epsilon} ( \P \{ N_\epsilon - N_0 = 0 \} ( f(x) - f(x) ) +
-\P \{ N_\epsilon - N_0 = 1 \} ( f(x+1) - f(x) )  \\
- & + \P \{ N_\epsilon - N_0 \geq 2 \} \E[f(N_\epsilon) - f(x) | N_\epsilon - N_0 \geq 2 ] )\\
-& =   \lim_{\epsilon \to 0}  \frac{1}{\epsilon}  \left( e^{-\epsilon} \cdot \epsilon \cdot (f(x+1) - f(x)) + \sum_{n \geq 2} \dfrac{e^{-\epsilon} \epsilon^n}{n!}\E[f(N_\epsilon) - f(x) | N_\epsilon - N_0 \geq 2 ]  \right) \\
-& =   \lim_{\epsilon \to 0}  \frac{1}{\epsilon}  \left( e^{-\epsilon} \cdot \epsilon \cdot (f(x+1) - f(x)) + \mathcal{O}(\epsilon^2) \right) \\
-& =  f(x+1) - f(x)
- \end{aligned}$$
- So $Gf(x) = f(x + 1) - f(x)$ is the generator for the constant rate 1 Poisson process. 
- 
- By the Markov property, 
-$$\begin{aligned}
- \lim_{\epsilon \to 0}   \frac{1}{\epsilon} \E^x [ \E^s [f(N_{s+\epsilon}) - f(N_s) | N_s] ] =  \E^x[Gf(N_s)]
- \end{aligned}$$
-It follows from this and (\ref{condexp1}) that
- \begin{align}
- \label{condexp2}
- \E^x[f(N_t)] = f(x) + \int_0^t \E^x [f(N_s + 1) - f(N_s) ] ds
- \end{align}
- 
-Next we need the following notation. Let 
-$$\begin{aligned}
-(x)_m := x(x-1) \cdots (x-m+1)
-\end{aligned}$$
-
-Observe that 
-$$\begin{aligned}
-(x+1)_m - (x)_m &= (x+1) x (x-1) \cdots (x-m+2) - x (x-1) \cdots (x-m+1)\\
-& = ( (x+1) - (x-m+1) ) (x)_{m-1} \\
-&= m(x)_{m-1}
-\end{aligned}$$
-
-Now by (\ref{condexp2}),
-$$\begin{aligned}
-\E^0 [ (N_t)_m ] =0 + \int_0^{t}  \E^{0} [(N_s+1)_m - (N_s)_{m}] ds = 0 + \int_0^{t} m \E^{0} [(N_s)_{m-1}] ds 
-\end{aligned}$$
-and $\E^0 [ (N_t)_0 ] = 1$. 
-
-Let 
-$$\begin{aligned}
-g_{m}(t) := \int_0^{t} m \E^{0} [(N_s)_{m-1}] ds
-\end{aligned}$$ 
-and let $g_0(t) = 1$. 
-Then $g_{m}(t) = \int_0^{t} m g_{m-1}(s) ds$, so
-$$\begin{aligned}
-g_1(t) &=  \E^0 [N_t]=  \int_{0}^{t}  1ds = t \\
-g_2(t) &= \E^0 [N_t(N_t - 1)]  =  \int_{0}^{t}  2sds = t^2 \\
-\end{aligned}$$
-and by induction,
-$$\begin{aligned}
-  \E^0 [(N_t)_m] = g_m(t) = t^m
-  \end{aligned}$$
-\end{exmp}
-
-\begin{exmp}{What is the generator for Brownian motion?}
-
-Let $(B_t)_{t \geq 0}$ be a Brownian motion, $B_{t+s} - B_t \sim \Normal(0, s)$. 
-Then
-$$\begin{aligned}
-\E^x[f(B_\epsilon)] &\approx \E^x[ f(x) + f'(x) (B_\epsilon - x) + \frac{1}{2}f''(x)(B_\epsilon - x)^2 + \cdots] \\
-& =  f(x) + f'(x)\cdot 0 +  \frac{1}{2}f''(x) \cdot \epsilon + \mathcal{O}(\epsilon^{3/2})
-\end{aligned}$$
-So
-$$\begin{aligned}
-\lim_{\epsilon \to 0} \dfrac{1}{\epsilon} \E^{x}[ f(B_\epsilon) - f(x) ] = \dfrac{1}{2} f''(x)
-\end{aligned}$$
-and thus $Gf(x) = \dfrac{1}{2} f''(x)$ is the generator for standard Brownian motion. 
-
-\end{exmp}
-
-\begin{exmp}{How can we make $N_t$ into Brownian motion?}
-We know that:
-\begin{enumerate}
-\item By the Central Limit Theorem, adding up independent noise, centering and scaling gets you the Gaussian distribution. 
-\item $N_t$ is the number of points in a PPP on $[0, t]$, and so is a sum of a bunch of independent things. 
-\item Brownian motion started at zero has $\E[B_t] = 0$, $\E[B_t^2] = t$.
-\end{enumerate}
-
-$N_t$ does not have enough noise in each interval to be Brownian. So consider $N_{Mt}$. Since
-$\E[N_{Mt}] = Mt$, we subtract $Mt$, and then divide by $\sqrt{M}$ to get the correct variance.
-Thus we define
-$$\begin{aligned}
-X_t^{(M)} = \dfrac{ N_{Mt} - Mt}{\sqrt{M}}
-\end{aligned}$$
-
-Let $G_M$ denote the generator of $X_t^{(M)}$. Then
-$$\begin{aligned}
-G_M f(x) = M \left( f \left( x+ \frac{1}{\sqrt{M}}\right) - f(x) \right) - \dfrac{1}{\sqrt{M}} f'(x)
-\end{aligned}$$
-This is discussed in more detail on Day 15. 
-As $M \to \infty$, $G_M f(x) \to \dfrac{1}{2} f''(x)$. 
-Therefore, 
-$$\begin{aligned}
-(X^{(M)})_{t \geq 0} \xrightarrow[M \to \infty]{d} (B_t)_{t \geq 0}
-\end{aligned}$$
-\end{exmp}
-
-
-% Day 14
-
-\section{Theory}
-
-Let $(X_t)_{t \geq 0}$ be a time-homogeneous Markov process on a locally compact, separable metric space $S$, 
-and define
-$C_0 := C_0(S)$ to be the set of all continuous functions $f: S \to \R$ such that $f(x) \to 0$ as $|x| \to \infty$. 
-Note that $C_0$ is a Banach space with norm $|| \cdot ||_{\infty}$. Assume $\P(\{X_t \in S \}) = 1$ for all $t$. 
-
-\begin{defn}
-Define the transition semigroup $(P_t)_{t \geq 0}$ by $(P_t f)(x) = \E^{x}[f(X_t)]$ for $f \in C_0$. 
-\end{defn}
-
-\begin{note}
-The assumption
+\begin{definition}
+	Let $\mu$ be a $\sigma$-finite measure on some space $X$. A \emph{Poisson 
+	Point Process} (PPP) on $X$ with \emph{mean measure} (or, \emph{intensity}) 
+	$\mu$ is a random point measure $N$ such that:
+	\begin{enumerate}[(a)]
+		\item For any Borel set $A\subset X$, we have $N(A) \in 
+		\mathbb{Z}_{\geq 0}$ and $N(A) \sim \operatorname{Pois}(\mu(A))$, i.e.
+		\begin{align}\label{eq:ppp}
+			\mathbb{P}\left\{ N(A) = n \right\} = \frac{\mu(A)^n}{n!} 
+			e^{-\mu(A)}.
+		\end{align}
+		\item If $A$ and $B$ are disjoint Borel subsets of $X$, then $N(A)$ and 
+		$N(B)$ are independent random variables.
+	\end{enumerate}
+\end{definition}
+Recall a point measure is just a measure whose mass is atomic. That is, if 
+$\{x_i\}\subset X$ then a point measure is of the form
 \begin{align}
-\label{Feller1}
-(X_t | X_0 = x) \xrightarrow[x \to y]{d} (X_t | X_0 =y) 
+	\mu = \sum_i a_i \delta_{x_i}
 \end{align}
-implies $P_t: C_0 \to C_0$.
-\end{note}
+where $\delta_x$ is the unit point mass at $x$.
+\section{PPP Properties}
+It is sometimes useful to think of a PPP as a random collection of points. With 
+this in mind, we list some important properties of $N\sim 
+\operatorname{PPP}(\mu)$ on some space $X$:
+\begin{itemize}
+	\item \emph{Enumeration:} It is always possible to enumerate the points of 
+	$N$, i.e. there is a random collection of points $\{x_i\}\subset X$ such 
+	that
+	\begin{align}
+		N = \sum_i \delta_{x_i}.
+	\end{align}
+	
+	\item \emph{Mean measure:} If $f\colon X \to \mathbb{R}$ then 
+	\begin{align}\label{eq:mm}
+		\mathbb{E}\left[ \int\! f(x) \, dN(x) \right] = \int f(x) d\mu(x).
+	\end{align}
+	\underline{Note:} This is a more general property of point processes, as 
+	any point process has a mean measure. To see \eqref{eq:mm} holds without 
+	needing $N$ to be a \emph{Poisson} point process, let $f$ be a simple 
+	function, i.e.
+	\begin{align}
+		f(x) = \sum_{i=1}^n f_i \mathds{1}_{A_i}(x), \qquad\text{where}\qquad X 
+		= \bigcup_i A_i,\quad A_i\cap A_j = \varnothing \text{ for } i\neq j.
+	\end{align}
+	Then we compute
+	\begin{align}
+		\mathbb{E}\left[ \int_X\! f(x) \, dN(x) \right] = \mathbb{E}\left[ 
+		\sum_i f_i N(A_i) \right] = \sum_i f_i \mathbb{E}\left[ N(A_i) \right] 
+		= \sum_i f_i \mu(A_i) = \int_X \! f(x) \, d\mu(x).
+	\end{align}
+	This can then be extended to arbitrary measurable functions through the 
+	standard limiting procedure.
+	
+	\item \emph{Thinning:} Independently discard each point of $N$ with 
+	probability $1-p(x)$ for a point at $x\in X$. The result is a 
+	$\operatorname{PPP}(\nu)$, where
+	\begin{align}\label{eq:thin}
+		\nu(A) = \int_A\! p(x) \, d\mu(x).
+	\end{align}
+	In other words, if $N = \sum_i \delta_{x_i}$ and $A_i = 1$ with probability 
+	$p(x_i)$ and $A_i = 0$ otherwise, then
+	\begin{align}
+		\widetilde{N} = \sum_i A_i \delta_{x_i} \sim \operatorname{PPP}(\nu).
+	\end{align}
+	
+	\item \emph{Additivity:} If $N_1 \sim \operatorname{PPP}(\mu_1)$ and $N_2 
+	\sim \operatorname{PPP}(\mu_2)$ are independent on $X$, then $N_1 + N_2 
+	\sim \operatorname{PPP}(\mu_1 + \mu_2)$. In particular, if 
+	$\mathbb{P}\left\{ X = n \right\} = \frac{\lambda^n}{n!}e^{-\lambda}$ and 
+	$\mathbb{P}\left\{ Y = n \right\} = \frac{\nu^n}{n!}e^{-\nu}$ are 
+	independent, then
+	\begin{align}
+		\mathbb{P}\left\{ X + Y = n \right\} = \frac{(\lambda + 
+		\nu)^n}{n!}e^{-(\lambda + \nu)}.
+	\end{align}
+	
+	\item \emph{Labeling:} For each point in a PPP,
+	   associate an independent label from a space $Y$ 
+	   according to some probability distribution $\nu$.
+	   Let $N = \sum_i \delta_{x_i}$ for $\{x_i\}\subset X$ 
+	   and let $G_1,G_2,\ldots \in Y$ be iid with density $\nu$. Then 
+	\begin{align}\label{eq:label}
+		\overline{N} := \sum_i \delta_{(x_i, G_i)} \sim 
+		\operatorname{PPP}(\mu\times\nu)
+	\end{align}
+	on $X\times Y$.
+\end{itemize}
+\section{Examples}
+Henceforth, let $\lambda$ denote Lebesgue measure.
+\begin{example}
+	Let $N\sim \operatorname{PPP}(\lambda)$ on $\mathbb{R}_{\geq 0}$, where 
+	$\lambda$ is Lebesgue measure. As before, we think of the points of $N$ as 
+	`lights', here positioned on the positive reals.
+	\begin{enumerate}[(a)]
+		\item How far until the first light?
+		\item Suppose each light is independently either red or green with 
+		probability $\frac{1}{2}$. How far until the first red light?
+	\end{enumerate}
+	\begin{soln}
+		Let $N = \sum_i \delta_{x_i}$ and put $T = \min\{x_i\}$. Using 
+		\eqref{eq:ppp} we compute
+		\begin{align}
+			\mathbb{P}\left\{ T > t \right\} = \mathbb{P}\left\{ N([0,t]) = 0 
+			\right\} = e^{-t}.
+		\end{align}
+		This solves part (a). For the colorblind readers, this also solves part 
+		(b). 
+		
+		Now let $\{\tilde{x}_i\}\subset \{x_i\}$ be the (random) set of red 
+		lights and define $\widetilde{N} = \sum_i \delta_{\tilde{x}_i}$, the 
+		point process for the red lights from $N$. By the thinning property 
+		\eqref{eq:thin}, $\widetilde{N} \sim 
+		\operatorname{PPP}\left(\frac{1}{2}\lambda\right)$. Similarly define 
+		$\widetilde{T} = \min\{\tilde{x}_i\}$ and observe
+		\begin{align}
+			\mathbb{P}\left\{ \widetilde{T} > t\right\} = \mathbb{P}\left\{ 
+			\widetilde{N}([0,t]) = 0 \right\} = e^{-t/2},
+		\end{align}
+		thus (b) is solved.
+	\end{soln}
+\end{example}
+\begin{example}\label{ex:ant}
+	Rain falls for 10 minutes on a large patio at a rate of $\nu = 5000$ drops 
+	per minute per square meter. Each drop splatters to a random radius $R$ 
+	that has an Exponential distribution, with mean 1cm, independently of the 
+	other drops. Assume the drops are 1mm thick and the set of locations of the 
+	raindrops is a PPP.
+	\begin{enumerate}[(a)]
+		\item What is the mean and variance of the total amount of water 
+		falling on a square with area $1 \text{m}^2$?
+		\item A very small ant is running around the patio. See Figure 
+		\ref{fig:rainant}. What is the chance the ant gets hit?
+	\end{enumerate}
 
-We have the following properties: 
-\begin{enumerate}
-\item[(1)] $P_0 = I$ since $P_0 f(x) = \E^{x} [f(X_0)] = f(x)$. 
-\item[(2)] $P_s P_t = P_{s + t}$
-since
-$$\begin{aligned}
-P_s P_t f(x) = \E^{x}[P_t f(x_s) ] = \E^{x} [ \E^{x_s} [ f(x_t) ] ] 
-= \E^{x} [ f(x_{t+s})]  
-=  P_{s+t} f(x)
-\end{aligned}$$
-If we assume that
-\begin{align}
-\label{Feller2}
-(X_t | X_0 = x) \xrightarrow[t \to 0]{d} x
-\end{align}
-for each $x$ then
-\item[(3)] $P_t \to I$ as $t \to 0$. 
-\end{enumerate}
+\begin{soln}
+	Let $N = \sum_i \delta_{(x_i,y_i)}$ where $(x_i,y_i)$ is the center of the 
+	$i$th drop. Take $N \sim \operatorname{PPP}(\nu \lambda)$ and let $M$ 
+	denote the number of drops in $[0,1]^2$, so that $M = N([0,1]^2) \sim 
+	\operatorname{Pois}(\nu)$. Then the total volume $V$ is 
+	\begin{align}
+		V = \sum_{i=1}^M \frac{\pi}{10^3}R_i^2
+	\end{align}
+	where $R_i$ is the radius of the $i$th drop. Note this is a sum of random 
+	variables where the number of terms is also a random variable. Thus we use 
+	Wald's equation \eqref{eq:wald} to obtain
+	\begin{align}\label{eq:usewald}
+		\mathbb{E}\left[ V \right] = 
+		\frac{\pi}{10^3}\mathbb{E}[M]\mathbb{E}[R_1^2] = \frac{\pi}{10^3}\cdot 
+		\nu \cdot \frac{2}{100^2} = \frac{2\pi}{10^7}\nu
+	\end{align}
+	
+	The second step in \eqref{eq:usewald} was obtained from the fact that an 
+	exponentially distributed random variable $X$ with mean $\beta^{-1}$ has 
+	higher moments given by
+	\begin{align}
+		\mathbb{E}\left[ X^n \right] = \frac{n!}{\beta^n}.
+	\end{align}
+	This is proved by an iterated application of integration by parts, and the 
+	result gives rise to 
+	\begin{align}
+		\operatorname{var}\left[ X^n \right] = \mathbb{E}\left[ X^{2n} \right] 
+		- \mathbb{E}\left[ X^n \right]^2 = \frac{(2n)! - (n!)^2}{\beta^{2n}}.
+	\end{align}
+	The $n=2$ case will turn out to be useful when computing the variance of 
+	$V$.
+	\newpage
+	Indeed, to compute the variance we utilize the variance decomposition 
+	formula. Observe,
+	\begin{align}
+		\operatorname{var}[V] &= \mathbb{E}\left[ \operatorname{var}[V \mid 
+		M]\right] + \operatorname{var}\left[ \mathbb{E}[V \mid M ]\right]\\
+		&= \mathbb{E}\left[ 
+		M\left(\frac{\pi}{10^3}\right)^2\operatorname{var}(R^2)\right] + 
+		\operatorname{var}\left[ 
+		M\left(\frac{\pi}{10^3}\right)\mathbb{E}[R^2]\right]\\
+		&= \nu \left(\frac{\pi}{10^3}\right)^2 \left(\frac{20}{100^4}\right) + 
+		\nu\left(\frac{\pi}{10^3}\right)^2 \left(\frac{2}{100^2}\right)^2\\
+		&= \left(\frac{\pi}{10^3}\right)^2\left(\frac{24}{100^4}\right)\nu.
+	\end{align}
+	This solves part (a).
+	
+	Now, part (b) can be solved by way of the labeling property. Here, we use 
+	the radius $R_i$ of the $i$th drop to label the point $(x_i,y_i)$. Recall 
+	the density of an Exponential random variable with mean $0.01$ is 
+	$100\exp(-100r)\,dr$. So we define a measure $\mu$ on 
+	$X:=\mathbb{R}^2\times [0,\infty)$ by
+	\begin{align}
+		\mu(A) = \int_A\! 100\nu\exp(-100r)\, dxdydr.
+	\end{align} 
+	We think of $X$ as the (closed) upper half plane in $\mathbb{R}^3$ where 
+	the third coordinate is a realization of $R$. By the labeling property 
+	\eqref{eq:label}, $\overline{N} := \sum_i \delta_{(x_i,y_i,R_i)} \sim 
+	\operatorname{PPP}(\mu)$ on $X$. For the ant to remain dry, any drop with 
+	radius $r$ must land outside the circle of radius $r$ centered at the ant. 
+	Viewed from the space $X$, we want to integrate over the cone with its tip 
+	at the ant, whose horizontal cross-section at height $r$ is a circle of 
+	radius $r$. From this we compute
+	\begin{align}
+		\mathbb{P}\left\{\text{ant is dry}\right\} = 
+		\mathbb{P}\left\{\overline{N}(A) = 0\right\}
+		= \exp(-\mu(A))
+		= \exp\left(-100\pi\nu\int_0^\infty\! r^2e^{-100r}\,dr\right)
+		= \exp\left( -\frac{\pi\nu}{5000} \right).
+	\end{align}
+	Plugging in the given value for $\nu$ yields $\mathbb{P}\left\{\text{ant is 
+	dry}\right\} = \exp(-\pi) \approx 0.0432$. The ant had better grab an 
+	umbrella!
+\end{soln}
+\end{example}
+\subsection{Wald's Equation}
+The following is the statement of Wald's equation, taken from 
+Wikipedia\footnote{The proof is also on Wikipedia.}.
+\begin{theorem}[Wald's Equation]
+	Let $(X_n)_{n\in\mathbb{N}}$ be a sequence of real-valued, independent and 
+	identically distributed random variables and let $N$ be a nonnegative 
+	integer-valued random variable that is independent of the sequence 
+	$(X_n)_{n\in\mathbb{N}}$. Suppose that $N$ and the $X_n$ have finite 
+	expectations. Then
+	\begin{align}\label{eq:wald}
+		\mathbb{E}\left[ \sum_{i=1}^N X_i \right] = \mathbb{E}\left[N 
+		\right]\mathbb{E}\left[ X_1\right].
+	\end{align}
+\end{theorem}
+\begin{figure}
+	\centering
+	\label{fig:rainant}
+	\caption{A realization of the ant from Example \ref{ex:ant}. Looks like he 
+	had an umbrella after all.}
+	\includegraphics[width=0.7\linewidth]{rain_ant}
+\end{figure}
 
-\begin{defn}
-The generator of $(X_t)_{t \geq 0}$ and/or $(P_t)_{t \geq 0}$ is
-$$\begin{aligned}
-G = \lim_{\epsilon \to 0} \dfrac{1}{\epsilon} (P_{\epsilon} - I)
-\end{aligned}$$
-and 
-\begin{align}
-\label{pt}
-P_t = e^{tG} = \sum_{n \geq 0} \dfrac{t^{n}}{n!} G^n
-\end{align}
-if the above statements make sense. 
-\end{defn}
-
-\begin{note}
-If $(X_t)_{t \geq 0}$ satisfies (\ref{Feller1}) and (\ref{Feller2}) it is {\em Feller}.
-The generator of a Feller process uniquely determines its distribution. This is clear from (\ref{pt})
-when (\ref{pt}) makes sense. To prove this claim in general, use resolvents. 
-\end{note}
-The generator has the following properties:
-\begin{enumerate}
-\item[(1)] $G1 = 0$ since $(P_t - I)1(x) = \E^{x}[1 - 1] = 0$
-\item[(2)] $\pi$ is a stationary measure for $(X_t)_{t \geq 0}$ if and only if 
-$$\begin{aligned}
-\int G f(x) \pi (dx) = 0
-\end{aligned}$$
-for all $f$. 
-\end{enumerate}
-Next we consider some examples. 
-\begin{exmp}
-Let $Gf(x) = f'(x)$. Then 
-$$\begin{aligned}
-P_t f(x) =  \sum_{n \geq 0} \dfrac{t^{n}}{n!} f^{(n)}(x) =  \sum_{n \geq 0} \dfrac{t^{n}}{n!} f^{(n)}(x + t - t) =  f(x+t)
-\end{aligned}$$
-So $X_t = X_0 + t$. Therefore, $\dfrac{d}{dx}$ corresponds to ``deterministic flow at rate 1.''
-\end{exmp}
-
-\begin{exmp}
-Let $Gf(x) = \dfrac{1}{2} f''(x)$. Recall that this is the generator for Brownian motion. 
-Then 
-$$\begin{aligned}
-P_t f(x) =  \sum_{n \geq 0} \dfrac{2^{-n}t^{n}}{n!} f^{(2n)}(x) 
-\end{aligned}$$
-Let $\widehat{f}(\xi)$ be the Fourier transform of $f$. Then
-$$\begin{aligned}
-\widehat{P_t f}(x) =  \sum_{n \geq 0} \dfrac{2^{-n}t^{n}}{n!} (-\xi^2)^{n} \hat{f}(\xi) = e^{-\frac{t}{2} \xi^2} \widehat{f}(\xi)
-\end{aligned}$$
-Because $e^{-\frac{t}{2} \xi^2}$ is the Fourier transform of the Gaussian density with variance $t$, and the Fourier transform takes convolution to multiplication,
-$$\begin{aligned}
-P_t f(x) =  \sum_{n \geq 0} \dfrac{2^{-n}t^{n}}{n!} f^{(2n)}(x) 
-= 
-\int_{-\infty}^{\infty} \dfrac{1}{\sqrt{ 2 \pi t }} e^{-\dfrac{ (y-x)^2}{2t}} f(y) dy
-\end{aligned}$$
-\end{exmp}
-
-It turns out that if $Gf(x) = f^{(k)}(x)$ for $k > 2$, $G$ is not the generator of a Feller process.
-One reason for this is that for $k > 2$ there is no way to write a discrete approximation to $f^{(k)}(x)$ as a sum over values of $f$ with all coefficients except that of $f(x)$ positive. More generally, we can appeal to the following theorem.
-
-\begin{thm}[Hille-Yosida Theorem]
-Let $A$ be a linear operator on $\mathcal{D} \subseteq C_0$.
-Then $A$ has closure that is the generator of a Feller process if and only if
-\begin{enumerate}
-\item[(i)] $\mathcal{D}$ is dense in $C_0$
-\item[(ii)] The range of $\lambda - A$ is dense in $C_0$ for some $\lambda > 0$. 
-\item[(iii)] (Positive Maximum Principle) If $f(x) \leq f(x_0)$ for all $x \in S$ and $f(x_0) > 0$, $f \in C_0$, then $A f(x_0) \leq 0$.
-\end{enumerate}
-\end{thm}
-
-\begin{note}
-If (i)-(iii) hold, then $(\lambda - A)^{-1}$ exists for all $\lambda > 0$. To see this, suppose that $\lambda - A$ is not invertible on $C_0$ for some $\lambda > 0$. 
-Then there exists $f \in C_0$ such that $Af = \lambda f$. Then $\E^x[f(X_t)] =e^{t \lambda} f(x)$. But $\E^x[f(X_t)]$ is bounded since $f \in C_0$, so we have reached a contradiction. 
-\end{note}
-
-\begin{note}
-If $A = \lim\limits_{t \to 0} \frac{1}{t} (P_t - I)$, then (iii) holds. For if
-$$\begin{aligned}
-A f(x_0) =  \lim\limits_{t \to 0} \frac{1}{t} (P_t - I) f(x_0) =  \lim_{t \to 0} \frac{1}{t} \E^{x_0} [f(x_t) - f(x_0)]
-\end{aligned}$$
-Since $f(x_t) - f(x_0) \leq 0$ by assumption, $\E^{x_0} [f(x_t) - f(x_0)] \leq 0$, so $A f(x_0) \leq 0$. 
-\end{note}
 
 % ==============================================================================
 %

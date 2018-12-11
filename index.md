@@ -42,11 +42,10 @@ The exact dates we cover the topics below is expected to change.
 
 ## Lévy processes
 
-- [November 14 and 16]() - Jake
+- [November 14 and 16](LectureNotes/Lectures/Fall2018/Lecture14/ASPLecture14.html) - Martin
 
 - [November 19 and 21](LectureNotes/Lectures/Fall2018/Lecture13/ASPLecture13.html) - Isaac
 
-- [November 23 and 26]() - Martin
 
 ## Simulations
 

@@ -88,7 +88,7 @@ haar_bm <- function (nmax, Z, B0 = 0, bridge=FALSE) {
         Z <- rnorm(nrow(nk), 0, sd=1)
     }
     return(function (x) {
-        Z %*% do.call(rbind, lapply(fns, function (f) f(x)))
+        B0 + Z %*% do.call(rbind, lapply(fns, function (f) f(x)))
     })
 }
 
@@ -179,33 +179,28 @@ mean_B <- function (x) {
   ## the first being the conditional mean path,
   ## the second being the conditional mean B0
     mean_Z <- as.vector(mean_mat %*% x)
-    B0_mean <- mean_Z[1]
-    return( list(haar_bm(nmax, mean_Z[-1]), B0_mean) )
+    return( haar_bm(nmax, mean_Z[-1], B0=mean_Z[1]) )
 }
 
 # these will be *deviations* from the mean
 conditional_B <- function (x) {
     Z <- as.vector(chol_cov_mat %*% rnorm(length(basis_fns)+1))
-    B0 <- Z[1]
-    dB <- haar_bm(nmax, Z[-1])
-    return( list(dB, B0) )
+    dB <- haar_bm(nmax, Z[-1], B0=Z[1])
+    return( dB )
 }
 
-mB <- mean_B(X)[[1]]
-B0_mean <- mean_B(X)[[2]]
+mB <- mean_B(X)
 cB <- replicate(100, conditional_B(X))
-B0 <- as.numeric(cB[2,])
 ```
 
 Here we plot the conditional mean (in red) and a bunch of samples (in black).
 
-```{r plot_smooth}
+```{r plot_smooth, fig.width=10}
 # conditional mean points
-mBvals <- B0_mean + as.vector(mB(tt))
+mBvals <- as.vector(mB(tt))
 # samples from conditional distribution
-cBmat <- sapply(cB[1,], function (f) f(tt))
-cBmat <- rep(B0, each=nrow(cBmat) ) + cBmat
-matplot(tt,mBvals + cBmat, type='l', col=adjustcolor('black', 0.5), 
+cBmat <- sapply(cB, function (f) f(tt))
+matplot(tt, mBvals + cBmat, type='l', col=adjustcolor('black', 0.5), 
         xlab='time', ylab='value', lty=1)
 points(ti, X, pch=20, col='red', cex=2)
 lines(tt, mBvals, col='red', lwd=4)

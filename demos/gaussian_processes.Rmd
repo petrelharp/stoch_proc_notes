@@ -41,6 +41,7 @@ srw_reps <- replicate(200, srw_bm(3, 10000))
 qqnorm(srw_reps[nrow(srw_reps),])
 qqline(srw_reps[nrow(srw_reps),])
 ```
+
 That looks about right. And the sample variance is `r var(srw_reps[nrow(srw_reps),])`,
 which is close to 3.
 
@@ -67,15 +68,19 @@ curve(haar_integral(x, n=5, k=12), from=0, to=1, add=TRUE, col='blue')
 Ok, that's our (integrated) basis functions.
 Now we need to add them up with independent Gaussian coefficients.
 ```{r haar_bm}
-haar_bm <- function (nmax, Z, bridge=FALSE) {
+haar_bm <- function (nmax, Z, B0 = 0, bridge=FALSE) {
+  ## this function returns the nmax partial sum
+  ## of B_t, as a function of t in [0,1]
     if (bridge) {
-        nk <- data.frame(n=1, k=0)
+        nk <- data.frame(n=1, k=0) # if bridge, omit first term
     } else {
         nk <- data.frame(n=c(0,1), k=c(0,0))
     }
+    # indices to sum over
     for (nn in seq(2, nmax)) {
-        nk <- rbind(nk, data.frame(n=nn, k=0:(2^(nn-1))))
+        nk <- rbind(nk, data.frame(n=nn, k=0:(2^(nn-1)-1)))
     }
+    # get list of integrated basis functions (as functions of upper limit of integration)
     fns <- lapply(1:nrow(nk), function (j)
                   function (x) haar_integral(x, n=nk$n[j], k=nk$k[j]))
     # the random coefficients
@@ -83,20 +88,22 @@ haar_bm <- function (nmax, Z, bridge=FALSE) {
         Z <- rnorm(nrow(nk), 0, sd=1)
     }
     return(function (x) {
-        Z %*% do.call(rbind, lapply(fns, function (f) f(x)))
+        B0 + Z %*% do.call(rbind, lapply(fns, function (f) f(x)))
     })
 }
 
 B <- haar_bm(10)
-curve(B, from=0, to=1)
 tt <- seq(0,1,length.out=1e3)
-lines(tt, B(tt), col='red')
+plot(tt, B(tt), col='red', type = 'l')
 ```
 
 Let's see how we constructed $B$ from successively rougher functions.
 ```{r dissect_B}
+# get collection of independent iid N(0,1)
 Z <- with(environment(B), Z)
-n_index <- rep(1:10, 2^(0:9)+1)
+# repeat n 2^(n-1) times
+n_index <- rep(0:10, c(1, 2^(0:9)))
+# generate list of haar bm with nmax=10
 Blist <- lapply(1:10, function (n) {
                     haar_bm(10, Z=ifelse(n_index <= n, Z, 0)) } )
 Bmat <- sapply(Blist, function (fB) fB(tt))
@@ -105,15 +112,19 @@ matplot(tt, Bmat, type='l', lty=1)
 
 # Gaussian process regression
 
-Now let's suppose we have noisy measurements of $B$ at some time points:
+Now let's suppose we have noisy measurements of $B_0 + B_t$, where $B_0 \sim \operatorname{Normal}(0, \eta^2)$, at some time points:
 for $t_1 < \cdots < t_n$ let
-$X_i = B_{t_i} + W_i$, for iid Normal(0, $\sigma^2$) random variables $W_i$.
-Now we want to *sample* from the distribution on $B$ *given* $(X_1, \ldots, X_n)$.
+$X_i = B_0 + B_{t_i} + W_i$, for iid $\operatorname{Normal}(0, \sigma^2)$ random variables $W_i$.
+Now we want to *sample* from the distribution on $B_0 + B_t$ *given* $(X_1, \ldots, X_n)$.
+This is equivalent to sampling from the distribution on $(B_0,Z)$ given $(X_1, \ldots, X_n)$,
+then using the random coefficients to obtain $B_t$.  
 ```{r sample_t}
-n <- 30
-sigma <- 0.1
+n <- 30 # number of data points
+sigma <- 0.1 # residual sd
+eta <- 0.5 # starting point sd
 ti <- sort(runif(n))
-X <- sin(ti*3*pi) + rnorm(n, sd=sigma)
+B0 <- rnorm(1, sd=eta)
+X <- B0 + sin(ti*3*pi) + rnorm(n, sd=sigma)
 plot(ti, X)
 ```
 
@@ -125,47 +136,57 @@ We will want to
 2. sample from the conditional distribution to get an idea of uncertainty.
 
 To do this, we need the (a) covariance matrix of $X$,
-and (b) the covariance matrix of $Z$ (the identity),
-and (c) the covariance matrix of $X$ with $Z$.
+and (b) the covariance matrix of $(B_0, Z)$,
+and (c) the covariance matrix of $X$ with $(B_0, Z)$.
 Math on the board gives us that
-$\cov[X_i, X_j] = \min(t_i, t_j) + \delta_{i=j} \sigma^2$
+$\operatorname{cov}[X_i, B_0] = \eta^2$, that
+$\operatorname{cov}[X_i, X_j] = \eta^2 + \min(t_i, t_j) + \delta_{ij} \sigma^2$,
 and that
-$\cov[X_i, Z_{m\ell}] = H_{m,\ell}(t_i)$,
-where $H_{m,\ell}$ is the corresponding basis function.
+$\operatorname{cov}[X_i, Z_{m\ell}] = H_{m,\ell}(t_i)$,
+where $H_{m,\ell}(t) = \int_0^t h_{m,\ell}(s)\,ds$ is the corresponding integrated basis function.
 ```{r conditional}
-covX <- diag(n) * sigma^2
+# construct covX
+covX <- diag(n) * sigma^2 
 for (i in 1:n) {
     for (j in 1:n) {
-        covX[i,j] <- covX[i,j] + min(ti[i], ti[j])
+        covX[i,j] <- covX[i,j] + min(ti[i], ti[j]) + eta^2
     }
 }
 nmax <- with(environment(B), nmax)
+# get basis functions from B to build covXZ
 basis_fns <- with(environment(B), fns)
-covXZ <- matrix(NA, nrow=n, ncol=length(basis_fns))
+covXZ <- matrix(NA, nrow=n, ncol=length(basis_fns)+1) 
 for (i in 1:n) {
     for (j in 1:length(basis_fns)) {
-        covXZ[i,j] <- basis_fns[[j]](ti[i])
+        covXZ[i,j+1] <- basis_fns[[j]](ti[i])
     }
 }
+covXZ[,1] <- eta^2
+# construct covZZ
+covZZ <- diag(length(basis_fns)+1)
+covZZ[1,1] <- eta^2
 ```
 The mean will be $\Sigma_{ZX} \Sigma_{XX}^{-1} X$
 and the covariance matrix will be
 $\Sigma_{ZZ} - \Sigma_{ZX} \Sigma_{XX}^{-1} \Sigma_{XZ}$.
 ```{r mats}
 mean_mat <- t(covXZ) %*% solve(covX)
-cov_mat <- diag(length(basis_fns)) - t(covXZ) %*% solve(covX, covXZ)
-chol_cov_mat <- chol(cov_mat)
+cov_mat <- covZZ - t(covXZ) %*% solve(covX, covXZ)
+chol_cov_mat <- chol(cov_mat) # for sampling
 
 mean_B <- function (x) {
+  ## this function returns a list with two elements,
+  ## the first being the conditional mean path,
+  ## the second being the conditional mean B0
     mean_Z <- as.vector(mean_mat %*% x)
-    return(haar_bm(nmax, mean_Z))
+    return( haar_bm(nmax, mean_Z[-1], B0=mean_Z[1]) )
 }
 
 # these will be *deviations* from the mean
 conditional_B <- function (x) {
-    Z <- as.vector(chol_cov_mat %*% rnorm(length(basis_fns)))
-    dB <- haar_bm(nmax, Z)
-    return(dB)
+    Z <- as.vector(chol_cov_mat %*% rnorm(length(basis_fns)+1))
+    dB <- haar_bm(nmax, Z[-1], B0=Z[1])
+    return( dB )
 }
 
 mB <- mean_B(X)
@@ -174,16 +195,14 @@ cB <- replicate(100, conditional_B(X))
 
 Here we plot the conditional mean (in red) and a bunch of samples (in black).
 
-```{r plot_smooth}
+```{r plot_smooth, fig.width=10}
+# conditional mean points
 mBvals <- as.vector(mB(tt))
+# samples from conditional distribution
 cBmat <- sapply(cB, function (f) f(tt))
-
 matplot(tt, mBvals + cBmat, type='l', col=adjustcolor('black', 0.5), 
         xlab='time', ylab='value', lty=1)
 points(ti, X, pch=20, col='red', cex=2)
 lines(tt, mBvals, col='red', lwd=4)
 ```
 
-Now we are reminded that we have required that $B_0 = 0$; to fix this, we should give the starting location, $B_0$,
-have a Normal distribution (with mean 0 and variance $\eta^2$, say).
-We leave this as an exercise.

@@ -44,6 +44,8 @@ The exact dates we cover the topics below is expected to change.
 
 - [November 14 and 16](LectureNotes/Lectures/Fall2018/Lecture12/ASPLecture12.html) - Martin
 
+    * [alternate version](originals/Notes11_14.pdf)
+
 - [November 19 and 21](LectureNotes/Lectures/Fall2018/Lecture13/ASPLecture13.html) - Isaac
 
 - [November 23 and 26]() - 

@@ -1,0 +1,219 @@
+\documentclass[12pt]{article}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=2cm]{geometry}
+
+\input{macros.tex}
+\usepackage{tikz}
+\newtheorem{fact}[thm]{Fact}
+
+\begin{document}
+%--------------------------------------------------
+
+\section{L\'evy  Processes}
+
+\begin{defn}
+A L\'evy  process  with drift rate $\alpha$, diffusion rate $\sigma$, and jump kernel $\nu$ is a stochastic process with distribution: 
+\begin{itemize}
+\item[\ ] $X_0 = 0$,
+\item[$(*)$] $X_t = \alpha t + B_t + \int_0^t \int_{-\infty}^\infty xN(dx, dt)$
+\end{itemize}
+where $B_t$ is Brownian motion and $N \sim PPP$ on $[0, \infty) \times \R$ with intensity measure $dt \,\nu(dx)$.
+\end{defn}
+
+\begin{fact}
+(L\'evy-Khinchine)
+Any Markov process on $\R$ with $X_0 = 0$ and stationary independent increments is L\'evy. \\
+
+\noindent i.e. a markov process with 
+\begin{itemize}
+\item[(a)] distribution of increment $X_{t+h} - X_t$ only depends on $h$
+\item[(b)] If $a < b \leq c < d$,
+$(X_d - X_c)$ independent of $(X_b - X_a)$ with 
+$$\begin{aligned}
+\int_{-\infty}^\infty \min(|x|, 1) \nu(dx) < \infty
+\end{aligned}$$
+\big( and $\nu([1,\infty)) + \nu((-\infty,1]) < \infty$ \big).
+\end{itemize}
+\end{fact}
+
+\noindent
+Note: $(*)$ makes sense if jumps are absolutely summable. 
+i.e. let $N = \sum_i \delta_{(t_i, x_i)}$. Then the ``jump component" of $X$ is 
+$$\begin{aligned}
+J_t = \int_0^t \int_{-\infty}^\infty xN(dt,dx) = \sum_{i, t_i \leq t} x_i \qquad \text{where} \quad \sum_i |x_i| < \infty
+\end{aligned}$$
+
+\noindent Is $\sum_{|x_i| < 1,\ t_i < t} |x_i| < \infty\,?$
+$$\begin{aligned}
+\E\left[ \sum_{|x_i| < 1,\ t_i < t} |x_i| \right] 
+	&= \E \left[ \int_0^t \int_{-1}^1 |x|N(dt,dx) \right] \\
+	&= t \cdot\!\! \int_{-1}^1 |x| \nu\, dx < \infty.
+\end{aligned}$$
+
+\noindent \textbf{OR:} If you have faster accumulation of jumps near zero,
+\begin{itemize}
+\item[$(**)$] $\displaystyle X_t = \alpha t + \sigma B_t + 
+	\int_0^t \int_{-1}^1 x \big[ N(ds,dx) - dx \,\nu(dx) \big] +
+	\int_0^t \int_{|x| > 1} x N(ds,dx)$
+\item[\ ] Need only $\displaystyle \int_{-\infty}^\infty \min(|x|^2, 1)\, \nu(dx) < \infty$ \\
+\end{itemize}
+
+\pagebreak
+\noindent \textbf{Properties:}
+\begin{itemize}
+\item[(1)] Stationary independent increments.
+\item[(2)] $X$ has generators
+	$$\begin{aligned}
+	Gf(x) = xf'(x) + \frac{\sigma^2}{2} f''(x) + \int_{-\infty}^\infty \big[f(x+y) - f(x) \big] \nu(dy)
+	\end{aligned}$$
+\item[(3)] L\'evy - Keinchine fomula:
+$$\begin{aligned}
+\E\big[ e^{i u X_t} \big] &= e^{t \Psi(u)} \\
+\Psi(u) &= e^{i \alpha u} - \frac{\sigma^2}{2}u^2 + \int_{-\infty}^\infty \big[ e^{i u x} - 1 \big] \nu(dx) \\
+e^{t\Psi(u)} &= \int_{-\infty}^\infty e^{i u x}\, \P^0 \{X_t = x\} \,dx
+\end{aligned}$$
+\end{itemize}
+
+\begin{exmp} ``Stable Subordinators" \\
+
+$(B_t)_{t \geq 0}$ \qquad \qquad $\tau_r = \inf\{t \geq 0 : B_t \geq r \}$ \\ \\
+
+\pgfmathsetseed{26}
+\begin{tikzpicture}[scale=2]
+\draw[->] (0,-1) -- (0,2.5);
+\draw[->] (-.2,0) -- (4.2,0);
+\draw[dashed] (1.4,0) -- (1.4,.98) -- (0,.98) node[left] {$r_1$};
+\draw[dashed] (2.405,0) -- (2.405,1.8) -- (0,1.8) node[left] {$r_2$};
+\node at (1.4,-.13) {$\tau_{_1}$};
+\node at (2.41,-.13) {$\tau_2$};
+\draw (0,0)
+\foreach \x in {1,...,100} {-- ++(.04,rand*.2)};
+\end{tikzpicture}
+
+\noindent \textbf{Claim:} $(\tau_r)_{r \geq 0}$ is L\'evy with $\alpha = 0$, $\sigma = 0$, and $N(dx) = x^{-3/2}dx$
+
+\pgfmathsetseed{26}
+\begin{tikzpicture}[scale=2]
+\draw[->] (0,-1) -- (0,2.5);
+\draw[->] (-.2,0) -- (4.2,0);
+\node at (2,2.2) {\Large{$\tau_r$}};
+\node at (4.4,0) {\large{$r$}};
+\draw (0,0)
+\foreach \x in {1,...,40} {-- ++(.1,abs{rand*.13})};
+\end{tikzpicture} \\
+
+``Subordinators" $\sim$ L\'evy process $X_i \nearrow \beta$, $t \nearrow \infty$ with
+independent stationary increments. \\
+\end{exmp}
+
+
+\section{First Hitting Times and Brownian Motion}
+
+Let $(B_t)_{t \geq 0}$ be Brownian motion, 
+$$\begin{aligned}
+\tau_x = \inf \big\{ t \geq 0 : B_t \geq x \big\}, \quad \text{and} \quad
+M_t = \sup \big\{ B_s : 0 \leq s \leq t \big\}.
+\end{aligned}$$
+Then $(\tau_x)_{x \geq 0}$ is a Markov process with stationary independent increments, 
+i.e. a non decreasing L\'evy process, aka \underline{subordinator}. \\
+
+Why is this Markov?
+
+Define $\tilde B_t$ by $\big( \tilde B_t = B_{\tau_{x}+t} - x \big)_{t \geq 0} := \big( B_t \big)_{t \geq 0}$. 
+Then
+$$\begin{aligned}
+\tau_{x+y} - \tau_x 
+	&= \inf \big\{ t \geq \tau_x : B_t = x+y \big\} \\
+	&= \inf \big\{ t \geq 0 : \tilde B_t = y \big\} \\
+	&= \tau_y,
+\end{aligned}$$
+which implies $\tau$ has stationary increments.
+
+\subsection{Properties of This Process}
+
+\textbf{Recall:} Brownian Scaling: 
+$\big( \overline B_s  = \frac{\,1\,}{c} \!\cdot\! B_{c^2 s} \big)_{s \geq 0} = \big( B_s \big)_{s \geq 0}$. Then
+$$\begin{aligned}
+\tau_x
+	&= \inf \big\{ t \geq 0 : B_t \geq x \big\} \\
+	&= \inf \left\{ t \geq 0 : \,\frac{\,1\,}{c} \!\cdot\! B_{c^2 t} \geq x \right\} \\
+	&= \frac{\,1\,}{c^2} \!\cdot \inf \left\{ t \geq 0 : \,B_{t} \geq cx \right\} \\[2mm]
+	&= \frac{\,1\,}{c^2} \!\cdot \tau_{cx}.
+\end{aligned}$$
+
+So $\tau_x = x^2 \tau_{_1}$.
+
+\begin{lemma} 
+Reflection Principle:
+$$\begin{aligned}
+\P \{ B_t < 1, M_t \geq 1 \} = \P \{ B_t \geq 1 \}.
+\end{aligned}$$
+
+
+\end{lemma}
+\begin{proof}
+\noindent
+There is a bijection obtained by reflecting the $(t \geq \tau_{_1})$-portion of the process 
+across the line $x = 1$: \\
+
+\pgfmathsetseed{4}
+\begin{tikzpicture}[scale=1.5]
+\draw[->] (0,-1) -- (0,2.5);
+\draw[->] (-.2,0) -- (4.2,0);
+\draw[dashed] (4,1.72) -- (0,1.72) node[left] {$1$};
+\draw (0,0)
+\foreach \x in {1,...,23} {-- ++(.04,-rand*.2)};
+\draw[red] (.92,1.72)
+\foreach \x in {24,...,100} {-- ++(.04,rand*.2)};
+\end{tikzpicture}
+\qquad
+\pgfmathsetseed{4}
+\begin{tikzpicture}[scale=1.5]
+\draw[->] (0,-1) -- (0,2.5);
+\draw[->] (-.2,0) -- (4.2,0);
+\draw[dashed] (4,1.72) -- (0,1.72) node[left] {$1$};
+\draw (0,0)
+\foreach \x in {1,...,23} {-- ++(.04,-rand*.2)};
+\draw[red] (.92,1.72)
+\foreach \x in {24,...,100} {-- ++(.04,-rand*.2)};
+\end{tikzpicture}
+
+So $\left( W_s = \begin{cases} \hfill B_s \hfill & s \leq \tau_{_1} \\ 2 - B_s & s \geq \tau_{_1} \end{cases} \ \right)
+= \big( B_s \big)_{s \geq 0}$. \\
+\end{proof}
+
+$\newline$
+$$\begin{aligned}
+\P\big\{ \tau_{_1} < t \big\} 
+	&= 2\P\big\{ B_t > 1 \big\} \\[1mm]
+	&= \frac{2}{\sqrt{2\pi\,}t} \int_1^\infty \exp \left( \frac{-x^2}{2t} \right) dx \\[2mm]
+	&= 2\P\left\{ B_1 > \frac{1}{\sqrt{t\,}} \right\} \\[1mm]
+	&= \frac{2}{\sqrt{2\pi\,}} \int_{\frac{1}{\sqrt{t\,}}}^\infty \exp \left( \frac{-x^2}{2} \right) dx \\[2mm]
+	&= \sqrt{\frac{2}{\pi\,}} \int_0^t s^{-3/2} \cdot e^{-1/(2s)} ds 
+		\hspace{30mm} \mbox{$\left(\text{letting } s = \frac{1}{\,x^2}\right)$} \\
+\end{aligned}$$
+
+{\renewcommand{\arraystretch}{2.5}
+\begin{tabular}{|c|}
+\hline
+$\P\big\{ \tau_{_1} \in ds \big\} = \sqrt{\dfrac{2}{\pi\,}} \cdot s^{-3/2} \cdot e^{-1/(2s)} ds$ \\[2mm] \hline
+\end{tabular}}
+\ $\leftarrow$ density \\ 
+
+$$\begin{aligned} 
+\text{Now} \hspace{30mm} \\
+\P\big\{ \tau_x < t \big\} 
+	&= \P\big\{ x^2\tau_{_1} < t \big\} \\
+	&= \P\left\{ \tau_{_1} < \dfrac{t}{\,x^2} \right\}. \\ \\ 
+\text{So} \hspace{30mm} \\
+\P\big\{ \tau_x \in dt \big\} 
+	&= \dfrac{d}{dt} \Big(\quad ,\quad \Big) \\
+	&= \frac{1}{\,x^2} \cdot \dfrac{d}{dt}\  \P\left\{ \tau_{_1} < \dfrac{t}{\,x^2} \right\} \\
+	&= \sqrt{\frac{2}{\pi\,}} \cdot \frac{1}{\,x^2}\cdot \left( \frac{t}{\,x^2} \right)^{-\frac{3}{2}} \!\!\cdot 
+			\exp \left( \frac{-x^2}{2t} \right). \hspace{40mm}
+\end{aligned}$$
+
+\noindent 
+Note: must be a \underline{jump} L\'evy process (can't have drift component nor Brownian component).
+
+
+\end{document}

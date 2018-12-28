@@ -3,6 +3,8 @@ SHELL := /bin/bash
 
 .PHONY : all notes
 
+.PRECIOUS : %.latexml.html
+
 all : syllabus.html index.html style.html notes
 
 notes : LectureNotes/Lectures/Fall2018/Lecture1/ASPLecture1.html LectureNotes/Lectures/Fall2018/Lecture3/ASPLecture3.html LectureNotes/Lectures/Fall2018/Lecture4/PPP_notes.html LectureNotes/Lectures/Fall2018/Lecture5/ASPLecture5.html LectureNotes/Lectures/Fall2018/Lecture6/ASPlecturenotes.html LectureNotes/Lectures/Fall2018/Lecture7/ASPLecture7.html LectureNotes/Lectures/Fall2018/Lecture8/ASPLecture8.html LectureNotes/Lectures/Fall2018/Lecture9/ASPLecture9.html LectureNotes/Lectures/Fall2018/Lecture10/ASPLecture10.html LectureNotes/Lectures/Fall2018/Lecture11/ASPLecture11.html LectureNotes/Lectures/Fall2018/Lecture12/ASPLecture12.html LectureNotes/Lectures/Fall2018/Lecture13/ASPLecture13.html 
@@ -47,7 +49,8 @@ endif
 	latexml --dest=$@ $<
 
 %.latexml.html : %.xml
-	latexmlpost --dest=$@ $<
+	cp LaTeXML-maybeMathjax.js $(dir $@)
+	latexmlpost --javascript=LaTeXML-maybeMathjax.js --dest=$@ $<
 
 ## 
 # Graphics whatnot
